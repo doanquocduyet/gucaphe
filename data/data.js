@@ -41,8 +41,8 @@ const SP = [
     tested: true, diem: 9.3,
     chua: 4, dam: 3, hau: 5,
     pha: ["v60"],
-    origin: "Lang Biang, Lâm Đồng",
-    giong: "Pacamara", roast: "Light", process: "Washed",
+    origin: "Lạc Dương, Lâm Đồng",
+    giong: "Catimor, Caturra", roast: "Light", process: "Natural",
     flavor: "Hoa, đào, cam vàng, mật ong. Hậu vị sạch, kéo dài.",
     nen: ["Pha V60 hoặc pour over", "Thích vị trái cây, chua sáng", "Chấp nhận 108.000đ/100g cho hạt tốt"],
     khong: ["Chỉ có phin — rang sáng pha phin dễ chua gắt", "Quen gu đậm đắng", "Muốn cà phê uống hằng ngày giá mềm"],
@@ -62,6 +62,21 @@ const SP = [
     nen: ["Uống hằng ngày — rẻ nhất tính theo 100g (32.000đ)", "Pha phin hay V60 đều được", "Người mới thử specialty"],
     khong: ["Muốn vị đặc biệt, tinh tế", "Muốn hương hoa rõ như dòng rang sáng"],
     link: "https://s.shopee.vn/5q6XQUE2Ai"
+  },
+  {
+    id: "es1",
+    brand: "Stupiducks",
+    ten: "Red Bull Espresso 250g — rang đậm",
+    nhom: "hat", gia: 270000, gram: 250,
+    tested: false, diem: null,
+    chua: 2, dam: 5, hau: 4,
+    pha: ["phin"],
+    origin: "Việt Nam",
+    giong: "Arabica", roast: "Dark", process: null,
+    flavor: "Theo mô tả nhà bán: chocolate đen, hạnh nhân. Đậm, ít chua.",
+    nen: ["Pha máy espresso, latte, cappuccino"],
+    khong: ["Thích vị chua sáng, trái cây", "Pha V60"],
+    link: "https://s.shopee.vn/AAFWaRxXNW"
   },
   {
     id: "fm1",
