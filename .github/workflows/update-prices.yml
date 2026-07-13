@@ -1,0 +1,79 @@
+name: Cập nhật giá Shopee hằng ngày
+
+# Chạy tự động 08:00 giờ VN mỗi ngày + cho phép bấm chạy tay.
+on:
+  schedule:
+    - cron: '0 1 * * *' # 01:00 UTC = 08:00 Asia/Ho_Chi_Minh
+  workflow_dispatch: {}
+
+# Cho phép job commit ngược vào repo và mở issue nhắc chụp màn hình.
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Ho_Chi_Minh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Lấy giá & cập nhật data.js
+        id: run
+        run: node scripts/update-prices.mjs
+
+      - name: Commit nếu giá thay đổi
+        if: steps.run.outputs.changed != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/data.js
+          if git diff --staged --quiet; then
+            echo "Không có thay đổi để commit."
+          else
+            git commit -m "cap nhat gia tu Shopee ($(date +%d/%m/%Y))"
+            git push
+          fi
+
+      - name: Nhắc chụp màn hình khi có SKU không lấy được giá
+        if: steps.run.outputs.failed != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🟡 Cần cập nhật giá thủ công (Shopee chặn bot)';
+            const body = [
+              'Workflow không lấy được giá của một vài sản phẩm (Shopee chặn IP máy chủ).',
+              '',
+              'Xem chi tiết SKU nào lỗi trong tab **Actions → lần chạy gần nhất → Summary**.',
+              '',
+              '👉 Bạn chỉ cần **mở app Shopee, chụp màn hình giá** các SKU đó rồi gửi cho Claude —',
+              'Claude sẽ cập nhật `data/data.js` ngay. Không cần làm gì thủ công thêm.',
+              '',
+              `_Tự động tạo lúc ${new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}._`
+            ].join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'cap-nhat-gia'
+            });
+            if (issues.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issues[0].number, body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['cap-nhat-gia']
+              });
+            }
