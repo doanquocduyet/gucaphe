@@ -281,6 +281,8 @@ footer a{color:var(--moss)}
   .hero-media img{aspect-ratio:16/10;max-height:300px}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .band img{max-height:210px}
+  .pick-flag{flex-direction:column;align-items:flex-start;gap:3px}
+  .pick-flag .dim{font-size:10px}
   .pick-grid{grid-template-columns:1fr}
   .sc{padding:20px}
   .vd{border-left:none;border-right:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
