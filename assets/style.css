@@ -64,6 +64,22 @@ section:first-of-type{padding-top:52px}
 section:last-of-type{border-bottom:none}
 .foot-note{font-size:14px;color:var(--soft);margin-top:20px;max-width:66ch;line-height:1.6}
 
+/* ---------- HERO 2 CỘT + ẢNH ---------- */
+.hero-top{display:grid;grid-template-columns:1fr 360px;gap:44px;align-items:center;margin-bottom:6px}
+.hero-copy h1{margin-top:12px}
+.hero-media img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
+  border-radius:var(--radius);box-shadow:var(--shadow)}
+.band{margin-top:28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);line-height:0}
+.band img{width:100%;height:auto;max-height:300px;object-fit:cover;display:block}
+
+/* ---------- GALLERY QUY TRÌNH ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 6px}
+.gallery figure{margin:0;border-radius:var(--radius);overflow:hidden;background:var(--card);
+  border:1px solid var(--rule);box-shadow:var(--shadow-sm)}
+.gallery img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.gallery figcaption{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.02em;
+  color:var(--soft);text-align:center;padding:9px 8px;line-height:1.35}
+
 /* ---------- CHIPS ĐỘ TƯƠI + NHÃN ---------- */
 .chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:10px}
 .fresh{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;
@@ -260,6 +276,11 @@ footer a{color:var(--moss)}
 /* ---------- MOBILE ---------- */
 @media(max-width:880px){
   body{font-size:16px}
+  .hero-top{grid-template-columns:1fr;gap:22px}
+  .hero-media{order:-1}
+  .hero-media img{aspect-ratio:16/10;max-height:300px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .band img{max-height:210px}
   .pick-grid{grid-template-columns:1fr}
   .sc{padding:20px}
   .vd{border-left:none;border-right:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}

@@ -100,11 +100,16 @@ function renderTop() {
                .sort((a, b) => b.gia - a.gia)[0];
 
   $('#top').innerHTML = `
-    <div class="eyebrow">Gợi ý mua · Cà phê đặc sản Việt Nam</div>
-    <h1>Nếu chỉ mua 1 loại, nên mua loại nào?</h1>
-    <div class="chips">
-      <span class="fresh"><i class="dot"></i>Cập nhật ${SITE.capNhat}</span>
-      <span class="fresh">${daTest} sản phẩm đã nếm thật</span>
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="eyebrow">Gợi ý mua · Cà phê đặc sản Việt Nam</div>
+        <h1>Nếu chỉ mua 1 loại, nên mua loại nào?</h1>
+        <div class="chips">
+          <span class="fresh"><i class="dot"></i>Cập nhật ${SITE.capNhat}</span>
+          <span class="fresh">${daTest} sản phẩm đã nếm thật</span>
+        </div>
+      </div>
+      <div class="hero-media"><img src="assets/img/hero.jpg" alt="Pha V60 cà phê đặc sản Việt Nam"></div>
     </div>
 
     <div class="pick">
@@ -154,7 +159,8 @@ function renderTop() {
       </div>` : ''}
     </div>
 
-    ${TRUST}`;
+    ${TRUST}
+    <div class="band"><img src="assets/img/band.jpg" alt="Thưởng thức cà phê đặc sản Việt Nam" loading="lazy"></div>`;
 }
 
 /* ============ 2 · ĐÁNH GIÁ TỪNG LOẠI ============ */
@@ -365,6 +371,12 @@ function renderMethod() {
   $('#method').innerHTML = `
     <div class="eyebrow">Minh bạch</div>
     <h2>Cách chúng tôi test</h2>
+    <div class="gallery">
+      <figure><img src="assets/img/p1-farm.jpg" alt="Quả cà phê chín trên cành" loading="lazy"><figcaption>Vùng trồng — quả chín</figcaption></figure>
+      <figure><img src="assets/img/p2-grind.jpg" alt="Cà phê vừa xay" loading="lazy"><figcaption>Cùng cỡ xay cho mọi loại</figcaption></figure>
+      <figure><img src="assets/img/p3-cup.jpg" alt="Dàn ly nếm mù" loading="lazy"><figcaption>Nếm mù — che nhãn</figcaption></figure>
+      <figure><img src="assets/img/p4-taste.jpg" alt="Múc nếm chấm điểm" loading="lazy"><figcaption>Chấm điểm theo quy trình</figcaption></figure>
+    </div>
     <div class="method">
       <p><b>Công bố TRƯỚC khi mở gói hàng — khoá lại, không sửa.</b></p>
       <ol>${QUY_TRINH.map(x => `<li>${x}</li>`).join('')}</ol>
