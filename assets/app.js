@@ -46,6 +46,22 @@ const nhan = p => p.tested
   ? '<span class="tag-t">🟢 Đã nếm thật</span>'
   : '<span class="tag-u">🟡 Chưa nếm — theo mô tả nhà bán</span>';
 
+/* ---- Tasting notes dạng chip (chỉ cho loại ĐÃ nếm) ---- */
+const noteChips = p => (p.tested && p.notes && p.notes.length)
+  ? `<div class="notes">${p.notes.map(n => `<span class="note-chip">${n}</span>`).join('')}</div>` : '';
+/* Đã nếm → chip; chưa nếm → giữ nguyên câu "theo mô tả nhà bán" */
+const flavorLine = p => noteChips(p) || `<div class="flavor-txt">${p.flavor}</div>`;
+
+/* ---- Hồ sơ vùng trồng ---- */
+const prov = p => {
+  const bits = [p.origin, p.giong, p.process].filter(Boolean);
+  return bits.length ? `<div class="prov">${bits.join(' · ')}</div>` : '';
+};
+
+/* ---- Chip độ tươi (chỉ hiện khi có ngày rang) ---- */
+const freshChip = p => p.ngayRang
+  ? `<span class="tag-fresh">🗓 Rang ${p.ngayRang}</span>` : '';
+
 /* ---- Thanh số đo (số đo > tính từ) ---- */
 const bar = (label, v) => v == null ? '' : `
   <div class="spec">
@@ -103,7 +119,8 @@ function renderTop() {
             ${thumb(best, 'thumb-vd')}
             <div>
               <div class="vd-h">${best.brand} — ${best.ten}</div>
-              <div class="vd-s">${best.flavor}</div>
+              ${flavorLine(best)}
+              ${prov(best)}
             </div>
           </div>
           <div class="who">
@@ -157,6 +174,7 @@ function renderReviews() {
           <div class="rv-right">
             ${p.diem != null ? `<div class="rv-score">${p.diem}</div>` : `<div class="rv-noscore">—</div>`}
             ${nhan(p)}
+            ${freshChip(p)}
           </div>
         </div>
         <div class="specs">
@@ -164,6 +182,7 @@ function renderReviews() {
           ${per100(p) ? `<div class="spec"><div class="spec-l">Giá / 100g</div><div class="spec-v">${(per100(p)/1000).toFixed(0)}<span class="of">k</span></div><div class="track"><i style="width:${Math.min(per100(p)/1500*100,100)}%"></i></div></div>` : ''}
         </div>
         <div class="rv-body">
+          <div class="rv-flavor">${flavorLine(p)}</div>
           <div class="rv-meta">
             ${p.origin  ? `<span><b>Vùng</b> ${p.origin}</span>` : ''}
             ${p.giong   ? `<span><b>Giống</b> ${p.giong}</span>` : ''}

@@ -230,6 +230,17 @@ footer{padding:48px 0 96px;font-family:'JetBrains Mono',monospace;font-size:11px
 footer a{color:var(--moss)}
 #tagline{font-family:'Newsreader',serif;font-size:16px;color:var(--soft);margin-bottom:12px;font-style:italic}
 
+/* ---------- TASTING NOTES · HỒ SƠ VÙNG · ĐỘ TƯƠI ---------- */
+.notes{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0 2px}
+.note-chip{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--moss);
+  background:var(--moss-lite);border:1px solid var(--moss-line);padding:3px 10px;border-radius:999px;letter-spacing:.01em}
+.flavor-txt{color:var(--soft);font-size:15px;font-style:italic;margin:6px 0 2px}
+.prov{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.03em;color:var(--dim);margin-top:8px}
+.rv-flavor{margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid var(--rule-2)}
+.tag-fresh{background:#EEF3EE;color:var(--moss);border:1px solid var(--moss-line);
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;
+  padding:4px 9px;border-radius:999px;white-space:nowrap}
+
 /* ---------- ẢNH SẢN PHẨM ---------- */
 .thumb{flex:none;border-radius:var(--radius-sm);overflow:hidden;background:var(--rule-2);
   position:relative;box-shadow:inset 0 0 0 1px rgba(25,23,18,.06)}
