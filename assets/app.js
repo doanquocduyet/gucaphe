@@ -11,6 +11,27 @@ const get     = id => SP.find(x => x.id === id);
 const PHA_TEN  = { phin:'Phin', v60:'V60 / Pour over', coldbrew:'Cold brew' };
 const NHOM_TEN = { hat:'Cà phê hạt', gear:'Dụng cụ', qua:'Quà tặng' };
 
+/* ---- Ảnh sản phẩm: dùng p.anh nếu có, không thì tự sinh ô theo độ rang ---- */
+const ROAST_BG = {
+  'Light':        ['#E7CE93','#D3AC63'],
+  'Light-medium': ['#DEB983','#C4965A'],
+  'Medium':       ['#C69566','#9C6B41'],
+  'Medium-dark':  ['#8A5E3C','#5E3C26'],
+  'Dark':         ['#6A462E','#382315']
+};
+const beanSvg = fill => `<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+  <ellipse cx="12" cy="12" rx="7" ry="9.4" transform="rotate(26 12 12)" fill="${fill}"/>
+  <path d="M12 3.4C9.4 7.6 14.6 16.4 12 20.6" stroke="rgba(40,25,15,.30)" stroke-width="1.3" fill="none"/>
+</svg>`;
+function thumb(p, cls = '') {
+  if (p.anh) return `<div class="thumb ${cls}"><img src="${p.anh}" alt="${p.brand} — ${p.ten}" loading="lazy"></div>`;
+  const [c1, c2] = ROAST_BG[p.roast] || ['#C69566', '#9C6B41'];
+  return `<div class="thumb thumb-gen ${cls}" style="background:linear-gradient(145deg,${c1},${c2})" aria-label="Ảnh minh hoạ ${p.ten}">
+    <div class="thumb-ic">${beanSvg('rgba(255,255,255,.92)')}${beanSvg('rgba(255,255,255,.66)')}</div>
+    ${p.roast ? `<div class="thumb-l">${p.roast}</div>` : ''}
+  </div>`;
+}
+
 /* ---- Affiliate click (đếm ngầm cho analytics, không phô ra UI) ---- */
 let CLICK = 0;
 function aff(id) {
@@ -78,8 +99,13 @@ function renderTop() {
       <div class="pick-grid">
         <div class="sc"><div class="sc-n">${best.diem}</div><div class="sc-l">Điểm nếm mù</div></div>
         <div class="vd">
-          <div class="vd-h">${best.brand} — ${best.ten}</div>
-          <div class="vd-s">${best.flavor}</div>
+          <div class="vd-top">
+            ${thumb(best, 'thumb-vd')}
+            <div>
+              <div class="vd-h">${best.brand} — ${best.ten}</div>
+              <div class="vd-s">${best.flavor}</div>
+            </div>
+          </div>
           <div class="who">
             <div><h4>Nên mua nếu</h4><ul>${best.nen.map(x => `<li class="y">${x}</li>`).join('')}</ul></div>
             <div><h4>Cân nhắc nếu</h4><ul>${best.khong.map(x => `<li class="n">${x}</li>`).join('')}</ul></div>
@@ -123,7 +149,8 @@ function renderReviews() {
     ${SP.map(p => `
       <div class="rv">
         <div class="rv-head">
-          <div>
+          ${thumb(p, 'thumb-rv')}
+          <div class="rv-head-txt">
             <div class="rv-brand">${p.brand}</div>
             <div class="rv-name">${p.ten}</div>
           </div>

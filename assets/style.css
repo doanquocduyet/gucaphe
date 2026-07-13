@@ -156,7 +156,7 @@ section:last-of-type{border-bottom:none}
 .rv{border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);overflow:hidden;
   box-shadow:var(--shadow-sm);transition:box-shadow .2s}
 .rv:hover{box-shadow:var(--shadow)}
-.rv-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 24px 15px;gap:16px}
+.rv-head{display:flex;justify-content:flex-start;align-items:center;padding:18px 24px 14px;gap:16px}
 .rv-brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--soft);font-weight:700}
 .rv-name{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
@@ -229,6 +229,22 @@ footer{padding:48px 0 96px;font-family:'JetBrains Mono',monospace;font-size:11px
   color:var(--soft);line-height:2.1}
 footer a{color:var(--moss)}
 #tagline{font-family:'Newsreader',serif;font-size:16px;color:var(--soft);margin-bottom:12px;font-style:italic}
+
+/* ---------- ẢNH SẢN PHẨM ---------- */
+.thumb{flex:none;border-radius:var(--radius-sm);overflow:hidden;background:var(--rule-2);
+  position:relative;box-shadow:inset 0 0 0 1px rgba(25,23,18,.06)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb-gen{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.thumb-gen:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.28),transparent 58%)}
+.thumb-ic{display:flex;position:relative;z-index:1}
+.thumb-ic svg:last-child{margin-left:-14px;transform:translateY(5px) rotate(12deg)}
+.thumb-l{position:relative;z-index:1;font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.94)}
+.thumb-rv{width:76px;height:76px}
+.thumb-vd{width:60px;height:60px;border-radius:8px}
+.thumb-vd .thumb-l{font-size:7px}
+.rv-head-txt{flex:1;min-width:0}
+.vd-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
 
 /* ---------- MOBILE ---------- */
 @media(max-width:880px){
