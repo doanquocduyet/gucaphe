@@ -47,3 +47,27 @@ const SP = [
 const CAP_SS = [
   { a:"lb1", b:"vs1", tieuDe:"Lang Biang 270k vs Vietnam Specialty 160k — đắt hơn có đáng không?" }
 ];
+
+/* ---- Từ điển nhanh — định nghĩa ngắn, đúng, không màu mè ---- */
+const TU_DIEN = [
+  { t:"Specialty", d:"Cà phê đạt từ 80/100 điểm theo thang SCA, truy xuất được nguồn gốc, sơ chế và rang có kiểm soát." },
+  { t:"Natural (sơ chế khô)", d:"Phơi nguyên quả rồi mới tách vỏ — vị ngọt đậm, thiên trái cây chín." },
+  { t:"Washed (sơ chế ướt)", d:"Tách vỏ, rửa sạch nhớt trước khi phơi — vị sạch, sáng, dễ cảm nhận hương gốc." },
+  { t:"Rang sáng (Light)", d:"Giữ độ chua và hương hoa quả của hạt — hợp V60/pour over, pha phin dễ chua gắt." },
+  { t:"Rang đậm (Dark)", d:"Body dày, vị chocolate, đắng rõ — hợp phin, espresso, ít chua." },
+  { t:"V60 / Pour over", d:"Pha giấy lọc rót tay — tôn hương thơm và vị chua sáng, cần cỡ xay đều." },
+  { t:"Cold brew", d:"Ủ cà phê với nước lạnh 12–18 giờ — ít chua, ngọt dịu, uống mát." },
+  { t:"Giá /100g", d:"Quy đổi giá về mỗi 100g để so công bằng giữa các gói 250g, 500g khác nhau." }
+];
+
+/* ---- FAQ — hiện trên trang, đồng bộ với schema SEO trong index.html ---- */
+const FAQ = [
+  { q:"Cà phê specialty là gì?",
+    a:"Là cà phê đạt từ 80/100 điểm theo thang SCA — truy xuất được vùng trồng, giống, cách sơ chế. Trên trang này, mỗi sản phẩm đều ghi rõ ba thông tin đó." },
+  { q:"Mua qua link trên trang có đắt hơn không?",
+    a:"Không. Bạn mua đúng giá Shopee niêm yết, chúng tôi nhận hoa hồng từ sàn — bạn không trả thêm đồng nào." },
+  { q:"Vì sao có sản phẩm không có điểm số?",
+    a:"Vì chúng tôi chưa mua và chưa nếm mù loại đó. Sản phẩm chưa nếm được ghi rõ nhãn vàng, thông số lấy từ mô tả nhà bán — chúng tôi không giả vờ đã thử." },
+  { q:"Vì sao so giá theo 100g thay vì theo gói?",
+    a:"Các gói có khối lượng khác nhau (250g, 500g…). Quy về giá/100g mới thấy gói 160.000₫/500g thực ra rẻ hơn nhiều gói 270.000₫/250g." }
+];

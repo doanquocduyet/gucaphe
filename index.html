@@ -35,18 +35,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Cà phê arabica Cầu Đất nào đáng mua nhất?",
+      "name": "Cà phê specialty là gì?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chúng tôi mua ẩn danh, nếm mù và chấm điểm theo quy trình công khai. Xem bảng xếp hạng và bảng giá cập nhật hằng tháng trên trang."
+        "text": "Là cà phê đạt từ 80/100 điểm theo thang SCA — truy xuất được vùng trồng, giống, cách sơ chế. Trên trang này, mỗi sản phẩm đều ghi rõ ba thông tin đó."
       }
     },
     {
       "@type": "Question",
-      "name": "Các bạn có nhận tiền của nhà bán không?",
+      "name": "Mua qua link trên trang có đắt hơn không?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chúng tôi nhận hoa hồng affiliate nếu bạn mua qua link. Link có ở cả sản phẩm chúng tôi khuyên không nên mua, nên chúng tôi không có lý do gì để khen sai. Sản phẩm chưa test được ghi rõ nhãn vàng."
+        "text": "Không. Bạn mua đúng giá Shopee niêm yết, chúng tôi nhận hoa hồng từ sàn — bạn không trả thêm đồng nào."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vì sao có sản phẩm không có điểm số?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vì chúng tôi chưa mua và chưa nếm mù loại đó. Sản phẩm chưa nếm được ghi rõ nhãn vàng, thông số lấy từ mô tả nhà bán — chúng tôi không giả vờ đã thử."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vì sao so giá theo 100g thay vì theo gói?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Các gói có khối lượng khác nhau (250g, 500g…). Quy về giá/100g mới thấy gói 160.000₫/500g thực ra rẻ hơn nhiều gói 270.000₫/250g."
       }
     }
   ]
@@ -56,7 +72,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=20260713">
+<link rel="stylesheet" href="assets/style.css?v=20260714">
 </head>
 <body>
 
@@ -73,6 +89,14 @@
     </ul>
   </div>
 </nav>
+
+<div class="usp">
+  <div class="wrap usp-in">
+    <span>🔍 Nếm mù, chấm điểm công khai</span>
+    <span>🏷️ Mua đúng giá Shopee — không trả thêm đồng nào</span>
+    <span>🟡 Chưa nếm là ghi rõ, không giả vờ đã thử</span>
+  </div>
+</div>
 
 <!-- Mỗi section tự sinh từ data.js — bạn KHÔNG cần sửa file này -->
 <section id="top"><div class="wrap"></div></section>
@@ -96,7 +120,7 @@
   </div>
 </footer>
 
-<script src="data/data.js?v=20260713"></script>
-<script src="assets/app.js?v=20260713"></script>
+<script src="data/data.js?v=20260714"></script>
+<script src="assets/app.js?v=20260714"></script>
 </body>
 </html>

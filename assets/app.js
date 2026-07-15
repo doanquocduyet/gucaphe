@@ -46,6 +46,14 @@ const nhan = p => p.tested
   ? '<span class="tag-t">🟢 Đã nếm thật</span>'
   : '<span class="tag-u">🟡 Chưa nếm — theo mô tả nhà bán</span>';
 
+/* ---- Badge tự động — tính từ dữ liệu, không gắn tay ---- */
+const BEST_ID  = (SP.filter(p => p.tested && p.diem != null).sort((a,b) => b.diem - a.diem)[0] || {}).id;
+const CHEAP_ID = (SP.filter(p => per100(p)).sort((a,b) => per100(a) - per100(b))[0] || {}).id;
+const badges = p => [
+  p.id === BEST_ID  ? '<span class="bdg bdg-best">★ Điểm cao nhất</span>' : '',
+  p.id === CHEAP_ID ? '<span class="bdg bdg-cheap">Rẻ nhất /100g</span>' : ''
+].join('');
+
 /* ---- Tasting notes dạng chip (chỉ cho loại ĐÃ nếm) ---- */
 const noteChips = p => (p.tested && p.notes && p.notes.length)
   ? `<div class="notes">${p.notes.map(n => `<span class="note-chip">${n}</span>`).join('')}</div>` : '';
@@ -175,7 +183,7 @@ function renderReviews() {
           ${thumb(p, 'thumb-rv')}
           <div class="rv-head-txt">
             <div class="rv-brand">${p.brand}</div>
-            <div class="rv-name">${p.ten}</div>
+            <div class="rv-name">${p.ten} ${badges(p)}</div>
           </div>
           <div class="rv-right">
             ${p.diem != null ? `<div class="rv-score">${p.diem}</div>` : `<div class="rv-noscore">—</div>`}
@@ -337,7 +345,7 @@ function renderPrices() {
       <tbody>
       ${[...caPhe].sort((a,b)=>(per100(a)||9e9)-(per100(b)||9e9)).map(p => `
         <tr>
-          <td class="pt-n"><b>${p.brand}</b><br><span class="dim">${p.ten}</span></td>
+          <td class="pt-n"><b>${p.brand}</b> ${badges(p)}<br><span class="dim">${p.ten}</span></td>
           <td class="mono">${p.gram ? p.gram+'g' : '—'}</td>
           <td class="mono">${money(p.gia)}</td>
           <td class="mono"><b>${per100(p) ? money(per100(p)) : '—'}</b></td>
@@ -389,7 +397,24 @@ function renderMethod() {
       <b>Về hoa hồng:</b> chúng tôi nhận hoa hồng tiếp thị liên kết nếu bạn mua qua link trên trang —
       <b>bạn không trả thêm đồng nào</b>. Link có ở <b>cả sản phẩm chúng tôi khuyên cân nhắc</b>,
       nên không có lý do gì để khen sai. Sản phẩm nào chưa nếm, chúng tôi ghi rõ 🟡.
-    </div>`;
+    </div>
+
+    ${typeof TU_DIEN !== 'undefined' && TU_DIEN.length ? `
+    <h3 style="margin-top:36px">Từ điển nhanh</h3>
+    <p class="lead" style="font-size:15px">Các thuật ngữ dùng trên trang — giải thích ngắn gọn, đủ để chọn mua.</p>
+    <div class="dict">
+      ${TU_DIEN.map(x => `<div class="dict-i"><dt>${x.t}</dt><dd>${x.d}</dd></div>`).join('')}
+    </div>` : ''}
+
+    ${typeof FAQ !== 'undefined' && FAQ.length ? `
+    <h3 style="margin-top:36px">Câu hỏi thường gặp</h3>
+    <div class="faq">
+      ${FAQ.map((f, i) => `
+      <details class="faq-i"${i === 0 ? ' open' : ''}>
+        <summary>${f.q}</summary>
+        <p>${f.a}</p>
+      </details>`).join('')}
+    </div>` : ''}`;
 }
 
 /* ---- Boot ---- */
