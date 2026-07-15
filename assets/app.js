@@ -417,11 +417,35 @@ function renderMethod() {
     </div>` : ''}`;
 }
 
+/* ============ 7 · KIẾN THỨC ============ */
+function renderKienThuc() {
+  if (typeof BAIVIET === 'undefined' || !BAIVIET.length) return;
+  $('#kienthuc').innerHTML = `
+    <div class="eyebrow">Kiến thức cà phê</div>
+    <h2>Hiểu trước khi mua</h2>
+    <p class="lead">Ba điều nên biết để chọn đúng gu — và không trách nhầm hạt.</p>
+    <div class="arts">
+      ${BAIVIET.map(b => `
+      <details class="art">
+        <summary>
+          <img class="art-img" src="${b.anh}" alt="${b.tieuDe}" loading="lazy">
+          <div class="art-copy">
+            <div class="art-tag">${b.tag}</div>
+            <div class="art-t">${b.tieuDe}</div>
+            <div class="art-dek">${b.dek}</div>
+            <div class="art-more"></div>
+          </div>
+        </summary>
+        <div class="art-full">${b.than}</div>
+      </details>`).join('')}
+    </div>`;
+}
+
 /* ---- Boot ---- */
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderReviews(); renderCompare(); renderEngine(); renderPrices(); renderMethod();
+  renderTop(); renderReviews(); renderCompare(); renderEngine(); renderPrices(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
