@@ -157,6 +157,11 @@ function mxFilter(f, btn) {
   document.querySelectorAll('.mx-filter button').forEach(b => b.classList.toggle('active', b === btn));
 }
 
+/* ============ KHUÔN HÌNH GIỮA TRANG ============ */
+function renderAtmos() {
+  $('#atmos').innerHTML = `<div class="atmos-img"><img src="assets/img/band-life.jpg" alt="Pha pour over đặc sản" loading="lazy"></div>`;
+}
+
 /* ============ PEAK — điểm dừng, phá nhịp ============ */
 function renderPeak() {
   $('#peak').innerHTML = `<p class="peak-line">Không có bài viết tài trợ.<br>
@@ -259,7 +264,7 @@ function renderMethod() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderKienThuc(); renderMethod();
+  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
