@@ -66,7 +66,7 @@ function renderTop() {
     <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
     Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
     <div class="hero-cta-row">
-      <button class="cta" onclick="document.querySelector('#matrix').scrollIntoView({behavior:'smooth'})">Xem những gì đã nếm</button>
+      <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
       <button class="cta-line" onclick="document.querySelector('#method').scrollIntoView({behavior:'smooth'})">Cách chúng tôi test</button>
     </div>
     <div class="proof">
@@ -77,38 +77,93 @@ function renderTop() {
     <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>`;
 }
 
-/* ============ 2 · SIGNATURE + LỰA CHỌN THÁNG NÀY ============ */
+/* ============ 2 · DECISION ENGINE — hệ thống chọn giúp bạn ============
+   Một câu hỏi (cách pha) quyết định câu trả lời. Hệ thống nghĩ trước,
+   người dùng không phải đọc hết bảng. Recommendation-first, browse-second. */
+const INTENTS = [
+  { k:'phin',     label:'Phin',          sub:'Pha phin truyền thống', match:p => p.pha.includes('phin') },
+  { k:'v60',      label:'V60 · Pour over',sub:'Rót tay, giấy lọc',     match:p => p.pha.includes('v60') },
+  { k:'espresso', label:'Máy · Espresso', sub:'Espresso, latte',       match:p => /dark/i.test(p.roast||'') || p.pha.includes('espresso') },
+  { k:'coldbrew', label:'Cold brew',      sub:'Ủ lạnh, uống mát',      match:p => p.pha.includes('coldbrew') }
+];
+
+const pickFor = it => {
+  const pool = SP.filter(it.match);
+  return (pool.length ? pool : SP).slice().sort((a, b) =>
+    (b.tested ? 1 : 0) - (a.tested ? 1 : 0) ||
+    (b.diem || 0) - (a.diem || 0) ||
+    (per100(a) || 9e9) - (per100(b) || 9e9))[0];
+};
+
+/* Dòng lý do — chỉ nói sự thật rút từ dữ liệu, không cường điệu */
+function confLine(p) {
+  const t = SP.filter(x => x.tested && x.diem != null);
+  if (!(p.tested && p.diem != null))
+    return `Hợp cách pha của bạn nhất trong danh mục. Chúng tôi <b>chưa nếm mù</b> gói này — thông số lấy từ nhà bán, và trang ghi rõ.`;
+  const top = Math.max(...t.map(x => x.diem));
+  const maxChua = Math.max(...t.map(x => x.chua || 0));
+  const maxDam  = Math.max(...t.map(x => x.dam  || 0));
+  const cheap = t.slice().sort((a, b) => per100(a) - per100(b))[0];
+  if (p.diem === top && t.length > 1) return `<b>Điểm cao nhất</b> trong ${t.length} gói chúng tôi đã nếm mù.`;
+  if (p.chua === maxChua && maxChua >= 4) return `Gói <b>chua sáng, thiên trái cây</b> rõ nhất trong nhóm đã nếm.`;
+  if (p.dam === maxDam && maxDam >= 4)    return `Gói <b>đậm, dày thân</b> nhất trong nhóm đã nếm.`;
+  if (cheap && p.id === cheap.id)         return `<b>Rẻ nhất tính theo 100g</b> trong nhóm đã nếm.`;
+  return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không có điểm trừ đáng kể.`;
+}
+
+let DECIDE = 'v60';
 function renderPick() {
-  const best = SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0];
-
   $('#pick').innerHTML = `
-    <p class="sig-line">Điểm số không phải ý kiến.<br>Nó là <b>hệ quả của một quy trình</b> ai cũng kiểm chứng lại được.</p>
+    <div class="decide-head">
+      <div class="eyebrow">Chọn giúp bạn · 15 giây</div>
+      <h2>Bạn pha bằng gì?<br>Chúng tôi lo phần còn lại.</h2>
+      <p class="decide-lead">Cách pha quyết định gói nào hợp — chúng tôi đã nếm mù để trả lời sẵn.
+      Bạn không phải đọc hết bảng. Chọn một, xem ngay gói nên mua.</p>
+    </div>
+    <div class="decide-chips">
+      ${INTENTS.map(it => `<button class="dchip${it.k === DECIDE ? ' on' : ''}" data-k="${it.k}" onclick="decide('${it.k}')">
+        <b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+    </div>
+    <div id="decide-out"></div>`;
+  decide(DECIDE, true);
+}
 
-    ${best ? `
-    <div class="pick">
+function decide(k, silent) {
+  DECIDE = k;
+  const it = INTENTS.find(x => x.k === k) || INTENTS[0];
+  const p  = pickFor(it);
+  if (!silent) document.querySelectorAll('.dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  const out = document.getElementById('decide-out');
+  if (!out || !p) return;
+  out.innerHTML = `
+    <div class="rec">
       <div class="pick-media">
-        <img src="assets/img/hero.jpg" alt="Rót V60 trong buổi nếm mù của Gu Cà Phê">
+        <img src="assets/img/hero.jpg" alt="Buổi nếm mù của Gu Cà Phê">
         <span class="pick-media-cap">Buổi nếm mù · 1:15 · 92°C</span>
       </div>
       <div class="pick-info">
-        <span class="eyebrow">Đang trên máy xay của chúng tôi</span>
-        <div class="pick-brand">${best.brand}</div>
-        <div class="pick-name">${best.ten}</div>
-        <div class="pick-notes">${(best.notes && best.notes.join(' · ')) || best.flavor}.</div>
-        <div class="pick-cues">${cues(best)}</div>
+        <div class="rec-intent">Pha <b>${it.label.replace(/\s·.*/, '')}</b> → chúng tôi chọn</div>
+        <div class="pick-brand">${p.brand}</div>
+        <div class="pick-name">${p.ten}</div>
+        <div class="rec-conf">${confLine(p)}</div>
+        <div class="pick-notes">${(p.tested && p.notes && p.notes.length) ? p.notes.join(' · ') + '.' : p.flavor}</div>
+        <div class="pick-cues">${cues(p)}</div>
         <ul class="pick-why">
-          ${best.nen.slice(0, 3).map(x => `<li><b>+</b> ${x}</li>`).join('')}
+          ${p.nen.slice(0, 3).map(x => `<li><b>+</b> ${x}</li>`).join('')}
         </ul>
       </div>
       <div class="pick-side">
-        <div class="pick-score">${best.diem}</div>
-        <div class="pick-score-l">Điểm nếm mù / 10</div>
-        <div class="pick-price">${money(best.gia)}</div>
-        <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
-        <button class="cta" onclick="aff('${best.id}')">Xem giá trên Shopee</button>
-        <div class="cta-note">Link tiếp thị liên kết — bạn không trả thêm đồng nào.</div>
+        ${p.tested && p.diem != null
+          ? `<div class="pick-score">${p.diem}</div><div class="pick-score-l">Điểm nếm mù / 10</div>`
+          : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`}
+        <div class="pick-price">${money(p.gia)}</div>
+        <div class="pick-per">${money(per100(p))} / 100g · ${p.gram}g</div>
+        <button class="cta" onclick="aff('${p.id}')">Xem giá trên Shopee</button>
+        <div class="cta-note"><a href="#matrix" onclick="event.preventDefault();document.querySelector('#matrix').scrollIntoView({behavior:'smooth'})">Hoặc xem cả ${SP.length} gói trong bảng →</a></div>
       </div>
-    </div>` : ''}`;
+    </div>`;
+  const rec = out.firstElementChild;
+  if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
 }
 
 /* ============ 3 · BẢNG TUYỂN CHỌN ============ */

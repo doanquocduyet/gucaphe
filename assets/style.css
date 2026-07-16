@@ -137,10 +137,36 @@ section:first-of-type{padding-top:88px}
   text-align:center;max-width:20ch;margin:0 auto;text-wrap:balance;color:var(--cream)}
 .peak-line b{color:#D6B57E}
 
-/* ============ SIGNATURE / PICK ============ */
-.sig-line{font-size:clamp(24px,3.1vw,33px);line-height:1.4;font-style:italic;
-  max-width:28ch;margin:0 auto;text-align:center;color:var(--ink);text-wrap:balance}
-.sig-line b{color:var(--brown);font-style:italic}
+/* ============ DECISION ENGINE / PICK ============ */
+.decide-head{max-width:44ch}
+.decide-head h2{margin-top:6px}
+.decide-lead{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-top:16px;max-width:52ch}
+.decide-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:38px 0 8px}
+.dchip{display:flex;flex-direction:column;gap:4px;text-align:left;padding:16px 18px;
+  border:1px solid var(--line);background:transparent;cursor:pointer;border-radius:2px;
+  transition:border-color .2s,background .2s,transform .12s}
+.dchip b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px;
+  letter-spacing:-.01em;color:var(--ink)}
+.dchip span{font-size:12.5px;color:var(--ink-dim)}
+.dchip:hover{border-color:var(--brown);transform:translateY(-1px)}
+.dchip.on{background:var(--ink);border-color:var(--ink)}
+.dchip.on b{color:var(--paper)}
+.dchip.on span{color:var(--cream)}
+
+.rec{display:grid;grid-template-columns:0.92fr 1.35fr 0.8fr;gap:52px;align-items:start;margin-top:44px;
+  padding-top:44px;border-top:1px solid var(--line)}
+.rec.in{animation:recIn .42s cubic-bezier(.2,.7,.2,1)}
+@keyframes recIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rec-intent{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px}
+.rec-intent b{color:var(--brown)}
+.rec-conf{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:0 0 18px;max-width:46ch}
+.rec-conf b{color:var(--ink);font-weight:600}
+.rec-untested{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;
+  line-height:1;letter-spacing:-.03em;color:var(--ink-dim)}
+.pick-side .cta-note a{color:var(--brown);text-decoration:none;border-bottom:1px solid var(--line)}
+.pick-side .cta-note a:hover{border-color:var(--brown)}
+@media(prefers-reduced-motion:reduce){.rec.in{animation:none}}
 
 .pick{display:grid;grid-template-columns:0.92fr 1.35fr 0.8fr;gap:52px;align-items:start;margin-top:76px}
 .pick-media{position:relative}
@@ -326,7 +352,8 @@ footer a:hover{border-color:#C9A876}
   .atmos-img img{aspect-ratio:3/2}
   .mx-filter{flex-wrap:wrap}
   h1{font-size:clamp(40px,11vw,56px)}
-  .pick{grid-template-columns:1fr;gap:32px}
+  .pick,.rec{grid-template-columns:1fr;gap:32px}
+  .decide-chips{grid-template-columns:repeat(2,1fr);gap:10px}
   .pick-media img{aspect-ratio:3/2}
   .pick-side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:36px}
   .pick-score{font-size:72px}
