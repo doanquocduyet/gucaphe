@@ -76,7 +76,7 @@ const FAQ = [
 const BAIVIET = [
   {
     id: "natural-washed",
-    anh: "assets/img/p1-farm.jpg",
+    anh: "assets/img/art-1.jpg",
     tag: "Sơ chế",
     tieuDe: "Natural hay Washed — vị khác nhau chỗ nào?",
     dek: "Cùng một hạt, hai cách sơ chế cho hai ly hoàn toàn khác. Chọn sai, bạn trách nhầm hạt.",
@@ -87,7 +87,7 @@ const BAIVIET = [
   },
   {
     id: "rang-sang-dam",
-    anh: "assets/img/p2-grind.jpg",
+    anh: "assets/img/art-2.jpg",
     tag: "Độ rang",
     tieuDe: "Rang sáng hay rang đậm — chọn theo cách pha",
     dek: "Độ rang quyết định ‘ngon hay dở’ nhiều hơn cả giống hạt. Quen phin mà mua nhầm rang sáng là dễ chê oan.",
@@ -98,7 +98,7 @@ const BAIVIET = [
   },
   {
     id: "vi-sao-specialty-dat",
-    anh: "assets/img/p3-cup.jpg",
+    anh: "assets/img/art-3.jpg",
     tag: "Đáng tiền không?",
     tieuDe: "Specialty đắt hơn — bạn trả tiền cho điều gì?",
     dek: "Một gói 250g specialty có thể đắt gấp 3–4 lần cà phê phổ thông. Đáng hay không tuỳ cách bạn uống.",
