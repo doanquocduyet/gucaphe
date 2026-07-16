@@ -77,64 +77,130 @@ function renderTop() {
     <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>`;
 }
 
-/* ============ 2 · DECISION ENGINE — hệ thống chọn giúp bạn ============
-   Một câu hỏi (cách pha) quyết định câu trả lời. Hệ thống nghĩ trước,
-   người dùng không phải đọc hết bảng. Recommendation-first, browse-second. */
+/* ============ 2 · DECISION ENGINE v2 — dẫn dắt, không chỉ trả lời ============
+   Intent (gu vị) → Context (cách pha) → chọn 1 gói + VÌ SAO hợp bạn
+   + điều bạn có thể chưa thích + nếu không hợp thì thử gói khác.
+   Ghi nhớ lựa chọn bằng localStorage (adaptive, không cần login).
+   Gu vị chấm trên dữ liệu chua/đậm thật của từng gói — không bịa. */
 const INTENTS = [
-  { k:'phin',     label:'Phin',          sub:'Pha phin truyền thống', match:p => p.pha.includes('phin') },
-  { k:'v60',      label:'V60 · Pour over',sub:'Rót tay, giấy lọc',     match:p => p.pha.includes('v60') },
-  { k:'espresso', label:'Máy · Espresso', sub:'Espresso, latte',       match:p => /dark/i.test(p.roast||'') || p.pha.includes('espresso') },
-  { k:'coldbrew', label:'Cold brew',      sub:'Ủ lạnh, uống mát',      match:p => p.pha.includes('coldbrew') }
+  { k:'phin',     label:'Phin',           sub:'Pha phin truyền thống', match:p => p.pha.includes('phin') },
+  { k:'v60',      label:'V60 · Pour over',sub:'Rót tay, giấy lọc',      match:p => p.pha.includes('v60') },
+  { k:'espresso', label:'Máy · Espresso', sub:'Espresso, latte',        match:p => /dark/i.test(p.roast||'') || p.pha.includes('espresso') },
+  { k:'coldbrew', label:'Cold brew',      sub:'Ủ lạnh, uống mát',       match:p => p.pha.includes('coldbrew') }
 ];
+const TASTES = [
+  { k:'sang',    label:'Chua sáng, trái cây', sub:'Floral, cam chanh, mọng nước' },
+  { k:'canbang', label:'Cân bằng, dễ uống',   sub:'Không quá chua, không gắt' },
+  { k:'dam',     label:'Đậm, chocolate',       sub:'Thân dày, ít chua' }
+];
+const TLAB = {}; TASTES.forEach(t => TLAB[t.k] = t.label);
+const BLAB = {}; INTENTS.forEach(t => BLAB[t.k] = t.label.replace(/\s·.*/, ''));
 
-const pickFor = it => {
-  const pool = SP.filter(it.match);
-  return (pool.length ? pool : SP).slice().sort((a, b) =>
-    (b.tested ? 1 : 0) - (a.tested ? 1 : 0) ||
-    (b.diem || 0) - (a.diem || 0) ||
-    (per100(a) || 9e9) - (per100(b) || 9e9))[0];
-};
+/* Điểm hợp = gu vị (dữ liệu chua/đậm) + cách pha + độ tin cậy (đã nếm) */
+function fit(p, taste, brew) {
+  const chua = p.chua || 3, dam = p.dam || 3;
+  let s = 0;
+  if (taste === 'sang')    s += chua * 2 - dam * 0.6;
+  if (taste === 'canbang') s += 6 - (Math.abs(chua - 3) + Math.abs(dam - 3));
+  if (taste === 'dam')     s += dam * 2 - chua * 0.6;
+  if (taste === 'moi')     s += (p.tested ? 4 : 0) + (6 - (Math.abs(chua - 3) + Math.abs(dam - 3))) + p.pha.length;
+  const it = INTENTS.find(x => x.k === brew);
+  if (brew && it && it.match(p)) s += 4;
+  s += p.tested ? 1.5 : 0;
+  return s;
+}
+const rank = (taste, brew) => SP
+  .map(p => ({ p, s: fit(p, taste, brew) }))
+  .sort((a, b) => b.s - a.s || (b.p.diem || 0) - (a.p.diem || 0));
 
-/* Dòng lý do — chỉ nói sự thật rút từ dữ liệu, không cường điệu */
-function confLine(p) {
+/* Lý do khác biệt của gói thay thế — rút từ dữ liệu thật */
+function altReason(a, b) {
+  if ((b.dam || 3)  > (a.dam || 3))  return 'đậm và dày thân hơn';
+  if ((b.chua || 3) > (a.chua || 3)) return 'chua sáng, trái cây hơn';
+  if (per100(b) < per100(a))         return 'rẻ hơn tính theo 100g';
+  return 'một hướng vị khác';
+}
+
+/* Dòng tin cậy — chỉ nói sự thật rút từ dữ liệu, KHÔNG khoe điểm mạnh
+   trái với gu người dùng vừa chọn (vd đừng khoe "đậm nhất" cho người thích chua sáng). */
+function confLine(p, taste) {
   const t = SP.filter(x => x.tested && x.diem != null);
   if (!(p.tested && p.diem != null))
-    return `Hợp cách pha của bạn nhất trong danh mục. Chúng tôi <b>chưa nếm mù</b> gói này — thông số lấy từ nhà bán, và trang ghi rõ.`;
+    return `Chúng tôi <b>chưa nếm mù</b> gói này — thông số từ nhà bán, trang ghi rõ.`;
   const top = Math.max(...t.map(x => x.diem));
   const maxChua = Math.max(...t.map(x => x.chua || 0));
   const maxDam  = Math.max(...t.map(x => x.dam  || 0));
   const cheap = t.slice().sort((a, b) => per100(a) - per100(b))[0];
+  // Điểm & giá là tín hiệu trung lập với gu — luôn được phép nói
   if (p.diem === top && t.length > 1) return `<b>Điểm cao nhất</b> trong ${t.length} gói chúng tôi đã nếm mù.`;
-  if (p.chua === maxChua && maxChua >= 4) return `Gói <b>chua sáng, thiên trái cây</b> rõ nhất trong nhóm đã nếm.`;
-  if (p.dam === maxDam && maxDam >= 4)    return `Gói <b>đậm, dày thân</b> nhất trong nhóm đã nếm.`;
-  if (cheap && p.id === cheap.id)         return `<b>Rẻ nhất tính theo 100g</b> trong nhóm đã nếm.`;
-  return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không có điểm trừ đáng kể.`;
+  // Điểm mạnh về vị: chỉ nói khi khớp gu vừa chọn
+  if (taste === 'sang' && p.chua === maxChua && maxChua >= 4) return `Gói <b>chua sáng, thiên trái cây</b> rõ nhất trong nhóm đã nếm — đúng gu bạn.`;
+  if (taste === 'dam'  && p.dam  === maxDam  && maxDam  >= 4) return `Gói <b>đậm, dày thân</b> nhất trong nhóm đã nếm — đúng gu bạn.`;
+  if (cheap && p.id === cheap.id)         return `<b>Rẻ nhất tính theo 100g</b> trong nhóm đã nếm — an toàn để bắt đầu.`;
+  return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không điểm trừ đáng kể.`;
 }
 
-let DECIDE = 'v60';
+let TASTE = null, BREW = null;
+try { TASTE = localStorage.getItem('gu_taste'); BREW = localStorage.getItem('gu_brew'); } catch (e) {}
+
 function renderPick() {
+  const back = TASTE || BREW;
   $('#pick').innerHTML = `
     <div class="decide-head">
-      <div class="eyebrow">Chọn giúp bạn · 15 giây</div>
-      <h2>Bạn pha bằng gì?<br>Chúng tôi lo phần còn lại.</h2>
-      <p class="decide-lead">Cách pha quyết định gói nào hợp — chúng tôi đã nếm mù để trả lời sẵn.
-      Bạn không phải đọc hết bảng. Chọn một, xem ngay gói nên mua.</p>
+      <div class="eyebrow">Chọn giúp bạn</div>
+      <h2>Đừng chọn một mình.<br>Trả lời hai câu, chúng tôi chốt.</h2>
+      <p class="decide-lead">Chúng tôi không đưa bạn cả bảng rồi để bạn tự đoán. Nói gu của bạn —
+      chúng tôi loại bớt, chọn một, và nói thẳng <b>vì sao hợp bạn</b> (và chỗ nào có thể chưa).</p>
+      ${back ? `<div class="decide-back">Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?
+        <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
     </div>
-    <div class="decide-chips">
-      ${INTENTS.map(it => `<button class="dchip${it.k === DECIDE ? ' on' : ''}" data-k="${it.k}" onclick="decide('${it.k}')">
-        <b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+
+    <div class="de-step">
+      <div class="de-q"><span class="de-n">1</span> Bạn thích ly cà phê thế nào?</div>
+      <div class="decide-chips de-taste">
+        ${TASTES.map(t => `<button class="dchip${t.k === TASTE ? ' on' : ''}" data-k="${t.k}" onclick="deTaste('${t.k}')"><b>${t.label}</b><span>${t.sub}</span></button>`).join('')}
+      </div>
+      <button class="de-skip${TASTE === 'moi' ? ' on' : ''}" onclick="deTaste('moi')">Chưa rõ gu của mình — cứ chọn giúp tôi →</button>
     </div>
+
+    <div class="de-step de-step2${TASTE ? ' show' : ''}">
+      <div class="de-q"><span class="de-n">2</span> Bạn pha bằng gì?</div>
+      <div class="decide-chips de-brew">
+        ${INTENTS.map(it => `<button class="dchip${it.k === BREW ? ' on' : ''}" data-k="${it.k}" onclick="deBrew('${it.k}')"><b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+      </div>
+    </div>
+
     <div id="decide-out"></div>`;
-  decide(DECIDE, true);
+  if (TASTE) drawRec();
 }
 
-function decide(k, silent) {
-  DECIDE = k;
-  const it = INTENTS.find(x => x.k === k) || INTENTS[0];
-  const p  = pickFor(it);
-  if (!silent) document.querySelectorAll('.dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+function deTaste(k) {
+  TASTE = k; try { localStorage.setItem('gu_taste', k); } catch (e) {}
+  document.querySelectorAll('.de-taste .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  const skip = document.querySelector('.de-skip'); if (skip) skip.classList.toggle('on', k === 'moi');
+  const s2 = document.querySelector('.de-step2'); if (s2) s2.classList.add('show');
+  drawRec();
+}
+function deBrew(k) {
+  BREW = k; try { localStorage.setItem('gu_brew', k); } catch (e) {}
+  document.querySelectorAll('.de-brew .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  drawRec();
   const out = document.getElementById('decide-out');
-  if (!out || !p) return;
+  if (out) out.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function deReset() {
+  TASTE = null; BREW = null;
+  try { localStorage.removeItem('gu_taste'); localStorage.removeItem('gu_brew'); } catch (e) {}
+  renderPick(); $('#pick').scrollIntoView({ behavior: 'smooth' });
+}
+
+function drawRec() {
+  const out = document.getElementById('decide-out'); if (!out) return;
+  const ranked = rank(TASTE, BREW);
+  const best = ranked[0].p;
+  const alt  = (ranked.find(r => r.p.id !== best.id) || {}).p;
+  const tlabel = TASTE === 'moi' ? 'người mới bắt đầu' : (TLAB[TASTE] || 'mọi vị');
+  const speak = `${TASTE === 'moi' ? 'Dành cho' : 'Thích'} <b>${tlabel}</b>${BREW ? ` · pha <b>${BLAB[BREW]}</b>` : ''} → chúng tôi chọn`;
   out.innerHTML = `
     <div class="rec">
       <div class="pick-media">
@@ -142,26 +208,37 @@ function decide(k, silent) {
         <span class="pick-media-cap">Buổi nếm mù · 1:15 · 92°C</span>
       </div>
       <div class="pick-info">
-        <div class="rec-intent">Pha <b>${it.label.replace(/\s·.*/, '')}</b> → chúng tôi chọn</div>
-        <div class="pick-brand">${p.brand}</div>
-        <div class="pick-name">${p.ten}</div>
-        <div class="rec-conf">${confLine(p)}</div>
-        <div class="pick-notes">${(p.tested && p.notes && p.notes.length) ? p.notes.join(' · ') + '.' : p.flavor}</div>
-        <div class="pick-cues">${cues(p)}</div>
-        <ul class="pick-why">
-          ${p.nen.slice(0, 3).map(x => `<li><b>+</b> ${x}</li>`).join('')}
-        </ul>
+        <div class="rec-intent">${speak}</div>
+        <div class="pick-brand">${best.brand}</div>
+        <div class="pick-name">${best.ten}</div>
+        <div class="rec-conf">${confLine(best, TASTE)}</div>
+        <div class="pick-notes">${(best.tested && best.notes && best.notes.length) ? best.notes.join(' · ') + '.' : best.flavor}</div>
+        <div class="pick-cues">${cues(best)}</div>
+        <div class="rec-why">
+          <h4>Vì sao hợp bạn</h4>
+          <ul class="pick-why">${best.nen.slice(0, 3).map(x => `<li><b>+</b> ${x}</li>`).join('')}</ul>
+        </div>
+        ${best.khong && best.khong.length ? `<div class="rec-warn"><h4>Điều bạn có thể chưa thích</h4><p>${best.khong[0]}</p></div>` : ''}
       </div>
       <div class="pick-side">
-        ${p.tested && p.diem != null
-          ? `<div class="pick-score">${p.diem}</div><div class="pick-score-l">Điểm nếm mù / 10</div>`
+        ${best.tested && best.diem != null
+          ? `<div class="pick-score">${best.diem}</div><div class="pick-score-l">Điểm nếm mù / 10</div>`
           : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`}
-        <div class="pick-price">${money(p.gia)}</div>
-        <div class="pick-per">${money(per100(p))} / 100g · ${p.gram}g</div>
-        <button class="cta" onclick="aff('${p.id}')">Xem giá trên Shopee</button>
-        <div class="cta-note"><a href="#matrix" onclick="event.preventDefault();document.querySelector('#matrix').scrollIntoView({behavior:'smooth'})">Hoặc xem cả ${SP.length} gói trong bảng →</a></div>
+        <div class="pick-price">${money(best.gia)}</div>
+        <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
+        <button class="cta" onclick="aff('${best.id}')">Xem giá trên Shopee</button>
+        <div class="cta-note">Link tiếp thị liên kết — bạn không trả thêm đồng nào.</div>
       </div>
-    </div>`;
+    </div>
+    ${alt ? `
+    <div class="rec-alt">
+      <div class="rec-alt-l">Chưa chắc đúng gu? Phương án khác:</div>
+      <div class="rec-alt-b">
+        <div class="rec-alt-txt"><b>${alt.brand} · ${alt.ten}</b>
+          <span>${alt.tested && alt.diem != null ? `${alt.diem}/10` : 'Chưa nếm'} · ${money(per100(alt))}/100g — ${altReason(best, alt)}</span></div>
+        <button class="cta-line" onclick="aff('${alt.id}')">Xem gói này</button>
+      </div>
+    </div>` : ''}`;
   const rec = out.firstElementChild;
   if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
 }
