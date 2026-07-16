@@ -165,10 +165,7 @@ function renderTop() {
         <div class="alt-w">${money(up.gia)} · ${up.tested ? '' : '<b>chưa nếm</b> · '}${up.flavor}</div>
         <button class="alt-cta" onclick="aff('${up.id}')">Xem giá</button>
       </div>` : ''}
-    </div>
-
-    ${TRUST}
-    <div class="band"><img src="assets/img/band.jpg" alt="Thưởng thức cà phê đặc sản Việt Nam" loading="lazy"></div>`;
+    </div>`;
 }
 
 /* ============ 2 · ĐÁNH GIÁ TỪNG LOẠI ============ */
@@ -399,13 +396,6 @@ function renderMethod() {
       nên không có lý do gì để khen sai. Sản phẩm nào chưa nếm, chúng tôi ghi rõ 🟡.
     </div>
 
-    ${typeof TU_DIEN !== 'undefined' && TU_DIEN.length ? `
-    <h3 style="margin-top:36px">Từ điển nhanh</h3>
-    <p class="lead" style="font-size:15px">Các thuật ngữ dùng trên trang — giải thích ngắn gọn, đủ để chọn mua.</p>
-    <div class="dict">
-      ${TU_DIEN.map(x => `<div class="dict-i"><dt>${x.t}</dt><dd>${x.d}</dd></div>`).join('')}
-    </div>` : ''}
-
     ${typeof FAQ !== 'undefined' && FAQ.length ? `
     <h3 style="margin-top:36px">Câu hỏi thường gặp</h3>
     <div class="faq">
@@ -445,7 +435,7 @@ function renderKienThuc() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderReviews(); renderCompare(); renderEngine(); renderPrices(); renderKienThuc(); renderMethod();
+  renderTop(); renderReviews(); renderCompare(); renderPrices(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
