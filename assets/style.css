@@ -184,17 +184,40 @@ section:last-of-type{border-bottom:none}
 .who .n:before{content:"–";position:absolute;left:2px;color:var(--clay);font-weight:700}
 
 /* ---------- CTA ---------- */
-.cta{background:var(--ink);color:#fff;border:none;width:100%;margin-top:14px;padding:14px;cursor:pointer;
+.cta{background:var(--moss);color:#fff;border:none;width:100%;margin-top:14px;padding:14px;cursor:pointer;
   font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;border-radius:var(--radius-sm);
-  transition:transform .12s,background .15s,box-shadow .15s;box-shadow:var(--shadow-sm)}
-.cta:hover{background:var(--moss);transform:translateY(-1px);box-shadow:0 8px 20px -10px rgba(31,92,61,.6)}
+  transition:transform .12s,background .15s,box-shadow .15s;box-shadow:0 6px 16px -8px rgba(31,92,61,.55)}
+.cta:hover{background:#17492F;transform:translateY(-1px);box-shadow:0 10px 22px -10px rgba(31,92,61,.7)}
 .cta:active{transform:translateY(0)}
+.cta-sm{width:auto;margin:0;padding:11px 22px;font-size:14px}
+.cta-buy{width:100%;margin:0}
 .cta-note{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--soft);
   text-align:center;margin-top:9px;line-height:1.5}
-.mini{background:var(--ink);color:#fff;border:none;padding:10px 20px;cursor:pointer;border-radius:var(--radius-sm);
+.mini{background:var(--moss);color:#fff;border:none;padding:10px 20px;cursor:pointer;border-radius:var(--radius-sm);
   font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;white-space:nowrap;transition:.15s}
-.mini:hover{background:var(--moss)}
+.mini:hover{background:#17492F}
 .mini.sm{padding:8px 15px;font-size:12px}
+
+/* ---------- BẢNG QUYẾT ĐỊNH (ma trận) ---------- */
+.mx{margin-top:22px;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);background:var(--card)}
+.mx-row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--rule-2)}
+.mx-row:last-child{border-bottom:none}
+.mx-row.is-best{background:var(--moss-lite)}
+.mx-prod{display:flex;gap:14px;align-items:center;min-width:0}
+.mx-thumb{width:56px;height:56px;flex:none}
+.mx-info{min-width:0}
+.mx-brand{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--soft);font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mx-pick{background:var(--moss);color:#fff;padding:2px 8px;border-radius:999px;font-size:9px;letter-spacing:.04em}
+.mx-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.015em;margin:2px 0 4px}
+.mx-tags{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:13px;color:var(--soft)}
+.mx-tags b{color:var(--ink)}
+.mx-stats{display:flex;align-items:center;gap:24px}
+.mx-num{text-align:center;min-width:62px}
+.mx-num b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;letter-spacing:-.02em}
+.mx-num b.mx-sc{color:var(--moss);font-size:23px}
+.mx-num b.ut{font-size:18px}
+.mx-num small{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-top:2px;display:block}
 
 /* ---------- 2 NHÁNH PHỤ ---------- */
 .alts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
@@ -226,6 +249,18 @@ section:last-of-type{border-bottom:none}
 .rv{border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);overflow:hidden;
   box-shadow:var(--shadow-sm);transition:box-shadow .2s}
 .rv:hover{box-shadow:var(--shadow)}
+.rv-top{display:flex;gap:18px;align-items:flex-start;padding:20px 22px}
+.rv-top-right{flex:none;width:216px;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.rv-scorebox{display:flex;align-items:center;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.rv-price{text-align:right;font-size:14px;color:var(--soft)}
+.rv-price b{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:var(--ink);margin-right:6px}
+.rv-toggle{background:none;border:1px solid var(--rule);color:var(--soft);padding:8px;border-radius:var(--radius-sm);
+  cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:12.5px;transition:.15s}
+.rv-toggle:hover{border-color:var(--moss-line);color:var(--ink)}
+.rv-toggle:after{content:"Xem chi tiết ▾"}
+.rv.open .rv-toggle:after{content:"Ẩn bớt ▴"}
+.rv-detail{display:none;border-top:1px solid var(--rule)}
+.rv.open .rv-detail{display:block}
 .rv-head{display:flex;justify-content:flex-start;align-items:center;padding:18px 24px 14px;gap:16px}
 .rv-brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--soft);font-weight:700}
@@ -338,6 +373,12 @@ footer a{color:var(--moss)}
   .usp-in{gap:6px 20px;font-size:10.5px;justify-content:flex-start}
   .dict{grid-template-columns:1fr}
   .arts{grid-template-columns:1fr}
+  .mx-row{grid-template-columns:1fr;gap:14px}
+  .mx-stats{justify-content:space-between;gap:10px;border-top:1px solid var(--rule-2);padding-top:14px}
+  .rv-top{flex-direction:column;gap:14px}
+  .rv-top-right{width:100%}
+  .rv-scorebox{justify-content:flex-start}
+  .rv-price{text-align:left}
   .pick-flag{flex-direction:column;align-items:flex-start;gap:3px}
   .pick-flag .dim{font-size:10px}
   .pick-grid{grid-template-columns:1fr}

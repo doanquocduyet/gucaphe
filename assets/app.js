@@ -168,47 +168,86 @@ function renderTop() {
     </div>`;
 }
 
-/* ============ 2 · ĐÁNH GIÁ TỪNG LOẠI ============ */
+/* ============ 2 · BẢNG QUYẾT ĐỊNH (ma trận) ============ */
+function renderMatrix() {
+  const rows = [...SP].sort((a, b) =>
+    (b.tested ? 1 : 0) - (a.tested ? 1 : 0) ||
+    (b.diem || 0) - (a.diem || 0) ||
+    (per100(a) || 9e9) - (per100(b) || 9e9));
+  const bestId = (rows.find(p => p.tested) || {}).id;
+
+  $('#matrix').innerHTML = `
+    <div class="eyebrow">Bảng quyết định · Cập nhật ${SITE.capNhat}</div>
+    <h2>So nhanh — chọn trong 30 giây</h2>
+    <p class="lead">Xếp theo điểm nếm mù. Cột <b>giá/100g</b> để so công bằng giữa các gói khác khối lượng.</p>
+    <div class="mx">
+      ${rows.map(p => `
+      <div class="mx-row${p.id === bestId ? ' is-best' : ''}">
+        <div class="mx-prod">
+          ${thumb(p, 'mx-thumb')}
+          <div class="mx-info">
+            <div class="mx-brand">${p.brand}${p.id === bestId ? ' <span class="mx-pick">★ Đề xuất</span>' : ''}</div>
+            <div class="mx-name">${p.ten}</div>
+            <div class="mx-tags">
+              <span>Chua <b>${p.chua}</b> · Đậm <b>${p.dam}</b> · Hậu <b>${p.hau}</b></span>
+              <span>${p.pha.map(x => PHA_TEN[x] || x).join(' / ')}</span>
+            </div>
+          </div>
+        </div>
+        <div class="mx-stats">
+          <div class="mx-num"><b>${per100(p) ? money(per100(p)) : '—'}</b><small>giá/100g</small></div>
+          <div class="mx-num">${p.diem != null ? `<b class="mx-sc">${p.diem}</b><small>điểm</small>` : `<b class="ut">🟡</b><small>chưa nếm</small>`}</div>
+          <button class="cta cta-sm" onclick="aff('${p.id}')">Mua</button>
+        </div>
+      </div>`).join('')}
+    </div>
+    <p class="foot-note">Giá tham khảo tại thời điểm cập nhật · 🟡 = chưa nếm, thông số theo mô tả nhà bán.</p>`;
+}
+
+/* ============ 3 · ĐÁNH GIÁ CHI TIẾT (bung khi cần) ============ */
 function renderReviews() {
   $('#reviews').innerHTML = `
     <div class="eyebrow">Đánh giá · Mua thật, nếm mù</div>
-    <h2>Từng loại một</h2>
+    <h2>Chi tiết từng loại</h2>
+    <p class="lead">Tóm tắt + nút mua luôn hiện. Bấm “Xem chi tiết” nếu muốn đào sâu số đo và hồ sơ hạt.</p>
     <div class="rv-list">
     ${SP.map(p => `
       <div class="rv">
-        <div class="rv-head">
+        <div class="rv-top">
           ${thumb(p, 'thumb-rv')}
           <div class="rv-head-txt">
             <div class="rv-brand">${p.brand}</div>
             <div class="rv-name">${p.ten} ${badges(p)}</div>
+            ${flavorLine(p)}
           </div>
-          <div class="rv-right">
-            ${p.diem != null ? `<div class="rv-score">${p.diem}</div>` : `<div class="rv-noscore">—</div>`}
-            ${nhan(p)}
-            ${freshChip(p)}
-          </div>
-        </div>
-        <div class="specs">
-          ${bar('Độ chua', p.chua)}${bar('Độ đậm', p.dam)}${bar('Hậu vị', p.hau)}
-          ${per100(p) ? `<div class="spec"><div class="spec-l">Giá / 100g</div><div class="spec-v">${(per100(p)/1000).toFixed(0)}<span class="of">k</span></div><div class="track"><i style="width:${Math.min(per100(p)/1500*100,100)}%"></i></div></div>` : ''}
-        </div>
-        <div class="rv-body">
-          <div class="rv-flavor">${flavorLine(p)}</div>
-          <div class="rv-meta">
-            ${p.origin  ? `<span><b>Vùng</b> ${p.origin}</span>` : ''}
-            ${p.giong   ? `<span><b>Giống</b> ${p.giong}</span>` : ''}
-            ${p.roast   ? `<span><b>Rang</b> ${p.roast}</span>` : ''}
-            ${p.process ? `<span><b>Sơ chế</b> ${p.process}</span>` : ''}
-            <span><b>Hợp</b> ${p.pha.map(x => PHA_TEN[x] || x).join(' · ')}</span>
-          </div>
-          <div class="who">
-            <div><h4>Nên mua nếu</h4><ul>${p.nen.map(x => `<li class="y">${x}</li>`).join('')}</ul></div>
-            <div><h4>Cân nhắc nếu</h4><ul>${p.khong.map(x => `<li class="n">${x}</li>`).join('')}</ul></div>
+          <div class="rv-top-right">
+            <div class="rv-scorebox">
+              ${p.diem != null ? `<span class="rv-score">${p.diem}</span>` : `<span class="rv-noscore">—</span>`}
+              ${nhan(p)}
+            </div>
+            <div class="rv-price"><b>${money(p.gia)}</b> ${per100(p) ? `<span class="dim mono">${money(per100(p))}/100g</span>` : ''}</div>
+            <button class="cta cta-buy" onclick="aff('${p.id}')">Mua trên Shopee</button>
+            <button class="rv-toggle" type="button" onclick="this.closest('.rv').classList.toggle('open')"></button>
           </div>
         </div>
-        <div class="rv-buy">
-          <div><span class="pr-sm">${money(p.gia)}</span> ${per100(p) ? `<span class="dim mono">${money(per100(p))}/100g</span>` : ''}</div>
-          <button class="mini" onclick="aff('${p.id}')">Xem trên Shopee</button>
+        <div class="rv-detail">
+          <div class="specs">
+            ${bar('Độ chua', p.chua)}${bar('Độ đậm', p.dam)}${bar('Hậu vị', p.hau)}
+            ${per100(p) ? `<div class="spec"><div class="spec-l">Giá / 100g</div><div class="spec-v">${(per100(p)/1000).toFixed(0)}<span class="of">k</span></div><div class="track"><i style="width:${Math.min(per100(p)/1500*100,100)}%"></i></div></div>` : ''}
+          </div>
+          <div class="rv-body">
+            <div class="rv-meta">
+              ${p.origin  ? `<span><b>Vùng</b> ${p.origin}</span>` : ''}
+              ${p.giong   ? `<span><b>Giống</b> ${p.giong}</span>` : ''}
+              ${p.roast   ? `<span><b>Rang</b> ${p.roast}</span>` : ''}
+              ${p.process ? `<span><b>Sơ chế</b> ${p.process}</span>` : ''}
+              <span><b>Hợp</b> ${p.pha.map(x => PHA_TEN[x] || x).join(' · ')}</span>
+            </div>
+            <div class="who">
+              <div><h4>Nên mua nếu</h4><ul>${p.nen.map(x => `<li class="y">${x}</li>`).join('')}</ul></div>
+              <div><h4>Cân nhắc nếu</h4><ul>${p.khong.map(x => `<li class="n">${x}</li>`).join('')}</ul></div>
+            </div>
+          </div>
         </div>
       </div>`).join('')}
     </div>`;
@@ -435,7 +474,7 @@ function renderKienThuc() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderReviews(); renderCompare(); renderPrices(); renderKienThuc(); renderMethod();
+  renderTop(); renderMatrix(); renderReviews(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
