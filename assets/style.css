@@ -7,6 +7,8 @@
 :root{
   --paper:#FBFAF6;
   --card:#FFFFFF;
+  --sand:#F1EADB;        /* vùng nền ấm */
+  --mint:#E6F0E9;        /* vùng nền xanh nhạt */
   --ink:#191712;
   --soft:#57534A;
   --dim:#8C887C;
@@ -59,9 +61,20 @@ h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,3.4vw,34px)
   line-height:1.12;letter-spacing:-.025em;margin:8px 0 10px;text-wrap:balance}
 h3{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
 .lead{color:var(--soft);max-width:60ch;margin:4px 0 6px;font-size:18px;line-height:1.6}
-section{padding:72px max(24px, calc((100% - 1080px) / 2));border-bottom:1px solid var(--rule)}
+section{padding:76px max(24px, calc((100% - 1080px) / 2))}
 section:first-of-type{padding-top:52px}
-section:last-of-type{border-bottom:none}
+
+/* ---------- VÙNG MÀU NỀN (phân cấp khu vực) ---------- */
+#top{background:var(--paper)}
+#matrix{background:var(--sand)}
+#reviews{background:#fff}
+#kienthuc{background:var(--mint)}
+#method{background:var(--ink)}
+/* Mục "Cách test" nền tối — chữ tiêu đề sáng, thẻ con vẫn sáng nổi lên */
+#method .eyebrow{color:#8FCBA6}
+#method h2,#method h3{color:#fff}
+#method .lead{color:rgba(255,255,255,.72)}
+#method .foot-note{color:rgba(255,255,255,.5)}
 .foot-note{font-size:14px;color:var(--soft);margin-top:20px;max-width:66ch;line-height:1.6}
 
 /* ---------- USP BAR ---------- */
