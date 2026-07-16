@@ -26,7 +26,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--paper);color:var(--ink);
   font-family:'Newsreader',Georgia,serif;
-  font-size:17px;line-height:1.7;
+  font-size:17px;line-height:1.7;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
@@ -117,19 +117,21 @@ section:first-of-type{padding-top:88px}
 .mx[data-f="nem"]  .mx-row[data-tested="0"]{display:none}
 .mx[data-f="chua"] .mx-row[data-tested="1"]{display:none}
 
-/* PEAK — điểm dừng phá nhịp */
-#peak{background:var(--paper);padding-top:120px;padding-bottom:120px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.peak-line{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
-  font-size:clamp(30px,5vw,58px);line-height:1.08;letter-spacing:-.03em;
-  text-align:center;max-width:20ch;margin:0 auto;text-wrap:balance}
-.peak-line b{color:var(--brown)}
+/* PEAK — khuôn hình điện ảnh + tuyên ngôn */
+#peak{position:relative;padding-top:150px;padding-bottom:150px;
+  background:linear-gradient(rgba(24,20,16,.62),rgba(24,20,16,.78)), url('img/band.jpg') center 40%/cover no-repeat;
+  background-color:var(--ink)}
+.peak-line{position:relative;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(32px,5.4vw,62px);line-height:1.08;letter-spacing:-.03em;
+  text-align:center;max-width:20ch;margin:0 auto;text-wrap:balance;color:var(--cream)}
+.peak-line b{color:#D6B57E}
 
 /* ============ SIGNATURE / PICK ============ */
 #pick{padding-top:0}
-.sig{position:relative;margin-bottom:96px}
-.sig img{width:100%;aspect-ratio:21/10;object-fit:cover;display:block;filter:saturate(.92)}
+.sig{position:relative;left:50%;right:50%;width:100vw;margin-left:-50vw;margin-right:-50vw}
+.sig img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 42%;display:block;filter:saturate(.94)}
 .sig-cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--ink-dim);margin-top:14px}
+  text-transform:uppercase;color:var(--ink-dim);margin-top:16px;margin-bottom:96px}
 .sig-line{font-size:clamp(22px,3vw,30px);line-height:1.45;font-style:italic;
   max-width:30ch;margin:56px auto 0;text-align:center;color:var(--ink);text-wrap:balance}
 .sig-line b{color:var(--brown);font-style:italic}
@@ -309,7 +311,8 @@ footer a:hover{border-color:#C9A876}
   #peak{padding-top:76px;padding-bottom:76px}
   .mx-filter{flex-wrap:wrap}
   h1{font-size:clamp(40px,11vw,56px)}
-  .sig img{aspect-ratio:4/3}
+  .sig img{aspect-ratio:3/4;object-position:center 40%}
+  .sig-cap{margin-bottom:60px}
   .sig-line{margin-top:40px;text-align:left}
   .pick{grid-template-columns:1fr;gap:44px}
   .pick-side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:36px}

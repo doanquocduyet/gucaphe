@@ -82,10 +82,8 @@ function renderPick() {
   const best = SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0];
 
   $('#pick').innerHTML = `
-    <div class="sig">
-      <img src="assets/img/hero.jpg" alt="Rót V60 trong buổi nếm mù của Gu Cà Phê">
-      <div class="sig-cap">Buổi nếm mù · cùng cỡ xay · tỷ lệ 1:15 · nước 92°C</div>
-    </div>
+    <div class="sig"><img src="assets/img/hero.jpg" alt="Rót V60 trong buổi nếm mù của Gu Cà Phê"></div>
+    <div class="sig-cap">Buổi nếm mù · cùng cỡ xay · tỷ lệ 1:15 · nước 92°C</div>
     <p class="sig-line">Điểm số không phải ý kiến.<br>Nó là <b>hệ quả của một quy trình</b> ai cũng kiểm chứng lại được.</p>
 
     ${best ? `
