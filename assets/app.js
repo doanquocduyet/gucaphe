@@ -56,23 +56,25 @@ function thumb(p, cls = '') {
     <span class="thumb-l">${p.roast || ''}</span></div>`;
 }
 
-/* ============ 1 · HERO — một câu, khoảng trắng, hết ============ */
+/* ============ 1 · HERO — lời hứa, không phải quảng cáo ============ */
 function renderTop() {
-  const daNem = SP.filter(p => p.tested).length;
+  const nem  = SP.filter(p => p.tested).length;
+  const chua = SP.filter(p => !p.tested).length;
   $('#top').innerHTML = `
     <div class="eyebrow">Gu Cà Phê · Curator cà phê đặc sản Việt Nam</div>
-    <h1>Nếm mù trước.<br>Giới thiệu sau.</h1>
-    <p class="lead">Chúng tôi mua ẩn danh bằng tiền của mình, che nhãn, chấm điểm —
-    rồi mới bóc ra xem tên. Trên trang này chỉ có thứ chúng tôi dám ký tên.</p>
+    <h1>Chưa uống<br>thì không chấm.</h1>
+    <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
+    Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
     <div class="hero-cta-row">
-      <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Xem lựa chọn tháng này</button>
+      <button class="cta" onclick="document.querySelector('#matrix').scrollIntoView({behavior:'smooth'})">Xem những gì đã nếm</button>
       <button class="cta-line" onclick="document.querySelector('#method').scrollIntoView({behavior:'smooth'})">Cách chúng tôi test</button>
     </div>
-    <div class="hero-mono">
-      <span>Cập nhật ${SITE.capNhat}</span>
-      <span>${daNem}/${SP.length} gói đã nếm mù</span>
-      <span>Chưa nếm là ghi rõ</span>
-    </div>`;
+    <div class="proof">
+      <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
+      <div class="proof-i"><b>${chua}</b><span>Đang chờ nếm</span></div>
+      <div class="proof-i"><b>0</b><span>Bài tài trợ</span></div>
+    </div>
+    <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>`;
 }
 
 /* ============ 2 · SIGNATURE + LỰA CHỌN THÁNG NÀY ============ */
@@ -118,19 +120,26 @@ function renderMatrix() {
   const bestId  = (rows.find(p => p.tested) || {}).id;
   const cheapId = ([...SP].filter(p => per100(p)).sort((a, b) => per100(a) - per100(b))[0] || {}).id;
 
+  const nem = SP.filter(p => p.tested).length, chua = SP.length - nem;
+
   $('#matrix').innerHTML = `
     <div class="mx-head">
       <div>
         <div class="eyebrow">Bảng tuyển chọn · ${SITE.capNhat}</div>
-        <h2>Bốn gói, so sòng phẳng.</h2>
+        <h2>Chúng tôi đã lọc.<br>Bạn chỉ cần chọn.</h2>
       </div>
-      <p class="lead" style="max-width:34ch;font-size:16.5px">Giá quy về 100g để so công bằng
-      giữa các gói khác khối lượng. Chưa nếm thì không có điểm.</p>
+      <p class="lead" style="max-width:34ch;font-size:16.5px">Giá quy về 100g để so sòng phẳng
+      giữa các gói khác khối lượng. Gói nào chưa nếm thì không có điểm — không ngoại lệ.</p>
     </div>
-    <div class="mx">
+    <div class="mx-filter">
+      <button class="active" data-f="all"  onclick="mxFilter('all',this)">Tất cả · ${SP.length}</button>
+      <button data-f="nem"  onclick="mxFilter('nem',this)">Đã nếm · ${nem}</button>
+      <button data-f="chua" onclick="mxFilter('chua',this)">Chưa nếm · ${chua}</button>
+    </div>
+    <div class="mx" data-f="all">
       <div class="mx-cols"><span>Sản phẩm</span><span>Giá / 100g</span><span>Điểm</span><span></span></div>
       ${rows.map(p => `
-      <div class="mx-row">
+      <div class="mx-row" data-tested="${p.tested ? 1 : 0}">
         <div>
           ${p.id === bestId ? '<div class="mx-pick-note">Lựa chọn của chúng tôi</div>' : ''}
           ${p.id === cheapId ? '<div class="mx-pick-note">Rẻ nhất tính theo 100g</div>' : ''}
@@ -143,6 +152,17 @@ function renderMatrix() {
       </div>`).join('')}
     </div>
     <p class="foot-note">Giá tham khảo tại thời điểm cập nhật · Link có ở cả sản phẩm chúng tôi khuyên cân nhắc — nên không có lý do để khen sai.</p>`;
+}
+
+function mxFilter(f, btn) {
+  const mx = $('.mx'); if (mx) mx.dataset.f = f;
+  document.querySelectorAll('.mx-filter button').forEach(b => b.classList.toggle('active', b === btn));
+}
+
+/* ============ PEAK — điểm dừng, phá nhịp ============ */
+function renderPeak() {
+  $('#peak').innerHTML = `<p class="peak-line">Không có bài viết tài trợ.<br>
+    Không có điểm số cho thứ chúng tôi <b>chưa bỏ vào miệng.</b></p>`;
 }
 
 /* ============ 4 · REVIEW CHI TIẾT ============ */
@@ -241,7 +261,7 @@ function renderMethod() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderMatrix(); renderReviews(); renderKienThuc(); renderMethod();
+  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
