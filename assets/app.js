@@ -113,12 +113,30 @@ const rank = (taste, brew) => SP
   .map(p => ({ p, s: fit(p, taste, brew) }))
   .sort((a, b) => b.s - a.s || (b.p.diem || 0) - (a.p.diem || 0));
 
-/* Lý do khác biệt của gói thay thế — rút từ dữ liệu thật */
-function altReason(a, b) {
-  if ((b.dam || 3)  > (a.dam || 3))  return 'đậm và dày thân hơn';
-  if ((b.chua || 3) > (a.chua || 3)) return 'chua sáng, trái cây hơn';
-  if (per100(b) < per100(a))         return 'rẻ hơn tính theo 100g';
-  return 'một hướng vị khác';
+/* ---- NEGOTIATION: recommendation là đối thoại, không phải output cố định.
+   Mỗi phản đối ("đắt quá", "muốn đậm hơn") chỉ hiện khi CÓ gói tốt hơn theo trục đó. ---- */
+const OBJ = [
+  { k:'cheap',  label:'Đắt quá',      say:'rẻ hơn',              better:(p,c)=>per100(p) && per100(p) < per100(c), rk:(a,b)=>per100(a)-per100(b) },
+  { k:'bright', label:'Chua sáng hơn',say:'chua sáng, trái cây hơn', better:(p,c)=>(p.chua||3) > (c.chua||3),  rk:(a,b)=>(b.chua||3)-(a.chua||3) },
+  { k:'bold',   label:'Đậm hơn',      say:'đậm, dày thân hơn',   better:(p,c)=>(p.dam||3) > (c.dam||3),        rk:(a,b)=>(b.dam||3)-(a.dam||3) },
+  { k:'easy',   label:'Nhẹ đô hơn',   say:'nhẹ đô, dễ uống hơn', better:(p,c)=>(p.dam||3) < (c.dam||3),        rk:(a,b)=>(a.dam||3)-(b.dam||3) }
+];
+const availObj = cur => OBJ.filter(o => SP.some(p => p.id !== cur.id && o.better(p, cur)));
+function resolveObj(o, cur) {
+  return SP.filter(p => p.id !== cur.id && o.better(p, cur))
+    .sort((a, b) => (b.tested ? 1 : 0) - (a.tested ? 1 : 0) || o.rk(a, b))[0];
+}
+
+/* ---- COGNITIVE COMPRESSION: một câu chốt trước, con số ở dưới ---- */
+function verdict(p, taste) {
+  if (!(p.tested && p.diem != null))
+    return `Gói hợp cách pha của bạn nhất — chúng tôi chưa nếm mù, nên ghi rõ để bạn cân nhắc.`;
+  if (taste === 'moi')
+    return `Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.`;
+  const top = Math.max(...SP.filter(x => x.tested && x.diem != null).map(x => x.diem));
+  if (p.diem === top)
+    return `Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.`;
+  return `Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.`;
 }
 
 /* Dòng tin cậy — chỉ nói sự thật rút từ dữ liệu, KHÔNG khoe điểm mạnh
@@ -140,8 +158,9 @@ function confLine(p, taste) {
   return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không điểm trừ đáng kể.`;
 }
 
-let TASTE = null, BREW = null;
+let TASTE = null, BREW = null, CURID = null, NEGO = null;
 try { TASTE = localStorage.getItem('gu_taste'); BREW = localStorage.getItem('gu_brew'); } catch (e) {}
+const memPick = () => { try { return get(localStorage.getItem('gu_pick')); } catch (e) { return null; } };
 
 function renderPick() {
   const back = TASTE || BREW;
@@ -151,7 +170,7 @@ function renderPick() {
       <h2>Đừng chọn một mình.<br>Trả lời hai câu, chúng tôi chốt.</h2>
       <p class="decide-lead">Chúng tôi không đưa bạn cả bảng rồi để bạn tự đoán. Nói gu của bạn —
       chúng tôi loại bớt, chọn một, và nói thẳng <b>vì sao hợp bạn</b> (và chỗ nào có thể chưa).</p>
-      ${back ? `<div class="decide-back">Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?
+      ${back ? `<div class="decide-back">${memPick() ? `Lần trước bạn dừng ở <b>${memPick().brand} · ${memPick().ten}</b>. Vẫn vậy chứ?` : `Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?`}
         <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
     </div>
 
@@ -175,32 +194,45 @@ function renderPick() {
 }
 
 function deTaste(k) {
-  TASTE = k; try { localStorage.setItem('gu_taste', k); } catch (e) {}
+  TASTE = k; CURID = null; NEGO = null; try { localStorage.setItem('gu_taste', k); } catch (e) {}
   document.querySelectorAll('.de-taste .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   const skip = document.querySelector('.de-skip'); if (skip) skip.classList.toggle('on', k === 'moi');
   const s2 = document.querySelector('.de-step2'); if (s2) s2.classList.add('show');
   drawRec();
 }
 function deBrew(k) {
-  BREW = k; try { localStorage.setItem('gu_brew', k); } catch (e) {}
+  BREW = k; CURID = null; NEGO = null; try { localStorage.setItem('gu_brew', k); } catch (e) {}
   document.querySelectorAll('.de-brew .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   drawRec();
   const out = document.getElementById('decide-out');
   if (out) out.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function deReset() {
-  TASTE = null; BREW = null;
-  try { localStorage.removeItem('gu_taste'); localStorage.removeItem('gu_brew'); } catch (e) {}
+  TASTE = null; BREW = null; CURID = null; NEGO = null;
+  try { localStorage.removeItem('gu_taste'); localStorage.removeItem('gu_brew'); localStorage.removeItem('gu_pick'); } catch (e) {}
   renderPick(); $('#pick').scrollIntoView({ behavior: 'smooth' });
 }
+/* Đàm phán: người dùng phản đối → đổi gói theo trục đó */
+function deObj(k) {
+  const cur = CURID ? get(CURID) : rank(TASTE, BREW)[0].p;
+  const o = OBJ.find(x => x.k === k); if (!o) return;
+  const next = resolveObj(o, cur); if (!next) return;
+  CURID = next.id; NEGO = o.say; drawRec();
+  const out = document.getElementById('decide-out');
+  if (out) out.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function deBase() { CURID = null; NEGO = null; drawRec(); }
 
 function drawRec() {
   const out = document.getElementById('decide-out'); if (!out) return;
-  const ranked = rank(TASTE, BREW);
-  const best = ranked[0].p;
-  const alt  = (ranked.find(r => r.p.id !== best.id) || {}).p;
+  const base = rank(TASTE, BREW)[0].p;
+  const best = CURID ? (get(CURID) || base) : base;
+  try { localStorage.setItem('gu_pick', best.id); } catch (e) {}
   const tlabel = TASTE === 'moi' ? 'người mới bắt đầu' : (TLAB[TASTE] || 'mọi vị');
-  const speak = `${TASTE === 'moi' ? 'Dành cho' : 'Thích'} <b>${tlabel}</b>${BREW ? ` · pha <b>${BLAB[BREW]}</b>` : ''} → chúng tôi chọn`;
+  const speak = NEGO
+    ? `Bạn muốn <b>${NEGO}</b> → vậy gói này`
+    : `${TASTE === 'moi' ? 'Dành cho' : 'Thích'} <b>${tlabel}</b>${BREW ? ` · pha <b>${BLAB[BREW]}</b>` : ''} → chúng tôi chọn`;
+  const objs = availObj(best);
   out.innerHTML = `
     <div class="rec">
       <div class="pick-media">
@@ -208,9 +240,10 @@ function drawRec() {
         <span class="pick-media-cap">Buổi nếm mù · 1:15 · 92°C</span>
       </div>
       <div class="pick-info">
-        <div class="rec-intent">${speak}</div>
+        <div class="rec-intent">${speak}${CURID ? ` · <button class="rec-undo" onclick="deBase()">↺ về gói gợi ý</button>` : ''}</div>
         <div class="pick-brand">${best.brand}</div>
         <div class="pick-name">${best.ten}</div>
+        <div class="rec-verdict">${verdict(best, TASTE)}</div>
         <div class="rec-conf">${confLine(best, TASTE)}</div>
         <div class="pick-notes">${(best.tested && best.notes && best.notes.length) ? best.notes.join(' · ') + '.' : best.flavor}</div>
         <div class="pick-cues">${cues(best)}</div>
@@ -227,18 +260,18 @@ function drawRec() {
         <div class="pick-price">${money(best.gia)}</div>
         <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
         <button class="cta" onclick="aff('${best.id}')">Xem giá trên Shopee</button>
-        <div class="cta-note">Link tiếp thị liên kết — bạn không trả thêm đồng nào.</div>
+        <div class="assure">
+          <div><b>Chắc cỡ nào?</b><span>Nếm mù · cùng cỡ xay · 1:15 · 92°C</span></div>
+          <div><b>Lỡ không hợp?</b><span>Đổi gu ngay bên dưới, không phải đọc lại từ đầu</span></div>
+          <div><b>Gói ${best.gram}g</b><span>Đủ nhỏ để thử trước khi mua thêm</span></div>
+        </div>
       </div>
     </div>
-    ${alt ? `
-    <div class="rec-alt">
-      <div class="rec-alt-l">Chưa chắc đúng gu? Phương án khác:</div>
-      <div class="rec-alt-b">
-        <div class="rec-alt-txt"><b>${alt.brand} · ${alt.ten}</b>
-          <span>${alt.tested && alt.diem != null ? `${alt.diem}/10` : 'Chưa nếm'} · ${money(per100(alt))}/100g — ${altReason(best, alt)}</span></div>
-        <button class="cta-line" onclick="aff('${alt.id}')">Xem gói này</button>
-      </div>
-    </div>` : ''}`;
+    ${objs.length ? `
+    <div class="nego">
+      <span class="nego-l">${CURID ? 'Vẫn chưa ưng?' : 'Chưa đúng gu của bạn?'} Nói cho chúng tôi:</span>
+      ${objs.map(o => `<button class="nego-chip" onclick="deObj('${o.k}')">${o.label}</button>`).join('')}
+    </div>` : `<div class="nego"><span class="nego-l">Đây đã là gói khớp gu bạn nhất trong danh mục hiện tại.</span></div>`}`;
   const rec = out.firstElementChild;
   if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
 }
