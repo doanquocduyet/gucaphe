@@ -116,3 +116,57 @@ const BAIVIET = [
       "<p><b>Có đáng không?</b> Nếu bạn pha máy/pour over và thật sự để ý vị — đáng. Nếu pha phin đậm uống với sữa mỗi sáng, một gói rang mộc giá mềm có khi hợp hơn. Chúng tôi không ép — chỉ tính giúp bạn <b>giá/100g</b> để so cho sòng phẳng.</p>"
   }
 ];
+
+/* ---- Vùng trồng — hub kiến thức về cà phê Lâm Đồng (Cầu Đất · Nam Ban · Lạc Dương)
+   Nội dung giáo dục, chính xác ở mức phổ thông. KHÔNG bịa điểm nếm. `diaDanh` dùng
+   để tự nối vùng với sản phẩm nào có origin khớp. ---- */
+const VUNG = [
+  {
+    slug: "lam-dong", ten: "Lâm Đồng", hub: true,
+    diaDanh: ["Lâm Đồng", "Lạc Dương", "Cầu Đất", "Đà Lạt", "Nam Ban", "Lâm Hà", "Di Linh", "Bảo Lộc"],
+    tinh: "Tây Nguyên, Việt Nam",
+    doCao: "800–1.650m",
+    giong: "Arabica (Bourbon, Typica, Catimor) · Robusta",
+    hopPha: "Tuỳ tiểu vùng",
+    tagline: "Cao nguyên Arabica của Việt Nam.",
+    vi: "Càng lên cao, quả chín càng chậm — axit càng sáng, hương hoa quả càng rõ.",
+    diemNhan: ["Cao nguyên 800–1.650m", "Đất bazan đỏ", "Khí hậu ôn hoà quanh năm", "Nguồn Arabica đặc sản lớn nhất nước"],
+    than: [
+      "<p>Gần như toàn bộ cà phê <b>Arabica đặc sản</b> của Việt Nam đến từ Lâm Đồng. Cao nguyên này nằm ở độ cao 800–1.650m, đất bazan đỏ tơi xốp, khí hậu ôn hoà quanh năm — ba điều kiện mà cây Arabica cần để cho hạt có hương phức tạp.</p>",
+      "<p>Trong tỉnh, mỗi tiểu vùng cho một chất vị khác nhau. Càng lên cao, quả chín càng chậm, axit càng sáng và hương hoa quả càng rõ. <b>Cầu Đất</b> (Đà Lạt) là vùng cao và lâu đời nhất; <b>Lạc Dương</b> dưới chân núi Lang Biang cho hạt sạch, cân bằng; <b>Nam Ban</b> (Lâm Hà) ở độ cao thấp hơn, thân dày và dịu hơn.</p>",
+      "<p>Ở Gu Cà Phê, gói Lâm Đồng chúng tôi đã nếm mù là <b>Sơn Pacamara — Lang Biang</b> (Lạc Dương). Các tiểu vùng còn lại chúng tôi vẫn đang tìm gói xứng đáng để mua và nếm — khi có, trang này sẽ cập nhật.</p>"
+    ]
+  },
+  {
+    slug: "cau-dat", ten: "Cầu Đất",
+    diaDanh: ["Cầu Đất"],
+    tinh: "Xuân Trường, Đà Lạt, Lâm Đồng",
+    doCao: "~1.400–1.650m",
+    giong: "Bourbon, Typica, Catimor",
+    hopPha: "V60 / Pour over",
+    tagline: "Vùng Arabica cao và lâu đời bậc nhất Việt Nam.",
+    vi: "Chua sáng kiểu cam chanh, hương hoa, thân vừa, hậu vị sạch và dài.",
+    diemNhan: ["Độ cao ~1.500m", "Arabica trồng từ thời Pháp", "Chua sáng, hương hoa", "Hợp V60 / pour over"],
+    than: [
+      "<p><b>Cầu Đất</b> nằm ở phía đông nam Đà Lạt, trên độ cao khoảng 1.400–1.650m — thuộc nhóm cao nhất cả nước cho cây cà phê. Người Pháp đã trồng Arabica ở đây từ đầu thế kỷ 20, nên đây thường được xem là <b>cái nôi của Arabica đặc sản Việt Nam</b>.</p>",
+      "<p>Độ cao lớn khiến ngày nắng, đêm lạnh; quả cà phê chín chậm và tích được nhiều đường, nhiều tiền chất hương. Kết quả trong ly thường là <b>độ chua sáng như cam chanh, hương hoa, thân vừa phải và hậu vị sạch kéo dài</b> — đúng chất Arabica vùng cao. Vì chua sáng, cà phê Cầu Đất hợp <b>V60 / pour over</b> hơn là pha phin đậm.</p>",
+      "<p>Các giống phổ biến gồm Bourbon, Typica (dòng cổ, tinh tế) và Catimor (khoẻ, năng suất cao). Khi mua, hãy để ý nhãn có ghi rõ giống và độ cao không — đó là dấu hiệu của một gói được làm nghiêm túc.</p>"
+    ]
+  },
+  {
+    slug: "nam-ban", ten: "Nam Ban",
+    diaDanh: ["Nam Ban", "Lâm Hà"],
+    tinh: "Lâm Hà, Lâm Đồng",
+    doCao: "thấp hơn Cầu Đất (~800–1.000m)",
+    giong: "Robusta và Arabica",
+    hopPha: "Phin · Espresso",
+    tagline: "Vùng cà phê của Lâm Hà — dịu và đậm hơn vùng cao.",
+    vi: "Thân dày hơn, độ chua dịu hơn vùng cao; dễ uống với người quen gu đậm.",
+    diemNhan: ["Thuộc huyện Lâm Hà", "Độ cao thấp hơn Cầu Đất", "Thân dày, ít chua", "Nổi tiếng cà phê chồn & du lịch"],
+    than: [
+      "<p><b>Nam Ban</b> là thị trấn thuộc huyện <b>Lâm Hà</b>, phía tây nam Đà Lạt. Tên ‘Lâm Hà’ ghép từ Lâm Đồng và Hà Nội — vùng kinh tế mới do người Hà Nội vào lập nghiệp từ cuối thập niên 1970.</p>",
+      "<p>So với Cầu Đất, Nam Ban ở <b>độ cao thấp hơn</b> nên khí hậu ấm hơn. Cà phê ở đây thường <b>thân dày hơn, độ chua dịu hơn</b>, dễ uống với người quen gu đậm. Vùng trồng cả Robusta lẫn Arabica.</p>",
+      "<p>Nam Ban cũng được biết đến với các trại <b>cà phê chồn</b> và du lịch cà phê — nhưng đó là câu chuyện trải nghiệm nhiều hơn là thước đo chất lượng specialty. Với cà phê đặc sản, điều đáng quan tâm vẫn là giống, độ cao và cách sơ chế được ghi rõ.</p>"
+    ]
+  }
+];

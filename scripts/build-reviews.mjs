@@ -1,10 +1,12 @@
 /* ============================================================
-   build-reviews.mjs — SINH TRANG REVIEW CHI TIẾT CHO TỪNG GÓI
+   build-reviews.mjs — SINH TRANG TĨNH (REVIEW + VÙNG TRỒNG) + SITEMAP
    ============================================================
-   Đọc data/data.js → tạo /review/<slug>.html cho mỗi sản phẩm,
-   rồi cập nhật sitemap.xml. Nội dung được "nướng" tĩnh vào HTML
-   (không phụ thuộc JS) — để Google VÀ trình thu thập AI
-   (ChatGPT, Perplexity) đọc được ngay, không cần render.
+   Đọc data/data.js → tạo:
+     • /review/<slug>.html       cho mỗi sản phẩm (từ mảng SP)
+     • /vung-trong/<slug>.html   cho mỗi vùng trồng (từ mảng VUNG)
+     • sitemap.xml               (trang chủ + review + vùng trồng)
+   Nội dung "nướng" tĩnh vào HTML (không phụ thuộc JS) — để Google VÀ
+   trình thu thập AI (ChatGPT, Perplexity) đọc được ngay, không cần render.
 
    NGUYÊN TẮC: KHÔNG BỊA. Gói chưa nếm → không có điểm, không có
    schema đánh giá. Chỉ dùng đúng dữ liệu trong data.js.
@@ -18,17 +20,17 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260730';
+const CSS_V = '20260731';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP } = loadData(raw);
+const { SITE, SP, VUNG = [] } = loadData(raw);
 
 /* ---- Helpers ---- */
 const money  = n => Number(n).toLocaleString('vi-VN') + '₫';
@@ -286,6 +288,186 @@ ${schema(p)}
 `;
 }
 
+/* ============================================================
+   TRANG VÙNG TRỒNG (/vung-trong/<slug>)
+   ============================================================ */
+function isoDate(dmy) {
+  const m = String(dmy || '').match(/(\d{2})\/(\d{2})\/(\d{4})/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : '2026-07-13';
+}
+
+function regionProducts(v) {
+  return SP.filter(p => (v.diaDanh || []).some(d => (p.origin || '').includes(d)));
+}
+
+function prodCard(p) {
+  return `
+        <div class="vg-prod">
+          <div class="vg-prod-head">
+            <div>
+              <div class="vg-prod-brand">${esc(p.brand)}</div>
+              <div class="vg-prod-name">${esc(p.ten)}</div>
+            </div>
+            ${p.tested && p.diem != null ? `<div class="vg-prod-score">${p.diem}<span>/10</span></div>` : `<div class="vg-prod-ut">Chưa nếm</div>`}
+          </div>
+          <div class="vg-prod-meta">${cuesOf(p).map(esc).join(' · ')}</div>
+          <div class="vg-prod-foot">
+            <div class="vg-prod-price"><b>${money(p.gia)}</b>${per100(p) ? ` · ${money(per100(p))}/100g` : ''}</div>
+            <div class="vg-prod-act">
+              <a class="vg-prod-review" href="/review/${p.slug}">Đọc review →</a>
+              ${buyLink(p)}
+            </div>
+          </div>
+        </div>`;
+}
+
+function regionPage(v) {
+  const url = `${ORIGIN}/vung-trong/${v.slug}`;
+  const prods = regionProducts(v);
+  const title = `Cà phê ${v.ten} — đặc điểm, hương vị & gói đáng mua | Gu Cà Phê`;
+  const desc = `Cà phê ${v.ten} (${v.tinh}): ${v.tagline} Độ cao ${v.doCao}, giống ${v.giong}. ${v.vi}`;
+  const facts = [
+    ['Vị trí', v.tinh], ['Độ cao', v.doCao], ['Giống', v.giong], ['Hợp pha', v.hopPha]
+  ].filter(x => x[1]);
+  const ga = (SITE.ga4 || '').trim();
+
+  const article = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Cà phê ${v.ten} — đặc điểm & hương vị`,
+    description: desc.slice(0, 200),
+    inLanguage: 'vi-VN',
+    author: { '@type': 'Organization', name: 'Gu Cà Phê' },
+    publisher: { '@type': 'Organization', name: 'Gu Cà Phê' },
+    datePublished: isoDate(SITE.capNhat),
+    mainEntityOfPage: url
+  };
+  const crumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Gu Cà Phê', item: `${ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: 'Vùng trồng', item: `${ORIGIN}/#vungtrong` },
+      { '@type': 'ListItem', position: 3, name: `Cà phê ${v.ten}` }
+    ]
+  };
+
+  const others = VUNG.filter(x => x.slug !== v.slug);
+
+  return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="vi_VN">
+<script type="application/ld+json">${JSON.stringify(article)}</script>
+<script type="application/ld+json">${JSON.stringify(crumb)}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script>
+(function(){
+  var GA=${JSON.stringify(ga)};
+  window.dataLayer=window.dataLayer||[];
+  window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
+  if(GA){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA;document.head.appendChild(s);
+    window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',GA,{anonymize_ip:true});}
+})();
+</script>
+</head>
+<body class="rp-body">
+
+<nav>
+  <div class="wrap nav-in">
+    <a id="logo" href="/">GU CÀ PHÊ</a>
+    <ul class="nav-links">
+      <li><a href="/#pick">Lựa chọn tháng này</a></li>
+      <li><a href="/#matrix">Bảng tuyển chọn</a></li>
+      <li><a href="/#reviews">Sổ nếm</a></li>
+      <li><a href="/#vungtrong">Vùng trồng</a></li>
+      <li><a href="/#method" class="learn">Cách test</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="rp wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb">
+    <a href="/">Gu Cà Phê</a><i>/</i><a href="/#vungtrong">Vùng trồng</a><i>/</i><span>Cà phê ${esc(v.ten)}</span>
+  </nav>
+
+  <header class="vg-hero">
+    <div class="eyebrow">Vùng trồng · Lâm Đồng</div>
+    <h1>Cà phê ${esc(v.ten)}</h1>
+    <p class="vg-hero-tag">${esc(v.tagline)}</p>
+    <div class="vg-facts">
+      ${facts.map(([k, val]) => `<div class="vg-fact"><span>${esc(k)}</span><b>${esc(val)}</b></div>`).join('')}
+    </div>
+  </header>
+
+  <article class="rp-article vg-article">
+    ${(v.than || []).join('\n    ')}
+    ${v.vi ? `<p class="vg-vi"><b>Vị đặc trưng:</b> ${esc(v.vi)}</p>` : ''}
+    ${(v.diemNhan && v.diemNhan.length) ? `<ul class="vg-highlights">${v.diemNhan.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+  </article>
+
+  <section class="vg-prods">
+    <h2>Gói từ vùng này</h2>
+    ${prods.length
+      ? prods.map(prodCard).join('')
+      : `<div class="vg-empty">
+          <p>Chúng tôi <b>chưa nếm mù</b> gói nào ghi rõ xuất xứ ${esc(v.ten)} — nên chưa gắn sản phẩm ở đây. Đúng nguyên tắc của Gu: chưa thử thì không gợi ý.</p>
+          <p>Gói Lâm Đồng gần nhất chúng tôi đã chấm là <b>Sơn Pacamara — Lang Biang</b> (Lạc Dương, cùng tỉnh).</p>
+          <div class="vg-empty-cta">
+            <a class="cta" href="/review/son-pacamara-lang-biang">Xem gói Lâm Đồng đã nếm →</a>
+            <a class="cta-line" href="/#pick">Để chúng tôi chọn theo gu bạn</a>
+          </div>
+        </div>`}
+  </section>
+
+  ${others.length ? `
+  <section class="rp-related">
+    <h2>Vùng trồng khác</h2>
+    <div class="rp-rel-grid">
+      ${others.map(o => `
+      <a class="rp-rel" href="/vung-trong/${o.slug}">
+        <div class="rp-rel-brand">${o.hub ? 'Tổng quan' : 'Tiểu vùng'}</div>
+        <div class="rp-rel-name">Cà phê ${esc(o.ten)}</div>
+        <div class="rp-rel-meta">${esc(o.doCao || '')}</div>
+      </a>`).join('')}
+    </div>
+  </section>` : ''}
+
+  <a class="rp-home" href="/">← Về trang chủ Gu Cà Phê</a>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div id="tagline">${esc(SITE.tagline)}</div>
+    <div>
+      <a href="/#pick">Lựa chọn tháng này</a>
+      <a href="/#vungtrong">Vùng trồng</a>
+      <a href="/#method">Cách chúng tôi test</a>
+      <a href="/#method">Chính sách hoa hồng</a>
+    </div>
+    <p class="foot-legal">Chúng tôi mua mọi sản phẩm bằng tiền của mình và nếm mù.
+    Link trên trang là link tiếp thị liên kết — bạn không trả thêm đồng nào,
+    và link có ở cả sản phẩm chúng tôi khuyên cân nhắc. Gói nào chưa nếm, trang ghi rõ.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+`;
+}
+
 /* ---- Ghi file ---- */
 mkdirSync(join(ROOT, 'review'), { recursive: true });
 const urls = [];
@@ -296,12 +478,24 @@ for (const p of SP) {
   console.log(`✓ review/${p.slug}.html`);
 }
 
-/* ---- Cập nhật sitemap.xml (trang chủ + mọi trang review) ---- */
-function isoDate(dmy) {
-  const m = String(dmy || '').match(/(\d{2})\/(\d{2})\/(\d{4})/);
-  return m ? `${m[3]}-${m[2]}-${m[1]}` : '2026-07-13';
+/* ---- Ghi trang vùng trồng ---- */
+if (VUNG.length) mkdirSync(join(ROOT, 'vung-trong'), { recursive: true });
+const regionUrls = [];
+for (const v of VUNG) {
+  if (!v.slug) { console.warn(`⚠️  Bỏ qua vùng thiếu slug`); continue; }
+  writeFileSync(join(ROOT, 'vung-trong', `${v.slug}.html`), regionPage(v), 'utf8');
+  regionUrls.push(`${ORIGIN}/vung-trong/${v.slug}`);
+  console.log(`✓ vung-trong/${v.slug}.html`);
 }
+
+/* ---- Cập nhật sitemap.xml (trang chủ + review + vùng trồng) ---- */
 const lastmod = isoDate(SITE.capNhat);
+const entry = (u, pri) => `  <url>
+    <loc>${u}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${pri}</priority>
+  </url>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -310,14 +504,11 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-${urls.map(u => `  <url>
-    <loc>${u}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('\n')}
+${urls.map(u => entry(u, '0.8')).join('\n')}
+${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 </urlset>
 `;
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
-console.log(`✓ sitemap.xml (${urls.length + 1} URL)`);
-console.log(`\nXong. ${urls.length} trang review.`);
+const total = urls.length + regionUrls.length + 1;
+console.log(`✓ sitemap.xml (${total} URL)`);
+console.log(`\nXong. ${urls.length} trang review · ${regionUrls.length} trang vùng trồng.`);

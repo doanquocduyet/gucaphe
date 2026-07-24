@@ -423,6 +423,30 @@ function renderReviews() {
     </div>`;
 }
 
+/* ============ VÙNG TRỒNG — hub cà phê Lâm Đồng (Cầu Đất · Nam Ban) ============ */
+function regionUrl(v) { return `/vung-trong/${v.slug}`; }
+function renderVung() {
+  if (typeof VUNG === 'undefined' || !VUNG.length) return;
+  $('#vungtrong').innerHTML = `
+    <div class="eyebrow">Vùng trồng</div>
+    <h2>Cà phê Lâm Đồng.</h2>
+    <p class="lead">Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này.
+    Mỗi tiểu vùng — <b>Cầu Đất</b>, <b>Nam Ban</b>, Lạc Dương — cho một chất vị riêng.
+    Hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.</p>
+    <div class="vg-grid">
+      ${VUNG.map(v => `
+      <a class="vg-card${v.hub ? ' vg-hub' : ''}" href="${regionUrl(v)}">
+        <div class="vg-card-top">
+          <div class="vg-card-name">${v.ten}</div>
+          ${v.hub ? '<span class="vg-badge">Tổng quan</span>' : ''}
+        </div>
+        <div class="vg-card-tag">${v.tagline}</div>
+        <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).join('<i>·</i>')}</div>
+        <span class="vg-card-go">Tìm hiểu →</span>
+      </a>`).join('')}
+    </div>`;
+}
+
 /* ============ 5 · KIẾN THỨC ============ */
 function renderKienThuc() {
   if (typeof BAIVIET === 'undefined' || !BAIVIET.length) return;
@@ -480,7 +504,7 @@ function renderMethod() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderKienThuc(); renderMethod();
+  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderVung(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
