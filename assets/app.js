@@ -9,14 +9,53 @@ const money   = n => n.toLocaleString('vi-VN') + '₫';
 const per100  = p => p.gram ? Math.round(p.gia / p.gram * 100) : null;
 const get     = id => SP.find(x => x.id === id);
 const PHA_TEN = { phin:'Phin', v60:'V60 / Pour over', coldbrew:'Cold brew' };
+const reviewUrl = p => p && p.slug ? `/review/${p.slug}` : null;
 
-/* ---- Affiliate click ---- */
+/* ============ ĐO LƯỜNG — FUNNEL QUYẾT ĐỊNH ============
+   Tự bật khi SITE.ga4 có Measurement ID. Nếu trống thì im lặng,
+   trang chạy y nguyên. Mọi sự kiện cũng đẩy vào dataLayer (sẵn cho GTM). */
+(function initGA() {
+  const id = (typeof SITE !== 'undefined' && SITE.ga4) ? SITE.ga4.trim() : '';
+  window.dataLayer = window.dataLayer || [];
+  if (!id) return;
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  document.head.appendChild(s);
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', id, { anonymize_ip: true });
+})();
+function track(ev, params) {
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', ev, params || {});
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: ev }, params || {}));
+  } catch (e) {}
+}
+
+/* ---- Affiliate click — sự kiện tiền + mở sàn (mặc định Shopee, sẵn cho Lazada/Tiki) ---- */
 let CLICK = 0;
-function aff(id) {
+const CHANNELS = { shopee: 'link', lazada: 'lazada', tiki: 'tiki' };
+function aff(id, channel, pos) {
   CLICK++;
-  // THẬT: gtag('event','affiliate_click',{item:id});
-  const p = get(id);
-  if (p && p.link && p.link !== '#') window.open(p.link, '_blank', 'noopener');
+  const p = get(id); if (!p) return;
+  channel = channel || 'shopee';
+  const url = p[CHANNELS[channel] || 'link'];
+  track('affiliate_click', {
+    item_id: id, item_brand: p.brand, item_name: p.ten,
+    price: p.gia, per100: per100(p), value: p.gia, currency: 'VND',
+    channel, tested: p.tested ? 1 : 0, position: pos || 'unknown'
+  });
+  if (url && url !== '#') window.open(url, '_blank', 'noopener');
+}
+
+/* ---- Nút mua: hiện giá ngay trên nút (neo giá) + kênh phụ nếu có link ---- */
+function buyCTA(p, pos, label) {
+  const main = `<button class="cta" onclick="aff('${p.id}','shopee','${pos}')">${label || 'Mua trên Shopee'} · ${money(p.gia)}</button>`;
+  const alts = [];
+  if (p.lazada) alts.push(`<button class="cta-alt" onclick="aff('${p.id}','lazada','${pos}')">Lazada</button>`);
+  if (p.tiki)   alts.push(`<button class="cta-alt" onclick="aff('${p.id}','tiki','${pos}')">Tiki</button>`);
+  return main + (alts.length ? `<div class="cta-alts"><span>Hoặc:</span>${alts.join('')}</div>` : '');
 }
 
 /* ---- Nhãn minh bạch — không emoji, không bao giờ ghi sai ---- */
@@ -194,14 +233,16 @@ function renderPick() {
 }
 
 function deTaste(k) {
-  TASTE = k; CURID = null; NEGO = null; try { localStorage.setItem('gu_taste', k); } catch (e) {}
+  TASTE = k; CURID = null; NEGO = null; track('taste_select', { taste: k });
+  try { localStorage.setItem('gu_taste', k); } catch (e) {}
   document.querySelectorAll('.de-taste .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   const skip = document.querySelector('.de-skip'); if (skip) skip.classList.toggle('on', k === 'moi');
   const s2 = document.querySelector('.de-step2'); if (s2) s2.classList.add('show');
   drawRec();
 }
 function deBrew(k) {
-  BREW = k; CURID = null; NEGO = null; try { localStorage.setItem('gu_brew', k); } catch (e) {}
+  BREW = k; CURID = null; NEGO = null; track('brew_select', { brew: k });
+  try { localStorage.setItem('gu_brew', k); } catch (e) {}
   document.querySelectorAll('.de-brew .dchip').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   drawRec();
   const out = document.getElementById('decide-out');
@@ -217,6 +258,7 @@ function deObj(k) {
   const cur = CURID ? get(CURID) : rank(TASTE, BREW)[0].p;
   const o = OBJ.find(x => x.k === k); if (!o) return;
   const next = resolveObj(o, cur); if (!next) return;
+  track('negotiate', { objection: k, from: cur.id, to: next.id });
   CURID = next.id; NEGO = o.say; drawRec();
   const out = document.getElementById('decide-out');
   if (out) out.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -228,6 +270,10 @@ function drawRec() {
   const base = rank(TASTE, BREW)[0].p;
   const best = CURID ? (get(CURID) || base) : base;
   try { localStorage.setItem('gu_pick', best.id); } catch (e) {}
+  track('recommendation_shown', {
+    item_id: best.id, item_name: best.ten, taste: TASTE, brew: BREW || null,
+    negotiated: CURID ? 1 : 0, tested: best.tested ? 1 : 0, score: best.diem
+  });
   const tlabel = TASTE === 'moi' ? 'người mới bắt đầu' : (TLAB[TASTE] || 'mọi vị');
   const speak = NEGO
     ? `Bạn muốn <b>${NEGO}</b> → vậy gói này`
@@ -259,7 +305,8 @@ function drawRec() {
           : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`}
         <div class="pick-price">${money(best.gia)}</div>
         <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
-        <button class="cta" onclick="aff('${best.id}')">Xem giá trên Shopee</button>
+        ${buyCTA(best, 'rec')}
+        ${reviewUrl(best) ? `<a class="rec-review-link" href="${reviewUrl(best)}">Đọc review đầy đủ →</a>` : ''}
         <div class="assure">
           <div><b>Chắc cỡ nào?</b><span>Nếm mù · cùng cỡ xay · 1:15 · 92°C</span></div>
           <div><b>Lỡ không hợp?</b><span>Đổi gu ngay bên dưới, không phải đọc lại từ đầu</span></div>
@@ -310,10 +357,11 @@ function renderMatrix() {
           ${p.id === cheapId ? '<div class="mx-pick-note">Rẻ nhất tính theo 100g</div>' : ''}
           <div class="mx-name"><small>${p.brand}</small>${p.ten}</div>
           ${cues(p)}
+          ${reviewUrl(p) ? `<a class="mx-review" href="${reviewUrl(p)}">Đọc review →</a>` : ''}
         </div>
         <div class="mx-per">${per100(p) ? money(per100(p)) : '—'}<small>${money(p.gia)} / ${p.gram}g</small></div>
         <div class="mx-score">${p.diem != null ? p.diem : '<span class="ut">Chưa nếm</span>'}</div>
-        <div class="mx-act"><button class="cta" onclick="aff('${p.id}')">Xem giá</button></div>
+        <div class="mx-act"><button class="cta" onclick="aff('${p.id}','shopee','matrix')">Mua →</button></div>
       </div>`).join('')}
     </div>
     <p class="foot-note">Giá tham khảo tại thời điểm cập nhật · Link có ở cả sản phẩm chúng tôi khuyên cân nhắc — nên không có lý do để khen sai.</p>`;
@@ -353,7 +401,7 @@ function renderReviews() {
           <div class="rv-top-right">
             ${p.diem != null ? `<div class="rv-score">${p.diem}</div>` : `<div class="rv-noscore">Chưa chấm điểm</div>`}
             <div class="rv-price"><b>${money(p.gia)}</b>${per100(p) ? `${money(per100(p))}/100g` : ''}</div>
-            <button class="cta" onclick="aff('${p.id}')">Xem giá trên Shopee</button>
+            ${buyCTA(p, 'review')}
             <button class="rv-toggle" type="button" onclick="this.closest('.rv').classList.toggle('open')"></button>
           </div>
         </div>
@@ -369,6 +417,7 @@ function renderReviews() {
             <div><h4>Nên mua nếu</h4><ul>${p.nen.map(x => `<li class="y">${x}</li>`).join('')}</ul></div>
             <div><h4>Cân nhắc nếu</h4><ul>${p.khong.map(x => `<li class="n">${x}</li>`).join('')}</ul></div>
           </div>
+          ${reviewUrl(p) ? `<a class="rv-full-link" href="${reviewUrl(p)}">Trang review đầy đủ của ${p.brand} · ${p.ten} →</a>` : ''}
         </div>
       </div>`).join('')}
     </div>`;

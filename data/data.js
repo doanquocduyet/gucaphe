@@ -2,7 +2,10 @@ const SITE = {
   ten: "GU CÀ PHÊ",
   tagline: "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.",
   capNhat: "13/07/2026",
-  domain: "gucaphe.vn"
+  domain: "gucaphe.vn",
+  // Dán GA4 Measurement ID (dạng G-XXXXXXX) vào đây để tự bật đo lường funnel.
+  // Để trống "" thì không có analytics nào chạy — trang vẫn hoạt động bình thường.
+  ga4: ""
 };
 
 const QUY_TRINH = [
@@ -15,6 +18,7 @@ const QUY_TRINH = [
 
 const SP = [
   { id:"lb1", brand:"Sơn Pacamara", ten:"Lang Biang Specialty 250g", nhom:"hat", gia:270000, gram:250,
+    slug:"son-pacamara-lang-biang",
     tested:true, diem:9.3, chua:4, dam:3, hau:5, pha:["v60"],
     origin:"Lạc Dương, Lâm Đồng", giong:"Catimor, Caturra", roast:"Light", process:"Natural",
     flavor:"Hoa, đào, cam vàng, mật ong. Hậu vị sạch và kéo dài.", notes:["Hoa","Đào","Cam vàng","Mật ong"],
@@ -22,6 +26,7 @@ const SP = [
     khong:["Chỉ có phin — rang sáng pha phin dễ chua gắt","Quen gu đậm đắng","Muốn cà phê uống hằng ngày giá mềm"],
     link:"https://s.shopee.vn/AUsMz3wGhY", anh:"", ngayRang:"" },
   { id:"vs1", brand:"Message Coffee", ten:"Vietnam Specialty nguyên chất 500g", nhom:"hat", gia:160000, gram:500,
+    slug:"message-coffee-vietnam-specialty",
     tested:true, diem:8.7, chua:3, dam:4, hau:4, pha:["phin","v60"],
     origin:"Việt Nam", giong:"Arabica", roast:"Medium", process:"Washed",
     flavor:"Caramel, chocolate sữa, trái cây chín. Cân bằng, dễ uống.", notes:["Caramel","Chocolate sữa","Trái cây chín"],
@@ -29,6 +34,7 @@ const SP = [
     khong:["Muốn vị đặc biệt, tinh tế","Muốn hương hoa rõ như dòng rang sáng"],
     link:"https://s.shopee.vn/5q6XQUE2Ai", anh:"", ngayRang:"" },
   { id:"es1", brand:"Stupiducks", ten:"Red Bull Espresso 250g", nhom:"hat", gia:270000, gram:250,
+    slug:"stupiducks-red-bull-espresso",
     tested:false, diem:null, chua:2, dam:5, hau:4, pha:["phin"],
     origin:"Việt Nam", giong:"Arabica", roast:"Dark", process:null,
     flavor:"Theo mô tả nhà bán: chocolate đen, hạnh nhân. Đậm, ít chua.",
@@ -36,6 +42,7 @@ const SP = [
     khong:["Thích vị chua sáng, trái cây","Pha V60"],
     link:"https://s.shopee.vn/AAFWaRxXNW", anh:"", ngayRang:"" },
   { id:"fm1", brand:"Sơn Pacamara", ten:"Fruit Mood — Cold Brew 250g", nhom:"hat", gia:245000, gram:250,
+    slug:"son-pacamara-fruit-mood-cold-brew",
     tested:false, diem:null, chua:4, dam:3, hau:3, pha:["coldbrew"],
     origin:"Việt Nam", giong:"Arabica", roast:"Light-medium", process:null,
     flavor:"Theo mô tả nhà bán: hợp cold brew, vị trái cây.",

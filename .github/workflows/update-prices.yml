@@ -33,12 +33,16 @@ jobs:
         id: run
         run: node scripts/update-prices.mjs
 
+      - name: Sinh lại trang review + sitemap theo giá mới
+        if: steps.run.outputs.changed != '0'
+        run: node scripts/build-reviews.mjs
+
       - name: Commit nếu giá thay đổi
         if: steps.run.outputs.changed != '0'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/data.js
+          git add data/data.js review sitemap.xml
           if git diff --staged --quiet; then
             echo "Không có thay đổi để commit."
           else
