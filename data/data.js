@@ -5,7 +5,7 @@ const SITE = {
   domain: "gucaphe.vn",
   // Dán GA4 Measurement ID (dạng G-XXXXXXX) vào đây để tự bật đo lường funnel.
   // Để trống "" thì không có analytics nào chạy — trang vẫn hoạt động bình thường.
-  ga4: ""
+  ga4: "G-4RR9SDJ34E"
 };
 
 const QUY_TRINH = [
