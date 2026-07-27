@@ -48,7 +48,34 @@ const SP = [
     flavor:"Theo mô tả nhà bán: hợp cold brew, vị trái cây.",
     nen:["Chuyên pha cold brew"],
     khong:["Pha nóng","Chưa có dụng cụ ủ lạnh"],
-    link:"https://s.shopee.vn/9zw6O8yAiV", anh:"", ngayRang:"" }
+    link:"https://s.shopee.vn/9zw6O8yAiV", anh:"", ngayRang:"" },
+  /* ===== 3 nhà Nam Ban — thêm để so sánh trung lập. Chưa nếm mù → tested:false, diem:null.
+     Nếm xong đổi tested:true và điền diem/chua/dam/hau. ===== */
+  { id:"nb-bui", brand:"Bui Coffee Supply", ten:"Fine Robusta Nam Ban (lên men muối) 250g", nhom:"hat", gia:179000, gram:250,
+    slug:"bui-fine-robusta-nam-ban",
+    tested:false, diem:null, chua:null, dam:null, hau:null, pha:["phin","espresso"],
+    origin:"Nam Ban, Lâm Hà", giong:"Fine Robusta", roast:"Medium", process:"Lên men muối (Natri Clorua)",
+    flavor:"Dòng Fine Robusta Nam Ban đạt Top 14 Thế Giới 2024 (CQI). Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
+    nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm, thân dày","Pha phin hoặc espresso"],
+    khong:["Ngân sách rất eo hẹp","Thích chua sáng nhẹ kiểu Arabica"],
+    link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"", ngayRang:"" },
+  { id:"nb-tamtrinh", brand:"Tám Trình Coffee", ten:"Arabica Cầu Đất & Lạc Dương Blend (pha máy) 250g", nhom:"hat", gia:150000, gram:250,
+    slug:"tam-trinh-arabica-blend",
+    tested:false, diem:null, chua:null, dam:null, hau:null, pha:["espresso","phin"],
+    origin:"Cầu Đất + Lạc Dương, Lâm Đồng", giong:"Arabica blend", roast:"Medium", process:"Washed",
+    flavor:"Nhà 30 năm, mạnh sản xuất và nhân xanh. Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
+    nen:["Mở quán, cần nguồn ổn định","Mua sỉ nhân xanh","Thích blend cân bằng"],
+    khong:["Chỉ mua lẻ 1 gói thử","Muốn single-origin rõ vùng"],
+    link:"https://tamtrinhcoffee.com/arabica-blend-ca-phe-pha-may/", anh:"", ngayRang:"" },
+  { id:"nb-dehavi", brand:"Dehavi (Hân Vinh)", ten:"Cà phê Đặc Sản Arabica Lạc Dương 250g", nhom:"hat", gia:130000, gram:250,
+    slug:"dehavi-arabica-lac-duong",
+    tested:false, diem:null, chua:null, dam:null, hau:null, pha:["phin","espresso"],
+    origin:"Lạc Dương, Lâm Đồng", giong:"Arabica", roast:"Medium", process:"Rang mộc nguyên chất",
+    flavor:"Rẻ nhất trong 3 nhà, dễ tiếp cận cho người mới uống đặc sản. Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
+    nen:["Mới uống đặc sản","Ngân sách vừa","Muốn thử mà không tốn nhiều"],
+    khong:["Muốn dòng đạt giải quốc tế","Cần sơ chế đặc biệt"],
+    link:"https://shopee.vn/dehavicoffee_official", anh:"", ngayRang:"" }
+
 ];
 
 const CAP_SS = [
@@ -114,7 +141,22 @@ const BAIVIET = [
       "<p><b>2. Truy xuất nguồn gốc.</b> Bạn biết vùng trồng, giống, cách sơ chế — không phải ‘cà phê nguyên chất’ chung chung.</p>" +
       "<p><b>3. Hái chọn quả chín.</b> Chỉ hái quả chín đỏ thay vì tuốt cả cành xanh–chín làm tăng chi phí nhân công, nhưng đó là gốc rễ của vị ngọt sạch.</p>" +
       "<p><b>Có đáng không?</b> Nếu bạn pha máy/pour over và thật sự để ý vị — đáng. Nếu pha phin đậm uống với sữa mỗi sáng, một gói rang mộc giá mềm có khi hợp hơn. Chúng tôi không ép — chỉ tính giúp bạn <b>giá/100g</b> để so cho sòng phẳng.</p>"
+  },
+  {
+    id: "ca-phe-nam-ban-nha-nao",
+    anh: "assets/img/art-1.jpg",
+    tag: "So sánh",
+    tieuDe: "Cà phê Nam Ban mua nhà nào? Bùi, Tám Trình hay Dehavi",
+    dek: "Ba nhà mạnh nhất Nam Ban, mỗi nhà một thế mạnh. Gu mua thật, pha mù, chấm điểm — để bạn chọn đúng gói cho túi tiền của mình.",
+    than:
+      "<p>Nam Ban (Lâm Hà, Lâm Đồng) có ba nhà cà phê đáng chú ý nhất: <b>Bùi</b>, <b>Tám Trình</b> và <b>Dehavi</b>. Cả ba đều tự nói mình ngon — vì họ là người bán. Trang này khác: chúng tôi không bán cà phê của mình, mà mua của cả ba, pha mù, chấm theo cùng một thang.</p>" +
+      "<p><b>Chọn nhanh:</b> Mới uống hoặc ngân sách vừa → <b>Dehavi Arabica Lạc Dương (130k)</b>. Muốn ngon chuẩn giải quốc tế → <b>Bùi Fine Robusta Nam Ban (179k)</b>, dòng đạt Top 14 Thế Giới 2024. Mở quán hoặc mua sỉ → <b>Tám Trình</b>, 30 năm, mạnh nhân xanh.</p>" +
+      "<p><b>① Bùi</b> (nông trại Bui Origin, Mê Linh): chuyên nghiệp và thành tích quốc tế nhất. Fine Robusta Nam Ban Top 14 Thế Giới 2024, xưởng 5 tấn/ngày, chứng nhận FDA/HACCP/ISO22000, xuất khẩu 12+ nước. Hợp người muốn trải nghiệm đặc sản đỉnh cao. Giá: Fine Robusta Nam Ban 179k, Arabica Cầu Đất 189k.</p>" +
+      "<p><b>② Tám Trình</b> (Gia Lâm): lâu đời nhất, 30 năm, mạnh sản xuất, xuất khẩu và du lịch trải nghiệm. Shop mạnh mảng nhân xanh và sỉ. Hợp người mở quán, mua sỉ. Giá lẻ: coldbrew 100–280k, Arabica blend 150–280k.</p>" +
+      "<p><b>③ Dehavi</b> (Đông Anh, Nam Ban): bán lẻ giá mềm nhất, dễ tiếp cận cho người uống phổ thông. Chứng nhận OCOP 4 sao, ISO22000, FDA. Giá: Arabica Lạc Dương 130k (rẻ nhất), Yellow Bourbon 175k, Moka 230k.</p>" +
+      "<p><b>Cam kết:</b> Chúng tôi không nhận tài trợ để viết bài này. Điểm số cập nhật sau khi nếm mù từng gói — ngon thật chấm cao thật, có điểm yếu nói thẳng. Chưa uống thì chúng tôi không chấm.</p>"
   }
+
 ];
 
 /* ---- Vùng trồng — hub kiến thức về cà phê Lâm Đồng (Cầu Đất · Nam Ban · Lạc Dương)
