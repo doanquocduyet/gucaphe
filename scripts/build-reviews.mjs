@@ -3,8 +3,10 @@
    ============================================================
    Đọc data/data.js → tạo:
      • /review/<slug>.html       cho mỗi sản phẩm (từ mảng SP)
+     • /roaster/<slug>.html      cho mỗi nhà rang (từ mảng ROASTER)
      • /vung-trong/<slug>.html   cho mỗi vùng trồng (từ mảng VUNG)
-     • sitemap.xml               (trang chủ + review + vùng trồng)
+     • sitemap.xml               (trang chủ + review + nhà rang + vùng trồng)
+   Liên kết nội bộ: Vùng → Nhà rang → Sản phẩm → Review (và ngược lại).
    Nội dung "nướng" tĩnh vào HTML (không phụ thuộc JS) — để Google VÀ
    trình thu thập AI (ChatGPT, Perplexity) đọc được ngay, không cần render.
 
@@ -20,17 +22,22 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260733';
+const CSS_V = '20260734';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP, VUNG = [] } = loadData(raw);
+const { SITE, SP, VUNG = [], ROASTER = [] } = loadData(raw);
+const SP_BY_ID = {}; SP.forEach(p => { SP_BY_ID[p.id] = p; });
+const VUNG_BY_SLUG = {}; VUNG.forEach(v => { VUNG_BY_SLUG[v.slug] = v; });
+// Nối ngược sản phẩm → nhà rang (product id có trong roaster.sanPham)
+const ROASTER_BY_PID = {};
+ROASTER.forEach(r => (r.sanPham || []).forEach(id => { ROASTER_BY_PID[id] = r; }));
 
 /* ---- Helpers ---- */
 const money  = n => Number(n).toLocaleString('vi-VN') + '₫';
@@ -44,7 +51,7 @@ const ROAST_BG = {
 };
 const PHA_TEN = { phin:'Phin', v60:'V60 / Pour over', espresso:'Espresso', coldbrew:'Cold brew' };
 
-const cuesOf = p => [p.origin, p.giong, p.process, p.roast ? 'Rang ' + p.roast.toLowerCase() : null]
+const cuesOf = p => [p.xaHuyen, p.giong, p.doCao, p.process, p.roast ? 'Rang ' + p.roast.toLowerCase() : null]
   .filter(Boolean);
 
 /* ---- Thanh số đo ---- */
@@ -161,6 +168,16 @@ function related(p) {
     </section>`;
 }
 
+/* ---- Liên kết chéo: review → nhà rang + vùng ---- */
+function crossLinks(p) {
+  const r = ROASTER_BY_PID[p.id];
+  const v = VUNG_BY_SLUG[p.vungSlug];
+  const bits = [];
+  if (r) bits.push(`<a href="/roaster/${r.slug}">Nhà rang: <b>${esc(r.ten)}</b></a>`);
+  if (v) bits.push(`<a href="/vung-trong/${v.slug}">Vùng: <b>${esc(v.ten)}</b></a>`);
+  return bits.length ? `<div class="rp-xlinks">${bits.join('')}</div>` : '';
+}
+
 /* ---- Trang review đầy đủ ---- */
 function page(p) {
   const url = `${ORIGIN}/review/${p.slug}`;
@@ -212,6 +229,8 @@ ${schema(p)}
       <li><a href="/#pick">Lựa chọn tháng này</a></li>
       <li><a href="/#matrix">Bảng tuyển chọn</a></li>
       <li><a href="/#reviews">Sổ nếm</a></li>
+      <li><a href="/#nharang">Nhà rang</a></li>
+      <li><a href="/#vungtrong">Vùng trồng</a></li>
       <li><a href="/#method" class="learn">Cách test</a></li>
     </ul>
   </div>
@@ -226,9 +245,10 @@ ${schema(p)}
     ${media(p)}
     <div class="rp-hero-body">
       <div class="eyebrow">Review · ${tested ? 'Đã nếm mù' : 'Chưa nếm'}</div>
-      <div class="rp-brand">${esc(p.brand)}</div>
+      <div class="rp-brand">${ROASTER_BY_PID[p.id] ? `<a href="/roaster/${ROASTER_BY_PID[p.id].slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
       <h1>${esc(p.ten)}</h1>
       ${cuesOf(p).length ? `<div class="cues">${cuesOf(p).map(esc).join('<i>·</i>')}</div>` : ''}
+      ${crossLinks(p)}
       <div class="rp-verdict">${verdict(p)}</div>
       <div class="rp-buy">
         <div class="rp-price-row">
@@ -299,8 +319,24 @@ function isoDate(dmy) {
   return m ? `${m[3]}-${m[2]}-${m[1]}` : '2026-07-13';
 }
 
+// Sản phẩm thuộc vùng: khớp vungSlug. Hub (Lâm Đồng) gom mọi tiểu vùng.
 function regionProducts(v) {
-  return SP.filter(p => (v.diaDanh || []).some(d => (p.origin || '').includes(d)));
+  if (v.hub) {
+    const subs = VUNG.filter(x => !x.hub).map(x => x.slug);
+    return SP.filter(p => subs.includes(p.vungSlug));
+  }
+  return SP.filter(p => p.vungSlug === v.slug);
+}
+// Nhà rang có vùng nguyên liệu chính là vùng này (hub gom hết).
+function regionRoasters(v) {
+  if (v.hub) return ROASTER.slice();
+  return ROASTER.filter(r => r.vungSlug === v.slug);
+}
+// Điểm trung bình nhà rang — chỉ tính gói đã nếm.
+function roasterAvg(r) {
+  const t = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(p => p && p.tested && p.diem != null);
+  if (!t.length) return null;
+  return { avg: Math.round(t.reduce((s, p) => s + p.diem, 0) / t.length * 10) / 10, n: t.length };
 }
 
 function prodCard(p) {
@@ -327,6 +363,7 @@ function prodCard(p) {
 function regionPage(v) {
   const url = `${ORIGIN}/vung-trong/${v.slug}`;
   const prods = regionProducts(v);
+  const roasters = regionRoasters(v);
   const title = `Cà phê ${v.ten} — đặc điểm, hương vị & gói đáng mua | Gu Cà Phê`;
   const desc = `Cà phê ${v.ten} (${v.tinh}): ${v.tagline} Độ cao ${v.doCao}, giống ${v.giong}. ${v.vi}`;
   const facts = [
@@ -398,6 +435,7 @@ function regionPage(v) {
       <li><a href="/#pick">Lựa chọn tháng này</a></li>
       <li><a href="/#matrix">Bảng tuyển chọn</a></li>
       <li><a href="/#reviews">Sổ nếm</a></li>
+      <li><a href="/#nharang">Nhà rang</a></li>
       <li><a href="/#vungtrong">Vùng trồng</a></li>
       <li><a href="/#method" class="learn">Cách test</a></li>
     </ul>
@@ -438,6 +476,22 @@ function regionPage(v) {
         </div>`}
   </section>
 
+  ${roasters.length ? `
+  <section class="rp-related">
+    <h2>Nhà rang trong vùng</h2>
+    <div class="rp-rel-grid">
+      ${roasters.map(r => {
+        const a = roasterAvg(r);
+        return `
+      <a class="rp-rel" href="/roaster/${r.slug}">
+        <div class="rp-rel-brand">Nhà rang</div>
+        <div class="rp-rel-name">${esc(r.ten)}</div>
+        <div class="rp-rel-meta">${a ? `<b>${a.avg}/10</b>` : '<span class="rp-ut">Chưa nếm</span>'}</div>
+      </a>`;
+      }).join('')}
+    </div>
+  </section>` : ''}
+
   ${others.length ? `
   <section class="rp-related">
     <h2>Vùng trồng khác</h2>
@@ -474,6 +528,158 @@ function regionPage(v) {
 `;
 }
 
+/* ============================================================
+   TRANG NHÀ RANG (/roaster/<slug>) — Vùng → Nhà rang → Sản phẩm → Review
+   ============================================================ */
+function roasterPage(r) {
+  const url = `${ORIGIN}/roaster/${r.slug}`;
+  const prods = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean);
+  const a = roasterAvg(r);
+  const vung = VUNG_BY_SLUG[r.vungSlug];
+  const title = `${r.ten} — hồ sơ nhà rang, sản phẩm & điểm nếm mù | Gu Cà Phê`;
+  const desc = `${r.ten}: ${r.gioiThieu} Vùng nguyên liệu ${r.vungChinh}.${a ? ` Điểm ${a.avg}/10 (${a.n} gói đã nếm) trên Gu.` : ''}`;
+  const ga = (SITE.ga4 || '').trim();
+
+  const org = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: r.ten,
+    description: r.gioiThieu,
+    url,
+    areaServed: r.vungChinh
+  };
+  if (r.web) org.sameAs = [r.web];
+  if (a) org.aggregateRating = {
+    '@type': 'AggregateRating', ratingValue: a.avg, bestRating: 10, worstRating: 0, ratingCount: a.n
+  };
+  const crumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Gu Cà Phê', item: `${ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: 'Nhà rang', item: `${ORIGIN}/#nharang` },
+      { '@type': 'ListItem', position: 3, name: r.ten }
+    ]
+  };
+  const others = ROASTER.filter(x => x.slug !== r.slug).slice(0, 3);
+
+  return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${url}">
+<meta property="og:locale" content="vi_VN">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">${JSON.stringify(org)}</script>
+<script type="application/ld+json">${JSON.stringify(crumb)}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script>
+(function(){
+  var GA=${JSON.stringify(ga)};
+  window.dataLayer=window.dataLayer||[];
+  window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
+  if(GA){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA;document.head.appendChild(s);
+    window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',GA,{anonymize_ip:true});}
+})();
+</script>
+</head>
+<body class="rp-body">
+
+<nav>
+  <div class="wrap nav-in">
+    <a id="logo" href="/">GU CÀ PHÊ</a>
+    <ul class="nav-links">
+      <li><a href="/#pick">Lựa chọn tháng này</a></li>
+      <li><a href="/#matrix">Bảng tuyển chọn</a></li>
+      <li><a href="/#nharang">Nhà rang</a></li>
+      <li><a href="/#vungtrong">Vùng trồng</a></li>
+      <li><a href="/#method" class="learn">Cách test</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="rp wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb">
+    <a href="/">Gu Cà Phê</a><i>/</i><a href="/#nharang">Nhà rang</a><i>/</i><span>${esc(r.ten)}</span>
+  </nav>
+
+  <header class="vg-hero">
+    <div class="eyebrow">Nhà rang${vung ? ` · ${esc(vung.ten)}` : ''}</div>
+    <h1>${esc(r.ten)}</h1>
+    <p class="vg-hero-tag">${esc(r.gioiThieu)}</p>
+    <div class="vg-facts">
+      <div class="vg-fact"><span>Vùng nguyên liệu</span><b>${vung ? `<a href="/vung-trong/${vung.slug}">${esc(r.vungChinh)}</a>` : esc(r.vungChinh)}</b></div>
+      <div class="vg-fact"><span>Điểm trên Gu</span><b>${a ? `${a.avg}/10 · ${a.n} gói đã nếm` : 'Chưa nếm'}</b></div>
+      <div class="vg-fact"><span>Website</span><b>${r.web ? `<a href="${esc(r.web)}" target="_blank" rel="nofollow noopener">Trang chính thức ↗</a>` : 'đang cập nhật'}</b></div>
+    </div>
+  </header>
+
+  <article class="rp-article vg-article">
+    <p>${esc(r.gioiThieu)}</p>
+    ${r.lichSu ? `<p><b>Lịch sử:</b> ${esc(r.lichSu)}</p>` : `<p><i>Hồ sơ chi tiết về ${esc(r.ten)} đang được Gu biên soạn.</i></p>`}
+  </article>
+
+  <section class="vg-prods">
+    <h2>Sản phẩm trên Gu Cà Phê</h2>
+    ${prods.length
+      ? prods.map(prodCard).join('')
+      : `<div class="vg-empty">
+          <p>Gu <b>chưa mua & nếm mù</b> gói nào của ${esc(r.ten)}. Đúng nguyên tắc: chưa thử thì không chấm, không gợi ý.</p>
+          <div class="vg-empty-cta">
+            ${vung ? `<a class="cta" href="/vung-trong/${vung.slug}">Xem vùng ${esc(vung.ten)} →</a>` : ''}
+            <a class="cta-line" href="/#pick">Để chúng tôi chọn theo gu bạn</a>
+          </div>
+        </div>`}
+  </section>
+
+  ${others.length ? `
+  <section class="rp-related">
+    <h2>Nhà rang khác</h2>
+    <div class="rp-rel-grid">
+      ${others.map(o => `
+      <a class="rp-rel" href="/roaster/${o.slug}">
+        <div class="rp-rel-brand">Nhà rang</div>
+        <div class="rp-rel-name">${esc(o.ten)}</div>
+        <div class="rp-rel-meta">${esc(o.vungChinh)}</div>
+      </a>`).join('')}
+    </div>
+  </section>` : ''}
+
+  <a class="rp-home" href="/">← Về trang chủ Gu Cà Phê</a>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div id="tagline">${esc(SITE.tagline)}</div>
+    <div>
+      <a href="/#pick">Lựa chọn tháng này</a>
+      <a href="/#nharang">Nhà rang</a>
+      <a href="/#vungtrong">Vùng trồng</a>
+      <a href="/#method">Cách chúng tôi test</a>
+    </div>
+    <p class="foot-legal">Chúng tôi mua mọi sản phẩm bằng tiền của mình và nếm mù.
+    Link trên trang là link tiếp thị liên kết — bạn không trả thêm đồng nào,
+    và link có ở cả sản phẩm chúng tôi khuyên cân nhắc. Gói nào chưa nếm, trang ghi rõ.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+`;
+}
+
 /* ---- Ghi file ---- */
 mkdirSync(join(ROOT, 'review'), { recursive: true });
 const urls = [];
@@ -494,7 +700,17 @@ for (const v of VUNG) {
   console.log(`✓ vung-trong/${v.slug}.html`);
 }
 
-/* ---- Cập nhật sitemap.xml (trang chủ + review + vùng trồng) ---- */
+/* ---- Ghi trang nhà rang ---- */
+if (ROASTER.length) mkdirSync(join(ROOT, 'roaster'), { recursive: true });
+const roasterUrls = [];
+for (const r of ROASTER) {
+  if (!r.slug) { console.warn(`⚠️  Bỏ qua nhà rang thiếu slug`); continue; }
+  writeFileSync(join(ROOT, 'roaster', `${r.slug}.html`), roasterPage(r), 'utf8');
+  roasterUrls.push(`${ORIGIN}/roaster/${r.slug}`);
+  console.log(`✓ roaster/${r.slug}.html`);
+}
+
+/* ---- Cập nhật sitemap.xml (trang chủ + review + nhà rang + vùng trồng) ---- */
 const lastmod = isoDate(SITE.capNhat);
 const entry = (u, pri) => `  <url>
     <loc>${u}</loc>
@@ -511,10 +727,11 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>1.0</priority>
   </url>
 ${urls.map(u => entry(u, '0.8')).join('\n')}
+${roasterUrls.map(u => entry(u, '0.7')).join('\n')}
 ${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 </urlset>
 `;
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
-const total = urls.length + regionUrls.length + 1;
+const total = urls.length + roasterUrls.length + regionUrls.length + 1;
 console.log(`✓ sitemap.xml (${total} URL)`);
-console.log(`\nXong. ${urls.length} trang review · ${regionUrls.length} trang vùng trồng.`);
+console.log(`\nXong. ${urls.length} review · ${roasterUrls.length} nhà rang · ${regionUrls.length} vùng trồng.`);

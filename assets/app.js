@@ -65,7 +65,7 @@ const nhan = p => p.tested
 
 /* ---- Expert cues: vùng · giống · sơ chế · rang — tín hiệu chuyên môn ---- */
 const cues = p => {
-  const bits = [p.origin, p.giong, p.process, p.roast ? 'Rang ' + p.roast.toLowerCase() : null]
+  const bits = [p.xaHuyen, p.giong, p.process, p.roast ? 'Rang ' + p.roast.toLowerCase() : null]
     .filter(Boolean);
   return bits.length ? `<div class="cues">${bits.join('<i>·</i>')}</div>` : '';
 };
@@ -447,6 +447,37 @@ function renderVung() {
     </div>`;
 }
 
+/* ============ NHÀ RANG — 6 nhà cà phê xịn nhất Lâm Đồng ============ */
+function roasterUrl(r) { return `/roaster/${r.slug}`; }
+function roasterAvg(r) {
+  const t = (r.sanPham || []).map(id => get(id)).filter(p => p && p.tested && p.diem != null);
+  if (!t.length) return null;
+  return Math.round(t.reduce((s, p) => s + p.diem, 0) / t.length * 10) / 10;
+}
+function renderRoaster() {
+  if (typeof ROASTER === 'undefined' || !ROASTER.length) return;
+  $('#nharang').innerHTML = `
+    <div class="eyebrow">Nhà rang</div>
+    <h2>6 nhà cà phê xịn nhất Lâm Đồng.</h2>
+    <p class="lead">Chúng tôi không dàn trải. Chọn ra 6 nhà đại diện cho các vùng nguyên liệu —
+    mỗi nhà một hồ sơ: vùng, sản phẩm đã nếm, điểm và link chính thức.</p>
+    <div class="vg-grid">
+      ${ROASTER.map(r => {
+        const avg = roasterAvg(r);
+        return `
+      <a class="vg-card" href="${roasterUrl(r)}">
+        <div class="vg-card-top">
+          <div class="vg-card-name">${r.ten}</div>
+          ${avg != null ? `<span class="vg-badge">${avg}/10</span>` : ''}
+        </div>
+        <div class="vg-card-tag">${r.gioiThieu}</div>
+        <div class="vg-card-meta">Vùng: ${r.vungChinh}</div>
+        <span class="vg-card-go">Xem hồ sơ →</span>
+      </a>`;
+      }).join('')}
+    </div>`;
+}
+
 /* ============ 5 · KIẾN THỨC ============ */
 function renderKienThuc() {
   if (typeof BAIVIET === 'undefined' || !BAIVIET.length) return;
@@ -504,7 +535,7 @@ function renderMethod() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderVung(); renderKienThuc(); renderMethod();
+  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderRoaster(); renderVung(); renderKienThuc(); renderMethod();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {

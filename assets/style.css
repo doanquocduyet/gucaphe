@@ -614,3 +614,12 @@ footer a:hover{border-color:#C9A876}
   .vg-prod-foot{flex-direction:column;align-items:flex-start;gap:14px}
   .vg-empty-cta{gap:16px}
 }
+
+/* Liên kết chéo trên trang review: nhà rang + vùng */
+.rp-brand a{color:var(--brown);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+.rp-brand a:hover{border-color:var(--brown)}
+.rp-xlinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin:10px 0 4px;
+  font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.rp-xlinks a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:.15s}
+.rp-xlinks a:hover{color:var(--brown);border-color:var(--brown)}
+.rp-xlinks b{font-weight:700;color:var(--ink)}
