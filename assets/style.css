@@ -679,6 +679,36 @@ footer a:hover{border-color:#C9A876}
 .rc-tbl tbody td:first-child a{font-weight:800;color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;transition:.15s}
 .rc-tbl tbody td:first-child a:hover{border-color:var(--brown);color:var(--brown-deep)}
 
+/* --- Gu Verdict (trang hồ sơ nhà rang) --- */
+.gv{margin:30px 0 8px;padding:30px 32px;background:var(--cream);border:1px solid var(--line);
+  border-left:4px solid var(--brown);border-radius:16px}
+.gv-kick{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brown)}
+.gv-line{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:19px;line-height:1.5;
+  letter-spacing:-.01em;color:var(--ink);margin:10px 0 22px;max-width:66ch}
+.gv-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.gv-col{padding:20px 22px;border-radius:14px;border:1px solid var(--line)}
+.gv--yes{background:rgba(122,84,51,.05);border-color:rgba(122,84,51,.22)}
+.gv--no{background:var(--paper-2)}
+.gv-cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:13px}
+.gv--yes .gv-cap{color:var(--brown)}
+.gv--no .gv-cap{color:var(--ink-dim)}
+.gv-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.gv-col li{position:relative;padding-left:24px;font-size:15px;color:var(--ink-soft);line-height:1.45}
+.gv--yes li::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:800}
+.gv--no li::before{content:'~';position:absolute;left:0;color:var(--ink-dim);font-weight:800}
+.gv-conf{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.gv-conf-i{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.02em;
+  padding:5px 11px;border-radius:20px}
+.gv-conf-i.is-on{color:var(--brown-deep);background:rgba(122,84,51,.1)}
+.gv-conf-i.is-off{color:var(--ink-dim);background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--line)}
+.rp-cred-line{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-soft)}
+.rp-cred-line b{color:var(--ink)}
+.rp-cred-line a{color:var(--brown)}
+@media(max-width:720px){.gv{padding:24px 22px}.gv-cols{grid-template-columns:1fr}}
+
 /* --- Trang vùng trồng --- */
 .vg-hero{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:10px}
 .vg-hero.has-img{padding-top:22px}

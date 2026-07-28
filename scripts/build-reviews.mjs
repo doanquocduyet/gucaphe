@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260766';
+const CSS_V = '20260767';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -747,6 +747,18 @@ ${siteFooter()}
 /* ============================================================
    TRANG NHÀ RANG (/nha-rang/<slug>) — Vùng → Nhà rang → Sản phẩm → Review
    ============================================================ */
+/* ---- Mức giá tương đối giữa các nhà rang (từ giá/100g gói chính) ---- */
+const ROASTER_PER100 = ROASTER.map(r => {
+  const p = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean)[0];
+  return { slug: r.slug, v: p ? (per100(p) || 0) : 0 };
+}).filter(x => x.v > 0).sort((a, b) => a.v - b.v);
+function priceTier(r) {
+  const idx = ROASTER_PER100.findIndex(x => x.slug === r.slug);
+  if (idx < 0) return '';
+  const third = Math.ceil(ROASTER_PER100.length / 3);
+  return idx < third ? '$' : (idx < third * 2 ? '$$' : '$$$');
+}
+
 function roasterPage(r) {
   const url = `${ORIGIN}/nha-rang/${r.slug}`;
   const prods = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean);
@@ -778,6 +790,13 @@ function roasterPage(r) {
     ]
   };
   const others = ROASTER.filter(x => x.slug !== r.slug).slice(0, 3);
+  const tier = priceTier(r);
+  const scored = prods.some(p => p.tested && p.diem != null);
+  const faqSchema = (r.faq && r.faq.length) ? {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: r.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  } : null;
+  const conf = [['Đã mua', true], ['Đã uống', true], ['Đã tìm hiểu', true], ['Đã chấm mù', scored]];
 
   return `<!DOCTYPE html>
 <html lang="vi">
@@ -797,6 +816,7 @@ function roasterPage(r) {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">${JSON.stringify(org)}</script>
 <script type="application/ld+json">${JSON.stringify(crumb)}</script>
+${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -822,22 +842,26 @@ ${siteNav('nharang')}
   <header class="vg-hero">
     <div class="eyebrow">Nhà rang${vung ? ` · ${esc(vung.ten)}` : ''}</div>
     <h1>${esc(r.ten)}</h1>
-    <p class="vg-hero-tag">${esc(r.gioiThieu)}</p>
+    <p class="vg-hero-tag">${esc(r.motCau || r.gioiThieu)}</p>
     <div class="vg-facts">
       <div class="vg-fact"><span>Vùng nguyên liệu</span><b>${vung ? `<a href="/vung-trong/${vung.slug}">${esc(r.vungChinh)}</a>` : esc(r.vungChinh)}</b></div>
+      ${r.hopAi ? `<div class="vg-fact"><span>Phù hợp</span><b>${esc(r.hopAi)}</b></div>` : ''}
+      ${tier ? `<div class="vg-fact"><span>Mức giá</span><b>${tier}</b></div>` : ''}
       <div class="vg-fact"><span>${a ? 'Điểm trên Gu' : 'Trạng thái'}</span><b>${a ? `${a.avg}/10 · ${a.n} gói đã nếm` : 'Đã uống · chưa chấm mù'}</b></div>
-      ${!a && r.chungNhan ? `<div class="vg-fact"><span>Thành tích</span><b>${esc(r.chungNhan)}</b></div>` : ''}
-      <div class="vg-fact"><span>Website</span><b>${r.web ? `<a href="${esc(r.web)}" target="_blank" rel="nofollow noopener">Trang chính thức ↗</a>` : 'đang cập nhật'}</b></div>
     </div>
   </header>
 
-  <article class="rp-article vg-article">
-    <p class="rp-lead">${esc(r.gioiThieu)}</p>
-    ${r.lichSu ? `<h2 class="rp-sub">Lịch sử &amp; hồ sơ</h2>${r.lichSu}` : `<p><i>Hồ sơ chi tiết về ${esc(r.ten)} đang được Gu biên soạn.</i></p>`}
-  </article>
+  ${r.verdict ? `<section class="gv">
+    <div class="gv-head"><span class="gv-kick">Gu Cà Phê nhận xét</span><p class="gv-line">${esc(r.verdict)}</p></div>
+    <div class="gv-cols">
+      ${(r.hopNhat && r.hopNhat.length) ? `<div class="gv-col gv--yes"><div class="gv-cap">Nên chọn nếu bạn</div><ul>${r.hopNhat.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+      ${(r.khongHop && r.khongHop.length) ? `<div class="gv-col gv--no"><div class="gv-cap">Cân nhắc nếu bạn</div><ul>${r.khongHop.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+    </div>
+    <div class="gv-conf">${conf.map(([k, ok]) => `<span class="gv-conf-i ${ok ? 'is-on' : 'is-off'}">${ok ? '✓' : '—'} ${k}</span>`).join('')}</div>
+  </section>` : ''}
 
   <section class="vg-prods">
-    <h2>Sản phẩm trên Gu Cà Phê</h2>
+    <h2 class="rg-h">Sản phẩm Gu đã mua</h2>
     ${prods.length
       ? `<div class="pc-grid">${prods.map(p => pcard(p)).join('')}</div>`
       : `<div class="vg-empty">
@@ -849,15 +873,32 @@ ${siteNav('nharang')}
         </div>`}
   </section>
 
+  ${(r.diemManh || r.diemCanBiet) ? `<section class="rg-fit">
+    <h2 class="rg-h">Vì sao Gu chọn ${esc(r.ten)}?</h2>
+    <div class="rg-fit-cols">
+      ${(r.diemManh && r.diemManh.length) ? `<div class="rg-fit-col rg-fit--yes"><div class="rg-fit-cap">Điểm mạnh</div><ul>${r.diemManh.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+      ${(r.diemCanBiet && r.diemCanBiet.length) ? `<div class="rg-fit-col rg-fit--no"><div class="rg-fit-cap">Điểm cần biết</div><ul>${r.diemCanBiet.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+    </div>
+  </section>` : ''}
+
+  <article class="rp-article vg-article">
+    ${r.lichSu ? `<h2 class="rp-sub">Hồ sơ &amp; năng lực</h2>${r.lichSu}` : `<p><i>Hồ sơ chi tiết về ${esc(r.ten)} đang được Gu biên soạn.</i></p>`}
+    ${r.chungNhan ? `<p class="rp-cred-line"><b>Chứng nhận / thành tích:</b> ${esc(r.chungNhan)}${r.web ? ` · <a href="${esc(r.web)}" target="_blank" rel="nofollow noopener">Trang chính thức ↗</a>` : ''}</p>` : ''}
+  </article>
+
+  ${(r.faq && r.faq.length) ? `<section class="rg-faq">
+    <h2 class="rg-h">Câu hỏi thường gặp về ${esc(r.ten)}</h2>
+    <dl>${r.faq.map(f => `<div class="rg-faq-item"><dt>${esc(f.q)}</dt><dd>${esc(f.a)}</dd></div>`).join('')}</dl>
+  </section>` : ''}
+
   ${others.length ? `
   <section class="rp-related">
-    <h2>Nhà rang khác</h2>
-    <div class="rp-rel-grid">
-      ${others.map(o => `
-      <a class="rp-rel" href="/nha-rang/${o.slug}">
-        <div class="rp-rel-brand">Nhà rang</div>
-        <div class="rp-rel-name">${esc(o.ten)}</div>
-        <div class="rp-rel-meta">${esc(o.vungChinh)}</div>
+    <h2 class="rg-h">Nếu ${esc(r.ten)} chưa hợp bạn</h2>
+    <div class="rn-grid">
+      ${others.map(o => `<a class="rn" href="/nha-rang/${o.slug}">
+        <span class="rn-need">${esc(o.nhuCau || o.hopAi || '')}</span>
+        <span class="rn-name">${esc(o.ten)}</span>
+        ${o.theManh ? `<span class="rn-manh">${esc(o.theManh)}</span>` : ''}
       </a>`).join('')}
     </div>
   </section>` : ''}
