@@ -172,6 +172,9 @@ const BAIVIET = [
 const VUNG = [
   {
     slug: "lam-dong", ten: "Lâm Đồng", hub: true,
+    anh: "assets/img/regions/da-lat.jpg",
+    banDo: "assets/img/regions/lam-dong-map.png",
+    banDoCaption: "Bản đồ vùng trồng: Lâm Đồng nằm ở lõi cao nguyên — Lạc Dương, Cầu Đất (Arabica) và Lâm Hà, Di Linh (Robusta).",
     diaDanh: ["Lâm Đồng", "Lạc Dương", "Cầu Đất", "Đà Lạt", "Nam Ban", "Lâm Hà", "Di Linh", "Bảo Lộc"],
     tinh: "Tây Nguyên, Việt Nam",
     doCao: "800–1.650m",
@@ -188,6 +191,7 @@ const VUNG = [
   },
   {
     slug: "cau-dat", ten: "Cầu Đất",
+    anh: "assets/img/regions/cau-dat.jpg",
     diaDanh: ["Cầu Đất"],
     tinh: "Xuân Trường, Đà Lạt, Lâm Đồng",
     doCao: "~1.400–1.650m",
@@ -204,6 +208,7 @@ const VUNG = [
   },
   {
     slug: "nam-ban", ten: "Nam Ban",
+    anh: "assets/img/regions/nam-ban.jpg",
     diaDanh: ["Nam Ban", "Lâm Hà"],
     tinh: "Lâm Hà, Lâm Đồng",
     doCao: "thấp hơn Cầu Đất (~800–1.000m)",
@@ -220,6 +225,7 @@ const VUNG = [
   },
   {
     slug: "lac-duong", ten: "Lạc Dương",
+    anh: "assets/img/regions/lac-duong.jpg",
     diaDanh: ["Lạc Dương", "Lang Biang", "Đạ Sar"],
     tinh: "Lạc Dương, Lâm Đồng",
     doCao: "~1.400–1.500m",
@@ -235,6 +241,7 @@ const VUNG = [
   },
   {
     slug: "da-lat", ten: "Đà Lạt (thành phố)",
+    anh: "assets/img/regions/da-lat.jpg",
     diaDanh: ["Đà Lạt", "Trại Mát"],
     tinh: "TP Đà Lạt, Lâm Đồng",
     doCao: "~1.500m",

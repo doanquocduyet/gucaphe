@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260739';
+const CSS_V = '20260740';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -522,12 +522,15 @@ ${siteNav('vung')}
     <a href="/">Gu Cà Phê</a><i>/</i><a href="/vung-trong">Vùng trồng</a><i>/</i><span>Cà phê ${esc(v.ten)}</span>
   </nav>
 
-  <header class="vg-hero">
-    <div class="eyebrow">Vùng trồng · Lâm Đồng</div>
-    <h1>Cà phê ${esc(v.ten)}</h1>
-    <p class="vg-hero-tag">${esc(v.tagline)}</p>
-    <div class="vg-facts">
-      ${facts.map(([k, val]) => `<div class="vg-fact"><span>${esc(k)}</span><b>${esc(val)}</b></div>`).join('')}
+  <header class="vg-hero${v.anh ? ' has-img' : ''}">
+    ${v.anh ? `<div class="vg-hero-media"><img src="/${v.anh}" alt="Cà phê ${esc(v.ten)} — vùng trồng ${esc(v.tinh)}" fetchpriority="high"></div>` : ''}
+    <div class="vg-hero-txt">
+      <div class="eyebrow">Vùng trồng · Lâm Đồng</div>
+      <h1>Cà phê ${esc(v.ten)}</h1>
+      <p class="vg-hero-tag">${esc(v.tagline)}</p>
+      <div class="vg-facts">
+        ${facts.map(([k, val]) => `<div class="vg-fact"><span>${esc(k)}</span><b>${esc(val)}</b></div>`).join('')}
+      </div>
     </div>
   </header>
 
@@ -536,6 +539,11 @@ ${siteNav('vung')}
     ${v.vi ? `<p class="vg-vi"><b>Vị đặc trưng:</b> ${esc(v.vi)}</p>` : ''}
     ${(v.diemNhan && v.diemNhan.length) ? `<ul class="vg-highlights">${v.diemNhan.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
   </article>
+
+  ${v.banDo ? `<figure class="vg-map">
+    <img src="/${v.banDo}" alt="Bản đồ vùng trồng cà phê Lâm Đồng — Lạc Dương, Cầu Đất, Lâm Hà, Di Linh, Đắk Nông" loading="lazy">
+    ${v.banDoCaption ? `<figcaption>${esc(v.banDoCaption)}</figcaption>` : ''}
+  </figure>` : ''}
 
   <section class="vg-prods">
     <h2>Gói từ vùng này</h2>
