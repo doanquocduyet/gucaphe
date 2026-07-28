@@ -3,7 +3,7 @@
    ============================================================
    Đọc data/data.js → tạo:
      • /review/<slug>.html       cho mỗi sản phẩm (từ mảng SP)
-     • /roaster/<slug>.html      cho mỗi nhà rang (từ mảng ROASTER)
+     • /nha-rang/<slug>.html      cho mỗi nhà rang (từ mảng ROASTER)
      • /vung-trong/<slug>.html   cho mỗi vùng trồng (từ mảng VUNG)
      • sitemap.xml               (trang chủ + review + nhà rang + vùng trồng)
    Liên kết nội bộ: Vùng → Nhà rang → Sản phẩm → Review (và ngược lại).
@@ -146,7 +146,7 @@ function itemListSchema(name, items) {
 }
 function roasterCardHTML(r) {
   const a = roasterAvg(r);
-  return `<a class="vg-card" href="/roaster/${r.slug}">
+  return `<a class="vg-card" href="/nha-rang/${r.slug}">
       <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${a ? `<span class="vg-badge">${a.avg}/10</span>` : ''}</div>
       <div class="vg-card-tag">${esc(r.gioiThieu)}</div>
       <div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>
@@ -281,7 +281,7 @@ function crossLinks(p) {
   const r = ROASTER_BY_PID[p.id];
   const v = VUNG_BY_SLUG[p.vungSlug];
   const bits = [];
-  if (r) bits.push(`<a href="/roaster/${r.slug}">Nhà rang: <b>${esc(r.ten)}</b></a>`);
+  if (r) bits.push(`<a href="/nha-rang/${r.slug}">Nhà rang: <b>${esc(r.ten)}</b></a>`);
   if (v) bits.push(`<a href="/vung-trong/${v.slug}">Vùng: <b>${esc(v.ten)}</b></a>`);
   return bits.length ? `<div class="rp-xlinks">${bits.join('')}</div>` : '';
 }
@@ -340,7 +340,7 @@ ${siteNav('caphe')}
     ${media(p)}
     <div class="rp-hero-body">
       <div class="eyebrow">Review · ${tested ? 'Đã nếm mù' : 'Chưa nếm'}</div>
-      <div class="rp-brand">${ROASTER_BY_PID[p.id] ? `<a href="/roaster/${ROASTER_BY_PID[p.id].slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
+      <div class="rp-brand">${ROASTER_BY_PID[p.id] ? `<a href="/nha-rang/${ROASTER_BY_PID[p.id].slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
       <h1>${esc(p.ten)}</h1>
       ${cuesOf(p).length ? `<div class="cues">${cuesOf(p).map(esc).join('<i>·</i>')}</div>` : ''}
       ${crossLinks(p)}
@@ -566,7 +566,7 @@ ${siteNav('vung')}
       ${roasters.map(r => {
         const a = roasterAvg(r);
         return `
-      <a class="rp-rel" href="/roaster/${r.slug}">
+      <a class="rp-rel" href="/nha-rang/${r.slug}">
         <div class="rp-rel-brand">Nhà rang</div>
         <div class="rp-rel-name">${esc(r.ten)}</div>
         <div class="rp-rel-meta">${a ? `<b>${a.avg}/10</b>` : '<span class="rp-ut">Chưa nếm</span>'}</div>
@@ -599,10 +599,10 @@ ${siteFooter()}
 }
 
 /* ============================================================
-   TRANG NHÀ RANG (/roaster/<slug>) — Vùng → Nhà rang → Sản phẩm → Review
+   TRANG NHÀ RANG (/nha-rang/<slug>) — Vùng → Nhà rang → Sản phẩm → Review
    ============================================================ */
 function roasterPage(r) {
-  const url = `${ORIGIN}/roaster/${r.slug}`;
+  const url = `${ORIGIN}/nha-rang/${r.slug}`;
   const prods = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean);
   const a = roasterAvg(r);
   const vung = VUNG_BY_SLUG[r.vungSlug];
@@ -685,8 +685,8 @@ ${siteNav('nharang')}
   </header>
 
   <article class="rp-article vg-article">
-    <p>${esc(r.gioiThieu)}</p>
-    ${r.lichSu ? `<p><b>Lịch sử:</b> ${esc(r.lichSu)}</p>` : `<p><i>Hồ sơ chi tiết về ${esc(r.ten)} đang được Gu biên soạn.</i></p>`}
+    <p class="rp-lead">${esc(r.gioiThieu)}</p>
+    ${r.lichSu ? `<h2 class="rp-sub">Lịch sử &amp; hồ sơ</h2>${r.lichSu}` : `<p><i>Hồ sơ chi tiết về ${esc(r.ten)} đang được Gu biên soạn.</i></p>`}
   </article>
 
   <section class="vg-prods">
@@ -707,7 +707,7 @@ ${siteNav('nharang')}
     <h2>Nhà rang khác</h2>
     <div class="rp-rel-grid">
       ${others.map(o => `
-      <a class="rp-rel" href="/roaster/${o.slug}">
+      <a class="rp-rel" href="/nha-rang/${o.slug}">
         <div class="rp-rel-brand">Nhà rang</div>
         <div class="rp-rel-name">${esc(o.ten)}</div>
         <div class="rp-rel-meta">${esc(o.vungChinh)}</div>
@@ -735,7 +735,7 @@ function hubNhaRang() {
     .concat(ROASTER.filter(r => !VUNG_ORDER.includes(r.vungSlug)));
   const list = ordered.length === ROASTER.length ? ordered : ROASTER;
   const schema = itemListSchema('Nhà rang cà phê đặc sản Lâm Đồng',
-    ROASTER.map(r => ({ url: `${ORIGIN}/roaster/${r.slug}`, name: r.ten })));
+    ROASTER.map(r => ({ url: `${ORIGIN}/nha-rang/${r.slug}`, name: r.ten })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Nhà rang</span></nav>
   <header class="hub-head">
@@ -951,13 +951,13 @@ for (const v of VUNG) {
 }
 
 /* ---- Ghi trang nhà rang ---- */
-if (ROASTER.length) mkdirSync(join(ROOT, 'roaster'), { recursive: true });
+if (ROASTER.length) mkdirSync(join(ROOT, 'nha-rang'), { recursive: true });
 const roasterUrls = [];
 for (const r of ROASTER) {
   if (!r.slug) { console.warn(`⚠️  Bỏ qua nhà rang thiếu slug`); continue; }
-  writeFileSync(join(ROOT, 'roaster', `${r.slug}.html`), roasterPage(r), 'utf8');
-  roasterUrls.push(`${ORIGIN}/roaster/${r.slug}`);
-  console.log(`✓ roaster/${r.slug}.html`);
+  writeFileSync(join(ROOT, 'nha-rang', `${r.slug}.html`), roasterPage(r), 'utf8');
+  roasterUrls.push(`${ORIGIN}/nha-rang/${r.slug}`);
+  console.log(`✓ nha-rang/${r.slug}.html`);
 }
 
 /* ---- Ghi hub pages (trang danh mục / hub theo menu) ---- */

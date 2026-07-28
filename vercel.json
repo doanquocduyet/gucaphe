@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/roaster/:path*", "destination": "/nha-rang/:path*", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/assets/img/(.*)",

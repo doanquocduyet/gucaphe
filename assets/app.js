@@ -104,6 +104,9 @@ function renderTop() {
     <h1>Chưa uống<br>thì không chấm.</h1>
     <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
     Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
+    <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm
+      <span class="hero-sign-note">(Nếm mù = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng)</span>
+    </div>
     <div class="hero-cta-row">
       <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
       <button class="cta-line" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
@@ -474,7 +477,7 @@ function renderHubs() {
 }
 
 /* ============ NHÀ RANG — 6 nhà cà phê xịn nhất Lâm Đồng ============ */
-function roasterUrl(r) { return `/roaster/${r.slug}`; }
+function roasterUrl(r) { return `/nha-rang/${r.slug}`; }
 function roasterAvg(r) {
   const t = (r.sanPham || []).map(id => get(id)).filter(p => p && p.tested && p.diem != null);
   if (!t.length) return null;
