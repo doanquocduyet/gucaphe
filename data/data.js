@@ -297,3 +297,14 @@ const ROASTER = [
     sanPham: ["lv-balanced"], diemTB: null
   }
 ];
+
+/* ---- Gợi ý theo nhu cầu — "Mua cho ai". Mỗi nhóm khách trỏ tới 1 gói (spId).
+   Dùng ở hub /ca-phe để khách quyết định nhanh rồi bấm mua. ---- */
+const NHUCAU = [
+  { label: "Mới uống · tiết kiệm", vi: "Nhập môn đặc sản, không tốn nhiều tiền.", spId: "nb-dehavi" },
+  { label: "Ngon chuẩn giải quốc tế", vi: "Fine Robusta Nam Ban — Top 14 Thế Giới 2024.", spId: "nb-bui" },
+  { label: "Chua sáng · pha V60", vi: "Arabica vùng cao, gói điểm nếm mù cao nhất.", spId: "lb1" },
+  { label: "Mở quán · mua sỉ", vi: "Nguồn ổn định, mạnh nhân xanh và số lượng.", spId: "nb-tamtrinh" },
+  { label: "Cà phê Đà Lạt uống ngày", vi: "Hạt rang pha ngay, cân bằng, dễ uống.", spId: "lv-balanced" },
+  { label: "Tự rang · lô đặc biệt", vi: "Nhân xanh Cầu Đất, sơ chế lên men sâu.", spId: "mb-yellowcherry" }
+];
