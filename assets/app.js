@@ -100,23 +100,30 @@ function renderTop() {
   const nem  = SP.filter(p => p.tested).length;
   const chua = SP.filter(p => !p.tested).length;
   $('#top').innerHTML = `
-    <div class="eyebrow">Gu Cà Phê · Curator cà phê đặc sản Việt Nam</div>
-    <h1>Chưa uống<br>thì không chấm.</h1>
-    <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
-    Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
-    <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm
-      <span class="hero-sign-note">(Nếm mù = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng)</span>
-    </div>
-    <div class="hero-cta-row">
-      <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
-      <button class="cta-line" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
-    </div>
-    <div class="proof">
-      <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
-      <div class="proof-i"><b>${chua}</b><span>Đang chờ nếm</span></div>
-      <div class="proof-i"><b>0</b><span>Bài tài trợ</span></div>
-    </div>
-    <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>`;
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="eyebrow">Gu Cà Phê · Curator cà phê đặc sản Việt Nam</div>
+        <h1>Chưa uống<br>thì không chấm.</h1>
+        <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
+        Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
+        <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm
+          <span class="hero-sign-note">(Nếm mù = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng)</span>
+        </div>
+        <div class="hero-cta-row">
+          <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
+          <button class="cta-line" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
+        </div>
+        <div class="proof">
+          <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
+          <div class="proof-i"><b>${chua}</b><span>Đang chờ nếm</span></div>
+          <div class="proof-i"><b>0</b><span>Bài tài trợ</span></div>
+        </div>
+        <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/img/hero/pour.jpg" alt="Bình pour over cà phê đặc sản Lâm Đồng dưới nắng" fetchpriority="high">
+      </figure>
+    </div>`;
 }
 
 /* ============ 2 · DECISION ENGINE v2 — dẫn dắt, không chỉ trả lời ============
@@ -456,10 +463,10 @@ function renderHubs() {
   const best = SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0];
   const nBai = (typeof BAIVIET !== 'undefined') ? BAIVIET.length : 0;
   const hubs = [
-    { href:'/ca-phe',    k:'Cà phê',     d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:`${SP.length} gói${best ? ` · cao nhất ${best.diem}/10` : ''}`, go:'Xem tất cả →' },
-    { href:'/nha-rang',  k:'Nhà rang',   d:'Hồ sơ 6 nhà cà phê xịn nhất Lâm Đồng, xếp theo vùng nguyên liệu.', m:`${(typeof ROASTER!=='undefined'?ROASTER.length:6)} nhà`, go:'Xem hồ sơ →' },
-    { href:'/vung-trong',k:'Vùng trồng', d:'Cầu Đất · Nam Ban · Lạc Dương · Đà Lạt — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
-    { href:'/kien-thuc', k:'Kiến thức',  d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:`${nBai} bài + từ điển`, go:'Đọc →' }
+    { href:'/ca-phe',    k:'Cà phê',     img:'assets/img/p3-cup.jpg',                 alt:'Bộ mẫu cà phê đặc sản', d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:`${SP.length} gói${best ? ` · cao nhất ${best.diem}/10` : ''}`, go:'Xem tất cả →' },
+    { href:'/nha-rang',  k:'Nhà rang',   img:'assets/img/products/hand-beans.jpg',    alt:'Hạt cà phê vừa rang', d:'Hồ sơ 6 nhà cà phê xịn nhất Lâm Đồng, xếp theo vùng nguyên liệu.', m:`${(typeof ROASTER!=='undefined'?ROASTER.length:6)} nhà`, go:'Xem hồ sơ →' },
+    { href:'/vung-trong',k:'Vùng trồng', img:'assets/img/regions/cau-dat.jpg',        alt:'Quả cà phê chín trên cây', d:'Cầu Đất · Nam Ban · Lạc Dương · Đà Lạt — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
+    { href:'/kien-thuc', k:'Kiến thức',  img:'assets/img/products/beans-tin.jpg',     alt:'Ghi chú nếm thử cà phê', d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:`${nBai} bài + từ điển`, go:'Đọc →' }
   ];
   el.innerHTML = `
     <div class="eyebrow">Khám phá</div>
@@ -468,10 +475,13 @@ function renderHubs() {
     <div class="home-hubs">
       ${hubs.map(h => `
       <a class="home-hub" href="${h.href}">
-        <div class="home-hub-k">${h.k}</div>
-        <div class="home-hub-d">${h.d}</div>
-        <div class="home-hub-meta">${h.m}</div>
-        <span class="home-hub-go">${h.go}</span>
+        <div class="home-hub-img"><img src="${h.img}" alt="${h.alt}" loading="lazy"></div>
+        <div class="home-hub-body">
+          <div class="home-hub-k">${h.k}</div>
+          <div class="home-hub-d">${h.d}</div>
+          <div class="home-hub-meta">${h.m}</div>
+          <span class="home-hub-go">${h.go}</span>
+        </div>
       </a>`).join('')}
     </div>`;
 }
