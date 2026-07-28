@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260747';
+const CSS_V = '20260748';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -42,6 +42,9 @@ ROASTER.forEach(r => (r.sanPham || []).forEach(id => { ROASTER_BY_PID[id] = r; }
 /* ---- Helpers ---- */
 const money  = n => Number(n).toLocaleString('vi-VN') + '₫';
 const per100 = p => p.gram ? Math.round(p.gia / p.gram * 100) : null;
+/* 3 tầng trung thực: đã chấm mù (có điểm) · đã uống (chưa chấm mù) · chưa thử */
+const isScored = p => p.tested && p.diem != null;
+const statusTxt = p => isScored(p) ? `${p.diem}/10` : (p.daUong ? 'Đã uống' : 'Chưa nếm');
 const esc = s => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -93,9 +96,9 @@ function siteFooter() {
       <a href="/kien-thuc">Kiến thức</a>
       <a href="/cach-test">Cách test</a>
     </div>
-    <p class="foot-legal">Chúng tôi mua mọi sản phẩm bằng tiền của mình và nếm mù.
-    Link trên trang là link tiếp thị liên kết — bạn không trả thêm đồng nào,
-    và link có ở cả sản phẩm chúng tôi khuyên cân nhắc. Gói nào chưa nếm, trang ghi rõ.</p>
+    <p class="foot-legal">Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá);
+    gói đã uống nhưng chưa chấm mù thì ghi rõ “Đã uống”, không gắn số. Link trên trang là link tiếp thị liên kết —
+    bạn không trả thêm đồng nào, và link có ở cả sản phẩm chúng tôi khuyên cân nhắc.</p>
   </div>
 </footer>`;
 }
@@ -151,8 +154,10 @@ function itemListSchema(name, items) {
 }
 function roasterCardHTML(r) {
   const a = roasterAvg(r);
+  const badge = a ? `<span class="vg-badge">${a.avg}/10</span>`
+    : (r.chungNhan ? `<span class="vg-badge vg-badge-cred">${esc(r.chungNhan)}</span>` : '');
   return `<a class="vg-card" href="/nha-rang/${r.slug}">
-      <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${a ? `<span class="vg-badge">${a.avg}/10</span>` : ''}</div>
+      <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${badge}</div>
       <div class="vg-card-tag">${esc(r.gioiThieu)}</div>
       <div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>
       <span class="vg-card-go">Xem hồ sơ →</span>
@@ -180,7 +185,9 @@ function verdict(p) {
   const tested = SP.filter(x => x.tested && x.diem != null);
   const top = tested.length ? Math.max(...tested.map(x => x.diem)) : null;
   if (!(p.tested && p.diem != null))
-    return `Gói này chúng tôi <b>chưa nếm mù</b> — thông số lấy từ mô tả nhà bán, chúng tôi ghi rõ để bạn tự cân nhắc chứ không chấm điểm.`;
+    return p.daUong
+      ? `Gói này chúng tôi đã <b>mua và uống thật</b>, thấy ngon — nhưng chưa <b>chấm mù</b> (che nhãn, che giá) theo quy trình, nên chưa gắn điểm số. Không bịa số cho cảm nhận chưa đo lường.`
+      : `Gói này chúng tôi <b>chưa thử</b> — thông số lấy từ mô tả nhà bán, ghi rõ để bạn tự cân nhắc chứ không chấm điểm.`;
   if (p.diem === top && tested.length > 1)
     return `Trong tất cả các gói chúng tôi đã nếm mù, đây là gói <b>điểm cao nhất (${p.diem}/10)</b> — khó thất vọng nhất để bắt đầu.`;
   return `Đã nếm mù, chấm <b>${p.diem}/10</b> — hợp gu, cân bằng, không có điểm trừ đáng kể.`;
@@ -194,7 +201,10 @@ function intro(p) {
       + `Chúng tôi mua ẩn danh bằng tiền của mình, pha cùng một điều kiện với mọi gói khác — cỡ xay medium, tỷ lệ 1:15, nước 92°C — rồi <b>nếm mù</b> (che nhãn) trước khi chấm. `
       + `Kết quả: <b>${p.diem}/10</b>.</p>`;
   }
-  return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b>${c ? ` (${esc(c)})` : ''} hiện <b>chưa được chúng tôi nếm mù</b>, nên trang này <b>không chấm điểm</b>. `
+  if (p.daUong)
+    return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b>${c ? ` (${esc(c)})` : ''} là gói chúng tôi đã <b>mua và uống thật</b>, thấy ngon. `
+      + `Nhưng chúng tôi <b>chưa chấm mù</b> (che nhãn, che giá) theo quy trình, nên trang này <b>chưa gắn điểm số</b> — chỉ nói đúng những gì đã trải nghiệm, không bịa số. Điểm mù sẽ cập nhật sau.</p>`;
+  return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b>${c ? ` (${esc(c)})` : ''} hiện <b>chưa được chúng tôi thử</b>, nên trang này <b>không chấm điểm</b>. `
     + `Thông số bên dưới lấy từ mô tả của nhà bán. Chúng tôi liệt kê để bạn có đủ thông tin cân nhắc, và ghi rõ nhãn “Chưa nếm” — không giả vờ đã thử.</p>`;
 }
 
@@ -275,7 +285,7 @@ function related(p) {
         <a class="rp-rel" href="/review/${o.slug}">
           <div class="rp-rel-brand">${esc(o.brand)}</div>
           <div class="rp-rel-name">${esc(o.ten)}</div>
-          <div class="rp-rel-meta">${o.tested && o.diem != null ? `<b>${o.diem}/10</b>` : '<span class="rp-ut">Chưa nếm</span>'} · ${money(o.gia)}</div>
+          <div class="rp-rel-meta">${o.tested && o.diem != null ? `<b>${o.diem}/10</b>` : `<span class="rp-ut">${o.daUong ? 'Đã uống' : 'Chưa nếm'}</span>`} · ${money(o.gia)}</div>
         </a>`).join('')}
       </div>
     </section>`;
@@ -295,11 +305,13 @@ function crossLinks(p) {
 function page(p) {
   const url = `${ORIGIN}/review/${p.slug}`;
   const tested = p.tested && p.diem != null;
-  const title = `${p.brand} ${p.ten} — Review${tested ? ` & điểm nếm mù ${p.diem}/10` : ' (chưa nếm)'} | Gu Cà Phê`;
+  const title = `${p.brand} ${p.ten} — Review${tested ? ` & điểm nếm mù ${p.diem}/10` : (p.daUong ? ' (đã uống)' : ' (chưa nếm)')} | Gu Cà Phê`;
   const firstSentence = (p.flavor || '').split('.')[0];
   const desc = tested
     ? `${p.brand} ${p.ten}: nếm mù chấm ${p.diem}/10. ${firstSentence}. Giá ${money(p.gia)}${per100(p) ? `, ${money(per100(p))}/100g` : ''}. Review trung lập từ Gu Cà Phê.`
-    : `${p.brand} ${p.ten}: chưa nếm mù nên chưa chấm điểm — thông số từ nhà bán, giá ${money(p.gia)}. Gu Cà Phê ghi rõ gói nào đã test.`;
+    : (p.daUong
+      ? `${p.brand} ${p.ten}: chúng tôi đã mua và uống thật, thấy ngon — chưa chấm mù nên chưa gắn điểm. Giá ${money(p.gia)}${per100(p) ? `, ${money(per100(p))}/100g` : ''}. Review trung thực từ Gu Cà Phê.`
+      : `${p.brand} ${p.ten}: chưa thử nên chưa chấm điểm — thông số từ nhà bán, giá ${money(p.gia)}. Gu Cà Phê ghi rõ gói nào đã test.`);
   const ga = (SITE.ga4 || '').trim();
 
   return `<!DOCTYPE html>
@@ -344,7 +356,7 @@ ${siteNav('caphe')}
   <header class="rp-hero">
     ${media(p)}
     <div class="rp-hero-body">
-      <div class="eyebrow">Review · ${tested ? 'Đã nếm mù' : 'Chưa nếm'}</div>
+      <div class="eyebrow">Review · ${tested ? 'Đã nếm mù' : (p.daUong ? 'Đã uống' : 'Chưa nếm')}</div>
       <div class="rp-brand">${ROASTER_BY_PID[p.id] ? `<a href="/nha-rang/${ROASTER_BY_PID[p.id].slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
       <h1>${esc(p.ten)}</h1>
       ${cuesOf(p).length ? `<div class="cues">${cuesOf(p).map(esc).join('<i>·</i>')}</div>` : ''}
@@ -352,7 +364,8 @@ ${siteNav('caphe')}
       <div class="rp-verdict">${verdict(p)}</div>
       <div class="rp-buy">
         <div class="rp-price-row">
-          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : `<div class="rp-noscore">Chưa chấm điểm</div>`}
+          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : `<div class="rp-noscore">${p.daUong ? 'Đã uống · chưa chấm mù' : 'Chưa chấm điểm'}</div>`}
+          ${!tested && p.chungNhan ? `<div class="rp-cred">${esc(p.chungNhan)}</div>` : ''}
           <div class="rp-price"><b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}</div>
         </div>
         ${buyLink(p)}
@@ -378,7 +391,7 @@ ${siteNav('caphe')}
     </div>
 
     <div class="rp-method">
-      <p><b>Cách chúng tôi test:</b> mua ẩn danh, không nhận hàng tài trợ; pha cùng cỡ xay medium, tỷ lệ 1:15, nước 92°C; nếm mù (che nhãn) rồi mới chấm điểm. Gói nào chưa nếm thì không có điểm — không ngoại lệ. <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
+      <p><b>Cách chúng tôi test:</b> mua ẩn danh, không nhận hàng tài trợ; pha cùng cỡ xay medium, tỷ lệ 1:15, nước 92°C; nếm mù (che nhãn) rồi mới chấm điểm. Gói đã uống nhưng chưa chấm mù thì ghi “Đã uống”, không gắn số — không ngoại lệ. <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
     </div>
 
     <div class="rp-cta-foot">
@@ -440,7 +453,7 @@ function prodCard(p) {
               <div class="vg-prod-brand">${esc(p.brand)}</div>
               <div class="vg-prod-name">${esc(p.ten)}</div>
             </div>
-            ${p.tested && p.diem != null ? `<div class="vg-prod-score">${p.diem}<span>/10</span></div>` : `<div class="vg-prod-ut">Chưa nếm</div>`}
+            ${p.tested && p.diem != null ? `<div class="vg-prod-score">${p.diem}<span>/10</span></div>` : `<div class="vg-prod-ut">${p.daUong ? 'Đã uống' : 'Chưa nếm'}</div>`}
           </div>
           <div class="vg-prod-meta">${cuesOf(p).map(esc).join(' · ')}</div>
           <div class="vg-prod-foot">
@@ -574,7 +587,7 @@ ${siteNav('vung')}
       <a class="rp-rel" href="/nha-rang/${r.slug}">
         <div class="rp-rel-brand">Nhà rang</div>
         <div class="rp-rel-name">${esc(r.ten)}</div>
-        <div class="rp-rel-meta">${a ? `<b>${a.avg}/10</b>` : '<span class="rp-ut">Chưa nếm</span>'}</div>
+        <div class="rp-rel-meta">${a ? `<b>${a.avg}/10</b>` : `<span class="rp-ut">${esc(r.chungNhan || 'Đã uống')}</span>`}</div>
       </a>`;
       }).join('')}
     </div>
@@ -684,7 +697,8 @@ ${siteNav('nharang')}
     <p class="vg-hero-tag">${esc(r.gioiThieu)}</p>
     <div class="vg-facts">
       <div class="vg-fact"><span>Vùng nguyên liệu</span><b>${vung ? `<a href="/vung-trong/${vung.slug}">${esc(r.vungChinh)}</a>` : esc(r.vungChinh)}</b></div>
-      <div class="vg-fact"><span>Điểm trên Gu</span><b>${a ? `${a.avg}/10 · ${a.n} gói đã nếm` : 'Chưa nếm'}</b></div>
+      <div class="vg-fact"><span>${a ? 'Điểm trên Gu' : 'Trạng thái'}</span><b>${a ? `${a.avg}/10 · ${a.n} gói đã nếm` : 'Đã uống · chưa chấm mù'}</b></div>
+      ${!a && r.chungNhan ? `<div class="vg-fact"><span>Thành tích</span><b>${esc(r.chungNhan)}</b></div>` : ''}
       <div class="vg-fact"><span>Website</span><b>${r.web ? `<a href="${esc(r.web)}" target="_blank" rel="nofollow noopener">Trang chính thức ↗</a>` : 'đang cập nhật'}</b></div>
     </div>
   </header>
@@ -748,6 +762,7 @@ function hubNhaRang() {
     <h1>6 nhà rang chúng tôi chọn đồng hành</h1>
     <p class="lead">Sau khi đi thực địa, gặp người làm và nếm sâu, chúng tôi chọn ra sáu nhà rang xứng đáng để
     đồng hành và giới thiệu với bạn — mỗi nhà một vùng nguyên liệu, một câu chuyện, một thế mạnh. Chỉ sáu, không hơn.</p>
+    <p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b>. Cả sáu chúng tôi đều đã uống thật và thấy ngon; điểm số chỉ gắn khi đã nếm mù chính thức.</p>
   </header>
   <div class="vg-grid">${list.map(roasterCardHTML).join('')}</div>
   <a class="rp-home" href="/">← Về trang chủ</a>
@@ -770,11 +785,15 @@ function pcard(p, pos) {
   const media = src
     ? `<img src="${esc(src)}" alt="${esc(p.brand)} — ${esc(p.ten)}" loading="lazy">`
     : `<div class="pc-swatch" style="background:${ROAST_BG[p.roast] || '#8A6A44'}"><span>${esc(p.roast ? 'Rang ' + p.roast.toLowerCase() : 'Đặc sản')}</span></div>`;
+  const badge = t
+    ? `<span class="pc-badge">${p.diem}</span>`
+    : `<span class="pc-badge ${p.daUong ? 'pc-badge-tasted' : 'pc-badge-ut'}">${p.daUong ? 'Đã uống' : 'Chưa nếm'}</span>`;
   return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
-      <a class="pc-media" href="/review/${p.slug}">${media}${t ? `<span class="pc-badge">${p.diem}</span>` : `<span class="pc-badge pc-badge-ut">Chưa nếm</span>`}</a>
+      <a class="pc-media" href="/review/${p.slug}">${media}${badge}</a>
       <div class="pc-body">
         <div class="pc-brand">${esc(p.brand)}</div>
         <a class="pc-name" href="/review/${p.slug}">${esc(p.ten)}</a>
+        ${p.chungNhan ? `<div class="pc-cred">${esc(p.chungNhan)}</div>` : ''}
         <div class="pc-meta">${money(p.gia)}${per100(p) ? ` · <span>${money(per100(p))}/100g</span>` : ''}</div>
         <div class="pc-foot">${buyMini(p, pos || 'product_card')}<a class="pc-detail" href="/review/${p.slug}">Chi tiết →</a></div>
       </div>
@@ -790,7 +809,7 @@ function hubCaPhe() {
         <div class="seg-label">${esc(n.label)}</div>
         <div class="seg-vi">${esc(n.vi)}</div>
         <a class="seg-pick" href="/review/${p.slug}"><small>${esc(p.brand)}</small>${esc(p.ten)}</a>
-        <div class="seg-foot"><span class="seg-price">${money(p.gia)}${t ? ` · ${p.diem}/10` : ' · chưa nếm'}</span>${buyMini(p, 'ca_phe_segment')}</div>
+        <div class="seg-foot"><span class="seg-price">${money(p.gia)}${t ? ` · ${p.diem}/10` : (p.daUong ? ' · đã uống' : ' · chưa nếm')}</span>${buyMini(p, 'ca_phe_segment')}</div>
       </div>`;
   }).join('');
   const schema = itemListSchema('Cà phê đặc sản Lâm Đồng',
@@ -800,7 +819,7 @@ function hubCaPhe() {
   <header class="hub-head">
     <div class="eyebrow">Cà phê</div>
     <h1>Cà phê đặc sản Lâm Đồng</h1>
-    <p class="lead">Đã nếm mù thì có điểm; chưa nếm ghi rõ. Xem nhanh, so giá/100g, bấm mua — muốn kỹ thì mở chi tiết.</p>
+    <p class="lead">Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số — thứ tự bên dưới không phải xếp hạng. So giá/100g, bấm mua, muốn kỹ thì mở chi tiết.</p>
   </header>
 
   ${NHUCAU.length ? `<section class="seg-wrap">
@@ -923,7 +942,7 @@ function hubCachTest() {
     cùng cỡ xay, cùng tỷ lệ, cùng nhiệt độ, nếm mù. Thẩm quyền đến từ phương pháp, không từ lời khen.</p>
     <p><b>Về hoa hồng:</b> chúng tôi nhận hoa hồng tiếp thị liên kết nếu bạn mua qua link trên trang —
     bạn không trả thêm đồng nào. Link có ở cả sản phẩm chúng tôi khuyên cân nhắc,
-    nên không có lý do gì để khen sai. Gói nào chưa nếm, trang ghi rõ <b>“Chưa nếm”</b>.</p>
+    nên không có lý do gì để khen sai. Gói đã uống nhưng chưa chấm mù, trang ghi rõ <b>“Đã uống”</b> và không gắn số.</p>
   </div>
   ${FAQ.length ? `<div class="faq">${FAQ.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('')}</div>` : ''}
   <a class="rp-home" href="/">← Về trang chủ</a>

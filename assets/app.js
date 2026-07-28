@@ -61,7 +61,7 @@ function buyCTA(p, pos, label) {
 /* ---- Nhãn minh bạch — không emoji, không bao giờ ghi sai ---- */
 const nhan = p => p.tested
   ? '<span class="tag tag-t">Đã nếm mù</span>'
-  : '<span class="tag tag-u">Chưa nếm</span>';
+  : (p.daUong ? '<span class="tag tag-tasted">Đã uống</span>' : '<span class="tag tag-u">Chưa nếm</span>');
 
 /* ---- Expert cues: vùng · giống · sơ chế · rang — tín hiệu chuyên môn ---- */
 const cues = p => {
@@ -107,7 +107,7 @@ function renderTop() {
       <div class="hero-inner">
         <div class="hero-eyebrow">Mua thật · Nếm mù · Chấm điểm</div>
         <h1>Chưa uống<br>thì không chấm.</h1>
-        <p class="hero-sub">Mỗi gói đều do chúng tôi <b>mua bằng tiền của mình</b> và nếm mù. Gói nào chưa nếm — ghi thẳng.</p>
+        <p class="hero-sub">Mỗi gói đều do chúng tôi <b>mua bằng tiền của mình</b> và uống thật. Điểm số chỉ gắn khi đã <b>nếm mù</b> — không bịa.</p>
         <div class="hero-cta-row">
           <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
           <button class="cta-ghost" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
@@ -174,7 +174,9 @@ function resolveObj(o, cur) {
 /* ---- COGNITIVE COMPRESSION: một câu chốt trước, con số ở dưới ---- */
 function verdict(p, taste) {
   if (!(p.tested && p.diem != null))
-    return `Gói hợp cách pha của bạn nhất — chúng tôi chưa nếm mù, nên ghi rõ để bạn cân nhắc.`;
+    return p.daUong
+      ? `Gói hợp cách pha của bạn nhất — chúng tôi đã uống thật và thấy ngon; chưa chấm mù nên chưa gắn số.`
+      : `Gói hợp cách pha của bạn nhất — chúng tôi chưa thử, nên ghi rõ để bạn cân nhắc.`;
   if (taste === 'moi')
     return `Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.`;
   const top = Math.max(...SP.filter(x => x.tested && x.diem != null).map(x => x.diem));
@@ -188,7 +190,9 @@ function verdict(p, taste) {
 function confLine(p, taste) {
   const t = SP.filter(x => x.tested && x.diem != null);
   if (!(p.tested && p.diem != null))
-    return `Chúng tôi <b>chưa nếm mù</b> gói này — thông số từ nhà bán, trang ghi rõ.`;
+    return p.daUong
+      ? (p.chungNhan ? `<b>Đã uống thật</b> — ${p.chungNhan}. Chưa chấm mù nên chưa gắn số.` : `<b>Đã uống thật</b>, thấy ngon — chưa chấm mù nên chưa gắn số.`)
+      : `Chúng tôi <b>chưa thử</b> gói này — thông số từ nhà bán, trang ghi rõ.`;
   const top = Math.max(...t.map(x => x.diem));
   const maxChua = Math.max(...t.map(x => x.chua || 0));
   const maxDam  = Math.max(...t.map(x => x.dam  || 0));
@@ -307,7 +311,9 @@ function drawRec() {
       <div class="pick-side">
         ${best.tested && best.diem != null
           ? `<div class="pick-score">${best.diem}</div><div class="pick-score-l">Điểm nếm mù / 10</div>`
-          : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`}
+          : (best.daUong
+            ? `<div class="rec-tasted">Đã uống</div><div class="pick-score-l">${best.chungNhan || 'Chưa chấm mù'}</div>`
+            : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`)}
         <div class="pick-price">${money(best.gia)}</div>
         <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
         ${buyCTA(best, 'rec')}

@@ -71,6 +71,7 @@ section:first-of-type{padding-top:88px}
   letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;white-space:nowrap}
 .tag-t{background:var(--ink);color:var(--cream)}
 .tag-u{background:none;color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber)}
+.tag-tasted{background:none;color:var(--brown-deep);box-shadow:inset 0 0 0 1px var(--brown)}
 
 /* ---------- CUES CHUYÊN MÔN ---------- */
 .cues{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;
@@ -205,6 +206,8 @@ section:first-of-type{padding-top:88px}
 .rec-conf b{color:var(--ink);font-weight:600}
 .rec-untested{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:44px;
   line-height:1;letter-spacing:-.03em;color:var(--ink-dim)}
+.rec-tasted{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:26px;
+  line-height:1.05;letter-spacing:-.02em;color:var(--brown-deep)}
 .rec-why h4,.rec-warn h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-dim);margin:0 0 4px}
 .rec-warn{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);max-width:52ch}
@@ -494,9 +497,11 @@ footer a:hover{border-color:#C9A876}
 .rp-score{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:52px;
   line-height:1;letter-spacing:-.03em;color:var(--ink)}
 .rp-score span{font-size:20px;color:var(--ink-dim);font-weight:700}
-.rp-noscore{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--amber);
-  box-shadow:inset 0 0 0 1px var(--amber);padding:8px 12px}
+.rp-noscore{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--brown-deep);
+  box-shadow:inset 0 0 0 1px var(--brown);padding:8px 12px;border-radius:8px}
+.rp-cred{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.04em;
+  color:var(--brown-deep);background:rgba(122,84,51,.09);border-radius:7px;padding:6px 10px;margin-top:8px}
 .rp-price{font-family:'Be Vietnam Pro',sans-serif}
 .rp-price b{font-size:26px;font-weight:800;letter-spacing:-.02em;display:block}
 .rp-price span{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-dim)}
@@ -569,6 +574,8 @@ footer a:hover{border-color:#C9A876}
 .vg-card-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em}
 .vg-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:#D8B983;box-shadow:inset 0 0 0 1px rgba(216,185,131,.5);padding:4px 8px}
+.vg-badge-cred{color:var(--brown-deep);background:rgba(122,84,51,.1);box-shadow:none;border-radius:6px;
+  letter-spacing:.02em;text-transform:none;font-size:9.5px;text-align:right;flex:none;max-width:52%;line-height:1.35}
 .vg-card-tag{font-family:'Be Vietnam Pro',sans-serif;font-size:16px;line-height:1.4;
   color:var(--ink-soft);margin-bottom:16px;flex:1}
 .vg-hub .vg-card-tag{color:rgba(246,241,231,.72)}
@@ -669,6 +676,9 @@ footer a:hover{border-color:#C9A876}
 .hub-head{max-width:60ch;margin-bottom:30px}
 .hub-head h1{font-size:clamp(32px,4.6vw,52px);margin:14px 0 16px}
 .hub-head .lead{font-size:18px}
+.hub-fair{margin-top:14px;font-size:13.5px;line-height:1.6;color:var(--ink-soft);
+  border-left:3px solid var(--brown);padding-left:14px}
+.hub-fair b{color:var(--ink);font-weight:600}
 .hub-group{margin-top:40px}
 .hub-group-t{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--brown);
@@ -806,11 +816,16 @@ body:has(.buybar){padding-bottom:60px}
 .pc-swatch{width:100%;height:100%;display:flex;align-items:flex-end;padding:16px}
 .pc-swatch span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;color:rgba(246,241,231,.85)}
-.pc-badge{position:absolute;top:12px;right:12px;background:var(--ink);color:var(--cream);
-  font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:16px;padding:5px 11px;border-radius:2px;
-  box-shadow:0 4px 14px -6px rgba(0,0,0,.5)}
+.pc-badge{position:absolute;top:12px;right:12px;background:var(--brown-deep);color:var(--cream);
+  font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:16px;padding:5px 11px;border-radius:8px;
+  box-shadow:0 6px 16px -8px rgba(90,61,34,.7)}
 .pc-badge-ut{background:rgba(250,247,241,.92);color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber);
-  font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px}
+  font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:8px}
+.pc-badge-tasted{background:rgba(250,247,241,.94);color:var(--brown-deep);box-shadow:inset 0 0 0 1px var(--brown);
+  font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:8px}
+.pc-cred{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.04em;
+  color:var(--brown-deep);background:rgba(122,84,51,.09);border-radius:6px;padding:4px 8px;
+  align-self:flex-start;margin-bottom:9px;line-height:1.3}
 .pc-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
 .pc-brand{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--brown);margin-bottom:5px}
