@@ -92,8 +92,7 @@ section:first-of-type{padding-top:88px}
   margin-top:12px;line-height:1.6;letter-spacing:.02em}
 
 /* ============ HERO — ảnh nền tràn viền, chữ nổi ở trên ============ */
-#top{padding:0;border-bottom:1px solid var(--line);background:var(--ink)}
-#top .wrap{max-width:none;padding:0}
+#top{padding:0;border-bottom:1px solid var(--line);background:var(--paper)}
 .hero-stage{position:relative;display:flex;align-items:flex-end;overflow:hidden;
   min-height:clamp(540px,88svh,780px)}
 .hero-bg{position:absolute;inset:0}
@@ -183,16 +182,17 @@ section:first-of-type{padding-top:88px}
 
 .decide-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 8px}
 .de-taste{grid-template-columns:repeat(3,1fr)}
-.dchip{display:flex;flex-direction:column;gap:4px;text-align:left;padding:16px 18px;
-  border:1px solid var(--line);background:transparent;cursor:pointer;border-radius:2px;
-  transition:border-color .2s,background .2s,transform .12s}
+.dchip{display:flex;flex-direction:column;gap:4px;text-align:left;padding:18px 20px;
+  border:1px solid var(--line);background:var(--cream);cursor:pointer;border-radius:14px;
+  transition:border-color .2s,background .2s,box-shadow .2s,transform .12s}
 .dchip b{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:16px;
   letter-spacing:-.01em;color:var(--ink)}
 .dchip span{font-size:12.5px;color:var(--ink-dim)}
-.dchip:hover{border-color:var(--brown);transform:translateY(-1px)}
-.dchip.on{background:var(--ink);border-color:var(--ink)}
-.dchip.on b{color:var(--paper)}
-.dchip.on span{color:var(--cream)}
+.dchip:hover{border-color:var(--brown);transform:translateY(-2px);box-shadow:0 12px 26px -20px rgba(90,61,34,.7)}
+.dchip.on{background:var(--brown-deep);border-color:var(--brown-deep);
+  box-shadow:0 14px 30px -16px rgba(90,61,34,.75)}
+.dchip.on b{color:#fff}
+.dchip.on span{color:rgba(255,255,255,.82)}
 
 .rec{display:grid;grid-template-columns:0.92fr 1.35fr 0.8fr;gap:52px;align-items:start;margin-top:44px;
   padding-top:44px;border-top:1px solid var(--line)}
@@ -410,13 +410,12 @@ footer a:hover{border-color:#C9A876}
 @media(max-width:900px){
   body{font-size:16px}
   section{padding:72px 22px}
-  #top{padding-top:64px;padding-bottom:80px}
+  #top{padding:0}
   .nav-links{display:none}
   .proof-i{padding-right:20px;margin-right:20px}
   .proof-i b{font-size:38px}
   .proof-i span{font-size:9px;letter-spacing:.1em}
   #peak{padding-top:76px;padding-bottom:76px}
-  #top{padding-top:96px;padding-bottom:72px}
   .atmos-img img{aspect-ratio:3/2}
   .mx-filter{flex-wrap:wrap}
   h1{font-size:clamp(40px,11vw,56px)}
