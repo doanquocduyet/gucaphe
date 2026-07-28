@@ -623,3 +623,64 @@ footer a:hover{border-color:#C9A876}
 .rp-xlinks a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:.15s}
 .rp-xlinks a:hover{color:var(--brown);border-color:var(--brown)}
 .rp-xlinks b{font-weight:700;color:var(--ink)}
+
+/* ============================================================
+   MENU active + HUB PAGES + HOMEPAGE HUB ROUTER
+   ============================================================ */
+.nav-links a.on{color:var(--ink);border-color:var(--brown)}
+
+/* Header chung cho trang hub */
+.hub-head{max-width:60ch;margin-bottom:30px}
+.hub-head h1{font-size:clamp(32px,4.6vw,52px);margin:14px 0 16px}
+.hub-head .lead{font-size:18px}
+.hub-group{margin-top:40px}
+.hub-group-t{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brown);
+  padding-bottom:12px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+
+/* Hub Cà phê — bộ lọc + danh sách */
+.caphe-filter{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+.caphe-filter button{background:none;border:1px solid var(--line);color:var(--ink-soft);cursor:pointer;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:9px 18px;transition:.15s}
+.caphe-filter button:hover{border-color:var(--ink)}
+.caphe-filter button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.caphe-list{margin-top:8px;border-top:1px solid var(--line)}
+.caphe-list .vg-prod:first-of-type{border-top:none}
+.caphe-item{border-bottom:1px solid var(--line-2)}
+.caphe-item .vg-prod{border-bottom:none}
+
+/* Hub Kiến thức */
+.kt-art{max-width:68ch;padding:36px 0;border-bottom:1px solid var(--line)}
+.kt-art-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--brown);margin-bottom:10px}
+.kt-art h2{font-size:clamp(24px,3vw,32px);margin-bottom:10px}
+.kt-art-dek{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:18px;
+  color:var(--ink-soft);margin-bottom:20px;max-width:56ch}
+.kt-art-body{font-size:17px}
+.kt-art-body p{margin-bottom:16px;color:var(--ink-soft)}
+.kt-art-body b{color:var(--ink);font-weight:600}
+.kt-tudien{max-width:72ch;margin-top:44px}
+.kt-tudien h2{font-size:26px;margin-bottom:20px}
+.kt-def{padding:16px 0;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:1fr;gap:4px}
+.kt-def dt{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:16px}
+.kt-def dd{color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+
+/* Trang chủ — hub router */
+.home-hubs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
+.home-hub{display:flex;flex-direction:column;padding:30px;background:var(--paper-2);
+  text-decoration:none;color:var(--ink);border-radius:2px;transition:transform .12s,background .2s;
+  min-height:190px}
+.home-hub:hover{transform:translateY(-3px);background:#EEE7D8}
+.home-hub-k{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;
+  letter-spacing:-.02em;margin-bottom:10px}
+.home-hub-d{font-family:'Newsreader',Georgia,serif;font-size:16.5px;line-height:1.5;
+  color:var(--ink-soft);flex:1;max-width:38ch}
+.home-hub-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;
+  color:var(--ink-dim);margin:16px 0 10px}
+.home-hub-go{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:var(--brown)}
+
+@media(max-width:720px){
+  .home-hubs{grid-template-columns:1fr;gap:12px}
+  .home-hub{min-height:0;padding:24px}
+}

@@ -106,7 +106,7 @@ function renderTop() {
     Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
     <div class="hero-cta-row">
       <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
-      <button class="cta-line" onclick="document.querySelector('#method').scrollIntoView({behavior:'smooth'})">Cách chúng tôi test</button>
+      <button class="cta-line" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
     </div>
     <div class="proof">
       <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
@@ -447,6 +447,32 @@ function renderVung() {
     </div>`;
 }
 
+/* ============ HUB ROUTER — trang chủ chỉ dẫn đường, không dump ============ */
+function renderHubs() {
+  const el = $('#hubs'); if (!el) return;
+  const best = SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0];
+  const nBai = (typeof BAIVIET !== 'undefined') ? BAIVIET.length : 0;
+  const hubs = [
+    { href:'/ca-phe',    k:'Cà phê',     d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:`${SP.length} gói${best ? ` · cao nhất ${best.diem}/10` : ''}`, go:'Xem tất cả →' },
+    { href:'/nha-rang',  k:'Nhà rang',   d:'Hồ sơ 6 nhà cà phê xịn nhất Lâm Đồng, xếp theo vùng nguyên liệu.', m:`${(typeof ROASTER!=='undefined'?ROASTER.length:6)} nhà`, go:'Xem hồ sơ →' },
+    { href:'/vung-trong',k:'Vùng trồng', d:'Cầu Đất · Nam Ban · Lạc Dương · Đà Lạt — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
+    { href:'/kien-thuc', k:'Kiến thức',  d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:`${nBai} bài + từ điển`, go:'Đọc →' }
+  ];
+  el.innerHTML = `
+    <div class="eyebrow">Khám phá</div>
+    <h2>Đi thẳng vào thứ bạn cần.</h2>
+    <p class="lead">Không phải cuộn vô tận. Chọn đúng ngăn — chúng tôi đã sắp sẵn.</p>
+    <div class="home-hubs">
+      ${hubs.map(h => `
+      <a class="home-hub" href="${h.href}">
+        <div class="home-hub-k">${h.k}</div>
+        <div class="home-hub-d">${h.d}</div>
+        <div class="home-hub-meta">${h.m}</div>
+        <span class="home-hub-go">${h.go}</span>
+      </a>`).join('')}
+    </div>`;
+}
+
 /* ============ NHÀ RANG — 6 nhà cà phê xịn nhất Lâm Đồng ============ */
 function roasterUrl(r) { return `/roaster/${r.slug}`; }
 function roasterAvg(r) {
@@ -535,7 +561,7 @@ function renderMethod() {
 document.addEventListener('DOMContentLoaded', () => {
   $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
   $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderMatrix(); renderPeak(); renderReviews(); renderAtmos(); renderRoaster(); renderVung(); renderKienThuc(); renderMethod();
+  renderTop(); renderPick(); renderHubs(); renderPeak(); renderAtmos();
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
