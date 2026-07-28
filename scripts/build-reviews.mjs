@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260763';
+const CSS_V = '20260764';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -1068,6 +1068,35 @@ function hubVung() {
   });
 }
 
+/* ---- Minh hoạ mang thông tin (SVG/CSS, không ảnh, không bịa số) ---- */
+function diagNaturalWashed() {
+  const col = (mod, ic, ten, sub, steps, tags) => `<div class="kt-diag-col ${mod}">
+      <div class="kt-diag-h"><span class="kt-diag-ic">${ic}</span><b>${ten}</b><span class="kt-diag-sub">${sub}</span></div>
+      <ol class="kt-diag-steps">${steps.map(s => `<li>${s}</li>`).join('')}</ol>
+      <div class="kt-diag-res"><span class="kt-diag-res-k">Trong ly</span><div class="kt-diag-tags">${tags.map(t => `<span>${t}</span>`).join('')}</div></div>
+    </div>`;
+  return `<figure class="kt-diag kt-diag--nw" aria-label="So sánh sơ chế Washed và Natural">
+    ${col('is-washed', '💧', 'Washed', 'Sơ chế ướt', ['Tách vỏ quả', 'Rửa sạch nhớt', 'Phơi khô hạt'], ['Sạch', 'Sáng', 'Chua thanh'])}
+    <div class="kt-diag-vs">so với</div>
+    ${col('is-natural', '☀️', 'Natural', 'Sơ chế khô', ['Phơi nguyên quả', 'Ủ trong lớp thịt ngọt', 'Tách vỏ khô'], ['Ngọt đậm', 'Body dày', 'Trái cây chín'])}
+  </figure>`;
+}
+function diagRoastScale() {
+  const step = (bg, ten, vi, pha) => `<div class="kt-roast-step">
+      <span class="kt-roast-bean" style="background:${bg}"></span>
+      <b>${ten}</b><span class="kt-roast-vi">${vi}</span><em class="kt-roast-pha">${pha}</em>
+    </div>`;
+  return `<figure class="kt-diag kt-roast" aria-label="Thang độ rang từ sáng đến đậm">
+    <div class="kt-roast-bar"></div>
+    <div class="kt-roast-steps">
+      ${step('#B07A2A', 'Rang sáng', 'Chua, hương hoa', 'V60 / pour over')}
+      ${step('#7A5433', 'Rang vừa', 'Cân bằng, linh hoạt', 'Phin & pour over')}
+      ${step('#3A2718', 'Rang đậm', 'Chocolate, đắng, body dày', 'Phin · espresso')}
+    </div>
+  </figure>`;
+}
+const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale };
+
 function hubKienThuc() {
   const url = `${ORIGIN}/kien-thuc`;
   const chip = b => `<span class="kt-meta">${[
@@ -1100,6 +1129,7 @@ function hubKienThuc() {
     <div class="kt-art-top"><div class="kt-art-tag">${esc(b.tag)}</div>${chip(b)}</div>
     <h2>${b.tieuDe}</h2>
     <p class="kt-art-dek">${b.dek}</p>
+    ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
     <div class="kt-art-body">${b.than}</div>
     ${(b.faq && b.faq.length) ? `<div class="kt-art-faq">${b.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>` : ''}
     ${(b.links && b.links.length) ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : ''}
