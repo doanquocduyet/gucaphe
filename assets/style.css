@@ -723,6 +723,42 @@ footer a:hover{border-color:#C9A876}
 .rr-why-list li{position:relative;padding-left:24px;font-size:15.5px;color:var(--ink-soft);line-height:1.45}
 .rr-why-list li::before{content:'★';position:absolute;left:0;color:var(--amber);font-weight:800;font-size:13px}
 
+/* ============================================================
+   PRODUCT REVIEW TEMPLATE — bản ghi dữ liệu
+   ============================================================ */
+.rp-chot{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:18px;line-height:1.45;
+  letter-spacing:-.01em;color:var(--ink);margin:2px 0 14px;max-width:46ch}
+.pv-verdict{margin:34px 0 8px;padding:26px 30px;background:var(--cream);border:1px solid var(--line);
+  border-left:4px solid var(--brown);border-radius:16px}
+.pv-kick{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brown)}
+.pv-verdict p{font-family:'Be Vietnam Pro',sans-serif;font-size:17px;line-height:1.6;color:var(--ink);margin-top:12px;max-width:68ch}
+.pv-sec{margin:44px 0}
+.pv-note{font-size:13px;color:var(--ink-dim);line-height:1.5;margin:-8px 0 18px;max-width:64ch}
+.pv-note b{color:var(--ink-soft)}
+.pv-specs{width:100%;border-collapse:collapse;max-width:60ch}
+.pv-specs th,.pv-specs td{padding:12px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.pv-specs th{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-dim);width:38%;white-space:nowrap}
+.pv-specs td{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
+.pv-specs td a{color:var(--brown);text-decoration:none;border-bottom:1px solid var(--line)}
+.pv-specs td a:hover{border-color:var(--brown)}
+.pv-bars{max-width:60ch;display:flex;flex-direction:column;gap:2px}
+.pv-notes{display:flex;flex-wrap:wrap;gap:9px}
+.pv-notes span{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:14px;color:var(--brown-deep);
+  background:rgba(122,84,51,.09);border:1px solid rgba(122,84,51,.16);border-radius:24px;padding:7px 15px}
+.pv-review{max-width:68ch;font-size:16px}
+.pv-review p{margin-bottom:14px;color:var(--ink-soft);line-height:1.7}
+.pv-review b{color:var(--ink)}
+.pv-proto{margin:44px 0;padding:22px 26px;background:var(--paper-2);border:1px solid var(--line);border-radius:14px}
+.pv-proto-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;margin:12px 0 14px}
+.pv-proto-list li{position:relative;padding-left:20px;font-family:'JetBrains Mono',monospace;font-size:12px;
+  font-weight:700;color:var(--ink-soft)}
+.pv-proto-list li::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:800}
+.pv-proto-note{font-size:14px;color:var(--ink-soft);line-height:1.55}
+.pv-proto-note b{color:var(--ink)}
+.pv-proto-note a{color:var(--brown)}
+
 /* Chuỗi sản xuất (Trồng → Sơ chế → Rang → Pha) — USP, không icon */
 .chain{margin:22px 0 8px;padding:20px 26px;background:var(--paper-2);border:1px solid var(--line);border-radius:14px}
 .chain-cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;

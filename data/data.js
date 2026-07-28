@@ -32,11 +32,19 @@ const SP = [
     slug:"son-pacamara-lang-biang", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Lạc Dương, Lâm Đồng",
     giong:"Catimor, Caturra", doCao:"", process:"Natural", roast:"Light", ngayRang:"",
-    tested:true, daUong:true, chungNhan:"Farm minh bạch · Lạc Dương", diem:9.3, chua:4, dam:3, hau:5,
+    tested:true, daUong:true, chungNhan:"Farm minh bạch · Lạc Dương", diem:9.3, chua:4, dam:3, hau:5, ngot:4, sach:5,
+    chot:"Một trong những Arabica cân bằng, sạch nhất Gu từng thử.",
+    nhanXet:"Gói Arabica cân bằng và sạch, rất hợp người bắt đầu với V60. Chua sáng vừa phải kiểu cam chanh, hương hoa rõ, hậu vị ngọt kéo dài — không quá ‘đấu giải’, rất dễ thích. Giá 108k/100g là hợp lý cho chất lượng này.",
     flavor:"Hoa, đào, cam vàng, mật ong. Hậu vị sạch và kéo dài.", notes:["Hoa","Đào","Cam vàng","Mật ong"],
     tags:["Chua sáng","Hương hoa quả","Pha V60"],
+    viSaoDiem:["Hậu vị rất sạch, kéo dài","Hương hoa rõ, chua sáng cân bằng","Không có lỗi vị (defect)","Giá/100g hợp lý cho chất lượng"],
     nen:["Pha V60 hoặc pour over","Thích vị trái cây, chua sáng","Chấp nhận 108.000₫/100g cho hạt tốt"],
     khong:["Chỉ có phin — rang sáng pha phin dễ chua gắt","Quen gu đậm đắng","Muốn cà phê uống hằng ngày giá mềm"],
+    faq:[
+      {q:"Gói này có hợp pha V60 không?",a:"Rất hợp. Rang sáng, chua sáng và hương hoa của gói này được V60 / pour over tôn lên rõ nhất. Pha phin dễ bị chua gắt."},
+      {q:"Người mới nên bắt đầu với gói này?",a:"Hợp nếu bạn muốn làm quen vị Arabica chua sáng, sạch. Nếu quen gu phin đậm đắng thì nên chuyển dần."},
+      {q:"Giá 270.000₫ có đáng không?",a:"Quy ra 108.000₫/100g — thuộc nhóm cao, nhưng đây là gói Gu chấm mù cao nhất tới nay (9,3/10). Với người thật sự để ý vị, đáng."}
+    ],
     link:"https://s.shopee.vn/AUsMz3wGhY", anh:"assets/img/products/cherries-branch.jpg" },
   /* ===== 3 nhà Nam Ban — so sánh trung lập. Chưa nếm mù → tested:false. ===== */
   { id:"nb-bui", brand:"Bui Coffee Supply", ten:"Fine Robusta Nam Ban (lên men muối) 250g", nhom:"hat", gia:179000, gram:250,

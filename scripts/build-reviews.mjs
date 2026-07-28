@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260770';
+const CSS_V = '20260771';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -292,8 +292,13 @@ function schema(p) {
       { '@type': 'ListItem', position: 3, name: `${p.brand} ${p.ten}` }
     ]
   };
+  const faq = (p.faq && p.faq.length) ? {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: p.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  } : null;
   return `<script type="application/ld+json">${JSON.stringify(product)}</script>\n`
-    + `<script type="application/ld+json">${JSON.stringify(crumb)}</script>`;
+    + `<script type="application/ld+json">${JSON.stringify(crumb)}</script>`
+    + (faq ? `\n<script type="application/ld+json">${JSON.stringify(faq)}</script>` : '');
 }
 
 /* ---- Gói liên quan ---- */
@@ -322,6 +327,130 @@ function crossLinks(p) {
   if (r) bits.push(`<a href="/nha-rang/${r.slug}">Nhà rang: <b>${esc(r.ten)}</b></a>`);
   if (v) bits.push(`<a href="/vung-trong/${v.slug}">Vùng: <b>${esc(v.ten)}</b></a>`);
   return bits.length ? `<div class="rp-xlinks">${bits.join('')}</div>` : '';
+}
+
+/* ============================================================
+   PRODUCT REVIEW TEMPLATE — bản ghi dữ liệu, KHÔNG viết bài.
+   Thứ tự khoá: Hero → Gu Verdict → Thông số → Flavor Profile →
+   Tasting Notes → Gu Match → Vì sao Gu chấm → Review ngắn →
+   Test Protocol → FAQ → Sản phẩm tương tự.
+   Mỗi section TỰ ẨN khi thiếu dữ liệu. Không bịa số.
+   Flavor Profile / Tasting Notes / Vì sao Gu chấm CHỈ hiện khi đã nếm mù.
+   ============================================================ */
+const FLAVOR_ROWS = [['chua', 'Độ chua'], ['dam', 'Body'], ['ngot', 'Ngọt'], ['hau', 'Hậu vị'], ['sach', 'Độ sạch']];
+
+function productReviewBody(p, tested) {
+  const r = ROASTER_BY_PID[p.id];
+  const v = VUNG_BY_SLUG[p.vungSlug];
+  const status = tested ? 'Đã nếm mù' : (p.daUong ? 'Đã uống' : 'Chưa nếm');
+
+  // HERO
+  const hero = `<header class="rp-hero">
+    ${media(p)}
+    <div class="rp-hero-body">
+      <div class="eyebrow">Review · ${status}</div>
+      <div class="rp-brand">${r ? `<a href="/nha-rang/${r.slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
+      <h1>${esc(p.ten)}</h1>
+      ${p.chot ? `<p class="rp-chot">${esc(p.chot)}</p>` : ''}
+      ${crossLinks(p)}
+      <div class="rp-buy">
+        <div class="rp-price-row">
+          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : `<div class="rp-noscore">${p.daUong ? 'Đã uống · chưa chấm mù' : 'Chưa chấm điểm'}</div>`}
+          ${!tested && p.chungNhan ? `<div class="rp-cred">${esc(p.chungNhan)}</div>` : ''}
+          <div class="rp-price"><b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}</div>
+        </div>
+        ${buyLink(p)}
+        <p class="rp-aff-note">Link tiếp thị liên kết — bạn mua đúng giá Shopee niêm yết, không trả thêm đồng nào.</p>
+      </div>
+    </div>
+  </header>`;
+
+  // 1 · GU VERDICT
+  const verdictSec = `<section class="pv-verdict">
+    <span class="pv-kick">Gu Cà Phê nhận xét</span>
+    <p>${p.nhanXet ? esc(p.nhanXet) : verdict(p)}</p>
+  </section>`;
+
+  // 2 · THÔNG SỐ CHUẨN
+  const specRows = [
+    ['Nhà rang', r ? `<a href="/nha-rang/${r.slug}">${esc(p.brand)}</a>` : esc(p.brand)],
+    ['Vùng', v ? `<a href="/vung-trong/${v.slug}">${esc(v.ten)}</a>` : esc(p.xaHuyen || '')],
+    ['Giống', esc(p.giong || '')],
+    ['Sơ chế', esc(p.process || '')],
+    ['Rang', esc(p.roast || '')],
+    ['Khối lượng', p.gram ? `${p.gram}g` : ''],
+    ['Giá', money(p.gia)],
+    ['Giá / 100g', per100(p) ? `${money(per100(p))}` : ''],
+    ['Hợp pha', (p.pha && p.pha.length) ? p.pha.map(x => PHA_TEN[x] || x).join(' · ') : ''],
+    ['Nếm mù', tested ? '✓ Đã chấm mù' : '○ Chưa chấm mù']
+  ].filter(x => x[1]);
+  const specSec = `<section class="pv-sec">
+    <h2 class="rg-h">Thông số</h2>
+    <table class="pv-specs"><tbody>${specRows.map(([k, val]) => `<tr><th>${k}</th><td>${val}</td></tr>`).join('')}</tbody></table>
+  </section>`;
+
+  // 3 · FLAVOR PROFILE (chỉ khi đã nếm mù + có dữ liệu)
+  const flavorBars = FLAVOR_ROWS.filter(([k]) => p[k] != null);
+  const flavorSec = (tested && flavorBars.length) ? `<section class="pv-sec">
+    <h2 class="rg-h">Hồ sơ hương vị</h2>
+    <p class="pv-note">Ghi nhận từ bài <b>nếm mù</b> gói này — thang /5, không phải điểm quy đổi.</p>
+    <div class="pv-bars">${flavorBars.map(([k, label]) => bar(label, p[k])).join('')}</div>
+  </section>` : '';
+
+  // 4 · TASTING NOTES
+  const notesSec = (tested && p.notes && p.notes.length) ? `<section class="pv-sec">
+    <h2 class="rg-h">Ghi chú vị</h2>
+    <div class="pv-notes">${p.notes.map(n => `<span>${esc(n)}</span>`).join('')}</div>
+  </section>` : '';
+
+  // 5 · GU MATCH
+  const matchSec = ((p.nen && p.nen.length) || (p.khong && p.khong.length)) ? `<section class="pv-sec">
+    <h2 class="rg-h">Hợp gu ai?</h2>
+    <div class="rg-fit-cols">
+      ${(p.nen && p.nen.length) ? `<div class="rg-fit-col rg-fit--yes"><div class="rg-fit-cap">Phù hợp</div><ul>${p.nen.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+      ${(p.khong && p.khong.length) ? `<div class="rg-fit-col rg-fit--no"><div class="rg-fit-cap">Không phù hợp</div><ul>${p.khong.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+    </div>
+  </section>` : '';
+
+  // 6 · VÌ SAO GU CHẤM (chỉ khi đã nếm mù)
+  const whySec = (tested && p.viSaoDiem && p.viSaoDiem.length) ? `<section class="pv-sec">
+    <h2 class="rg-h">Vì sao Gu chấm ${p.diem}/10?</h2>
+    <ul class="rr-why-list">${p.viSaoDiem.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+  </section>` : '';
+
+  // 7 · REVIEW NGẮN (tuỳ chọn — chỉ khi có p.review)
+  const reviewSec = p.review ? `<section class="pv-sec">
+    <h2 class="rg-h">Đánh giá chi tiết</h2>
+    <div class="pv-review">${p.review}</div>
+  </section>` : '';
+
+  // 8 · TEST PROTOCOL (component cố định)
+  const protoSec = `<section class="pv-proto">
+    <span class="pv-kick">Cách Gu test</span>
+    <ul class="pv-proto-list"><li>Mua thật</li><li>Nếm mù (che nhãn)</li><li>Nước 92°C</li><li>Tỷ lệ 1:15</li><li>Xay medium</li></ul>
+    <p class="pv-proto-note">${tested ? 'Gói này đã qua đủ quy trình trên và được chấm mù.' : 'Gói này đã <b>mua & uống thật</b> nhưng <b>chưa nếm mù</b> — nên chưa gắn điểm.'} <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
+  </section>`;
+
+  // 9 · FAQ
+  const faqSec = (p.faq && p.faq.length) ? `<section class="rg-faq">
+    <h2 class="rg-h">Câu hỏi thường gặp</h2>
+    <dl>${p.faq.map(f => `<div class="rg-faq-item"><dt>${esc(f.q)}</dt><dd>${esc(f.a)}</dd></div>`).join('')}</dl>
+  </section>` : '';
+
+  const ctaFoot = `<div class="rp-cta-foot">${buyLink(p, 'Mua ' + esc(p.brand))}</div>`;
+
+  return `${hero}
+  ${verdictSec}
+  ${specSec}
+  ${flavorSec}
+  ${notesSec}
+  ${matchSec}
+  ${whySec}
+  ${reviewSec}
+  ${protoSec}
+  ${ctaFoot}
+  ${faqSec}
+  ${related(p)}`;
 }
 
 /* ---- Trang review đầy đủ ---- */
@@ -376,53 +505,7 @@ ${siteNav('caphe')}
     <a href="/">Gu Cà Phê</a><i>/</i><a href="/ca-phe">Cà phê</a><i>/</i><span>${esc(p.brand)} ${esc(p.ten)}</span>
   </nav>
 
-  <header class="rp-hero">
-    ${media(p)}
-    <div class="rp-hero-body">
-      <div class="eyebrow">Review · ${tested ? 'Đã nếm mù' : (p.daUong ? 'Đã uống' : 'Chưa nếm')}</div>
-      <div class="rp-brand">${ROASTER_BY_PID[p.id] ? `<a href="/nha-rang/${ROASTER_BY_PID[p.id].slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
-      <h1>${esc(p.ten)}</h1>
-      ${cuesOf(p).length ? `<div class="cues">${cuesOf(p).map(esc).join('<i>·</i>')}</div>` : ''}
-      ${crossLinks(p)}
-      <div class="rp-verdict">${verdict(p)}</div>
-      <div class="rp-buy">
-        <div class="rp-price-row">
-          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : `<div class="rp-noscore">${p.daUong ? 'Đã uống · chưa chấm mù' : 'Chưa chấm điểm'}</div>`}
-          ${!tested && p.chungNhan ? `<div class="rp-cred">${esc(p.chungNhan)}</div>` : ''}
-          <div class="rp-price"><b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}</div>
-        </div>
-        ${buyLink(p)}
-        <p class="rp-aff-note">Link tiếp thị liên kết — bạn mua đúng giá Shopee niêm yết, không trả thêm đồng nào.</p>
-      </div>
-    </div>
-  </header>
-
-  <article class="rp-article">
-    ${intro(p)}
-    ${flavorPara(p)}
-
-    <div class="rp-specs">
-      ${bar('Độ chua', p.chua)}${bar('Độ đậm', p.dam)}${bar('Hậu vị', p.hau)}
-      ${per100(p) ? `<div class="spec"><div class="spec-l">Giá / 100g</div><div class="spec-v">${(per100(p)/1000).toFixed(0)}<span class="of">k</span></div><div class="track"><i style="width:${Math.min(per100(p)/1500*100,100)}%"></i></div></div>` : ''}
-    </div>
-
-    ${p.pha && p.pha.length ? `<p class="rp-pha"><b>Hợp cách pha:</b> ${p.pha.map(x => PHA_TEN[x] || x).join(' · ')}.</p>` : ''}
-
-    <div class="rp-who">
-      <div><h3>Nên mua nếu</h3><ul>${(p.nen || []).map(x => `<li class="y">${esc(x)}</li>`).join('')}</ul></div>
-      <div><h3>Cân nhắc nếu</h3><ul>${(p.khong || []).map(x => `<li class="n">${esc(x)}</li>`).join('')}</ul></div>
-    </div>
-
-    <div class="rp-method">
-      <p><b>Cách chúng tôi test:</b> mua ẩn danh, không nhận hàng tài trợ; pha cùng cỡ xay medium, tỷ lệ 1:15, nước 92°C; nếm mù (che nhãn) rồi mới chấm điểm. Gói đã uống nhưng chưa chấm mù thì ghi “Đã uống”, không gắn số — không ngoại lệ. <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
-    </div>
-
-    <div class="rp-cta-foot">
-      ${buyLink(p, 'Mua ' + esc(p.brand))}
-    </div>
-  </article>
-
-  ${related(p)}
+  ${productReviewBody(p, tested)}
 
   <a class="rp-home" href="/">← Về trang chủ Gu Cà Phê</a>
 </main>
