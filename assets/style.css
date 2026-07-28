@@ -367,30 +367,31 @@ section:first-of-type{padding-top:88px}
 #method .eyebrow{color:#C9A876}
 #method h2{color:var(--cream)}
 #method .lead{color:var(--cream-dim)}
-.steps{list-style:none;counter-reset:s;margin-top:54px;border-top:1px solid rgba(246,241,231,.16);max-width:56rem}
+.steps{list-style:none;counter-reset:s;margin-top:54px;border-top:1px solid var(--line);max-width:56rem}
 .steps li{counter-increment:s;display:flex;gap:34px;align-items:baseline;
-  padding:26px 4px;border-bottom:1px solid rgba(246,241,231,.16);font-size:17.5px;line-height:1.65;color:var(--cream-dim)}
-.steps li b,.steps li code{color:var(--cream)}
-.steps li code{background:rgba(246,241,231,.1)}
+  padding:26px 4px;border-bottom:1px solid var(--line);font-size:17.5px;line-height:1.65;color:var(--ink-soft)}
+.steps li b{color:var(--ink);font-weight:600}
+.steps li code{color:var(--brown-deep);background:rgba(122,84,51,.1);
+  padding:2px 8px;border-radius:6px;font-size:14.5px}
 .steps li:before{content:"0" counter(s);font-family:'Be Vietnam Pro',sans-serif;
-  font-weight:800;font-size:30px;letter-spacing:-.03em;color:#C9A876;flex:none;width:56px}
+  font-weight:800;font-size:30px;letter-spacing:-.03em;color:var(--brown);flex:none;width:56px}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
 .gallery figure{margin:0;overflow:hidden}
 .gallery img{width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:saturate(.85)}
 .gallery figcaption{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--cream-dim);padding:12px 2px 0;line-height:1.5}
+  text-transform:uppercase;color:var(--ink-dim);padding:12px 2px 0;line-height:1.5}
 .method-notes{margin-top:70px;max-width:56rem;display:flex;flex-direction:column;gap:0}
-.method-notes p{padding:22px 0;border-top:1px solid rgba(246,241,231,.16);
-  font-size:16px;line-height:1.75;color:var(--cream-dim)}
-.method-notes b{color:var(--cream)}
-.faq{margin-top:70px;max-width:56rem;border-top:1px solid rgba(246,241,231,.16)}
-.faq-i{border-bottom:1px solid rgba(246,241,231,.16)}
+.method-notes p{padding:22px 0;border-top:1px solid var(--line);
+  font-size:16px;line-height:1.75;color:var(--ink-soft)}
+.method-notes b{color:var(--ink);font-weight:600}
+.faq{margin-top:70px;max-width:56rem;border-top:1px solid var(--line)}
+.faq-i{border-bottom:1px solid var(--line)}
 .faq-i summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:20px;
-  padding:20px 4px;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:17px;color:var(--cream)}
+  padding:20px 4px;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:17px;color:var(--ink)}
 .faq-i summary::-webkit-details-marker{display:none}
-.faq-i summary:before{content:"+";font-family:'JetBrains Mono',monospace;color:#C9A876;flex:none;width:16px}
+.faq-i summary:before{content:"+";font-family:'JetBrains Mono',monospace;color:var(--brown);flex:none;width:16px}
 .faq-i[open] summary:before{content:"–"}
-.faq-i p{padding:0 4px 22px 36px;font-size:15.5px;color:var(--cream-dim);line-height:1.75}
+.faq-i p{padding:0 4px 22px 36px;font-size:15.5px;color:var(--ink-soft);line-height:1.75}
 #method .foot-note{color:rgba(246,241,231,.4)}
 
 /* ---------- FOOTER (editorial) ---------- */
