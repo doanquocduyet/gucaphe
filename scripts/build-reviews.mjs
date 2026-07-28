@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260762';
+const CSS_V = '20260763';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -923,7 +923,7 @@ function pcard(p, pos) {
     ? `<img src="${esc(src)}" alt="${esc(p.brand)} — ${esc(p.ten)}" loading="lazy">`
     : `<div class="pc-swatch" style="background:${ROAST_BG[p.roast] || '#8A6A44'}"><span>${esc(p.roast ? 'Rang ' + p.roast.toLowerCase() : 'Đặc sản')}</span></div>`;
   const badge = t
-    ? `<span class="pc-badge">${p.diem}</span>`
+    ? `<span class="pc-badge pc-badge-scored"><i>Đã chấm mù</i>${p.diem}</span>`
     : `<span class="pc-badge ${p.daUong ? 'pc-badge-tasted' : 'pc-badge-ut'}">${p.daUong ? 'Đã uống' : 'Chưa nếm'}</span>`;
   return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
       <a class="pc-media" href="/review/${p.slug}">${media}${badge}</a>
@@ -937,6 +937,28 @@ function pcard(p, pos) {
       </div>
     </div>`;
 }
+/* ---- Bộ chọn theo vị — dùng chung /ca-phe & /vung-trong (nhất quán "ngôn ngữ hương vị") ---- */
+function tasteSelector(title) {
+  const subs = VUNG.filter(v => !v.hub);
+  const byChua = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.chua) || 0) - ((a.camQuan && a.camQuan.chua) || 0));
+  const byChoco = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.choco) || 0) - ((a.camQuan && a.camQuan.choco) || 0));
+  const chuaR = byChua[0];
+  const chocoR = byChoco[0];
+  const canBangR = subs.find(x => x !== chuaR && x !== chocoR) || subs[0];
+  const tastes = [
+    ['🍋', 'Chua sáng · hương hoa', chuaR],
+    ['⚖️', 'Cân bằng · dễ uống', canBangR],
+    ['🍫', 'Đậm · chocolate', chocoR]
+  ].filter(t => t[2]);
+  if (!tastes.length) return '';
+  return `<section class="vg-taste">
+    <div class="vg-taste-q">${esc(title || 'Bạn thích vị nào?')}</div>
+    <div class="vg-taste-opts">
+      ${tastes.map(([ic, label, r]) => `<a class="vg-taste-opt" href="/vung-trong/${r.slug}"><span class="vg-taste-ic">${ic}</span><span class="vg-taste-l">${esc(label)}</span><span class="vg-taste-r">→ ${esc(r.ten)}</span></a>`).join('')}
+    </div>
+  </section>`;
+}
+
 function hubCaPhe() {
   const url = `${ORIGIN}/ca-phe`;
   const rank = SP.slice().sort((a, b) => (b.tested ? 1 : 0) - (a.tested ? 1 : 0) || (b.diem || 0) - (a.diem || 0));
@@ -958,25 +980,32 @@ function hubCaPhe() {
   }).join('');
   const schema = itemListSchema('Cà phê đặc sản Lâm Đồng',
     SP.map(p => ({ url: `${ORIGIN}/review/${p.slug}`, name: `${p.brand} ${p.ten}` })));
+  const nGoi = SP.length;
+  const nRang = ROASTER.filter(r => (r.sanPham || []).some(id => SP_BY_ID[id])).length;
+  const nCham = SP.filter(p => p.tested && p.diem != null).length;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
     'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số. Danh sách dưới đây không phải bảng xếp hạng.')}
 
+  <p class="hub-intro">Gu Cà Phê đã <b>mua và uống thật ${nGoi} gói</b> cà phê từ <b>${nRang} nhà rang</b> ở Lâm Đồng, trong đó <b>${nCham} gói đã chấm mù</b>. Danh sách được phân loại theo nhu cầu, vùng trồng, cách pha và mức giá để bạn dễ chọn.</p>
+
   ${NHUCAU.length ? `<section class="seg-wrap">
     <div class="hub-sec-head">
       <div class="eyebrow">① Chọn nhanh theo nhu cầu</div>
-      <h2 class="hub-sec-t">Mua cho ai?</h2>
-      <p class="hub-sec-sub">Bấm vào nhóm khách giống bạn nhất — chúng tôi trỏ thẳng <b>một gói hợp nhất</b>, khỏi phải so cả bảng.</p>
+      <h2 class="hub-sec-t">Bắt đầu từ nhu cầu của bạn</h2>
+      <p class="hub-sec-sub">Bấm vào nhóm giống bạn nhất — chúng tôi trỏ thẳng <b>một gói hợp nhất</b>, khỏi phải so cả bảng. Chỉ mất khoảng 20 giây.</p>
     </div>
     <div class="seg-grid">${seg}</div>
   </section>` : ''}
 
+  ${tasteSelector('Không biết chọn? Bắt đầu từ vị bạn thích')}
+
   <section class="cmp-sec">
     <div class="hub-sec-head">
-      <div class="eyebrow">② Các gói đã thử</div>
+      <div class="eyebrow">② Tất cả sản phẩm</div>
       <div class="cmp-bar">
-        <h2 class="hub-sec-t">Những gói đã uống</h2>
+        <h2 class="hub-sec-t">Tất cả những gói Gu đã mua</h2>
         <div class="cmp-sortbar">
           <span>Sắp theo:</span>
           <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
@@ -989,7 +1018,11 @@ function hubCaPhe() {
     <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
 
-  <p class="foot-note">Mới tìm hiểu specialty? <a href="/kien-thuc">Đọc Kiến thức trước khi mua →</a></p>
+  <a class="hub-cta" href="/kien-thuc">
+    <span class="hub-cta-k">Mới uống specialty?</span>
+    <span class="hub-cta-t">Đọc nền tảng trước — chỉ 5 phút</span>
+    <span class="hub-cta-go">Vào Kiến thức →</span>
+  </a>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>
   <script>
@@ -1015,22 +1048,7 @@ function hubVung() {
   const subs = VUNG.filter(v => !v.hub);
   const schema = itemListSchema('Vùng trồng cà phê Lâm Đồng',
     VUNG.map(v => ({ url: `${ORIGIN}/vung-trong/${v.slug}`, name: `Cà phê ${v.ten}` })));
-  const byChua = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.chua) || 0) - ((a.camQuan && a.camQuan.chua) || 0));
-  const byChoco = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.choco) || 0) - ((a.camQuan && a.camQuan.choco) || 0));
-  const chuaR = byChua[0];
-  const chocoR = byChoco[0];
-  const canBangR = subs.find(x => x !== chuaR && x !== chocoR) || subs[0];
-  const tastes = [
-    ['🍋', 'Chua sáng · hương hoa', chuaR],
-    ['⚖️', 'Cân bằng · dễ uống', canBangR],
-    ['🍫', 'Đậm · chocolate', chocoR]
-  ].filter(t => t[2]);
-  const taste = tastes.length ? `<section class="vg-taste">
-    <div class="vg-taste-q">Bạn thích vị nào?</div>
-    <div class="vg-taste-opts">
-      ${tastes.map(([ic, label, r]) => `<a class="vg-taste-opt" href="/vung-trong/${r.slug}"><span class="vg-taste-ic">${ic}</span><span class="vg-taste-l">${esc(label)}</span><span class="vg-taste-r">→ ${esc(r.ten)}</span></a>`).join('')}
-    </div>
-  </section>` : '';
+  const taste = tasteSelector('Bạn thích vị nào?');
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Vùng trồng</span></nav>
   ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Chọn vùng, chọn đúng gu',
