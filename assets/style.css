@@ -204,74 +204,62 @@ section:first-of-type{padding-top:88px}
 .dchip.on b{color:#fff}
 .dchip.on span{color:rgba(255,255,255,.82)}
 
-.rec{display:grid;grid-template-columns:0.92fr 1.35fr 0.8fr;gap:52px;align-items:start;margin-top:44px;
-  padding-top:44px;border-top:1px solid var(--line)}
+/* ---- Ô KẾT QUẢ sau khi chọn — thẻ sạch, dẫn bằng ảnh sản phẩm ---- */
+.rec{margin-top:36px;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:var(--paper);box-shadow:0 34px 80px -56px rgba(90,61,34,.55)}
 .rec.in{animation:recIn .42s cubic-bezier(.2,.7,.2,1)}
-@keyframes recIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.rec-intent{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px}
-.rec-intent b{color:var(--brown)}
-.rec-conf{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:0 0 18px;max-width:46ch}
-.rec-conf b{color:var(--ink);font-weight:600}
-.rec-untested{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:44px;
-  line-height:1;letter-spacing:-.03em;color:var(--ink-dim)}
-.rec-tasted{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:26px;
-  line-height:1.05;letter-spacing:-.02em;color:var(--brown-deep)}
-.rec-why h4,.rec-warn h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--ink-dim);margin:0 0 4px}
-.rec-warn{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);max-width:52ch}
-.rec-warn p{font-size:15px;line-height:1.6;color:var(--ink-soft)}
-.pick-side .cta-note a{color:var(--brown);text-decoration:none;border-bottom:1px solid var(--line)}
-.pick-side .cta-note a:hover{border-color:var(--brown)}
-
-/* Cognitive compression — câu chốt đứng trên mọi con số */
-.rec-verdict{font-family:'Be Vietnam Pro',sans-serif;font-size:22px;line-height:1.45;
-  color:var(--ink);margin:2px 0 16px;max-width:44ch;text-wrap:balance}
-.rec-undo{background:none;border:none;cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.05em;color:var(--brown);text-transform:none}
-.rec-undo:hover{text-decoration:underline}
-
-/* Confidence strip — trả lời câu hỏi trong đầu người dùng ngay tại điểm quyết định */
-.assure{margin-top:22px;display:flex;flex-direction:column;gap:12px}
-.assure div{display:flex;flex-direction:column;gap:1px}
-.assure b{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:13px;color:var(--ink)}
-.assure span{font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;color:var(--ink-dim)}
-
-/* Negotiation — recommendation là đối thoại, không phải output cố định */
-.nego{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.nego-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-dim)}
-.nego-chip{cursor:pointer;padding:9px 16px;border:1px solid var(--ink);background:transparent;
-  border-radius:100px;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;
-  color:var(--ink);transition:background .18s,color .18s}
-.nego-chip:hover{background:var(--ink);color:var(--paper)}
+@keyframes recIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 24px;
+  background:var(--brown-deep);color:#fff}
+.rec-tag{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;background:rgba(255,255,255,.16);padding:5px 10px;border-radius:6px;flex:none}
+.rec-intent{font-size:13px;color:rgba(255,255,255,.92);line-height:1.4}
+.rec-intent b{color:#fff;font-weight:700}
+.rec-undo{margin-left:auto;background:none;border:none;cursor:pointer;padding:0;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.85)}
+.rec-undo:hover{color:#fff;text-decoration:underline}
+.rec-card{display:grid;grid-template-columns:300px 1fr}
+.rec-photo{position:relative;display:block;background:var(--line-2);min-height:300px}
+.rec-photo img,.rec-photo-gen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rec-badge{position:absolute;top:14px;left:14px;font-family:'Be Vietnam Pro',sans-serif;
+  font-weight:800;padding:6px 12px;border-radius:9px;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+.rec-badge-score{background:var(--brown-deep);color:#fff;font-size:21px}
+.rec-badge-score i{font-style:normal;font-size:12px;opacity:.8}
+.rec-badge-tasted{background:rgba(255,255,255,.95);color:var(--brown-deep);font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;box-shadow:inset 0 0 0 1px var(--brown),0 8px 20px -10px rgba(0,0,0,.4)}
+.rec-badge-ut{background:rgba(255,255,255,.95);color:var(--amber);font-size:11px;text-transform:uppercase;
+  box-shadow:inset 0 0 0 1px var(--amber)}
+.rec-detail{padding:30px 32px;display:flex;flex-direction:column}
+.rec-brand{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brown);margin-bottom:8px}
+.rec-cred{color:var(--ink-dim);letter-spacing:.03em}
+.rec-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;text-decoration:none;color:var(--ink);
+  font-size:clamp(24px,3.2vw,32px);letter-spacing:-.025em;line-height:1.08;margin-bottom:14px;display:block}
+.rec-name:hover{color:var(--brown-deep)}
+.rec-verdict{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0 0 16px;max-width:52ch}
+.rec-verdict b{color:var(--ink);font-weight:600}
+.rec-cues{margin-bottom:20px}
+.rec-priceline{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.rec-price{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.02em;
+  color:var(--ink);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.rec-price span{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--ink-dim);letter-spacing:0}
+.rec-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:16px}
+.rec-actions .cta{flex:none}
+.rec-more{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;padding:22px 32px;
+  border-top:1px solid var(--line);background:var(--cream)}
+.rec-more-col h5{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-dim);margin:0 0 8px}
+.rec-more-col ul{list-style:none}
+.rec-more-col li{font-size:14.5px;line-height:1.5;color:var(--ink-soft);padding:3px 0 3px 18px;position:relative}
+.rec-more-y li:before{content:"+";position:absolute;left:0;color:var(--brown);font-weight:700}
+.rec-more-n li:before{content:"–";position:absolute;left:0;color:var(--ink-dim);font-weight:700}
+.nego{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 32px;border-top:1px solid var(--line)}
+.nego-l{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim)}
+.nego-chip{cursor:pointer;padding:8px 15px;border:1px solid var(--brown);background:transparent;
+  border-radius:100px;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:13.5px;
+  color:var(--brown-deep);transition:.18s}
+.nego-chip:hover{background:var(--brown-deep);color:#fff;border-color:var(--brown-deep)}
 @media(prefers-reduced-motion:reduce){.rec.in,.de-step2.show{animation:none}}
-
-.pick{display:grid;grid-template-columns:0.92fr 1.35fr 0.8fr;gap:52px;align-items:start;margin-top:76px}
-.pick-media{position:relative}
-.pick-media img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.94)}
-.pick-media-cap{position:absolute;left:0;bottom:0;right:0;padding:26px 14px 12px;
-  background:linear-gradient(transparent,rgba(20,15,11,.72));color:var(--cream);
-  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
-.pick-info .eyebrow{margin-bottom:16px;display:block}
-.pick-brand{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
-.pick-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;
-  font-size:clamp(30px,4vw,42px);letter-spacing:-.025em;line-height:1.04;margin-bottom:18px;text-wrap:balance}
-.pick-notes{font-size:20px;font-style:italic;color:var(--ink-soft);line-height:1.6;max-width:44ch;margin-bottom:20px}
-.pick-cues{margin-bottom:30px}
-.pick-why{list-style:none;border-top:1px solid var(--line);max-width:52ch}
-.pick-why li{padding:13px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink-soft)}
-.pick-why li b{color:var(--ink);font-weight:600}
-.pick-side{border-left:1px solid var(--line);padding-left:48px;display:flex;flex-direction:column;gap:8px}
-.pick-score{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;
-  font-size:96px;line-height:1;letter-spacing:-.05em;color:var(--brown)}
-.pick-score-l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ink-dim);margin:6px 0 30px}
-.pick-price{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.02em}
-.pick-per{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin:4px 0 26px}
-.pick-side .cta{width:100%}
 
 /* ============ BẢNG TUYỂN CHỌN ============ */
 #matrix{padding-top:0}
@@ -432,11 +420,12 @@ footer a:hover{border-color:#C9A876}
   .atmos-img img{aspect-ratio:3/2}
   .mx-filter{flex-wrap:wrap}
   h1{font-size:clamp(40px,11vw,56px)}
-  .pick,.rec{grid-template-columns:1fr;gap:32px}
   .decide-chips{grid-template-columns:repeat(2,1fr);gap:10px}
-  .pick-media img{aspect-ratio:3/2}
-  .pick-side{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:36px}
-  .pick-score{font-size:72px}
+  .rec-card{grid-template-columns:1fr}
+  .rec-photo{min-height:0;aspect-ratio:16/10}
+  .rec-more{grid-template-columns:1fr;gap:18px 0}
+  .rec-detail{padding:24px 22px}
+  .rec-head,.rec-more,.nego{padding-left:22px;padding-right:22px}
   .mx-cols{display:none}
   .mx-row{grid-template-columns:1fr;gap:16px;padding:26px 0}
   .mx-per,.mx-score{text-align:left}
@@ -572,14 +561,16 @@ footer a:hover{border-color:#C9A876}
    VÙNG TRỒNG — mục trang chủ (#vungtrong) + trang /vung-trong
    ============================================================ */
 #vungtrong .lead{margin-bottom:38px}
-.vg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.vg-card{display:flex;flex-direction:column;padding:26px;background:var(--paper-2);
-  text-decoration:none;color:var(--ink);border-radius:2px;
-  transition:transform .12s,background .2s;min-height:180px}
-.vg-card:hover{transform:translateY(-3px);background:#EEE7D8}
-.vg-hub{background:var(--ink);color:var(--cream)}
-.vg-hub:hover{background:#241d16}
-.vg-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.vg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vg-card{display:flex;flex-direction:column;background:var(--paper-2);overflow:hidden;
+  text-decoration:none;color:var(--ink);border-radius:16px;border:1px solid var(--line);
+  transition:transform .14s,box-shadow .2s}
+.vg-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -30px rgba(60,40,20,.55)}
+.vg-card-img{aspect-ratio:16/10;overflow:hidden;background:var(--line-2)}
+.vg-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.vg-card:hover .vg-card-img img{transform:scale(1.04)}
+.vg-card-body{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
+.vg-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
 .vg-card-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em}
 .vg-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:#D8B983;box-shadow:inset 0 0 0 1px rgba(216,185,131,.5);padding:4px 8px}

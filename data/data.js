@@ -171,25 +171,6 @@ const BAIVIET = [
    Trường vi / than (mô tả CHỮ) là phần soạn nội dung riêng — để placeholder khi chưa có. ---- */
 const VUNG = [
   {
-    slug: "lam-dong", ten: "Lâm Đồng", hub: true,
-    anh: "assets/img/regions/da-lat.jpg",
-    banDo: "assets/img/regions/lam-dong-map.png",
-    banDoCaption: "Bản đồ vùng trồng: Lâm Đồng nằm ở lõi cao nguyên — Lạc Dương, Cầu Đất (Arabica) và Lâm Hà, Di Linh (Robusta).",
-    diaDanh: ["Lâm Đồng", "Lạc Dương", "Cầu Đất", "Đà Lạt", "Nam Ban", "Lâm Hà", "Di Linh", "Bảo Lộc"],
-    tinh: "Tây Nguyên, Việt Nam",
-    doCao: "800–1.650m",
-    giong: "Arabica (Bourbon, Typica, Catimor) · Robusta",
-    hopPha: "Tuỳ tiểu vùng",
-    tagline: "Cao nguyên Arabica của Việt Nam.",
-    vi: "Càng lên cao, quả chín càng chậm — axit càng sáng, hương hoa quả càng rõ.",
-    diemNhan: ["Cao nguyên 800–1.650m", "Đất bazan đỏ", "Khí hậu ôn hoà quanh năm", "Nguồn Arabica đặc sản lớn nhất nước"],
-    than: [
-      "<p>Gần như toàn bộ cà phê <b>Arabica đặc sản</b> của Việt Nam đến từ Lâm Đồng. Cao nguyên này nằm ở độ cao 800–1.650m, đất bazan đỏ tơi xốp, khí hậu ôn hoà quanh năm — ba điều kiện mà cây Arabica cần để cho hạt có hương phức tạp.</p>",
-      "<p>Trong tỉnh, mỗi tiểu vùng cho một chất vị khác nhau. Càng lên cao, quả chín càng chậm, axit càng sáng và hương hoa quả càng rõ. <b>Cầu Đất</b> (Đà Lạt) là vùng cao và lâu đời nhất; <b>Lạc Dương</b> dưới chân núi Lang Biang cho hạt sạch, cân bằng; <b>Nam Ban</b> (Lâm Hà) ở độ cao thấp hơn, thân dày và dịu hơn.</p>",
-      "<p>Ở Gu Cà Phê, gói Lâm Đồng chúng tôi đã nếm mù là <b>Sơn Pacamara — Lang Biang</b> (Lạc Dương). Các tiểu vùng còn lại chúng tôi vẫn đang tìm gói xứng đáng để mua và nếm — khi có, trang này sẽ cập nhật.</p>"
-    ]
-  },
-  {
     slug: "cau-dat", ten: "Cầu Đất",
     anh: "assets/img/regions/cau-dat.jpg",
     diaDanh: ["Cầu Đất"],
@@ -237,22 +218,6 @@ const VUNG = [
     than: [
       "<p><b>Lạc Dương</b> nằm ngay dưới chân núi Lang Biang, phía bắc Đà Lạt, ở độ cao khoảng 1.400–1.500m. Đây là một trong những vùng Arabica đặc sản đáng chú ý nhất Lâm Đồng, với nhiều nông hộ người <b>K'Ho</b> canh tác lâu đời.</p>",
       "<p>Khí hậu mát quanh năm cùng độ cao lớn khiến quả cà phê chín chậm, cho hạt có <b>độ chua cân bằng, thân sạch và hậu vị dễ chịu</b>. Các giống phổ biến là Catimor và Bourbon. Nhiều lô ở đây được sơ chế bằng phương pháp phơi chậm gác mái của người K'Ho, giúp hạt khô đều và ít phụ thuộc thời tiết. Cà phê Lạc Dương hợp pha V60 hoặc pour over để tôn vị.</p>"
-    ]
-  },
-  {
-    slug: "da-lat", ten: "Đà Lạt (thành phố)",
-    anh: "assets/img/regions/da-lat.jpg",
-    diaDanh: ["Đà Lạt", "Trại Mát"],
-    tinh: "TP Đà Lạt, Lâm Đồng",
-    doCao: "~1.500m",
-    giong: "Arabica",
-    hopPha: "Đa dạng",
-    tagline: "Trung tâm roastery & văn hóa cà phê đặc sản.",
-    vi: "Trung tâm roastery và văn hóa cà phê đặc sản của cả vùng cao nguyên.",
-    diemNhan: ["Nơi tụ hội roastery specialty", "Văn hóa pour over", "Điểm đến cà phê"],
-    than: [
-      "<p><b>Đà Lạt</b> — thành phố ở độ cao khoảng 1.500m — không chỉ là vùng trồng mà còn là nơi hội tụ các nhà rang và quán specialty của Lâm Đồng. Đây là điểm mà văn hóa uống cà phê đặc sản Việt Nam thể hiện rõ nhất: pour over, cold brew, single origin thay cho cà phê pha sẵn.</p>",
-      "<p>Xung quanh Đà Lạt là các tiểu vùng trồng Arabica trứ danh như Cầu Đất, Trại Mát. Trong thành phố, nhiều roastery vừa rang vừa mở quán để khách trải nghiệm trực tiếp từ hạt tới ly. Nếu các vùng khác kể câu chuyện <b>nguyên liệu</b>, thì Đà Lạt kể câu chuyện <b>trải nghiệm và tay nghề rang pha</b>.</p>"
     ]
   }
 ];

@@ -289,48 +289,46 @@ function drawRec() {
     ? `Bạn muốn <b>${NEGO}</b> → vậy gói này`
     : `${TASTE === 'moi' ? 'Dành cho' : 'Thích'} <b>${tlabel}</b>${BREW ? ` · pha <b>${BLAB[BREW]}</b>` : ''} → chúng tôi chọn`;
   const objs = availObj(best);
+  const src = best.anh ? (/^https?:/.test(best.anh) ? best.anh : best.anh) : '';
+  const badge = (best.tested && best.diem != null)
+    ? `<span class="rec-badge rec-badge-score">${best.diem}<i>/10</i></span>`
+    : (best.daUong ? `<span class="rec-badge rec-badge-tasted">Đã uống</span>` : `<span class="rec-badge rec-badge-ut">Chưa nếm</span>`);
+  const media = src
+    ? `<img src="${src}" alt="${best.brand} — ${best.ten}">`
+    : `<div class="rec-photo-gen" style="background:${ROAST_BG[best.roast] || '#8A6A44'}"></div>`;
   out.innerHTML = `
     <div class="rec">
-      <div class="pick-media">
-        <img src="assets/img/hero.jpg" alt="Buổi nếm mù của Gu Cà Phê">
-        <span class="pick-media-cap">Buổi nếm mù · 1:15 · 92°C</span>
+      <div class="rec-head">
+        <span class="rec-tag">Gợi ý cho bạn</span>
+        <span class="rec-intent">${speak}</span>
+        ${CURID ? `<button class="rec-undo" onclick="deBase()">↺ về gói gợi ý</button>` : ''}
       </div>
-      <div class="pick-info">
-        <div class="rec-intent">${speak}${CURID ? ` · <button class="rec-undo" onclick="deBase()">↺ về gói gợi ý</button>` : ''}</div>
-        <div class="pick-brand">${best.brand}</div>
-        <div class="pick-name">${best.ten}</div>
-        <div class="rec-verdict">${verdict(best, TASTE)}</div>
-        <div class="rec-conf">${confLine(best, TASTE)}</div>
-        <div class="pick-notes">${(best.tested && best.notes && best.notes.length) ? best.notes.join(' · ') + '.' : best.flavor}</div>
-        <div class="pick-cues">${cues(best)}</div>
-        <div class="rec-why">
-          <h4>Vì sao hợp bạn</h4>
-          <ul class="pick-why">${best.nen.slice(0, 3).map(x => `<li><b>+</b> ${x}</li>`).join('')}</ul>
-        </div>
-        ${best.khong && best.khong.length ? `<div class="rec-warn"><h4>Điều bạn có thể chưa thích</h4><p>${best.khong[0]}</p></div>` : ''}
-      </div>
-      <div class="pick-side">
-        ${best.tested && best.diem != null
-          ? `<div class="pick-score">${best.diem}</div><div class="pick-score-l">Điểm nếm mù / 10</div>`
-          : (best.daUong
-            ? `<div class="rec-tasted">Đã uống</div><div class="pick-score-l">${best.chungNhan || 'Chưa chấm mù'}</div>`
-            : `<div class="rec-untested">Chưa nếm</div><div class="pick-score-l">Chưa chấm điểm</div>`)}
-        <div class="pick-price">${money(best.gia)}</div>
-        <div class="pick-per">${money(per100(best))} / 100g · ${best.gram}g</div>
-        ${buyCTA(best, 'rec')}
-        ${reviewUrl(best) ? `<a class="rec-review-link" href="${reviewUrl(best)}">Đọc review đầy đủ →</a>` : ''}
-        <div class="assure">
-          <div><b>Chắc cỡ nào?</b><span>Nếm mù · cùng cỡ xay · 1:15 · 92°C</span></div>
-          <div><b>Lỡ không hợp?</b><span>Đổi gu ngay bên dưới, không phải đọc lại từ đầu</span></div>
-          <div><b>Gói ${best.gram}g</b><span>Đủ nhỏ để thử trước khi mua thêm</span></div>
+      <div class="rec-card">
+        <a class="rec-photo" href="${reviewUrl(best)}">${media}${badge}</a>
+        <div class="rec-detail">
+          <div class="rec-brand">${best.brand}${best.chungNhan && !(best.tested && best.diem != null) ? ` · <span class="rec-cred">${best.chungNhan}</span>` : ''}</div>
+          <a class="rec-name" href="${reviewUrl(best)}">${best.ten}</a>
+          <p class="rec-verdict">${verdict(best, TASTE)}</p>
+          <div class="rec-cues">${cues(best)}</div>
+          <div class="rec-priceline">
+            <div class="rec-price">${money(best.gia)}<span>${money(per100(best))} / 100g · ${best.gram}g</span></div>
+          </div>
+          <div class="rec-actions">
+            ${buyCTA(best, 'rec')}
+            ${reviewUrl(best) ? `<a class="rec-review-link" href="${reviewUrl(best)}">Đọc review đầy đủ →</a>` : ''}
+          </div>
         </div>
       </div>
-    </div>
-    ${objs.length ? `
-    <div class="nego">
-      <span class="nego-l">${CURID ? 'Vẫn chưa ưng?' : 'Chưa đúng gu của bạn?'} Nói cho chúng tôi:</span>
-      ${objs.map(o => `<button class="nego-chip" onclick="deObj('${o.k}')">${o.label}</button>`).join('')}
-    </div>` : `<div class="nego"><span class="nego-l">Đây đã là gói khớp gu bạn nhất trong danh mục hiện tại.</span></div>`}`;
+      <div class="rec-more">
+        <div class="rec-more-col rec-more-y"><h5>Hợp nếu</h5><ul>${best.nen.slice(0, 2).map(x => `<li>${x}</li>`).join('')}</ul></div>
+        ${best.khong && best.khong.length ? `<div class="rec-more-col rec-more-n"><h5>Cân nhắc nếu</h5><ul><li>${best.khong[0]}</li></ul></div>` : ''}
+      </div>
+      ${objs.length ? `
+      <div class="nego">
+        <span class="nego-l">${CURID ? 'Vẫn chưa ưng?' : 'Chưa đúng gu?'} Đổi nhanh:</span>
+        ${objs.map(o => `<button class="nego-chip" onclick="deObj('${o.k}')">${o.label}</button>`).join('')}
+      </div>` : `<div class="nego"><span class="nego-l">Đây là gói khớp gu bạn nhất trong danh mục hiện tại.</span></div>`}
+    </div>`;
   const rec = out.firstElementChild;
   if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
 }
@@ -467,7 +465,7 @@ function renderHubs() {
   const hubs = [
     { href:'/ca-phe',    k:'Cà phê',     img:'assets/img/p3-cup.jpg',                 alt:'Bộ mẫu cà phê đặc sản', d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:`${SP.length} gói${best ? ` · cao nhất ${best.diem}/10` : ''}`, go:'Xem tất cả →' },
     { href:'/nha-rang',  k:'Nhà rang',   img:'assets/img/products/hand-beans.jpg',    alt:'Hạt cà phê vừa rang', d:'Hồ sơ 6 nhà cà phê xịn nhất Lâm Đồng, xếp theo vùng nguyên liệu.', m:`${(typeof ROASTER!=='undefined'?ROASTER.length:6)} nhà`, go:'Xem hồ sơ →' },
-    { href:'/vung-trong',k:'Vùng trồng', img:'assets/img/regions/cau-dat.jpg',        alt:'Quả cà phê chín trên cây', d:'Cầu Đất · Nam Ban · Lạc Dương · Đà Lạt — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
+    { href:'/vung-trong',k:'Vùng trồng', img:'assets/img/regions/cau-dat.jpg',        alt:'Quả cà phê chín trên cây', d:'Cầu Đất · Lạc Dương · Nam Ban — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
     { href:'/kien-thuc', k:'Kiến thức',  img:'assets/img/products/beans-tin.jpg',     alt:'Ghi chú nếm thử cà phê', d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:`${nBai} bài + từ điển`, go:'Đọc →' }
   ];
   el.innerHTML = `

@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260749';
+const CSS_V = '20260750';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -156,19 +156,30 @@ function roasterCardHTML(r) {
   const a = roasterAvg(r);
   const badge = a ? `<span class="vg-badge">${a.avg}/10</span>`
     : (r.chungNhan ? `<span class="vg-badge vg-badge-cred">${esc(r.chungNhan)}</span>` : '');
+  const p = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean)[0];
+  const src = p && p.anh ? (/^https?:/.test(p.anh) ? p.anh : '/' + p.anh) : '';
+  const img = src ? `<div class="vg-card-img"><img src="${esc(src)}" alt="${esc(r.ten)}" loading="lazy"></div>` : '';
   return `<a class="vg-card" href="/nha-rang/${r.slug}">
-      <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${badge}</div>
-      <div class="vg-card-tag">${esc(r.gioiThieu)}</div>
-      <div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>
-      <span class="vg-card-go">Xem hồ sơ →</span>
+      ${img}
+      <div class="vg-card-body">
+        <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${badge}</div>
+        <div class="vg-card-tag">${esc(r.gioiThieu)}</div>
+        <div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>
+        <span class="vg-card-go">Xem hồ sơ →</span>
+      </div>
     </a>`;
 }
 function regionCardHTML(v) {
+  const src = v.anh ? (/^https?:/.test(v.anh) ? v.anh : '/' + v.anh) : '';
+  const img = src ? `<div class="vg-card-img"><img src="${esc(src)}" alt="Cà phê ${esc(v.ten)}" loading="lazy"></div>` : '';
   return `<a class="vg-card${v.hub ? ' vg-hub' : ''}" href="/vung-trong/${v.slug}">
-      <div class="vg-card-top"><div class="vg-card-name">${esc(v.ten)}</div>${v.hub ? '<span class="vg-badge">Tổng quan</span>' : ''}</div>
-      <div class="vg-card-tag">${esc(v.tagline)}</div>
-      <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).map(esc).join(' · ')}</div>
-      <span class="vg-card-go">Tìm hiểu →</span>
+      ${img}
+      <div class="vg-card-body">
+        <div class="vg-card-top"><div class="vg-card-name">${esc(v.ten)}</div>${v.hub ? '<span class="vg-badge">Tổng quan</span>' : ''}</div>
+        <div class="vg-card-tag">${esc(v.tagline)}</div>
+        <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).map(esc).join(' · ')}</div>
+        <span class="vg-card-go">Tìm hiểu →</span>
+      </div>
     </a>`;
 }
 
@@ -877,14 +888,13 @@ function hubVung() {
   </header>
   ${hub ? `<section class="hub-group"><div class="vg-grid">${regionCardHTML(hub)}</div></section>` : ''}
   <section class="hub-group">
-    <h2 class="hub-group-t">Tiểu vùng</h2>
     <div class="vg-grid">${subs.map(regionCardHTML).join('')}</div>
   </section>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
-    title: 'Vùng trồng cà phê Lâm Đồng — Cầu Đất, Nam Ban, Lạc Dương, Đà Lạt | Gu Cà Phê',
-    desc: 'Các vùng nguyên liệu cà phê đặc sản Lâm Đồng: Cầu Đất, Nam Ban, Lạc Dương, Đà Lạt — độ cao, giống, hương vị đặc trưng và gói đáng mua từng vùng.',
+    title: 'Vùng trồng cà phê Lâm Đồng — Cầu Đất, Lạc Dương, Nam Ban | Gu Cà Phê',
+    desc: 'Ba tiểu vùng cà phê đặc sản Lâm Đồng: Cầu Đất, Lạc Dương, Nam Ban — độ cao, giống, hương vị đặc trưng và gói đáng mua từng vùng.',
     url, ogType: 'website', schema, active: 'vung', main
   });
 }
