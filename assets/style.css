@@ -158,10 +158,19 @@ section:first-of-type{padding-top:88px}
 .peak-line b{color:var(--brown)}
 
 /* ============ DECISION ENGINE / PICK ============ */
+.decide-panel{background:linear-gradient(180deg,#FFFFFF 0%,var(--cream) 100%);
+  border:1px solid var(--line);border-radius:26px;padding:52px 48px 48px;
+  box-shadow:0 40px 90px -60px rgba(90,61,34,.55)}
 .decide-head{max-width:46ch}
-.decide-head h2{margin-top:6px}
-.decide-lead{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-top:16px;max-width:54ch}
+.decide-kicker{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--brown);margin-bottom:16px}
+.decide-title{font-family:'Be Vietnam Pro',sans-serif;font-weight:500;
+  font-size:clamp(38px,6.2vw,60px);line-height:1;letter-spacing:-.035em;color:var(--ink);margin:0}
+.decide-lead{font-size:17px;line-height:1.6;color:var(--ink-soft);margin-top:16px;max-width:48ch}
 .decide-lead b{color:var(--ink);font-weight:600}
+@media(max-width:600px){
+  .decide-panel{padding:34px 22px 30px;border-radius:20px}
+}
 .decide-back{margin-top:22px;font-size:14px;color:var(--ink-soft);
   display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .decide-back b{color:var(--brown)}

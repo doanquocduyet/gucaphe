@@ -213,31 +213,32 @@ const memPick = () => { try { return get(localStorage.getItem('gu_pick')); } cat
 function renderPick() {
   const back = TASTE || BREW;
   $('#pick').innerHTML = `
-    <div class="decide-head">
-      <div class="eyebrow">Chọn giúp bạn</div>
-      <h2>Đừng chọn một mình.<br>Trả lời hai câu, chúng tôi chốt.</h2>
-      <p class="decide-lead">Chúng tôi không đưa bạn cả bảng rồi để bạn tự đoán. Nói gu của bạn —
-      chúng tôi loại bớt, chọn một, và nói thẳng <b>vì sao hợp bạn</b> (và chỗ nào có thể chưa).</p>
-      ${back ? `<div class="decide-back">${memPick() ? `Lần trước bạn dừng ở <b>${memPick().brand} · ${memPick().ten}</b>. Vẫn vậy chứ?` : `Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?`}
-        <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
-    </div>
-
-    <div class="de-step">
-      <div class="de-q"><span class="de-n">1</span> Bạn thích ly cà phê thế nào?</div>
-      <div class="decide-chips de-taste">
-        ${TASTES.map(t => `<button class="dchip${t.k === TASTE ? ' on' : ''}" data-k="${t.k}" onclick="deTaste('${t.k}')"><b>${t.label}</b><span>${t.sub}</span></button>`).join('')}
+    <div class="decide-panel">
+      <div class="decide-head">
+        <div class="decide-kicker">Gợi ý riêng</div>
+        <h2 class="decide-title">Chọn giúp bạn</h2>
+        <p class="decide-lead">Nói gu của bạn — chúng tôi chốt một gói hợp nhất.</p>
+        ${back ? `<div class="decide-back">${memPick() ? `Lần trước bạn dừng ở <b>${memPick().brand} · ${memPick().ten}</b>. Vẫn vậy chứ?` : `Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?`}
+          <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
       </div>
-      <button class="de-skip${TASTE === 'moi' ? ' on' : ''}" onclick="deTaste('moi')">Chưa rõ gu của mình — cứ chọn giúp tôi →</button>
-    </div>
 
-    <div class="de-step de-step2${TASTE ? ' show' : ''}">
-      <div class="de-q"><span class="de-n">2</span> Bạn pha bằng gì?</div>
-      <div class="decide-chips de-brew">
-        ${INTENTS.map(it => `<button class="dchip${it.k === BREW ? ' on' : ''}" data-k="${it.k}" onclick="deBrew('${it.k}')"><b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+      <div class="de-step">
+        <div class="de-q"><span class="de-n">1</span> Bạn thích ly cà phê thế nào?</div>
+        <div class="decide-chips de-taste">
+          ${TASTES.map(t => `<button class="dchip${t.k === TASTE ? ' on' : ''}" data-k="${t.k}" onclick="deTaste('${t.k}')"><b>${t.label}</b><span>${t.sub}</span></button>`).join('')}
+        </div>
+        <button class="de-skip${TASTE === 'moi' ? ' on' : ''}" onclick="deTaste('moi')">Chưa rõ gu của mình — cứ chọn giúp tôi →</button>
       </div>
-    </div>
 
-    <div id="decide-out"></div>`;
+      <div class="de-step de-step2${TASTE ? ' show' : ''}">
+        <div class="de-q"><span class="de-n">2</span> Bạn pha bằng gì?</div>
+        <div class="decide-chips de-brew">
+          ${INTENTS.map(it => `<button class="dchip${it.k === BREW ? ' on' : ''}" data-k="${it.k}" onclick="deBrew('${it.k}')"><b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+        </div>
+      </div>
+
+      <div id="decide-out"></div>
+    </div>`;
   if (TASTE) drawRec();
 }
 
