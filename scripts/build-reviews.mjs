@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260760';
+const CSS_V = '20260761';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -176,10 +176,17 @@ function regionCardHTML(v) {
   const img = src
     ? `<div class="vg-card-img vg-card-img--name"><img src="${esc(src)}" alt="Cà phê ${esc(v.ten)}" loading="lazy"><div class="vg-card-imgscrim"></div><div class="vg-card-imgname">${esc(v.ten)}</div></div>`
     : '';
+  const tags = (v.tags && v.tags.length)
+    ? `<div class="vg-card-tags">${v.tags.slice(0, 3).map(t => `<span>${esc(t)}</span>`).join('')}</div>`
+    : '';
+  const viLine = v.viNgan
+    ? `<div class="vg-card-vi"><span class="vg-card-vi-k">Vị thường gặp</span> ${esc(v.viNgan)}</div>`
+    : '';
   return `<a class="vg-card vg-card--region" href="/vung-trong/${v.slug}">
       ${img}
       <div class="vg-card-body">
-        <div class="vg-card-tag">${esc(v.tagline)}</div>
+        ${viLine}
+        ${tags}
         <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).map(esc).join(' · ')}</div>
         <span class="vg-card-go">Tìm hiểu →</span>
       </div>
@@ -480,6 +487,66 @@ function prodCard(p) {
         </div>`;
 }
 
+/* ---- Sao cảm quan (kiến thức vùng, không phải điểm nếm mù của Gu) ---- */
+const stars = n => { n = Math.max(0, Math.min(5, n | 0)); return '<span class="stars">' + '★'.repeat(n) + '<span class="stars-off">' + '★'.repeat(5 - n) + '</span></span>'; };
+
+/* ---- Bốn thuộc tính cảm quan thường gặp của vùng (kiến thức vùng) ---- */
+const SENSES = [['chua', 'Độ chua'], ['body', 'Body'], ['hoa', 'Hương hoa'], ['choco', 'Chocolate']];
+
+/* ---- Box "tóm tắt 10 giây" — phần AI dễ trích nhất ---- */
+function regionSummaryBox(v) {
+  const c = v.camQuan || {};
+  const facts = [
+    ['Giống', esc(v.giong || '—')],
+    ['Độ cao', esc(v.doCao || '—')],
+    ['Hợp', esc(v.hopPha || '—')],
+    ['Không hợp', esc(v.khongHopNgan || '—')]
+  ];
+  const hasSense = SENSES.some(([k]) => c[k] != null);
+  return `<section class="rg-sum" aria-label="Tóm tắt nhanh">
+    <div class="rg-sum-head">
+      <span class="rg-sum-kick">Gu Cà Phê tóm tắt</span>
+      <h2 class="rg-sum-t">${esc(v.ten)} trong 10 giây</h2>
+    </div>
+    ${v.dinhNghia ? `<p class="rg-sum-def">${esc(v.dinhNghia)}</p>` : ''}
+    <div class="rg-sum-cols">
+      <dl class="rg-sum-facts">
+        ${facts.map(([k, val]) => `<div class="rg-sum-row"><dt>${k}</dt><dd>${val}</dd></div>`).join('')}
+      </dl>
+      ${hasSense ? `<div class="rg-snap">
+        <div class="rg-snap-cap">Vị thường gặp</div>
+        ${SENSES.map(([k, label]) => c[k] != null ? `<div class="rg-snap-row"><span class="rg-snap-l">${label}</span>${stars(c[k])}</div>` : '').join('')}
+      </div>` : ''}
+    </div>
+    <p class="rg-sum-note">Đặc tính vị <b>thường gặp</b> của vùng — không phải điểm nếm mù của Gu. Vị thực tế còn tuỳ giống, cách sơ chế và mức rang của từng nhà rang.</p>
+  </section>`;
+}
+
+/* ---- Bảng so sánh 3 vùng — người đọc & AI hiểu trong 5 giây ---- */
+function regionCompareTable(current) {
+  const regions = VUNG.filter(x => !x.hub);
+  if (regions.length < 2) return '';
+  const rows = [
+    ['Độ cao', r => esc(r.doCao || '—')],
+    ['Độ chua', r => r.camQuan && r.camQuan.chua != null ? stars(r.camQuan.chua) : '—'],
+    ['Body', r => r.camQuan && r.camQuan.body != null ? stars(r.camQuan.body) : '—'],
+    ['Hương hoa', r => r.camQuan && r.camQuan.hoa != null ? stars(r.camQuan.hoa) : '—'],
+    ['Chocolate', r => r.camQuan && r.camQuan.choco != null ? stars(r.camQuan.choco) : '—'],
+    ['Hợp pha', r => esc(r.hopPha || '—')]
+  ];
+  return `<section class="rg-cmp">
+    <h2 class="rg-h">So sánh ba vùng</h2>
+    <div class="rg-cmp-scroll">
+      <table class="rg-cmp-tbl">
+        <thead><tr><th></th>${regions.map(r => `<th class="${r.slug === current.slug ? 'is-cur' : ''}">${esc(r.ten)}</th>`).join('')}</tr></thead>
+        <tbody>
+          ${rows.map(([label, fn]) => `<tr><th scope="row">${label}</th>${regions.map(r => `<td class="${r.slug === current.slug ? 'is-cur' : ''}">${fn(r)}</td>`).join('')}</tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
 function regionPage(v) {
   const url = `${ORIGIN}/vung-trong/${v.slug}`;
   const prods = regionProducts(v);
@@ -513,6 +580,13 @@ function regionPage(v) {
   };
 
   const others = VUNG.filter(x => x.slug !== v.slug);
+  const subRegions = VUNG.filter(x => !x.hub && x.slug !== v.slug);
+  const scoredN = prods.filter(p => p.tested && p.diem != null).length;
+  const drunkN = prods.filter(p => p.daUong && !(p.tested && p.diem != null)).length;
+  const faqSchema = (v.faq && v.faq.length) ? {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: v.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  } : null;
 
   return `<!DOCTYPE html>
 <html lang="vi">
@@ -532,6 +606,7 @@ function regionPage(v) {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">${JSON.stringify(article)}</script>
 <script type="application/ld+json">${JSON.stringify(crumb)}</script>
+${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -566,11 +641,33 @@ ${siteNav('vung')}
     </div>
   </header>
 
+  ${regionSummaryBox(v)}
+
   <article class="rp-article vg-article">
-    ${(v.than || []).join('\n    ')}
-    ${v.vi ? `<p class="vg-vi"><b>Vị đặc trưng:</b> ${esc(v.vi)}</p>` : ''}
-    ${(v.diemNhan && v.diemNhan.length) ? `<ul class="vg-highlights">${v.diemNhan.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+    <h2 class="rg-h">Vì sao ${esc(v.ten)} có vị như vậy?</h2>
+    ${(v.taiSao || v.than || []).join('\n    ')}
+    ${v.hopPhaVi ? `<p class="rg-brew"><b>Cách pha:</b> ${esc(v.hopPhaVi)}</p>` : ''}
+    ${(v.giongMoTa && v.giongMoTa.length) ? `<ul class="rg-giong">${v.giongMoTa.map(([g, d]) => `<li><b>${esc(g)}</b> — ${esc(d)}</li>`).join('')}</ul>` : ''}
   </article>
+
+  ${v.diemDacBiet ? `<aside class="rg-special">
+    <div class="rg-special-cap">★ ${esc(v.diemDacBiet.title)}</div>
+    ${v.diemDacBiet.html}
+  </aside>` : ''}
+
+  ${(v.nen || v.khong) ? `<section class="rg-fit">
+    <h2 class="rg-h">Ai nên chọn ${esc(v.ten)}?</h2>
+    <div class="rg-fit-cols">
+      ${(v.nen && v.nen.length) ? `<div class="rg-fit-col rg-fit--yes"><div class="rg-fit-cap">Hợp nếu bạn</div><ul>${v.nen.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+      ${(v.khong && v.khong.length) ? `<div class="rg-fit-col rg-fit--no"><div class="rg-fit-cap">Cân nhắc nếu bạn</div><ul>${v.khong.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+    </div>
+    ${subRegions.length ? `<div class="rg-fit-cross">${subRegions.map(o => `<a href="/vung-trong/${o.slug}">Thích ${esc((o.huongChinh || '').toLowerCase() || o.ten)}? → ${esc(o.ten)}</a>`).join('')}</div>` : ''}
+  </section>` : ''}
+
+  ${v.nhanXet ? `<aside class="rg-note">
+    <div class="rg-note-cap">Nhận xét của Gu</div>
+    <p>${esc(v.nhanXet)}</p>
+  </aside>` : ''}
 
   ${v.banDo ? `<figure class="vg-map">
     <img src="/${v.banDo}" alt="Bản đồ vùng trồng cà phê Lâm Đồng — Lạc Dương, Cầu Đất, Lâm Hà, Di Linh, Đắk Nông" loading="lazy">
@@ -578,7 +675,10 @@ ${siteNav('vung')}
   </figure>` : ''}
 
   <section class="vg-prods">
-    <h2>Gói từ vùng này</h2>
+    <div class="rg-prods-head">
+      <h2 class="rg-h">Gói từ vùng này</h2>
+      ${prods.length ? `<div class="rg-prods-count"><span class="rg-cnt rg-cnt--scored">Đã chấm mù ${scoredN}</span><span class="rg-cnt rg-cnt--drunk">Đã uống ${drunkN}</span></div>` : ''}
+    </div>
     ${prods.length
       ? `<div class="pc-grid">${prods.map(p => pcard(p)).join('')}</div>`
       : `<div class="vg-empty">
@@ -593,7 +693,7 @@ ${siteNav('vung')}
 
   ${roasters.length ? `
   <section class="rp-related">
-    <h2>Nhà rang trong vùng</h2>
+    <h2 class="rg-h">${roasters.length === 1 ? `Nhà rang tiêu biểu của ${esc(v.ten)}` : `Nhà rang tiêu biểu`}</h2>
     <div class="rp-rel-grid">
       ${roasters.map(r => {
         const a = roasterAvg(r);
@@ -607,15 +707,27 @@ ${siteNav('vung')}
     </div>
   </section>` : ''}
 
+  ${regionCompareTable(v)}
+
+  ${(v.faq && v.faq.length) ? `<section class="rg-faq">
+    <h2 class="rg-h">Câu hỏi thường gặp về cà phê ${esc(v.ten)}</h2>
+    <dl>${v.faq.map(f => `<div class="rg-faq-item"><dt>${esc(f.q)}</dt><dd>${esc(f.a)}</dd></div>`).join('')}</dl>
+  </section>` : ''}
+
+  ${(v.themVao && v.themVao.length) ? `<details class="rg-more">
+    <summary>Biết thêm về ${esc(v.ten)}</summary>
+    <div class="rg-more-body">${v.themVao.join('\n    ')}</div>
+  </details>` : ''}
+
   ${others.length ? `
   <section class="rp-related">
-    <h2>Vùng trồng khác</h2>
+    <h2 class="rg-h">Vùng trồng khác</h2>
     <div class="rp-rel-grid">
       ${others.map(o => `
       <a class="rp-rel" href="/vung-trong/${o.slug}">
         <div class="rp-rel-brand">${o.hub ? 'Tổng quan' : 'Tiểu vùng'}</div>
         <div class="rp-rel-name">Cà phê ${esc(o.ten)}</div>
-        <div class="rp-rel-meta">${esc(o.doCao || '')}</div>
+        <div class="rp-rel-meta">${esc(o.viNgan || o.doCao || '')}</div>
       </a>`).join('')}
     </div>
   </section>` : ''}
@@ -903,14 +1015,32 @@ function hubVung() {
   const subs = VUNG.filter(v => !v.hub);
   const schema = itemListSchema('Vùng trồng cà phê Lâm Đồng',
     VUNG.map(v => ({ url: `${ORIGIN}/vung-trong/${v.slug}`, name: `Cà phê ${v.ten}` })));
+  const byChua = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.chua) || 0) - ((a.camQuan && a.camQuan.chua) || 0));
+  const byChoco = [...subs].sort((a, b) => ((b.camQuan && b.camQuan.choco) || 0) - ((a.camQuan && a.camQuan.choco) || 0));
+  const chuaR = byChua[0];
+  const chocoR = byChoco[0];
+  const canBangR = subs.find(x => x !== chuaR && x !== chocoR) || subs[0];
+  const tastes = [
+    ['🍋', 'Chua sáng · hương hoa', chuaR],
+    ['⚖️', 'Cân bằng · dễ uống', canBangR],
+    ['🍫', 'Đậm · chocolate', chocoR]
+  ].filter(t => t[2]);
+  const taste = tastes.length ? `<section class="vg-taste">
+    <div class="vg-taste-q">Bạn thích vị nào?</div>
+    <div class="vg-taste-opts">
+      ${tastes.map(([ic, label, r]) => `<a class="vg-taste-opt" href="/vung-trong/${r.slug}"><span class="vg-taste-ic">${ic}</span><span class="vg-taste-l">${esc(label)}</span><span class="vg-taste-r">→ ${esc(r.ten)}</span></a>`).join('')}
+    </div>
+  </section>` : '';
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Vùng trồng</span></nav>
-  ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Vùng nguyên liệu cà phê Lâm Đồng',
-    'Lâm Đồng là vùng Arabica đặc sản lớn nhất Việt Nam. Mỗi tiểu vùng — khác nhau về độ cao, thổ nhưỡng và cách sơ chế — cho một chất vị riêng. Hiểu vùng trồng giúp bạn chọn theo gu, thay vì chọn theo bao bì.')}
+  ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Chọn vùng, chọn đúng gu',
+    'Bạn thích cà phê chua sáng hương hoa, hay đậm đà chocolate? Mỗi vùng ở Lâm Đồng cho một chất vị riêng — chọn đúng vùng là bước đầu để chọn đúng gói.')}
+  ${taste}
   ${hub ? `<section class="hub-group"><div class="vg-grid">${regionCardHTML(hub)}</div></section>` : ''}
   <section class="hub-group">
     <div class="vg-grid">${subs.map(regionCardHTML).join('')}</div>
   </section>
+  ${regionCompareTable({ slug: '' })}
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({

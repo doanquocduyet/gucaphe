@@ -719,6 +719,152 @@ footer a:hover{border-color:#C9A876}
   .vg-empty-cta{gap:16px}
 }
 
+/* ============================================================
+   VÙNG TRỒNG — hồ sơ hương vị (entity schema nhất quán)
+   ============================================================ */
+/* Sao cảm quan */
+.stars{font-size:14px;letter-spacing:2px;color:var(--brown);white-space:nowrap}
+.stars-off{color:var(--line)}
+
+/* Card vùng: vị thường gặp + tags */
+.vg-card-vi{font-family:'Be Vietnam Pro',sans-serif;font-size:15.5px;line-height:1.45;
+  color:var(--ink-soft);margin-bottom:14px;flex:1}
+.vg-card-vi-k{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brown);margin-bottom:5px}
+.vg-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.vg-card-tags span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.02em;
+  color:var(--brown-deep);background:rgba(122,84,51,.09);border-radius:20px;padding:4px 10px}
+
+/* Taste selector trên hub */
+.vg-taste{margin:6px 0 40px;padding:26px 28px;background:var(--cream);border:1px solid var(--line);border-radius:18px}
+.vg-taste-q{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.01em;margin-bottom:16px}
+.vg-taste-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vg-taste-opt{display:flex;flex-direction:column;gap:6px;text-decoration:none;padding:18px 18px 16px;
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;transition:transform .14s,box-shadow .2s,border-color .15s}
+.vg-taste-opt:hover{transform:translateY(-3px);border-color:var(--brown);box-shadow:0 16px 34px -26px rgba(60,40,20,.6)}
+.vg-taste-ic{font-size:24px;line-height:1}
+.vg-taste-l{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:15px;color:var(--ink)}
+.vg-taste-r{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown)}
+
+/* Tiêu đề section trên trang vùng */
+.rg-h{font-size:26px;letter-spacing:-.02em;margin-bottom:22px}
+
+/* Box tóm tắt 10 giây — moat */
+.rg-sum{margin:34px 0 8px;padding:30px 32px;background:var(--cream);
+  border:1px solid var(--line);border-left:4px solid var(--brown);border-radius:16px}
+.rg-sum-kick{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
+.rg-sum-t{font-size:24px;letter-spacing:-.02em;margin:6px 0 0}
+.rg-sum-def{font-family:'Be Vietnam Pro',sans-serif;font-size:17px;line-height:1.55;
+  color:var(--ink);margin:16px 0 22px;max-width:64ch}
+.rg-sum-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:26px 40px;align-items:start}
+.rg-sum-facts{display:flex;flex-direction:column;gap:12px}
+.rg-sum-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+  border-bottom:1px dashed var(--line);padding-bottom:11px}
+.rg-sum-row:last-child{border-bottom:none;padding-bottom:0}
+.rg-sum-row dt{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);flex:none}
+.rg-sum-row dd{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:14.5px;
+  color:var(--ink);text-align:right}
+.rg-snap{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.rg-snap-cap{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px}
+.rg-snap-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:9px}
+.rg-snap-row:last-child{margin-bottom:0}
+.rg-snap-l{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:13.5px;color:var(--ink-soft)}
+.rg-sum-note{font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;line-height:1.5;
+  color:var(--ink-dim);margin:20px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+
+/* Vì sao có vị + giống */
+.rg-brew{border-left:3px solid var(--brown);padding-left:18px;font-size:16px;color:var(--ink-soft);margin:6px 0 20px}
+.rg-brew b{color:var(--ink)}
+.rg-giong{list-style:none;display:flex;flex-direction:column;gap:8px;margin:8px 0 4px}
+.rg-giong li{font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:var(--ink-soft)}
+.rg-giong b{color:var(--brown-deep)}
+
+/* Điểm đặc biệt của vùng */
+.rg-special{max-width:68ch;margin:26px 0;padding:22px 26px;background:rgba(176,122,42,.07);
+  border:1px solid rgba(176,122,42,.28);border-radius:14px}
+.rg-special-cap{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--amber);margin-bottom:8px}
+.rg-special p{font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+.rg-special b{color:var(--ink)}
+.rg-special a{color:var(--brown);text-decoration:underline;text-underline-offset:2px}
+
+/* Ai nên chọn */
+.rg-fit{margin:44px 0}
+.rg-fit-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rg-fit-col{padding:22px 24px;border-radius:14px;border:1px solid var(--line)}
+.rg-fit--yes{background:rgba(122,84,51,.05);border-color:rgba(122,84,51,.22)}
+.rg-fit--no{background:var(--paper-2)}
+.rg-fit-cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.rg-fit--yes .rg-fit-cap{color:var(--brown)}
+.rg-fit--no .rg-fit-cap{color:var(--ink-dim)}
+.rg-fit-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.rg-fit-col li{position:relative;padding-left:24px;font-size:15px;color:var(--ink-soft);line-height:1.45}
+.rg-fit--yes li::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:800}
+.rg-fit--no li::before{content:'~';position:absolute;left:0;color:var(--ink-dim);font-weight:800}
+.rg-fit-cross{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px}
+.rg-fit-cross a{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown);
+  text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:.15s}
+.rg-fit-cross a:hover{border-color:var(--brown)}
+
+/* Nhận xét của Gu */
+.rg-note{max-width:70ch;margin:34px 0;padding:26px 30px;background:var(--ink);border-radius:16px;color:var(--cream)}
+.rg-note-cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
+.rg-note p{font-family:'Be Vietnam Pro',sans-serif;font-size:17px;line-height:1.6;color:rgba(251,250,248,.92)}
+
+/* Đếm sản phẩm */
+.rg-prods-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.rg-prods-head .rg-h{margin-bottom:0}
+.rg-prods-count{display:flex;gap:10px}
+.rg-cnt{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.04em;
+  padding:5px 11px;border-radius:20px}
+.rg-cnt--scored{color:var(--brown-deep);background:rgba(122,84,51,.12)}
+.rg-cnt--drunk{color:var(--amber);box-shadow:inset 0 0 0 1px rgba(176,122,42,.4)}
+
+/* Bảng so sánh vùng */
+.rg-cmp{margin:56px 0}
+.rg-cmp-scroll{overflow-x:auto}
+.rg-cmp-tbl{width:100%;border-collapse:collapse;min-width:440px}
+.rg-cmp-tbl th,.rg-cmp-tbl td{padding:13px 14px;text-align:center;border-bottom:1px solid var(--line);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:14px}
+.rg-cmp-tbl thead th{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.rg-cmp-tbl tbody th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+.rg-cmp-tbl td{color:var(--ink-soft)}
+.rg-cmp-tbl .is-cur{background:rgba(122,84,51,.07)}
+.rg-cmp-tbl thead th.is-cur{color:var(--brown-deep)}
+
+/* FAQ vùng */
+.rg-faq{margin:52px 0}
+.rg-faq dl{border-top:1px solid var(--line)}
+.rg-faq-item{padding:20px 0;border-bottom:1px solid var(--line)}
+.rg-faq-item dt{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:17px;color:var(--ink);margin-bottom:8px}
+.rg-faq-item dd{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:72ch}
+
+/* Biết thêm (chi tiết lịch sử — gập lại) */
+.rg-more{margin:30px 0;border:1px solid var(--line);border-radius:12px;background:var(--paper-2);overflow:hidden}
+.rg-more summary{cursor:pointer;padding:16px 22px;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;
+  font-size:15px;color:var(--ink-soft);list-style:none}
+.rg-more summary::-webkit-details-marker{display:none}
+.rg-more summary::after{content:'+';float:right;color:var(--brown);font-weight:800}
+.rg-more[open] summary::after{content:'–'}
+.rg-more-body{padding:0 22px 20px}
+.rg-more-body p{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:12px}
+.rg-more-body a{color:var(--brown)}
+
+@media(max-width:720px){
+  .rg-sum{padding:24px 22px}
+  .rg-sum-cols{grid-template-columns:1fr;gap:22px}
+  .rg-fit-cols{grid-template-columns:1fr}
+  .vg-taste-opts{grid-template-columns:1fr}
+  .rg-prods-head{align-items:flex-start}
+  .rg-note{padding:22px 22px}
+}
+
 /* Liên kết chéo trên trang review: nhà rang + vùng */
 .rp-brand a{color:var(--brown);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
 .rp-brand a:hover{border-color:var(--brown)}

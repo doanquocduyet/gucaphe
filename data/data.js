@@ -184,7 +184,37 @@ const VUNG = [
     doCao: "~1.400–1.650m",
     giong: "Bourbon, Typica, Catimor",
     hopPha: "V60 / Pour over",
-    tagline: "Vùng Arabica cao và lâu đời bậc nhất Việt Nam.",
+    tagline: "Chua sáng, hương hoa, hậu vị sạch — Arabica vùng cao 1.400–1.650m.",
+    viNgan: "Chua sáng như cam chanh, hương hoa.",
+    tags: ["Arabica", "Chua sáng", "Pour over"],
+    camQuan: { chua: 5, body: 2, hoa: 5, choco: 1 },
+    hopPhaVi: "V60 / pour over giữ được độ chua sáng và hương hoa tốt hơn pha phin.",
+    nen: ["Thích pour over / V60", "Thích hương hoa, vị trái cây", "Thích chua sáng, uống không đường"],
+    khong: ["Thích body thật dày", "Thích vị chocolate đậm", "Chủ yếu pha phin truyền thống"],
+    giongMoTa: [
+      ["Bourbon", "ngọt, hậu vị dày"],
+      ["Typica", "tinh tế, thanh"],
+      ["Catimor", "khoẻ, ổn định năng suất"]
+    ],
+    huongChinh: "Hoa · cam chanh",
+    khongHopNgan: "Người thích cà phê đậm kiểu truyền thống",
+    diemDacBiet: { title: "Điểm đặc biệt của Cầu Đất", html: "<p>Người Pháp trồng Arabica ở đây từ đầu thế kỷ 20 — Cầu Đất là <b>cái nôi của Arabica đặc sản Việt Nam</b>, và tới nay vẫn là chuẩn tham chiếu cho vị chua sáng, hương hoa của cà phê Việt.</p>" },
+    dinhNghia: "Cầu Đất là vùng Arabica cao và lâu đời bậc nhất Việt Nam, nổi bật với độ chua sáng, hương hoa và hậu vị sạch.",
+    motCau: "Cầu Đất là vùng Arabica ở Đà Lạt, độ cao ~1.400–1.650m, nổi bật với vị chua sáng kiểu cam chanh, hương hoa và hợp pha V60 / pour over.",
+    taiSao: [
+      "<p><b>Độ cao lớn (1.400–1.650m)</b> khiến ngày nắng, đêm lạnh; quả cà phê <b>chín chậm</b> và tích được nhiều đường, nhiều tiền chất hương. Vì vậy ly cà phê Cầu Đất thường có <b>độ chua sáng như cam chanh, hương hoa, thân vừa và hậu vị sạch kéo dài</b> — đúng chất Arabica vùng cao.</p>",
+      "<p>Chính độ chua sáng và hương hoa này khiến Cầu Đất <b>hợp pha V60 / pour over</b> hơn pha phin đậm: cách pha chậm bằng giấy lọc giữ được lớp hương tinh tế mà phin dễ làm mất.</p>"
+    ],
+    nhanXet: "Nếu bạn muốn trải nghiệm 'specialty' rõ nhất — chua trái cây, thơm hoa, khác hẳn cà phê truyền thống — Cầu Đất là nơi để bắt đầu. Nhưng nếu bạn quen gu đậm đắng, hãy làm quen từ từ.",
+    themVao: [
+      "<p>Người Pháp đã trồng <a href=\"/kien-thuc\">Arabica</a> ở Cầu Đất từ đầu thế kỷ 20, nên đây thường được xem là <b>cái nôi của Arabica đặc sản Việt Nam</b>. Khi mua, hãy để ý nhãn có ghi rõ giống và độ cao — đó là dấu hiệu của một gói được làm nghiêm túc.</p>"
+    ],
+    faq: [
+      { q: "Cà phê Cầu Đất có gì đặc biệt?", a: "Cầu Đất là vùng Arabica cao và lâu đời bậc nhất Việt Nam. Độ cao lớn cho cà phê chua sáng, hương hoa, hậu vị sạch — chất vị đặc sản rõ rệt, khác cà phê truyền thống." },
+      { q: "Cà phê Cầu Đất hợp pha gì?", a: "Hợp pha V60 / pour over nhất, để giữ độ chua sáng và hương hoa. Pha phin vẫn được nhưng dễ làm mất lớp hương tinh tế." },
+      { q: "Cầu Đất trồng giống cà phê nào?", a: "Chủ yếu Arabica: Bourbon và Typica (dòng cổ, tinh tế) cùng Catimor (khoẻ, năng suất cao)." },
+      { q: "Cà phê Cầu Đất có chua không?", a: "Có, và đó là điểm mạnh. Độ chua ở đây là chua trái cây sáng kiểu cam chanh, không phải chua hỏng — dấu hiệu của Arabica vùng cao chất lượng." }
+    ],
     vi: "Chua sáng kiểu cam chanh, hương hoa, thân vừa, hậu vị sạch và dài.",
     diemNhan: ["Độ cao ~1.500m", "Arabica trồng từ thời Pháp", "Chua sáng, hương hoa", "Hợp V60 / pour over"],
     than: [
@@ -201,7 +231,37 @@ const VUNG = [
     doCao: "thấp hơn Cầu Đất (~800–1.000m)",
     giong: "Robusta và Arabica",
     hopPha: "Phin · Espresso",
-    tagline: "Vùng cà phê của Lâm Hà — dịu và đậm hơn vùng cao.",
+    tagline: "Body dày, vị chocolate rõ, ít chua — vùng thấp hơn Cầu Đất.",
+    viNgan: "Body dày, chocolate, ít chua.",
+    tags: ["Robusta & Arabica", "Chocolate", "Pha phin"],
+    camQuan: { chua: 2, body: 5, hoa: 1, choco: 5 },
+    diemDacBiet: { title: "Điểm đặc biệt của Nam Ban", html: "<p>Nam Ban là nơi <b><a href=\"/kien-thuc\">Fine Robusta</a></b> của Lâm Đồng phát triển mạnh — dòng Robusta chất lượng cao, sơ chế kỹ, phá vỡ định kiến 'Robusta chỉ để pha đậm rẻ tiền'.</p>" },
+    hopPhaVi: "Body dày, ít chua nên hợp pha phin và espresso đậm kiểu quen thuộc.",
+    nen: ["Thích body dày, vị đậm", "Thích vị chocolate, hạt dẻ", "Chủ yếu pha phin / espresso"],
+    khong: ["Thích chua sáng, hương hoa", "Thích vị trái cây nhẹ kiểu vùng cao"],
+    giongMoTa: [
+      ["Robusta", "đậm, mạnh, nhiều caffeine"],
+      ["Arabica", "dịu và thơm hơn"]
+    ],
+    huongChinh: "Chocolate · hạt dẻ",
+    khongHopNgan: "Người thích vị chua sáng, hương hoa",
+    dinhNghia: "Nam Ban là vùng cà phê của Lâm Hà (Lâm Đồng) có body dày, độ chua dịu và là nơi Fine Robusta của Lâm Đồng phát triển mạnh.",
+    motCau: "Nam Ban là vùng cà phê của Lâm Hà, độ cao ~800–1.000m, nổi bật với body dày, độ chua dịu và phù hợp pha phin hoặc espresso.",
+    taiSao: [
+      "<p>So với Cầu Đất, Nam Ban ở <b>độ cao thấp hơn</b> (khoảng 800–1.000m) nên khí hậu ấm hơn, quả cà phê <b>chín nhanh hơn</b>. Quả chín nhanh tích ít axit hơn — vì vậy ly cà phê Nam Ban thường có <b>body dày, độ chua thấp và vị nghiêng về chocolate, hạt dẻ</b> thay vì chua sáng như vùng cao.</p>",
+      "<p>Chính chất vị đậm, ít chua này khiến Nam Ban <b>hợp pha phin và <a href=\"/kien-thuc\">espresso</a></b> — gần với gu cà phê truyền thống mà nhiều người Việt đã quen. Vùng trồng cả Robusta lẫn Arabica, và là nơi <b><a href=\"/kien-thuc\">Fine Robusta</a></b> của Lâm Đồng phát triển mạnh.</p>"
+    ],
+    nhanXet: "Nếu bạn đang uống cà phê truyền thống và muốn thử specialty, Nam Ban thường dễ tiếp cận hơn Cầu Đất: vẫn đậm, vẫn hợp phin, nhưng sạch và rõ vị hơn.",
+    themVao: [
+      "<p>Bạn có thể biết Nam Ban qua các trại <b>cà phê chồn</b> và du lịch cà phê. Tuy nhiên với cà phê đặc sản, điều đáng quan tâm hơn vẫn là giống, độ cao và cách sơ chế được ghi rõ — chồn là câu chuyện trải nghiệm, không phải thước đo chất lượng.</p>",
+      "<p>Về địa danh: Nam Ban là thị trấn thuộc huyện <b>Lâm Hà</b> — tên ghép từ Lâm Đồng và Hà Nội, vùng kinh tế mới do người Hà Nội vào lập nghiệp từ cuối thập niên 1970.</p>"
+    ],
+    faq: [
+      { q: "Cà phê Nam Ban có phải specialty không?", a: "Có những lô Nam Ban đạt chuẩn specialty, đặc biệt ở dòng Fine Robusta. Nhưng 'Nam Ban' là tên vùng, không phải chứng nhận — chất lượng vẫn tuỳ từng nhà rang và từng lô. Hãy xem nhãn có ghi rõ giống, độ cao và cách sơ chế không." },
+      { q: "Nam Ban trồng Arabica hay Robusta?", a: "Cả hai. Nam Ban trồng cả Robusta và Arabica, và được biết đến nhiều với Fine Robusta — dòng Robusta chất lượng cao, sơ chế kỹ." },
+      { q: "Cà phê Nam Ban hợp pha phin không?", a: "Rất hợp. Vì body dày và ít chua, Nam Ban là một trong những vùng hợp pha phin và espresso nhất trong nhóm — gần với gu cà phê truyền thống." },
+      { q: "Nam Ban khác Cầu Đất thế nào?", a: "Cầu Đất cao hơn (1.400–1.650m), chua sáng, hương hoa, hợp pour over. Nam Ban thấp hơn (~800–1.000m), body dày, ít chua, hợp phin. Nói ngắn: Cầu Đất thanh và chua, Nam Ban đậm và dịu." }
+    ],
     vi: "Thân dày hơn, độ chua dịu hơn vùng cao; dễ uống với người quen gu đậm.",
     diemNhan: ["Thuộc huyện Lâm Hà", "Độ cao thấp hơn Cầu Đất", "Thân dày, ít chua", "Nổi tiếng cà phê chồn & du lịch"],
     than: [
@@ -218,7 +278,36 @@ const VUNG = [
     doCao: "~1.400–1.500m",
     giong: "Arabica (Catimor, Bourbon)",
     hopPha: "V60 / Pour over",
-    tagline: "Arabica dưới chân Lang Biang — sạch, cân bằng.",
+    tagline: "Arabica dưới chân Lang Biang — cân bằng hơn Cầu Đất, sáng hơn Nam Ban.",
+    viNgan: "Cân bằng, ngọt hậu, trái cây nhẹ.",
+    tags: ["Arabica", "Cân bằng", "Pour over"],
+    camQuan: { chua: 4, body: 3, hoa: 4, choco: 2 },
+    diemDacBiet: { title: "Điểm đặc biệt của Lạc Dương", html: "<p>Nhiều nông hộ người <b>K'Ho</b> vẫn dùng phương pháp <b>phơi chậm trên gác mái</b>, giúp hạt khô đều và giảm phụ thuộc thời tiết — một nét sơ chế bản địa hiếm nơi nào có.</p>" },
+    hopPhaVi: "Vị cân bằng nên linh hoạt — pour over để tôn hương, pha phin vẫn ngon.",
+    nen: ["Muốn vị cân bằng, dễ uống", "Thích ngọt hậu, trái cây nhẹ", "Vừa pour over vừa phin"],
+    khong: ["Thích vị cực mạnh, gắt", "Muốn chua thật sáng kiểu Cầu Đất"],
+    giongMoTa: [
+      ["Catimor", "khoẻ, ổn định, dễ trồng"],
+      ["Bourbon", "ngọt, hậu vị dày"]
+    ],
+    huongChinh: "Trái cây nhẹ · ngọt hậu",
+    khongHopNgan: "Người muốn vị cực mạnh, gắt",
+    dinhNghia: "Lạc Dương là vùng Arabica dưới chân núi Lang Biang, nổi bật với vị cân bằng, ngọt hậu và nhiều nông hộ người K'Ho canh tác.",
+    motCau: "Lạc Dương là vùng Arabica ở độ cao ~1.400–1.500m dưới chân Lang Biang, nổi bật với vị cân bằng, ngọt hậu, trái cây nhẹ và hợp cả pour over lẫn phin.",
+    taiSao: [
+      "<p><b>Khí hậu mát quanh năm</b> cùng độ cao lớn (1.400–1.500m) khiến quả cà phê <b>chín chậm</b>, cho hạt có <b>độ chua cân bằng, thân sạch và hậu vị ngọt dễ chịu</b> — không gắt như vùng cao cực đoan, cũng không đậm nặng như vùng thấp.</p>",
+      "<p>Nhiều lô ở đây được sơ chế bằng phương pháp <b>phơi chậm gác mái</b> của người K'Ho, giúp hạt khô đều và ít phụ thuộc thời tiết. Vị cân bằng khiến Lạc Dương <b>linh hoạt</b>: pour over để tôn hương, pha phin vẫn ngon.</p>"
+    ],
+    nhanXet: "Lạc Dương là lựa chọn an toàn nhất nếu bạn chưa chắc gu của mình: đủ sạch và thơm để thấy khác cà phê thường, nhưng không chua gắt đến mức khó uống.",
+    themVao: [
+      "<p>Lạc Dương nằm dưới chân núi Lang Biang, phía bắc Đà Lạt, với nhiều nông hộ người <b>K'Ho</b> canh tác lâu đời — một trong những vùng <a href=\"/kien-thuc\">Arabica</a> đặc sản đáng chú ý nhất Lâm Đồng.</p>"
+    ],
+    faq: [
+      { q: "Cà phê Lạc Dương vị thế nào?", a: "Cân bằng, ngọt hậu, có nét trái cây nhẹ. Không chua gắt như Cầu Đất, cũng không đậm nặng như vùng thấp — dễ uống và linh hoạt." },
+      { q: "Lạc Dương hợp pha gì?", a: "Cả hai. Vị cân bằng nên pour over tôn được hương, mà pha phin vẫn ngon — linh hoạt hơn nhiều vùng khác." },
+      { q: "Cà phê Lạc Dương trồng giống nào?", a: "Chủ yếu Arabica: Catimor (khoẻ, ổn định) và Bourbon (ngọt, hậu vị dày), phần lớn do các nông hộ K'Ho canh tác." },
+      { q: "Lạc Dương khác Cầu Đất thế nào?", a: "Cùng là Arabica vùng cao, nhưng Cầu Đất chua sáng và hương hoa rõ hơn, còn Lạc Dương cân bằng và dịu hơn — dễ uống hơn với người mới." }
+    ],
     vi: "Arabica dưới chân núi Lang Biang — sạch, cân bằng, nhiều nông hộ người K'Ho.",
     diemNhan: ["Dưới chân núi Lang Biang", "Arabica vùng cao", "Nhiều nông hộ K'Ho"],
     than: [
