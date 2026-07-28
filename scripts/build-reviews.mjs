@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260769';
+const CSS_V = '20260770';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -861,6 +861,11 @@ ${siteNav('nharang')}
       ${(r.khongHop && r.khongHop.length) ? `<div class="gv-col gv--no"><div class="gv-cap">Cân nhắc nếu bạn</div><ul>${r.khongHop.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
     </div>
     <div class="gv-conf">${conf.map(([k, ok]) => `<span class="gv-conf-i ${ok ? 'is-on' : 'is-off'}">${ok ? '✓' : '○'} ${k}</span>`).join('')}</div>
+  </section>` : ''}
+
+  ${(r.chuoi && r.chuoi.length) ? `<section class="chain" aria-label="Chuỗi sản xuất">
+    ${r.chuoiNote ? `<div class="chain-cap">${esc(r.chuoiNote)}</div>` : ''}
+    <div class="chain-flow">${r.chuoi.map((s, i) => `${i ? '<span class="chain-arrow" aria-hidden="true">→</span>' : ''}<span class="chain-step"><span class="chain-n">${i + 1}</span>${esc(s)}</span>`).join('')}</div>
   </section>` : ''}
 
   <section class="vg-prods">
