@@ -36,7 +36,7 @@ const SP = [
     flavor:"Hoa, đào, cam vàng, mật ong. Hậu vị sạch và kéo dài.", notes:["Hoa","Đào","Cam vàng","Mật ong"],
     nen:["Pha V60 hoặc pour over","Thích vị trái cây, chua sáng","Chấp nhận 108.000₫/100g cho hạt tốt"],
     khong:["Chỉ có phin — rang sáng pha phin dễ chua gắt","Quen gu đậm đắng","Muốn cà phê uống hằng ngày giá mềm"],
-    link:"https://s.shopee.vn/AUsMz3wGhY", anh:"" },
+    link:"https://s.shopee.vn/AUsMz3wGhY", anh:"assets/img/products/cherries.jpg" },
   /* ===== 3 nhà Nam Ban — so sánh trung lập. Chưa nếm mù → tested:false. ===== */
   { id:"nb-bui", brand:"Bui Coffee Supply", ten:"Fine Robusta Nam Ban (lên men muối) 250g", nhom:"hat", gia:179000, gram:250,
     slug:"bui-fine-robusta-nam-ban", pha:["phin","espresso"],
@@ -46,7 +46,7 @@ const SP = [
     flavor:"Dòng Fine Robusta Nam Ban đạt Top 14 Thế Giới 2024 (CQI). Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
     nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm, thân dày","Pha phin hoặc espresso"],
     khong:["Ngân sách rất eo hẹp","Thích chua sáng nhẹ kiểu Arabica"],
-    link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"" },
+    link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"assets/img/products/beans-tin.jpg" },
   { id:"nb-tamtrinh", brand:"Tám Trình Coffee", ten:"Arabica Cầu Đất & Lạc Dương Blend (pha máy) 250g", nhom:"hat", gia:150000, gram:250,
     slug:"tam-trinh-arabica-blend", pha:["espresso","phin"],
     vungSlug:"cau-dat", xaHuyen:"Cầu Đất + Lạc Dương, Lâm Đồng",
@@ -55,7 +55,7 @@ const SP = [
     flavor:"Nhà 30 năm, mạnh sản xuất và nhân xanh. Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
     nen:["Mở quán, cần nguồn ổn định","Mua sỉ nhân xanh","Thích blend cân bằng"],
     khong:["Chỉ mua lẻ 1 gói thử","Muốn single-origin rõ vùng"],
-    link:"https://tamtrinhcoffee.com/arabica-blend-ca-phe-pha-may/", anh:"" },
+    link:"https://tamtrinhcoffee.com/arabica-blend-ca-phe-pha-may/", anh:"assets/img/products/ferment.jpg" },
   { id:"nb-dehavi", brand:"Dehavi (Hân Vinh)", ten:"Cà phê Đặc Sản Arabica Lạc Dương 250g", nhom:"hat", gia:130000, gram:250,
     slug:"dehavi-arabica-lac-duong", pha:["phin","espresso"],
     vungSlug:"lac-duong", xaHuyen:"Lạc Dương, Lâm Đồng",
@@ -64,7 +64,7 @@ const SP = [
     flavor:"Rẻ nhất trong 3 nhà, dễ tiếp cận cho người mới uống đặc sản. Vị chi tiết sẽ cập nhật sau khi Gu nếm mù.", notes:[],
     nen:["Mới uống đặc sản","Ngân sách vừa","Muốn thử mà không tốn nhiều"],
     khong:["Muốn dòng đạt giải quốc tế","Cần sơ chế đặc biệt"],
-    link:"https://shopee.vn/dehavicoffee_official", anh:"" },
+    link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-bag.jpg" },
   /* ===== 2 nhà mới (Thay đổi ③) — số liệu tra web thật 07/2026, giá THAM KHẢO, tested:false. ===== */
   { id:"mb-yellowcherry", brand:"The Married Beans", ten:"Yellow Cherry Natural Cầu Đất (nhân xanh) 500g", nhom:"hat", gia:450000, gram:500,
     slug:"married-beans-yellow-cherry-cau-dat", pha:["v60","coldbrew"],
@@ -75,7 +75,7 @@ const SP = [
     notes:["Trái cây nhiệt đới","Rượu mận","Ngọt thanh"],
     nen:["Người tự rang / có mối rang","Thích lô truy xuất rõ nguồn gốc"],
     khong:["Muốn mua về pha uống ngay (đây là nhân xanh)","Chưa có thiết bị rang"],
-    link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"" },
+    link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"assets/img/products/baskets.jpg" },
   { id:"lv-balanced", brand:"Là Việt Coffee", ten:"Là Việt Balanced 100% Arabica (hạt rang) 250g", nhom:"hat", gia:160000, gram:250,
     slug:"la-viet-balanced-arabica-da-lat", pha:["phin","espresso"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt, Lâm Đồng",
@@ -85,7 +85,7 @@ const SP = [
     notes:["Cân bằng","Dịu","Tinh tế"],
     nen:["Muốn Arabica Đà Lạt dễ uống","Pha phin/máy tại nhà","Thương hiệu uy tín Asia Top 80"],
     khong:["Muốn single-origin lô rõ vùng","Thích vị mạnh gắt kiểu Robusta"],
-    link:"https://beacons.ai/laviet.coffee", anh:"" }
+    link:"https://beacons.ai/laviet.coffee", anh:"assets/img/products/hand-beans.jpg" }
 ];
 
 const CAP_SS = [];
