@@ -126,50 +126,109 @@ const BAIVIET = [
     id: "natural-washed",
     anh: "assets/img/art-1.jpg",
     tag: "Sơ chế",
+    docPhut: 2, mucDo: "Người mới",
     tieuDe: "Natural hay Washed — vị khác nhau chỗ nào?",
     dek: "Cùng một hạt, hai cách sơ chế cho hai ly hoàn toàn khác. Chọn sai, bạn trách nhầm hạt.",
     than:
       "<p><b>Washed (sơ chế ướt)</b> tách sạch lớp thịt quả trước khi phơi hạt. Ly cà phê <b>sạch, sáng, rõ nét</b> — bạn cảm được đúng chất của giống và vùng đất, chua thanh như trái cây tươi. Đa số specialty rang sáng đi theo hướng này.</p>" +
       "<p><b>Natural (sơ chế khô)</b> phơi nguyên cả quả, để hạt ngâm trong lớp thịt ngọt nhiều tuần. Kết quả: <b>ngọt đậm, thân dày, thiên trái cây chín</b> — dâu, mận, đôi khi hơi lên men như rượu vang. Bù lại, vị kém sạch và mỗi mẻ dễ lệch nhau hơn.</p>" +
-      "<p><b>Chọn thế nào?</b> Thích trong trẻo, tinh tế → Washed. Thích ngọt bùng nổ, trái cây rõ → Natural. Trường <i>Sơ chế</i> ở mỗi sản phẩm cho bạn biết ngay mình sắp uống kiểu nào.</p>"
+      "<p><b>Chọn thế nào?</b> Thích trong trẻo, tinh tế → Washed. Thích ngọt bùng nổ, trái cây rõ → Natural. Trường <i>Sơ chế</i> ở mỗi sản phẩm cho bạn biết ngay mình sắp uống kiểu nào.</p>",
+    faq: [
+      { q: "Natural khác Washed ở điểm nào?", a: "Washed tách sạch thịt quả trước khi phơi nên vị sạch, sáng, rõ nét. Natural phơi nguyên quả nên ngọt đậm, thân dày, thiên trái cây chín. Cùng một hạt, hai cách sơ chế cho hai ly khác hẳn." },
+      { q: "Cà phê Natural có ngọt hơn Washed không?", a: "Thường là có. Vì phơi nguyên quả, hạt Natural ngấm nhiều đường từ lớp thịt hơn nên cảm giác ngọt đậm và thiên trái cây chín rõ hơn Washed." },
+      { q: "Natural hợp pha gì?", a: "Natural body dày, ngọt đậm nên hợp cả phin lẫn pour over. Washed sạch và sáng thì tôn vị nhất khi pha V60 / pour over." }
+    ],
+    links: [
+      { label: "Xem các gói đã thử", href: "/ca-phe" },
+      { label: "Vị theo từng vùng trồng", href: "/vung-trong" }
+    ]
   },
   {
     id: "rang-sang-dam",
     anh: "assets/img/art-2.jpg",
     tag: "Độ rang",
+    docPhut: 2, mucDo: "Người mới",
     tieuDe: "Rang sáng hay rang đậm — chọn theo cách pha",
     dek: "Độ rang quyết định ‘ngon hay dở’ nhiều hơn cả giống hạt. Quen phin mà mua nhầm rang sáng là dễ chê oan.",
     than:
       "<p><b>Rang sáng (Light)</b> giữ độ chua và hương hoa quả của hạt. Tuyệt vời với <b>V60 / pour over</b>, nhưng <b>pha phin dễ chua gắt</b> vì phin ngâm lâu, chiết ra nhiều axit.</p>" +
       "<p><b>Rang đậm (Dark)</b> đốt bớt axit, đổi lại <b>thân dày, vị chocolate, đắng rõ</b>. Hợp phin truyền thống và espresso, uống với sữa vẫn ‘gồng’ được vị.</p>" +
-      "<p><b>Quy tắc nhanh:</b> Phin → chọn Medium đến Dark. V60 / pour over → chọn Light đến Medium. Cột <i>Rang</i> và <i>Hợp</i> ở mỗi sản phẩm đã ghi sẵn để bạn khỏi đoán.</p>"
+      "<p><b>Quy tắc nhanh:</b> Phin → chọn Medium đến Dark. V60 / pour over → chọn Light đến Medium. Cột <i>Rang</i> và <i>Hợp</i> ở mỗi sản phẩm đã ghi sẵn để bạn khỏi đoán.</p>",
+    faq: [
+      { q: "Pha phin nên chọn rang sáng hay rang đậm?", a: "Chọn Medium đến Dark. Rang sáng ngâm lâu trong phin dễ chua gắt; rang đậm cho body dày, vị chocolate, hợp gu phin truyền thống hơn." },
+      { q: "Rang sáng có phải chưa chín không?", a: "Không. Rang sáng (Light) là mức rang chủ đích để giữ độ chua và hương hoa quả của hạt — không phải rang thiếu. Nó chỉ hợp pha pour over hơn pha phin." },
+      { q: "Rang đậm có ít caffeine hơn không?", a: "Chênh lệch rất nhỏ, gần như không đáng kể. Cảm giác 'mạnh' của rang đậm đến từ vị đắng và body, không phải từ lượng caffeine cao hơn." }
+    ],
+    links: [
+      { label: "Gói hợp phin (body dày) — vùng Nam Ban", href: "/vung-trong/nam-ban" },
+      { label: "Gói hợp V60 (chua sáng) — vùng Cầu Đất", href: "/vung-trong/cau-dat" }
+    ]
   },
   {
     id: "vi-sao-specialty-dat",
     anh: "assets/img/art-3.jpg",
     tag: "Đáng tiền không?",
+    docPhut: 3, mucDo: "Người mới",
     tieuDe: "Specialty đắt hơn — bạn trả tiền cho điều gì?",
     dek: "Một gói 250g specialty có thể đắt gấp 3–4 lần cà phê phổ thông. Đáng hay không tuỳ cách bạn uống.",
     than:
       "<p><b>1. Điểm số thật.</b> Specialty là hạt đạt từ 80/100 theo thang SCA — được chấm mù bởi bên thứ ba, không phải nhà bán tự phong.</p>" +
       "<p><b>2. Truy xuất nguồn gốc.</b> Bạn biết vùng trồng, giống, cách sơ chế — không phải ‘cà phê nguyên chất’ chung chung.</p>" +
       "<p><b>3. Hái chọn quả chín.</b> Chỉ hái quả chín đỏ thay vì tuốt cả cành xanh–chín làm tăng chi phí nhân công, nhưng đó là gốc rễ của vị ngọt sạch.</p>" +
-      "<p><b>Có đáng không?</b> Nếu bạn pha máy/pour over và thật sự để ý vị — đáng. Nếu pha phin đậm uống với sữa mỗi sáng, một gói rang mộc giá mềm có khi hợp hơn. Chúng tôi không ép — chỉ tính giúp bạn <b>giá/100g</b> để so cho sòng phẳng.</p>"
+      "<p><b>Có đáng không?</b> Nếu bạn pha máy/pour over và thật sự để ý vị — đáng. Nếu pha phin đậm uống với sữa mỗi sáng, một gói rang mộc giá mềm có khi hợp hơn. Chúng tôi không ép — chỉ tính giúp bạn <b>giá/100g</b> để so cho sòng phẳng.</p>",
+    faq: [
+      { q: "Cà phê specialty là gì?", a: "Là cà phê đạt từ 80/100 điểm theo thang SCA, truy xuất được vùng trồng, giống và cách sơ chế. Nó nói về chất lượng và minh bạch, không đồng nghĩa với 'hợp khẩu vị mọi người'." },
+      { q: "Vì sao cà phê specialty đắt hơn?", a: "Vì hái chọn quả chín, sơ chế và rang có kiểm soát, truy xuất nguồn gốc và đạt điểm cupping thật. Chi phí nhân công và kiểm soát chất lượng cao hơn cà phê phổ thông." },
+      { q: "Người pha phin uống sữa có nên mua specialty không?", a: "Không bắt buộc. Nếu bạn pha phin đậm uống với sữa mỗi sáng, một gói rang mộc giá mềm có khi hợp hơn. Specialty đáng tiền nhất khi bạn pha pour over/máy và thật sự để ý vị." }
+    ],
+    links: [
+      { label: "So giá/100g các gói đã thử", href: "/ca-phe" },
+      { label: "Để Gu chọn theo gu của bạn", href: "/#pick" }
+    ]
   },
   {
     id: "ca-phe-nam-ban-nha-nao",
     anh: "assets/img/art-1.jpg",
     tag: "So sánh",
-    tieuDe: "Cà phê Nam Ban mua nhà nào? Bùi, Tám Trình hay Dehavi",
-    dek: "Ba nhà mạnh nhất Nam Ban, mỗi nhà một thế mạnh. Gu mua thật, pha mù, chấm điểm — để bạn chọn đúng gói cho túi tiền của mình.",
+    docPhut: 4, mucDo: "Chọn mua",
+    tieuDe: "Nên mua cà phê Nam Ban của nhà nào?",
+    dek: "Bùi, Tám Trình hay Dehavi — ba nhà mạnh nhất Nam Ban, mỗi nhà một thế mạnh. Gu mua thật, pha mù, chấm điểm để bạn chọn đúng gói cho túi tiền của mình.",
     than:
       "<p>Nam Ban (Lâm Hà, Lâm Đồng) có ba nhà cà phê đáng chú ý nhất: <b>Bùi</b>, <b>Tám Trình</b> và <b>Dehavi</b>. Cả ba đều tự nói mình ngon — vì họ là người bán. Trang này khác: chúng tôi không bán cà phê của mình, mà mua của cả ba, pha mù, chấm theo cùng một thang.</p>" +
       "<p><b>Chọn nhanh:</b> Mới uống hoặc ngân sách vừa → <b>Dehavi Arabica Lạc Dương (130k)</b>. Muốn ngon chuẩn giải quốc tế → <b>Bùi Fine Robusta Nam Ban (179k)</b>, dòng đạt Top 14 Thế Giới 2024. Mở quán hoặc mua sỉ → <b>Tám Trình</b>, 30 năm, mạnh nhân xanh.</p>" +
       "<p><b>① Bùi</b> (nông trại Bui Origin, Mê Linh): chuyên nghiệp và thành tích quốc tế nhất. Fine Robusta Nam Ban Top 14 Thế Giới 2024, xưởng 5 tấn/ngày, chứng nhận FDA/HACCP/ISO22000, xuất khẩu 12+ nước. Hợp người muốn trải nghiệm đặc sản đỉnh cao. Giá: Fine Robusta Nam Ban 179k, Arabica Cầu Đất 189k.</p>" +
       "<p><b>② Tám Trình</b> (Gia Lâm): lâu đời nhất, 30 năm, mạnh sản xuất, xuất khẩu và du lịch trải nghiệm. Shop mạnh mảng nhân xanh và sỉ. Hợp người mở quán, mua sỉ. Giá lẻ: coldbrew 100–280k, Arabica blend 150–280k.</p>" +
       "<p><b>③ Dehavi</b> (Đông Anh, Nam Ban): bán lẻ giá mềm nhất, dễ tiếp cận cho người uống phổ thông. Chứng nhận OCOP 4 sao, ISO22000, FDA. Giá: Arabica Lạc Dương 130k (rẻ nhất), Yellow Bourbon 175k, Moka 230k.</p>" +
-      "<p><b>Cam kết:</b> Chúng tôi không nhận tài trợ để viết bài này. Điểm số cập nhật sau khi nếm mù từng gói — ngon thật chấm cao thật, có điểm yếu nói thẳng. Chưa uống thì chúng tôi không chấm.</p>"
+      "<p><b>Cam kết:</b> Chúng tôi không nhận tài trợ để viết bài này. Điểm số cập nhật sau khi nếm mù từng gói — ngon thật chấm cao thật, có điểm yếu nói thẳng. Chưa uống thì chúng tôi không chấm.</p>",
+    faq: [
+      { q: "Cà phê Nam Ban nên mua nhà nào?", a: "Tuỳ nhu cầu: mới uống hoặc ngân sách vừa → Dehavi Arabica Lạc Dương (130k). Muốn chuẩn giải quốc tế → Bùi Fine Robusta Nam Ban (179k), Top 14 Thế Giới 2024. Mở quán, mua sỉ → Tám Trình, 30 năm, mạnh nhân xanh." },
+      { q: "Cà phê Bùi (Bui Coffee) có tốt không?", a: "Bùi là nhà có thành tích quốc tế cao nhất nhóm: Fine Robusta Nam Ban đạt Top 14 Thế Giới 2024, xưởng 5 tấn/ngày, chứng nhận FDA/HACCP/ISO 22000. Hợp người muốn trải nghiệm đặc sản đỉnh cao." },
+      { q: "Cà phê Nam Ban rẻ nhất mua ở đâu?", a: "Trong nhóm chúng tôi theo dõi, Dehavi bán lẻ giá mềm nhất — Arabica Lạc Dương 130.000₫/250g (52k/100g), dễ tiếp cận cho người uống phổ thông." }
+    ],
+    links: [
+      { label: "Đọc hồ sơ vùng Nam Ban", href: "/vung-trong/nam-ban" },
+      { label: "Xem các nhà rang", href: "/nha-rang" }
+    ]
   }
+];
+
+/* ---- Mua gì? — câu hỏi intent cao, nối thẳng tới sản phẩm/vùng thật ---- */
+const MUA_GI = [
+  { q: "Người mới nên bắt đầu với Arabica hay Robusta?",
+    a: "Bắt đầu với <b>Arabica</b>: dịu, thơm, dễ uống và ít gắt. Robusta (kể cả Fine Robusta) mạnh và nhiều caffeine hơn — để dành khi bạn đã quen vị đậm.",
+    label: "Vùng Arabica: Cầu Đất", href: "/vung-trong/cau-dat" },
+  { q: "Dưới 200.000₫ nên mua gói nào?",
+    a: "Trong các gói chúng tôi <b>đã uống thật</b>, Dehavi — Arabica Lạc Dương (130.000₫ · 52k/100g) là lựa chọn dễ tiếp cận nhất.",
+    label: "Xem Dehavi Arabica Lạc Dương", href: "/review/dehavi-arabica-lac-duong" },
+  { q: "Thích ít chua thì tránh loại nào?",
+    a: "Tránh cà phê vùng cao <b>chua sáng</b> như Cầu Đất và các gói <b>rang sáng (Light)</b>. Chọn vùng thấp body dày như Nam Ban, rang Medium–Dark.",
+    label: "Vùng ít chua: Nam Ban", href: "/vung-trong/nam-ban" },
+  { q: "Pha phin nên chọn rang gì?",
+    a: "Chọn <b>Medium đến Dark</b>. Rang sáng ngâm lâu trong phin dễ chua gắt; rang đậm cho body dày, vị chocolate hợp gu phin.",
+    label: "Đọc: rang sáng hay rang đậm", href: "/kien-thuc#rang-sang-dam" },
+  { q: "Pha V60 đầu tiên nên mua gói nào?",
+    a: "Chọn gói <b>rang sáng, chua sáng</b>. Gói chúng tôi đã <b>chấm mù</b> và hợp V60 nhất là Sơn Pacamara — Lang Biang (9,3/10).",
+    label: "Xem Sơn Pacamara — Lang Biang", href: "/review/son-pacamara-lang-biang" }
 ];
 
 /* ---- Vùng nguyên liệu — hub kiến thức cà phê Lâm Đồng.

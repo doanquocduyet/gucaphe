@@ -22,17 +22,17 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260761';
+const CSS_V = '20260762';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [] } = loadData(raw);
+const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [] } = loadData(raw);
 const SP_BY_ID = {}; SP.forEach(p => { SP_BY_ID[p.id] = p; });
 const VUNG_BY_SLUG = {}; VUNG.forEach(v => { VUNG_BY_SLUG[v.slug] = v; });
 // Nối ngược sản phẩm → nhà rang (product id có trong roaster.sanPham)
@@ -1052,26 +1052,84 @@ function hubVung() {
 
 function hubKienThuc() {
   const url = `${ORIGIN}/kien-thuc`;
-  const main = `<main class="rp wrap">
-  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Kiến thức</span></nav>
-  ${hubHero('/assets/img/products/beans-tin.jpg', 'Kiến thức', 'Hiểu trước khi mua',
-    'Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề.')}
-  ${BAIVIET.map(b => `<article class="kt-art" id="${b.id}">
-    <div class="kt-art-tag">${esc(b.tag)}</div>
+  const chip = b => `<span class="kt-meta">${[
+    b.docPhut ? `Đọc ${b.docPhut} phút` : '',
+    b.mucDo || ''
+  ].filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</span>`;
+
+  // Lộ trình học — người mới đọc gì trước
+  const pathArts = BAIVIET.filter(b => b.mucDo === 'Người mới');
+  const pathMin = pathArts.reduce((s, b) => s + (b.docPhut || 0), 0);
+  const learnPath = pathArts.length ? `<section class="kt-path">
+    <div class="kt-path-head">
+      <span class="kt-path-kick">Người mới bắt đầu từ đâu?</span>
+      <h2 class="kt-path-t">Học nền tảng trong ~${pathMin} phút</h2>
+    </div>
+    <ol class="kt-path-list">
+      ${pathArts.map((b, i) => `<li><a href="#${b.id}">
+        <span class="kt-path-n">${i + 1}</span>
+        <span class="kt-path-body"><span class="kt-path-name">${esc(b.tieuDe)}</span><span class="kt-path-min">${b.docPhut ? `${b.docPhut} phút` : ''}</span></span>
+      </a></li>`).join('')}
+      <li class="kt-path-end"><a href="/#pick">
+        <span class="kt-path-n">✓</span>
+        <span class="kt-path-body"><span class="kt-path-name">Chọn sản phẩm hợp gu của bạn</span><span class="kt-path-min">15 giây</span></span>
+      </a></li>
+    </ol>
+  </section>` : '';
+
+  // Bài viết — kèm meta, FAQ, liên kết nội bộ
+  const arts = BAIVIET.map(b => `<article class="kt-art" id="${b.id}">
+    <div class="kt-art-top"><div class="kt-art-tag">${esc(b.tag)}</div>${chip(b)}</div>
     <h2>${b.tieuDe}</h2>
     <p class="kt-art-dek">${b.dek}</p>
     <div class="kt-art-body">${b.than}</div>
-  </article>`).join('')}
-  ${TU_DIEN.length ? `<section class="kt-tudien">
+    ${(b.faq && b.faq.length) ? `<div class="kt-art-faq">${b.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>` : ''}
+    ${(b.links && b.links.length) ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : ''}
+  </article>`).join('');
+
+  // Mua gì? — câu hỏi intent cao
+  const muaGi = MUA_GI.length ? `<section class="kt-buy">
+    <div class="kt-buy-head">
+      <span class="kt-buy-kick">Mua gì?</span>
+      <h2 class="kt-buy-t">Bạn đang phân vân chọn mua?</h2>
+      <p class="kt-buy-sub">Trả lời nhanh những câu hỏi hay gặp nhất — nối thẳng tới gói hoặc vùng thật.</p>
+    </div>
+    <div class="kt-buy-grid">
+      ${MUA_GI.map(m => `<div class="kt-buy-card">
+        <div class="kt-buy-q">${esc(m.q)}</div>
+        <p class="kt-buy-a">${m.a}</p>
+        <a class="kt-buy-go" href="${m.href}">${esc(m.label)} →</a>
+      </div>`).join('')}
+    </div>
+  </section>` : '';
+
+  // Từ điển — dạng thẻ
+  const tudien = TU_DIEN.length ? `<section class="kt-tudien">
     <h2>Từ điển cà phê nhanh</h2>
-    <dl>${TU_DIEN.map(t => `<div class="kt-def"><dt>${esc(t.t)}</dt><dd>${esc(t.d)}</dd></div>`).join('')}</dl>
-  </section>` : ''}
+    <div class="kt-def-grid">${TU_DIEN.map(t => `<div class="kt-def"><dt>${esc(t.t)}</dt><dd>${esc(t.d)}</dd></div>`).join('')}</div>
+  </section>` : '';
+
+  // Schema FAQ gộp (bài viết + Mua gì) cho AI Search
+  const allFaq = [...BAIVIET.flatMap(b => b.faq || []), ...MUA_GI.map(m => ({ q: m.q, a: m.a.replace(/<[^>]+>/g, '') }))];
+  const schema = allFaq.length ? `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: allFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  })}</script>` : '';
+
+  const main = `<main class="rp wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Kiến thức</span></nav>
+  ${hubHero('/assets/img/products/beans-tin.jpg', 'Kiến thức', 'Hiểu trước khi mua',
+    'Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề — rồi trả lời thẳng câu “tôi nên mua gì?”.')}
+  ${learnPath}
+  ${arts}
+  ${muaGi}
+  ${tudien}
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
-    title: 'Kiến thức cà phê đặc sản — Natural/Washed, độ rang, giá trị specialty | Gu Cà Phê',
-    desc: 'Kiến thức chọn cà phê đặc sản: Natural khác Washed, rang sáng hay rang đậm theo cách pha, vì sao specialty đắt, và từ điển thuật ngữ cà phê.',
-    url, ogType: 'website', active: 'kienthuc', main
+    title: 'Kiến thức cà phê đặc sản — Natural/Washed, độ rang, mua gì? | Gu Cà Phê',
+    desc: 'Học nền tảng cà phê đặc sản trong 10 phút: Natural khác Washed, rang sáng hay đậm, specialty có đáng tiền, và nên mua gói nào theo nhu cầu — dưới 200k, ít chua, pha phin, pha V60.',
+    url, ogType: 'website', schema, active: 'kienthuc', main
   });
 }
 

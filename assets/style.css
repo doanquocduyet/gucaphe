@@ -926,11 +926,76 @@ footer a:hover{border-color:#C9A876}
 .kt-art-body{font-size:17px}
 .kt-art-body p{margin-bottom:16px;color:var(--ink-soft)}
 .kt-art-body b{color:var(--ink);font-weight:600}
-.kt-tudien{max-width:72ch;margin-top:44px}
-.kt-tudien h2{font-size:26px;margin-bottom:20px}
-.kt-def{padding:16px 0;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:1fr;gap:4px}
-.kt-def dt{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:16px}
-.kt-def dd{color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+.kt-tudien{margin-top:52px}
+.kt-tudien h2{font-size:26px;margin-bottom:22px}
+.kt-def-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.kt-def{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--paper-2);
+  display:grid;grid-template-columns:1fr;gap:5px}
+.kt-def dt{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:15.5px;color:var(--ink)}
+.kt-def dd{color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+
+/* --- Kiến thức: meta chip, lộ trình học, FAQ bài, link nội bộ, Mua gì --- */
+.kt-art-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}
+.kt-art-top .kt-art-tag{margin-bottom:0}
+.kt-meta{display:flex;gap:8px;flex-wrap:wrap}
+.kt-meta span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.04em;
+  color:var(--ink-dim);background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:3px 10px}
+
+/* Lộ trình học */
+.kt-path{margin:8px 0 20px;padding:28px 30px;background:var(--cream);border:1px solid var(--line);border-radius:18px}
+.kt-path-kick{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
+.kt-path-t{font-size:23px;letter-spacing:-.02em;margin:6px 0 20px}
+.kt-path-list{list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:kt}
+.kt-path-list a{display:flex;align-items:center;gap:16px;text-decoration:none;padding:14px 18px;
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;transition:transform .14s,border-color .15s}
+.kt-path-list a:hover{transform:translateX(3px);border-color:var(--brown)}
+.kt-path-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:#fff;background:var(--brown)}
+.kt-path-end .kt-path-n{background:var(--amber)}
+.kt-path-body{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex:1;flex-wrap:wrap}
+.kt-path-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:15.5px;color:var(--ink)}
+.kt-path-min{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim);white-space:nowrap}
+
+/* FAQ trong bài */
+.kt-art-faq{max-width:68ch;margin-top:24px;border-top:1px solid var(--line-2)}
+.kt-art-faq details{border-bottom:1px solid var(--line-2)}
+.kt-art-faq summary{cursor:pointer;padding:14px 0;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;
+  font-size:15.5px;color:var(--ink);list-style:none}
+.kt-art-faq summary::-webkit-details-marker{display:none}
+.kt-art-faq summary::after{content:'+';float:right;color:var(--brown);font-weight:800;margin-left:12px}
+.kt-art-faq details[open] summary::after{content:'–'}
+.kt-art-faq p{padding:0 0 16px;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:64ch}
+
+/* Liên kết nội bộ sau bài */
+.kt-art-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:22px}
+.kt-art-links a{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown);
+  text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:.15s}
+.kt-art-links a:hover{border-color:var(--brown)}
+
+/* Mua gì? — intent cao */
+.kt-buy{margin:56px 0}
+.kt-buy-kick{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
+.kt-buy-t{font-size:28px;letter-spacing:-.02em;margin:6px 0 8px}
+.kt-buy-sub{font-size:16px;color:var(--ink-soft);margin-bottom:26px;max-width:60ch}
+.kt-buy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.kt-buy-card{padding:24px 26px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);
+  display:flex;flex-direction:column}
+.kt-buy-q{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:10px}
+.kt-buy-a{font-size:15px;line-height:1.6;color:var(--ink-soft);margin-bottom:16px;flex:1}
+.kt-buy-a b{color:var(--ink);font-weight:700}
+.kt-buy-go{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown);
+  text-decoration:none;border-bottom:1.5px solid transparent;align-self:flex-start;transition:.15s}
+.kt-buy-go:hover{border-color:var(--brown)}
+
+@media(max-width:720px){
+  .kt-def-grid{grid-template-columns:1fr}
+  .kt-buy-grid{grid-template-columns:1fr}
+  .kt-path{padding:22px 20px}
+  .kt-art-top{flex-direction:column;align-items:flex-start;gap:8px}
+}
 
 /* Trang chủ — hub router */
 .home-hubs{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
