@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260741';
+const CSS_V = '20260743';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -67,7 +67,12 @@ const MENU = [
 function siteNav(active) {
   return `<nav>
   <div class="wrap nav-in">
-    <a id="logo" href="/">GU CÀ PHÊ</a>
+    <a id="logo" href="/" aria-label="Gu Cà Phê — trang chủ">
+      <svg class="logo-bean" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <g transform="rotate(-24 16 16)"><ellipse cx="16" cy="16" rx="8.4" ry="12.6" fill="#6E4A2B"/><path d="M16 4.6 C 12.2 9.6, 12.2 22.4, 16 27.4" fill="none" stroke="#FBFAF8" stroke-width="1.9" stroke-linecap="round"/></g>
+      </svg>
+      <span class="logo-txt"><b>GU</b> CÀ PHÊ</span>
+    </a>
     <ul class="nav-links">
       ${MENU.map(([h, l, k]) => {
         const cls = [k === 'method' ? 'learn' : '', k === active ? 'on' : ''].filter(Boolean).join(' ');

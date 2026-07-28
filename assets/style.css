@@ -39,8 +39,11 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--pap
 nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);
   backdrop-filter:saturate(150%) blur(16px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;height:66px;gap:28px}
-#logo{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
-#logo span{color:var(--brown)}
+#logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);white-space:nowrap}
+.logo-bean{flex:none;display:block;transition:transform .3s}
+#logo:hover .logo-bean{transform:rotate(8deg) scale(1.06)}
+.logo-txt{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
+.logo-txt b{font-weight:800;color:var(--brown-deep)}
 .nav-links{display:flex;gap:26px;margin-left:auto;list-style:none;
   font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;font-weight:600}
 .nav-links a{color:var(--ink-soft);text-decoration:none;padding-bottom:4px;border-bottom:1.5px solid transparent;transition:.15s}
@@ -88,46 +91,49 @@ section:first-of-type{padding-top:88px}
 .cta-note{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-dim);
   margin-top:12px;line-height:1.6;letter-spacing:.02em}
 
-/* ============ HERO — sáng, sạch, nền trắng ============ */
-#top{position:relative;padding-top:96px;padding-bottom:88px;color:var(--ink);
-  background:var(--paper);border-bottom:1px solid var(--line)}
-#top .eyebrow{color:var(--brown)}
-#top h1{color:var(--ink)}
-#top .lead{margin-bottom:22px;color:var(--ink-soft)}
-#top .lead b{color:var(--ink);font-weight:600}
-.hero-sign{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--brown-deep);margin-bottom:34px}
-.hero-sign-note{display:block;margin-top:8px;font-family:'Be Vietnam Pro',sans-serif;
-  font-weight:400;font-size:13px;letter-spacing:0;text-transform:none;
-  color:var(--ink-dim);font-style:italic}
-#top .cta{background:var(--ink);color:var(--cream)}
-#top .cta:hover{background:var(--brown-deep)}
-#top .cta-line{color:var(--ink);border-color:var(--brown)}
-#top .cta-line:hover{color:var(--brown)}
-.hero-cta-row{display:flex;align-items:center;gap:34px;margin-top:10px;flex-wrap:wrap}
+/* ============ HERO — ảnh nền tràn viền, chữ nổi ở trên ============ */
+#top{padding:0;border-bottom:1px solid var(--line);background:var(--ink)}
+#top .wrap{max-width:none;padding:0}
+.hero-stage{position:relative;display:flex;align-items:flex-end;overflow:hidden;
+  min-height:clamp(540px,88svh,780px)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(183deg,rgba(24,16,9,.34) 0%,rgba(24,16,9,0) 26%,rgba(24,16,9,.12) 52%,rgba(24,16,9,.62) 78%,rgba(20,13,7,.9) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1120px;margin:0 auto;
+  padding:0 28px 64px;color:#fff}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;
+  letter-spacing:.2em;text-transform:uppercase;color:#F3D9B0;margin-bottom:18px}
+#top h1{color:#fff;font-size:clamp(42px,8.5vw,84px);line-height:.98;letter-spacing:-.03em;
+  text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero-sub{color:rgba(255,255,255,.92);font-size:clamp(16px,2.4vw,20px);line-height:1.6;
+  max-width:44ch;margin:20px 0 30px;text-shadow:0 1px 16px rgba(0,0,0,.4)}
+.hero-sub b{color:#fff;font-weight:700}
+.hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+#top .cta{background:#fff;color:var(--ink);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+#top .cta:hover{background:var(--cream);transform:translateY(-2px)}
+.cta-ghost{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.6);
+  color:#fff;cursor:pointer;border-radius:999px;padding:15px 30px;
+  font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:14.5px;
+  backdrop-filter:blur(4px);transition:.18s}
+.cta-ghost:hover{background:rgba(255,255,255,.18);border-color:#fff}
 
-/* hero split: chữ trái · ảnh phải */
-.hero-split{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
-.hero-media{margin:0;border-radius:24px;overflow:hidden;aspect-ratio:4/4.6;
-  background:var(--paper-2);box-shadow:0 26px 60px -34px rgba(60,40,20,.5)}
-.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:860px){
-  #top{padding-top:26px;padding-bottom:56px}
-  .hero-split{grid-template-columns:1fr;gap:28px}
-  .hero-media{order:-1;aspect-ratio:16/11;border-radius:16px;box-shadow:0 16px 40px -28px rgba(60,40,20,.5)}
-  .proof{margin-top:38px}
-}
-
-/* dải bằng chứng số */
-.proof{display:flex;gap:0;margin-top:56px;border-top:1px solid var(--line)}
-.proof-i{padding:22px 48px 0 0;margin-right:48px;border-right:1px solid var(--line)}
-.proof-i:last-child{border-right:none}
+/* dải bằng chứng số — nền sáng, ngay dưới hero */
+.hero-proof{background:var(--paper);padding:30px 0 34px;border-bottom:1px solid var(--line)}
+.proof{display:flex;gap:0}
+.proof-i{padding:0 40px 0 0;margin-right:40px;border-right:1px solid var(--line)}
+.proof-i:last-child{border-right:none;margin-right:0;padding-right:0}
 .proof-i b{display:block;font-family:'Be Vietnam Pro',sans-serif;font-weight:800;
-  font-size:48px;line-height:1;letter-spacing:-.03em;color:var(--brown)}
+  font-size:44px;line-height:1;letter-spacing:-.03em;color:var(--brown)}
 .proof-i span{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--ink-dim);margin-top:12px;display:block}
-.proof-cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim);
-  letter-spacing:.02em;margin-top:20px}
+  text-transform:uppercase;color:var(--ink-dim);margin-top:10px;display:block}
+.proof-note{font-size:13.5px;color:var(--ink-soft);margin-top:20px;line-height:1.6;max-width:70ch}
+.proof-note b{color:var(--ink);font-weight:600}
+@media(max-width:600px){
+  .hero-inner{padding-bottom:46px}
+  .proof-i b{font-size:36px}
+  .proof-i{padding-right:26px;margin-right:26px}
+}
 
 /* KHUÔN HÌNH GIỮA TRANG (atmosphere) */
 #atmos{padding:0}

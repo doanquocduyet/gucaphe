@@ -100,29 +100,31 @@ function renderTop() {
   const nem  = SP.filter(p => p.tested).length;
   const chua = SP.filter(p => !p.tested).length;
   $('#top').innerHTML = `
-    <div class="hero-split">
-      <div class="hero-copy">
-        <div class="eyebrow">Gu Cà Phê · Curator cà phê đặc sản Việt Nam</div>
+    <div class="hero-stage">
+      <picture class="hero-bg">
+        <source media="(min-width:861px)" srcset="assets/img/hero/brew-wide.jpg">
+        <img src="assets/img/hero/pour.jpg" alt="Cà phê đặc sản Lâm Đồng — pha thủ công" fetchpriority="high">
+      </picture>
+      <div class="hero-scrim"></div>
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Mua thật · Nếm mù · Chấm điểm</div>
         <h1>Chưa uống<br>thì không chấm.</h1>
-        <p class="lead">Mỗi gói trên trang đều được chúng tôi <b>mua bằng tiền của mình</b> và nếm mù.
-        Không nhận mẫu để đổi lấy lời khen. Gói nào chưa nếm, chúng tôi ghi thẳng: <b>Chưa nếm</b>.</p>
-        <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm
-          <span class="hero-sign-note">(Nếm mù = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng)</span>
-        </div>
+        <p class="hero-sub">Mỗi gói đều do chúng tôi <b>mua bằng tiền của mình</b> và nếm mù. Gói nào chưa nếm — ghi thẳng.</p>
         <div class="hero-cta-row">
           <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
-          <button class="cta-line" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
+          <button class="cta-ghost" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
         </div>
+      </div>
+    </div>
+    <div class="hero-proof">
+      <div class="wrap">
         <div class="proof">
           <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
           <div class="proof-i"><b>${chua}</b><span>Đang chờ nếm</span></div>
           <div class="proof-i"><b>0</b><span>Bài tài trợ</span></div>
         </div>
-        <div class="proof-cap">Cập nhật ${SITE.capNhat} · con số thật, cập nhật theo từng mẻ mua.</div>
+        <p class="proof-note"><b>Nếm mù</b> = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng. Cập nhật ${SITE.capNhat}.</p>
       </div>
-      <figure class="hero-media">
-        <img src="assets/img/hero/pour.jpg" alt="Bình pour over cà phê đặc sản Lâm Đồng dưới nắng" fetchpriority="high">
-      </figure>
     </div>`;
 }
 
@@ -572,7 +574,7 @@ function renderMethod() {
 
 /* ---- Boot ---- */
 document.addEventListener('DOMContentLoaded', () => {
-  $('#logo').innerHTML = SITE.ten.replace(/\s(.+)/, ' <span>$1</span>');
+  // Logo giờ là markup tĩnh (bean + wordmark) trong index.html — không ghi đè.
   $('#tagline').textContent = SITE.tagline;
   renderTop(); renderPick(); renderHubs(); renderPeak(); renderAtmos();
 
