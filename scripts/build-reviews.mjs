@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260752';
+const CSS_V = '20260755';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -76,6 +76,8 @@ function siteNav(active) {
       </svg>
       <span class="logo-txt"><b>GU</b> CÀ PHÊ</span>
     </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở menu">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
     <ul class="nav-links">
       ${MENU.map(([h, l, k]) => {
         const cls = [k === 'method' ? 'learn' : '', k === active ? 'on' : ''].filter(Boolean).join(' ');
@@ -171,11 +173,12 @@ function roasterCardHTML(r) {
 }
 function regionCardHTML(v) {
   const src = v.anh ? (/^https?:/.test(v.anh) ? v.anh : '/' + v.anh) : '';
-  const img = src ? `<div class="vg-card-img"><img src="${esc(src)}" alt="Cà phê ${esc(v.ten)}" loading="lazy"></div>` : '';
-  return `<a class="vg-card${v.hub ? ' vg-hub' : ''}" href="/vung-trong/${v.slug}">
+  const img = src
+    ? `<div class="vg-card-img vg-card-img--name"><img src="${esc(src)}" alt="Cà phê ${esc(v.ten)}" loading="lazy"><div class="vg-card-imgscrim"></div><div class="vg-card-imgname">${esc(v.ten)}</div></div>`
+    : '';
+  return `<a class="vg-card vg-card--region" href="/vung-trong/${v.slug}">
       ${img}
       <div class="vg-card-body">
-        <div class="vg-card-top"><div class="vg-card-name">${esc(v.ten)}</div>${v.hub ? '<span class="vg-badge">Tổng quan</span>' : ''}</div>
         <div class="vg-card-tag">${esc(v.tagline)}</div>
         <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).map(esc).join(' · ')}</div>
         <span class="vg-card-go">Tìm hiểu →</span>
@@ -755,12 +758,15 @@ ${siteFooter()}
 }
 
 /* ---- Hero cho trang hub: ảnh banner + tiêu đề nổi trên ảnh, lead ở dưới ---- */
+// Dính các cụm từ đi đôi bằng non-breaking space để tiêu đề không bị ngắt xấu
+const NB = '\u00A0';
 function hubHero(img, eyebrow, title, leadHTML, extra = '') {
+  const t = esc(title).replace(/đặc sản/g, 'đặc' + NB + 'sản').replace(/Lâm Đồng/g, 'Lâm' + NB + 'Đồng');
   return `<header class="hub-hero">
     <div class="hub-hero-banner">
       <img src="${img}" alt="${esc(title)}" fetchpriority="high">
       <div class="hub-hero-scrim"></div>
-      <div class="hub-hero-cap"><div class="eyebrow">${esc(eyebrow)}</div><h1>${esc(title)}</h1></div>
+      <div class="hub-hero-cap"><div class="eyebrow">${esc(eyebrow)}</div><h1>${t}</h1></div>
     </div>
     ${leadHTML ? `<div class="hub-hero-text"><p class="lead">${leadHTML}</p>${extra}</div>` : ''}
   </header>`;
@@ -846,19 +852,27 @@ function hubCaPhe() {
     'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số — thứ tự bên dưới không phải xếp hạng. So giá/100g, bấm mua, muốn kỹ thì mở chi tiết.')}
 
   ${NHUCAU.length ? `<section class="seg-wrap">
-    <h2 class="hub-group-t">Mua cho ai?</h2>
+    <div class="hub-sec-head">
+      <div class="eyebrow">① Chọn nhanh theo nhu cầu</div>
+      <h2 class="hub-sec-t">Mua cho ai?</h2>
+      <p class="hub-sec-sub">Bấm vào nhóm khách giống bạn nhất — chúng tôi trỏ thẳng <b>một gói hợp nhất</b>, khỏi phải so cả bảng.</p>
+    </div>
     <div class="seg-grid">${seg}</div>
   </section>` : ''}
 
   <section class="cmp-sec">
-    <div class="cmp-bar">
-      <h2 class="hub-group-t">${SP.length} gói</h2>
-      <div class="cmp-sortbar">
-        <span>Sắp theo:</span>
-        <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
-        <button onclick="cpSort('gia',this)">Giá thấp</button>
-        <button onclick="cpSort('per100',this)">Giá/100g</button>
+    <div class="hub-sec-head">
+      <div class="eyebrow">② Toàn bộ danh mục</div>
+      <div class="cmp-bar">
+        <h2 class="hub-sec-t">Tất cả ${SP.length} gói</h2>
+        <div class="cmp-sortbar">
+          <span>Sắp theo:</span>
+          <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
+          <button onclick="cpSort('gia',this)">Giá thấp</button>
+          <button onclick="cpSort('per100',this)">Giá/100g</button>
+        </div>
       </div>
+      <p class="hub-sec-sub">Muốn tự xem hết và so sánh — cả ${SP.length} gói theo giá, giá/100g và điểm nếm mù.</p>
     </div>
     <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
@@ -893,7 +907,7 @@ function hubVung() {
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Vùng trồng</span></nav>
   ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Vùng nguyên liệu cà phê Lâm Đồng',
-    'Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này. Mỗi tiểu vùng cho một chất vị riêng — hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.')}
+    'Lâm Đồng là vùng Arabica đặc sản lớn nhất Việt Nam. Mỗi tiểu vùng — khác nhau về độ cao, thổ nhưỡng và cách sơ chế — cho một chất vị riêng. Hiểu vùng trồng giúp bạn chọn theo gu, thay vì chọn theo bao bì.')}
   ${hub ? `<section class="hub-group"><div class="vg-grid">${regionCardHTML(hub)}</div></section>` : ''}
   <section class="hub-group">
     <div class="vg-grid">${subs.map(regionCardHTML).join('')}</div>

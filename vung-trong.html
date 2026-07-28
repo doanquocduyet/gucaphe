@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20260752">
+<link rel="stylesheet" href="/assets/style.css?v=20260755">
 <script>
 (function(){
   var GA="G-4RR9SDJ34E";
@@ -38,6 +38,8 @@
       </svg>
       <span class="logo-txt"><b>GU</b> CÀ PHÊ</span>
     </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở menu">
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
     <ul class="nav-links">
       <li><a href="/nha-rang">Nhà rang</a></li><li><a href="/ca-phe">Cà phê</a></li><li><a href="/vung-trong" class="on">Vùng trồng</a></li><li><a href="/kien-thuc">Kiến thức</a></li><li><a href="/cach-test" class="learn">Cách test</a></li>
     </ul>
@@ -49,32 +51,29 @@
     <div class="hub-hero-banner">
       <img src="/assets/img/regions/da-lat.jpg" alt="Vùng nguyên liệu cà phê Lâm Đồng" fetchpriority="high">
       <div class="hub-hero-scrim"></div>
-      <div class="hub-hero-cap"><div class="eyebrow">Vùng trồng</div><h1>Vùng nguyên liệu cà phê Lâm Đồng</h1></div>
+      <div class="hub-hero-cap"><div class="eyebrow">Vùng trồng</div><h1>Vùng nguyên liệu cà phê Lâm Đồng</h1></div>
     </div>
-    <div class="hub-hero-text"><p class="lead">Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này. Mỗi tiểu vùng cho một chất vị riêng — hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.</p></div>
+    <div class="hub-hero-text"><p class="lead">Lâm Đồng là vùng Arabica đặc sản lớn nhất Việt Nam. Mỗi tiểu vùng — khác nhau về độ cao, thổ nhưỡng và cách sơ chế — cho một chất vị riêng. Hiểu vùng trồng giúp bạn chọn theo gu, thay vì chọn theo bao bì.</p></div>
   </header>
   
   <section class="hub-group">
-    <div class="vg-grid"><a class="vg-card" href="/vung-trong/cau-dat">
-      <div class="vg-card-img"><img src="/assets/img/regions/cau-dat.jpg" alt="Cà phê Cầu Đất" loading="lazy"></div>
+    <div class="vg-grid"><a class="vg-card vg-card--region" href="/vung-trong/cau-dat">
+      <div class="vg-card-img vg-card-img--name"><img src="/assets/img/regions/cau-dat.jpg" alt="Cà phê Cầu Đất" loading="lazy"><div class="vg-card-imgscrim"></div><div class="vg-card-imgname">Cầu Đất</div></div>
       <div class="vg-card-body">
-        <div class="vg-card-top"><div class="vg-card-name">Cầu Đất</div></div>
         <div class="vg-card-tag">Vùng Arabica cao và lâu đời bậc nhất Việt Nam.</div>
         <div class="vg-card-meta">~1.400–1.650m · Bourbon, Typica, Catimor</div>
         <span class="vg-card-go">Tìm hiểu →</span>
       </div>
-    </a><a class="vg-card" href="/vung-trong/nam-ban">
-      <div class="vg-card-img"><img src="/assets/img/regions/nam-ban.jpg" alt="Cà phê Nam Ban" loading="lazy"></div>
+    </a><a class="vg-card vg-card--region" href="/vung-trong/nam-ban">
+      <div class="vg-card-img vg-card-img--name"><img src="/assets/img/regions/nam-ban.jpg" alt="Cà phê Nam Ban" loading="lazy"><div class="vg-card-imgscrim"></div><div class="vg-card-imgname">Nam Ban</div></div>
       <div class="vg-card-body">
-        <div class="vg-card-top"><div class="vg-card-name">Nam Ban</div></div>
         <div class="vg-card-tag">Vùng cà phê của Lâm Hà — dịu và đậm hơn vùng cao.</div>
         <div class="vg-card-meta">thấp hơn Cầu Đất (~800–1.000m) · Robusta và Arabica</div>
         <span class="vg-card-go">Tìm hiểu →</span>
       </div>
-    </a><a class="vg-card" href="/vung-trong/lac-duong">
-      <div class="vg-card-img"><img src="/assets/img/regions/lac-duong.jpg" alt="Cà phê Lạc Dương" loading="lazy"></div>
+    </a><a class="vg-card vg-card--region" href="/vung-trong/lac-duong">
+      <div class="vg-card-img vg-card-img--name"><img src="/assets/img/regions/lac-duong.jpg" alt="Cà phê Lạc Dương" loading="lazy"><div class="vg-card-imgscrim"></div><div class="vg-card-imgname">Lạc Dương</div></div>
       <div class="vg-card-body">
-        <div class="vg-card-top"><div class="vg-card-name">Lạc Dương</div></div>
         <div class="vg-card-tag">Arabica dưới chân Lang Biang — sạch, cân bằng.</div>
         <div class="vg-card-meta">~1.400–1.500m · Arabica (Catimor, Bourbon)</div>
         <span class="vg-card-go">Tìm hiểu →</span>

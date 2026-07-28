@@ -394,7 +394,8 @@ function renderPeak() {
     <div class="peak-scrim"></div>
     <div class="peak-in">
       <div class="peak-kicker">Nguyên tắc của Gu</div>
-      <p class="peak-line">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi <b>chưa bỏ vào miệng.</b></p>
+      <p class="peak-setup">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi</p>
+      <p class="peak-punch">chưa bỏ vào miệng.</p>
     </div>`;
 }
 
