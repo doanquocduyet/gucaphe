@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260767';
+const CSS_V = '20260768';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -789,9 +789,10 @@ function roasterPage(r) {
       { '@type': 'ListItem', position: 3, name: r.ten }
     ]
   };
-  const others = ROASTER.filter(x => x.slug !== r.slug).slice(0, 3);
+  const others = ROASTER.filter(x => x.slug !== r.slug);
   const tier = priceTier(r);
-  const scored = prods.some(p => p.tested && p.diem != null);
+  const scoredProd = prods.find(p => p.tested && p.diem != null);
+  const scored = !!scoredProd;
   const faqSchema = (r.faq && r.faq.length) ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: r.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
@@ -839,15 +840,17 @@ ${siteNav('nharang')}
     <a href="/">Gu Cà Phê</a><i>/</i><a href="/nha-rang">Nhà rang</a><i>/</i><span>${esc(r.ten)}</span>
   </nav>
 
-  <header class="vg-hero">
+  <header class="vg-hero${a ? ' has-score' : ''}">
     <div class="eyebrow">Nhà rang${vung ? ` · ${esc(vung.ten)}` : ''}</div>
     <h1>${esc(r.ten)}</h1>
+    ${a ? `<div class="rr-score"><span class="rr-score-n">${a.avg}<i>/10</i></span><span class="rr-score-t">Điểm nếm mù cao nhất Gu chấm tới nay${a.n ? ` · ${a.n} gói đã nếm mù` : ''}</span></div>` : ''}
     <p class="vg-hero-tag">${esc(r.motCau || r.gioiThieu)}</p>
+    ${scoredProd ? `<a class="cta rr-cta" href="/review/${scoredProd.slug}">Xem gói đạt ${a.avg}/10 — ${esc(scoredProd.ten)} →</a>` : ''}
     <div class="vg-facts">
       <div class="vg-fact"><span>Vùng nguyên liệu</span><b>${vung ? `<a href="/vung-trong/${vung.slug}">${esc(r.vungChinh)}</a>` : esc(r.vungChinh)}</b></div>
       ${r.hopAi ? `<div class="vg-fact"><span>Phù hợp</span><b>${esc(r.hopAi)}</b></div>` : ''}
       ${tier ? `<div class="vg-fact"><span>Mức giá</span><b>${tier}</b></div>` : ''}
-      <div class="vg-fact"><span>${a ? 'Điểm trên Gu' : 'Trạng thái'}</span><b>${a ? `${a.avg}/10 · ${a.n} gói đã nếm` : 'Đã uống · chưa chấm mù'}</b></div>
+      <div class="vg-fact"><span>${a ? 'Gu Score' : 'Trạng thái'}</span><b>${a ? `${a.avg}/10` : 'Đã uống · chưa chấm mù'}</b></div>
     </div>
   </header>
 
@@ -872,6 +875,12 @@ ${siteNav('nharang')}
           </div>
         </div>`}
   </section>
+
+  ${(a && r.viSaoDiem && r.viSaoDiem.length) ? `<section class="rr-why">
+    <h2 class="rg-h">Vì sao Gu chấm ${a.avg}/10?</h2>
+    <p class="rr-why-note">Điểm đến từ bài <b>nếm mù</b> (che nhãn, che giá) gói ${esc(scoredProd ? scoredProd.ten : '')} — không phải cảm nhận chung về nhà rang.</p>
+    <ul class="rr-why-list">${r.viSaoDiem.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+  </section>` : ''}
 
   ${(r.diemManh || r.diemCanBiet) ? `<section class="rg-fit">
     <h2 class="rg-h">Vì sao Gu chọn ${esc(r.ten)}?</h2>

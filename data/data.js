@@ -453,7 +453,8 @@ const ROASTER = [
     motCau: "Sơn Pacamara là farm kiêm roastery nhỏ làm Arabica vùng cao thủ công, minh bạch — nơi làm ra gói cà phê Gu chấm cao nhất tới nay.",
     verdict: "Nếu bạn thích Arabica vùng cao, pha pour over và trân trọng sự minh bạch, đây là nhà chúng tôi gợi ý trước tiên.",
     hopNhat: ["Thích Arabica vùng cao, chua sáng", "Pha V60 / pour over", "Trân trọng farm minh bạch"],
-    khongHop: ["Thích vị đậm kiểu Robusta", "Cần mua số lượng lớn, ổn định"],
+    khongHop: ["Chủ yếu uống phin sữa, gu đậm", "Không thích vị chua sáng"],
+    viSaoDiem: ["Hương hoa rõ, sạch", "Chua sáng kiểu cam chanh, cân bằng", "Thân vừa, mượt", "Hậu vị ngọt kéo dài"],
     diemManh: ["Gói Gu chấm cao nhất tới nay: 9,3/10", "Farm & roastery minh bạch — 'No secrets, just passion'", "Arabica vùng cao Lang Biang", "Mỗi gói kèm ghi chú người trồng & cách pha"],
     diemCanBiet: ["Quy mô nhỏ, dòng hàng có thể giới hạn", "Không nhắm tới gu Robusta đậm"],
     faq: [

@@ -707,7 +707,27 @@ footer a:hover{border-color:#C9A876}
   font-size:14px;color:var(--ink-soft)}
 .rp-cred-line b{color:var(--ink)}
 .rp-cred-line a{color:var(--brown)}
-@media(max-width:720px){.gv{padding:24px 22px}.gv-cols{grid-template-columns:1fr}}
+
+/* Điểm nếm mù nổi ở hero (nhà rang đã có gói chấm mù) */
+.rr-score{display:flex;align-items:center;gap:14px;margin:4px 0 18px}
+.rr-score-n{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:44px;line-height:1;
+  letter-spacing:-.03em;color:var(--brown-deep)}
+.rr-score-n i{font-style:normal;font-size:20px;font-weight:700;color:var(--ink-dim)}
+.rr-score-t{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;color:var(--ink-soft);
+  max-width:24ch;line-height:1.35}
+.rr-cta{display:inline-flex;margin:0 0 24px}
+.rr-why{margin:34px 0}
+.rr-why-note{font-size:13.5px;color:var(--ink-dim);line-height:1.55;margin-bottom:16px;max-width:64ch}
+.rr-why-note b{color:var(--ink-soft)}
+.rr-why-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;max-width:70ch}
+.rr-why-list li{position:relative;padding-left:24px;font-size:15.5px;color:var(--ink-soft);line-height:1.45}
+.rr-why-list li::before{content:'★';position:absolute;left:0;color:var(--amber);font-weight:800;font-size:13px}
+
+@media(max-width:720px){
+  .gv{padding:24px 22px}.gv-cols{grid-template-columns:1fr}
+  .rr-score-n{font-size:38px}
+  .rr-why-list{grid-template-columns:1fr;gap:10px}
+}
 
 /* --- Trang vùng trồng --- */
 .vg-hero{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:10px}
