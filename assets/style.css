@@ -112,11 +112,15 @@ section:first-of-type{padding-top:64px}
 .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;
   letter-spacing:.2em;text-transform:uppercase;color:#F3D9B0;margin-bottom:18px}
 #top h1{color:#fff;font-size:clamp(42px,8.5vw,84px);line-height:.98;letter-spacing:-.03em;
-  text-shadow:0 2px 30px rgba(0,0,0,.35)}
-.hero-sub{color:rgba(255,255,255,.92);font-size:clamp(16px,2.4vw,20px);line-height:1.6;
-  max-width:44ch;margin:20px 0 30px;text-shadow:0 1px 16px rgba(0,0,0,.4)}
-.hero-sub b{color:#fff;font-weight:700}
-.hero-sub .hero-mark{color:#F3D9B0;font-weight:800}
+  margin:0;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero-sign{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(12px,1.5vw,14px);
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-top:18px;
+  text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.hero-flags{margin:16px 0 30px}
+.hero-flag{display:inline-flex;align-items:center;gap:9px;font-family:'Be Vietnam Pro',sans-serif;
+  font-weight:700;font-size:13.5px;color:#F3D9B0;border:1.5px solid rgba(243,217,176,.55);
+  border-radius:999px;padding:8px 17px;background:rgba(0,0,0,.2);backdrop-filter:blur(4px)}
+.hero-flag:before{content:"";width:7px;height:7px;border-radius:50%;background:#F3D9B0;flex:none}
 .hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 #top .cta{background:#fff;color:var(--ink);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
 #top .cta:hover{background:var(--cream);transform:translateY(-2px)}
@@ -445,6 +449,8 @@ footer a:hover{border-color:#C9A876}
   section{padding:52px 22px}
   #top{padding:0}
   #pick{padding-top:30px}
+  .hero-cta-row{gap:12px}
+  .hero-cta-row .cta,.hero-cta-row .cta-ghost{width:100%;justify-content:center}
   /* Menu mobile — hamburger mở overlay toàn màn hình */
   .nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;
     width:44px;height:44px;margin-left:auto;cursor:pointer;position:relative;z-index:60;
