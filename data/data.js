@@ -34,6 +34,7 @@ const SP = [
     giong:"Catimor, Caturra", doCao:"", process:"Natural", roast:"Light", ngayRang:"",
     tested:true, daUong:true, chungNhan:"Farm minh bạch · Lạc Dương", diem:9.3, chua:4, dam:3, hau:5,
     flavor:"Hoa, đào, cam vàng, mật ong. Hậu vị sạch và kéo dài.", notes:["Hoa","Đào","Cam vàng","Mật ong"],
+    tags:["Chua sáng","Hương hoa quả","Pha V60"],
     nen:["Pha V60 hoặc pour over","Thích vị trái cây, chua sáng","Chấp nhận 108.000₫/100g cho hạt tốt"],
     khong:["Chỉ có phin — rang sáng pha phin dễ chua gắt","Quen gu đậm đắng","Muốn cà phê uống hằng ngày giá mềm"],
     link:"https://s.shopee.vn/AUsMz3wGhY", anh:"assets/img/products/cherries-branch.jpg" },
@@ -44,6 +45,7 @@ const SP = [
     giong:"Fine Robusta", doCao:"", process:"Lên men muối (Natri Clorua)", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Top 14 Thế giới · CQI 2024", diem:null, chua:null, dam:null, hau:null,
     flavor:"Đã mua và uống thật — thân dày, hậu ngọt, đúng chất Fine Robusta đấu giải. Đây là gói để lại ấn tượng mạnh nhất với chúng tôi. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
+    tags:["Thân dày","Hậu ngọt","Pha phin/máy"],
     nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm, thân dày","Pha phin hoặc espresso"],
     khong:["Ngân sách rất eo hẹp","Thích chua sáng nhẹ kiểu Arabica"],
     link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"assets/img/products/beans-tin.jpg" },
@@ -53,6 +55,7 @@ const SP = [
     giong:"Arabica blend", doCao:"", process:"Washed", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"30 năm · nhà máy xuất khẩu", diem:null, chua:null, dam:null, hau:null,
     flavor:"Đã mua và uống thật — blend cân bằng, dễ uống, hợp pha máy/phin. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
+    tags:["Cân bằng","Dễ uống","Pha máy/phin"],
     nen:["Mở quán, cần nguồn ổn định","Mua sỉ nhân xanh","Thích blend cân bằng"],
     khong:["Chỉ mua lẻ 1 gói thử","Muốn single-origin rõ vùng"],
     link:"https://tamtrinhcoffee.com/arabica-blend-ca-phe-pha-may/", anh:"assets/img/products/tamtrinh-natural.jpg" },
@@ -62,6 +65,7 @@ const SP = [
     giong:"Arabica", doCao:"", process:"Rang mộc nguyên chất", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"OCOP 4 sao · ISO 22000", diem:null, chua:null, dam:null, hau:null,
     flavor:"Đã mua và uống thật — sạch, dịu, dễ tiếp cận cho người mới uống đặc sản; giá mềm nhất nhóm. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
+    tags:["Cho người mới","Giá mềm","Pha phin"],
     nen:["Mới uống đặc sản","Ngân sách vừa","Muốn thử mà không tốn nhiều"],
     khong:["Muốn dòng đạt giải quốc tế","Cần sơ chế đặc biệt"],
     link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-bag.jpg" },
@@ -73,6 +77,7 @@ const SP = [
     tested:false, daUong:true, chungNhan:"Chứng nhận SGS · Cầu Đất 1.550m", diem:null, chua:null, dam:null, hau:null,
     flavor:"Nhân xanh (green bean, cần rang trước khi pha). Rang lên uống thử: trái cây nhiệt đới, rượu mận, ngọt thanh — hợp Cold Brew, Pour Over rang sáng. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
     notes:["Trái cây nhiệt đới","Rượu mận","Ngọt thanh"],
+    tags:["Nhân xanh","Cần tự rang","Trái cây nhiệt đới"],
     nen:["Người tự rang / có mối rang","Thích lô truy xuất rõ nguồn gốc"],
     khong:["Muốn mua về pha uống ngay (đây là nhân xanh)","Chưa có thiết bị rang"],
     link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"assets/img/products/green-beans.jpg" },
@@ -83,6 +88,7 @@ const SP = [
     tested:false, daUong:true, chungNhan:"Asia Top 80 · Đà Lạt", diem:null, chua:null, dam:null, hau:null,
     flavor:"Đã mua và uống thật — cân bằng chua-đắng, dịu, tinh tế; hợp phin, moka pot, máy pha, mua về pha ngay. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
     notes:["Cân bằng","Dịu","Tinh tế"],
+    tags:["Cân bằng","Dễ uống","Pha phin/máy"],
     nen:["Muốn Arabica Đà Lạt dễ uống","Pha phin/máy tại nhà","Thương hiệu uy tín Asia Top 80"],
     khong:["Muốn single-origin lô rõ vùng","Thích vị mạnh gắt kiểu Robusta"],
     link:"https://beacons.ai/laviet.coffee", anh:"assets/img/products/hand-beans.jpg" }
@@ -274,9 +280,9 @@ const ROASTER = [
    Dùng ở hub /ca-phe để khách quyết định nhanh rồi bấm mua. ---- */
 const NHUCAU = [
   { label: "Mới uống · tiết kiệm", vi: "Nhập môn đặc sản, không tốn nhiều tiền.", spId: "nb-dehavi" },
-  { label: "Ngon chuẩn giải quốc tế", vi: "Fine Robusta Nam Ban — Top 14 Thế Giới 2024.", spId: "nb-bui" },
+  { label: "Đạt giải quốc tế", vi: "Fine Robusta Nam Ban — Top 14 Thế Giới 2024.", spId: "nb-bui" },
   { label: "Chua sáng · pha V60", vi: "Arabica vùng cao, gói điểm nếm mù cao nhất.", spId: "lb1" },
-  { label: "Mở quán · mua sỉ", vi: "Nguồn ổn định, mạnh nhân xanh và số lượng.", spId: "nb-tamtrinh" },
-  { label: "Cà phê Đà Lạt uống ngày", vi: "Hạt rang pha ngay, cân bằng, dễ uống.", spId: "lv-balanced" },
+  { label: "Mở quán · mua sỉ", vi: "Nhà rang lớn, phù hợp mua số lượng.", spId: "nb-tamtrinh" },
+  { label: "Uống hằng ngày", vi: "Hạt rang pha ngay, cân bằng, dễ uống.", spId: "lv-balanced" },
   { label: "Tự rang · lô đặc biệt", vi: "Nhân xanh Cầu Đất, sơ chế lên men sâu.", spId: "mb-yellowcherry" }
 ];

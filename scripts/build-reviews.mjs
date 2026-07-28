@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260759';
+const CSS_V = '20260760';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -818,7 +818,8 @@ function pcard(p, pos) {
       <div class="pc-body">
         <div class="pc-brand">${esc(p.brand)}</div>
         <a class="pc-name" href="/review/${p.slug}">${esc(p.ten)}</a>
-        ${p.chungNhan ? `<div class="pc-cred">${esc(p.chungNhan)}</div>` : ''}
+        ${p.chungNhan ? `<div class="pc-cred"><span class="pc-cred-ic">✓</span>${esc(p.chungNhan)}</div>` : ''}
+        ${(p.tags && p.tags.length) ? `<div class="pc-tags">${p.tags.slice(0, 3).map(t => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="pc-meta">${money(p.gia)}${per100(p) ? ` · <span>${money(per100(p))}/100g</span>` : ''}</div>
         <div class="pc-foot">${buyMini(p, pos || 'product_card')}<a class="pc-detail" href="/review/${p.slug}">Chi tiết →</a></div>
       </div>
@@ -837,8 +838,7 @@ function hubCaPhe() {
           <div><div class="seg-label">${esc(n.label)}</div><div class="seg-vi">${esc(n.vi)}</div></div>
         </div>
         <a class="seg-answer" href="/review/${p.slug}">
-          <div class="seg-answer-l">Gói cho bạn ${tag}</div>
-          <div class="seg-answer-name"><b>${esc(p.brand)}</b> · ${esc(p.ten)}</div>
+          <div class="seg-answer-top"><span class="seg-answer-name"><b>${esc(p.brand)}</b> · ${esc(p.ten)}</span>${tag}</div>
           <div class="seg-answer-price">${money(p.gia)}${per100(p) ? ` · ${money(per100(p))}/100g` : ''}</div>
         </a>
         <div class="seg-foot">${buyMini(p, 'ca_phe_segment')}<a class="seg-detail" href="/review/${p.slug}">Chi tiết →</a></div>
@@ -849,7 +849,7 @@ function hubCaPhe() {
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
-    'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số — thứ tự bên dưới không phải xếp hạng. So giá/100g, bấm mua, muốn kỹ thì mở chi tiết.')}
+    'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số. Danh sách dưới đây không phải bảng xếp hạng.')}
 
   ${NHUCAU.length ? `<section class="seg-wrap">
     <div class="hub-sec-head">
@@ -862,9 +862,9 @@ function hubCaPhe() {
 
   <section class="cmp-sec">
     <div class="hub-sec-head">
-      <div class="eyebrow">② Toàn bộ danh mục</div>
+      <div class="eyebrow">② Các gói đã thử</div>
       <div class="cmp-bar">
-        <h2 class="hub-sec-t">Tất cả ${SP.length} gói</h2>
+        <h2 class="hub-sec-t">Những gói đã uống</h2>
         <div class="cmp-sortbar">
           <span>Sắp theo:</span>
           <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
@@ -872,13 +872,12 @@ function hubCaPhe() {
           <button onclick="cpSort('per100',this)">Giá/100g</button>
         </div>
       </div>
-      <p class="hub-sec-sub">Muốn tự xem hết và so sánh — cả ${SP.length} gói theo giá, giá/100g và điểm nếm mù.</p>
+      <p class="hub-sec-sub">So sánh tất cả sản phẩm theo điểm, giá và giá/100g.</p>
     </div>
     <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
 
-  <p class="foot-note">Chưa rõ Arabica khác Robusta chỗ nào, Natural khác Washed ra sao, hay pha phin nên chọn rang gì?
-  <a href="/kien-thuc">Đọc Kiến thức trước khi mua →</a></p>
+  <p class="foot-note">Mới tìm hiểu specialty? <a href="/kien-thuc">Đọc Kiến thức trước khi mua →</a></p>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>
   <script>
