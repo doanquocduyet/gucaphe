@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260750';
+const CSS_V = '20260751';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -754,6 +754,18 @@ ${siteFooter()}
 `;
 }
 
+/* ---- Hero cho trang hub: ảnh banner + tiêu đề nổi trên ảnh, lead ở dưới ---- */
+function hubHero(img, eyebrow, title, leadHTML, extra = '') {
+  return `<header class="hub-hero">
+    <div class="hub-hero-banner">
+      <img src="${img}" alt="${esc(title)}" fetchpriority="high">
+      <div class="hub-hero-scrim"></div>
+      <div class="hub-hero-cap"><div class="eyebrow">${esc(eyebrow)}</div><h1>${esc(title)}</h1></div>
+    </div>
+    ${leadHTML ? `<div class="hub-hero-text"><p class="lead">${leadHTML}</p>${extra}</div>` : ''}
+  </header>`;
+}
+
 /* ============================================================
    HUB PAGES — /nha-rang · /ca-phe · /vung-trong · /kien-thuc · /cach-test
    ============================================================ */
@@ -768,13 +780,9 @@ function hubNhaRang() {
     ROASTER.map(r => ({ url: `${ORIGIN}/nha-rang/${r.slug}`, name: r.ten })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Nhà rang</span></nav>
-  <header class="hub-head">
-    <div class="eyebrow">Nhà rang</div>
-    <h1>6 nhà rang chúng tôi chọn đồng hành</h1>
-    <p class="lead">Sau khi đi thực địa, gặp người làm và nếm sâu, chúng tôi chọn ra sáu nhà rang xứng đáng để
-    đồng hành và giới thiệu với bạn — mỗi nhà một vùng nguyên liệu, một câu chuyện, một thế mạnh. Chỉ sáu, không hơn.</p>
-    <p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b>. Cả sáu chúng tôi đều đã uống thật và thấy ngon; điểm số chỉ gắn khi đã nếm mù chính thức.</p>
-  </header>
+  ${hubHero('/assets/img/hero/brew-wide.jpg', 'Nhà rang', '6 nhà rang chúng tôi chọn đồng hành',
+    'Sau khi đi thực địa, gặp người làm và nếm sâu, chúng tôi chọn ra sáu nhà rang xứng đáng để đồng hành và giới thiệu với bạn — mỗi nhà một vùng nguyên liệu, một câu chuyện, một thế mạnh. Chỉ sáu, không hơn.',
+    '<p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b>. Cả sáu chúng tôi đều đã uống thật và thấy ngon; điểm số chỉ gắn khi đã nếm mù chính thức.</p>')}
   <div class="vg-grid">${list.map(roasterCardHTML).join('')}</div>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
@@ -813,25 +821,29 @@ function pcard(p, pos) {
 function hubCaPhe() {
   const url = `${ORIGIN}/ca-phe`;
   const rank = SP.slice().sort((a, b) => (b.tested ? 1 : 0) - (a.tested ? 1 : 0) || (b.diem || 0) - (a.diem || 0));
-  const seg = NHUCAU.map(n => {
+  const seg = NHUCAU.map((n, i) => {
     const p = SP_BY_ID[n.spId]; if (!p) return '';
     const t = p.tested && p.diem != null;
+    const tag = t ? `<span class="seg-score">${p.diem}/10</span>` : (p.daUong ? '<span class="seg-tasted">Đã uống</span>' : '');
     return `<div class="seg">
-        <div class="seg-label">${esc(n.label)}</div>
-        <div class="seg-vi">${esc(n.vi)}</div>
-        <a class="seg-pick" href="/review/${p.slug}"><small>${esc(p.brand)}</small>${esc(p.ten)}</a>
-        <div class="seg-foot"><span class="seg-price">${money(p.gia)}${t ? ` · ${p.diem}/10` : (p.daUong ? ' · đã uống' : ' · chưa nếm')}</span>${buyMini(p, 'ca_phe_segment')}</div>
+        <div class="seg-need">
+          <span class="seg-n">${String(i + 1).padStart(2, '0')}</span>
+          <div><div class="seg-label">${esc(n.label)}</div><div class="seg-vi">${esc(n.vi)}</div></div>
+        </div>
+        <a class="seg-answer" href="/review/${p.slug}">
+          <div class="seg-answer-l">Gói cho bạn ${tag}</div>
+          <div class="seg-answer-name"><b>${esc(p.brand)}</b> · ${esc(p.ten)}</div>
+          <div class="seg-answer-price">${money(p.gia)}${per100(p) ? ` · ${money(per100(p))}/100g` : ''}</div>
+        </a>
+        <div class="seg-foot">${buyMini(p, 'ca_phe_segment')}<a class="seg-detail" href="/review/${p.slug}">Chi tiết →</a></div>
       </div>`;
   }).join('');
   const schema = itemListSchema('Cà phê đặc sản Lâm Đồng',
     SP.map(p => ({ url: `${ORIGIN}/review/${p.slug}`, name: `${p.brand} ${p.ten}` })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
-  <header class="hub-head">
-    <div class="eyebrow">Cà phê</div>
-    <h1>Cà phê đặc sản Lâm Đồng</h1>
-    <p class="lead">Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số — thứ tự bên dưới không phải xếp hạng. So giá/100g, bấm mua, muốn kỹ thì mở chi tiết.</p>
-  </header>
+  ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
+    'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số — thứ tự bên dưới không phải xếp hạng. So giá/100g, bấm mua, muốn kỹ thì mở chi tiết.')}
 
   ${NHUCAU.length ? `<section class="seg-wrap">
     <h2 class="hub-group-t">Mua cho ai?</h2>
@@ -880,12 +892,8 @@ function hubVung() {
     VUNG.map(v => ({ url: `${ORIGIN}/vung-trong/${v.slug}`, name: `Cà phê ${v.ten}` })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Vùng trồng</span></nav>
-  <header class="hub-head">
-    <div class="eyebrow">Vùng trồng</div>
-    <h1>Vùng nguyên liệu cà phê Lâm Đồng</h1>
-    <p class="lead">Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này. Mỗi tiểu vùng cho một chất vị riêng —
-    hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.</p>
-  </header>
+  ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Vùng nguyên liệu cà phê Lâm Đồng',
+    'Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này. Mỗi tiểu vùng cho một chất vị riêng — hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.')}
   ${hub ? `<section class="hub-group"><div class="vg-grid">${regionCardHTML(hub)}</div></section>` : ''}
   <section class="hub-group">
     <div class="vg-grid">${subs.map(regionCardHTML).join('')}</div>
@@ -903,11 +911,8 @@ function hubKienThuc() {
   const url = `${ORIGIN}/kien-thuc`;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Kiến thức</span></nav>
-  <header class="hub-head">
-    <div class="eyebrow">Kiến thức</div>
-    <h1>Hiểu trước khi mua</h1>
-    <p class="lead">Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề.</p>
-  </header>
+  ${hubHero('/assets/img/products/beans-tin.jpg', 'Kiến thức', 'Hiểu trước khi mua',
+    'Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề.')}
   ${BAIVIET.map(b => `<article class="kt-art" id="${b.id}">
     <div class="kt-art-tag">${esc(b.tag)}</div>
     <h2>${b.tieuDe}</h2>

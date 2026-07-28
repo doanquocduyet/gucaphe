@@ -384,13 +384,18 @@ function mxFilter(f, btn) {
 
 /* ============ KHUÔN HÌNH GIỮA TRANG ============ */
 function renderAtmos() {
-  $('#atmos').innerHTML = `<div class="atmos-img"><img src="assets/img/band-life.jpg" alt="Pha pour over đặc sản" loading="lazy"></div>`;
+  const el = $('#atmos'); if (el) el.innerHTML = '';
 }
 
-/* ============ PEAK — điểm dừng, phá nhịp ============ */
+/* ============ PEAK — tuyên ngôn trên ảnh, phá nhịp ============ */
 function renderPeak() {
-  $('#peak').innerHTML = `<p class="peak-line">Không có bài viết tài trợ.<br>
-    Không có điểm số cho thứ chúng tôi <b>chưa bỏ vào miệng.</b></p>`;
+  $('#peak').innerHTML = `
+    <img class="peak-bg" src="assets/img/band-life.jpg" alt="Pha pour over cà phê đặc sản" loading="lazy">
+    <div class="peak-scrim"></div>
+    <div class="peak-in">
+      <div class="peak-kicker">Nguyên tắc của Gu</div>
+      <p class="peak-line">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi <b>chưa bỏ vào miệng.</b></p>
+    </div>`;
 }
 
 /* ============ 4 · REVIEW CHI TIẾT ============ */
