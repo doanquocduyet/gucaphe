@@ -26,6 +26,8 @@ const QUY_TRINH = [
    Thương mại:       link (Shopee/CTV/web nhà) · lazada · tiki (tuỳ chọn) · anh
    → Chỉ cần đổi tested:false→true + điền diem/chua/dam/hau là bảng xếp hạng,
      schema Review và trang /review TỰ cập nhật. Trường chưa biết để null/"" — KHÔNG bịa.
+   → MẪU ĐĂNG SẢN PHẨM copy-paste: docs/product-template.js
+     ĐẶC TẢ đầy đủ (thứ tự section, quy tắc ẩn/hiện): docs/product-review-spec.md
    ============================================================ */
 const SP = [
   { id:"lb1", brand:"Sơn Pacamara", ten:"Lang Biang Specialty 250g", nhom:"hat", gia:270000, gram:250,
