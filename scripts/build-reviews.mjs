@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260764';
+const CSS_V = '20260765';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -651,7 +651,7 @@ ${siteNav('vung')}
   </article>
 
   ${v.diemDacBiet ? `<aside class="rg-special">
-    <div class="rg-special-cap">★ ${esc(v.diemDacBiet.title)}</div>
+    <div class="rg-special-cap">${esc(v.diemDacBiet.title)}</div>
     ${v.diemDacBiet.html}
   </aside>` : ''}
 
@@ -946,15 +946,15 @@ function tasteSelector(title) {
   const chocoR = byChoco[0];
   const canBangR = subs.find(x => x !== chuaR && x !== chocoR) || subs[0];
   const tastes = [
-    ['🍋', 'Chua sáng · hương hoa', chuaR],
-    ['⚖️', 'Cân bằng · dễ uống', canBangR],
-    ['🍫', 'Đậm · chocolate', chocoR]
+    ['#C79A5B', 'Chua sáng · hương hoa', chuaR],
+    ['#9A6E44', 'Cân bằng · dễ uống', canBangR],
+    ['#3A2718', 'Đậm · chocolate', chocoR]
   ].filter(t => t[2]);
   if (!tastes.length) return '';
   return `<section class="vg-taste">
     <div class="vg-taste-q">${esc(title || 'Bạn thích vị nào?')}</div>
     <div class="vg-taste-opts">
-      ${tastes.map(([ic, label, r]) => `<a class="vg-taste-opt" href="/vung-trong/${r.slug}"><span class="vg-taste-ic">${ic}</span><span class="vg-taste-l">${esc(label)}</span><span class="vg-taste-r">→ ${esc(r.ten)}</span></a>`).join('')}
+      ${tastes.map(([sw, label, r]) => `<a class="vg-taste-opt" href="/vung-trong/${r.slug}"><span class="vg-taste-sw" style="background:${sw}"></span><span class="vg-taste-l">${esc(label)}</span><span class="vg-taste-r">→ ${esc(r.ten)}</span></a>`).join('')}
     </div>
   </section>`;
 }
@@ -1070,15 +1070,15 @@ function hubVung() {
 
 /* ---- Minh hoạ mang thông tin (SVG/CSS, không ảnh, không bịa số) ---- */
 function diagNaturalWashed() {
-  const col = (mod, ic, ten, sub, steps, tags) => `<div class="kt-diag-col ${mod}">
-      <div class="kt-diag-h"><span class="kt-diag-ic">${ic}</span><b>${ten}</b><span class="kt-diag-sub">${sub}</span></div>
+  const col = (mod, ten, sub, steps, tags) => `<div class="kt-diag-col ${mod}">
+      <div class="kt-diag-h"><b>${ten}</b><span class="kt-diag-sub">${sub}</span></div>
       <ol class="kt-diag-steps">${steps.map(s => `<li>${s}</li>`).join('')}</ol>
       <div class="kt-diag-res"><span class="kt-diag-res-k">Trong ly</span><div class="kt-diag-tags">${tags.map(t => `<span>${t}</span>`).join('')}</div></div>
     </div>`;
   return `<figure class="kt-diag kt-diag--nw" aria-label="So sánh sơ chế Washed và Natural">
-    ${col('is-washed', '💧', 'Washed', 'Sơ chế ướt', ['Tách vỏ quả', 'Rửa sạch nhớt', 'Phơi khô hạt'], ['Sạch', 'Sáng', 'Chua thanh'])}
+    ${col('is-washed', 'Washed', 'Sơ chế ướt', ['Tách vỏ quả', 'Rửa sạch nhớt', 'Phơi khô hạt'], ['Sạch', 'Sáng', 'Chua thanh'])}
     <div class="kt-diag-vs">so với</div>
-    ${col('is-natural', '☀️', 'Natural', 'Sơ chế khô', ['Phơi nguyên quả', 'Ủ trong lớp thịt ngọt', 'Tách vỏ khô'], ['Ngọt đậm', 'Body dày', 'Trái cây chín'])}
+    ${col('is-natural', 'Natural', 'Sơ chế khô', ['Phơi nguyên quả', 'Ủ trong lớp thịt ngọt', 'Tách vỏ khô'], ['Ngọt đậm', 'Body dày', 'Trái cây chín'])}
   </figure>`;
 }
 function diagRoastScale() {
