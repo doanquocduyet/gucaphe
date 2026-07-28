@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260768';
+const CSS_V = '20260769';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -797,7 +797,7 @@ function roasterPage(r) {
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: r.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
   } : null;
-  const conf = [['Đã mua', true], ['Đã uống', true], ['Đã tìm hiểu', true], ['Đã chấm mù', scored]];
+  const conf = [['Đã mua', true], ['Đã uống', true], ['Đã tìm hiểu', true], [scored ? 'Đã chấm mù' : 'Chưa chấm mù', scored]];
 
   return `<!DOCTYPE html>
 <html lang="vi">
@@ -848,7 +848,7 @@ ${siteNav('nharang')}
     ${scoredProd ? `<a class="cta rr-cta" href="/review/${scoredProd.slug}">Xem gói đạt ${a.avg}/10 — ${esc(scoredProd.ten)} →</a>` : ''}
     <div class="vg-facts">
       <div class="vg-fact"><span>Vùng nguyên liệu</span><b>${vung ? `<a href="/vung-trong/${vung.slug}">${esc(r.vungChinh)}</a>` : esc(r.vungChinh)}</b></div>
-      ${r.hopAi ? `<div class="vg-fact"><span>Phù hợp</span><b>${esc(r.hopAi)}</b></div>` : ''}
+      ${(r.doiTuong || r.hopAi) ? `<div class="vg-fact"><span>Phù hợp</span><b>${esc(r.doiTuong || r.hopAi)}</b></div>` : ''}
       ${tier ? `<div class="vg-fact"><span>Mức giá</span><b>${tier}</b></div>` : ''}
       <div class="vg-fact"><span>${a ? 'Gu Score' : 'Trạng thái'}</span><b>${a ? `${a.avg}/10` : 'Đã uống · chưa chấm mù'}</b></div>
     </div>
@@ -860,7 +860,7 @@ ${siteNav('nharang')}
       ${(r.hopNhat && r.hopNhat.length) ? `<div class="gv-col gv--yes"><div class="gv-cap">Nên chọn nếu bạn</div><ul>${r.hopNhat.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
       ${(r.khongHop && r.khongHop.length) ? `<div class="gv-col gv--no"><div class="gv-cap">Cân nhắc nếu bạn</div><ul>${r.khongHop.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
     </div>
-    <div class="gv-conf">${conf.map(([k, ok]) => `<span class="gv-conf-i ${ok ? 'is-on' : 'is-off'}">${ok ? '✓' : '—'} ${k}</span>`).join('')}</div>
+    <div class="gv-conf">${conf.map(([k, ok]) => `<span class="gv-conf-i ${ok ? 'is-on' : 'is-off'}">${ok ? '✓' : '○'} ${k}</span>`).join('')}</div>
   </section>` : ''}
 
   <section class="vg-prods">
@@ -883,8 +883,8 @@ ${siteNav('nharang')}
   </section>` : ''}
 
   ${(r.diemManh || r.diemCanBiet) ? `<section class="rg-fit">
-    <h2 class="rg-h">Vì sao Gu chọn ${esc(r.ten)}?</h2>
-    <div class="rg-fit-cols">
+    <h2 class="rg-h">Điều Gu đánh giá cao ở ${esc(r.ten)}</h2>
+    <div class="rg-fit-cols rg-fit--weighted">
       ${(r.diemManh && r.diemManh.length) ? `<div class="rg-fit-col rg-fit--yes"><div class="rg-fit-cap">Điểm mạnh</div><ul>${r.diemManh.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
       ${(r.diemCanBiet && r.diemCanBiet.length) ? `<div class="rg-fit-col rg-fit--no"><div class="rg-fit-cap">Điểm cần biết</div><ul>${r.diemCanBiet.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
     </div>

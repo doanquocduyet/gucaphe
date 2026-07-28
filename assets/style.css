@@ -723,6 +723,9 @@ footer a:hover{border-color:#C9A876}
 .rr-why-list li{position:relative;padding-left:24px;font-size:15.5px;color:var(--ink-soft);line-height:1.45}
 .rr-why-list li::before{content:'★';position:absolute;left:0;color:var(--amber);font-weight:800;font-size:13px}
 
+/* Cân lại khoảng trắng: verdict → sản phẩm bớt xa */
+.gv + .vg-prods{margin-top:46px}
+
 @media(max-width:720px){
   .gv{padding:24px 22px}.gv-cols{grid-template-columns:1fr}
   .rr-score-n{font-size:38px}
@@ -874,6 +877,8 @@ footer a:hover{border-color:#C9A876}
 /* Ai nên chọn */
 .rg-fit{margin:44px 0}
 .rg-fit-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rg-fit--weighted{grid-template-columns:1.5fr 1fr}
+@media(max-width:720px){.rg-fit--weighted{grid-template-columns:1fr}}
 .rg-fit-col{padding:22px 24px;border-radius:14px;border:1px solid var(--line)}
 .rg-fit--yes{background:rgba(122,84,51,.05);border-color:rgba(122,84,51,.22)}
 .rg-fit--no{background:var(--paper-2)}
