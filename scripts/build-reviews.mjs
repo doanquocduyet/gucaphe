@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260755';
+const CSS_V = '20260757';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -954,31 +954,52 @@ function hubCachTest() {
   })}</script>` : '';
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cách test</span></nav>
-  <header class="hub-head">
-    <div class="eyebrow">Minh bạch</div>
-    <h1>Cách chúng tôi test</h1>
-    <p class="lead">Công bố trước khi mở gói hàng — khoá lại, không sửa. Thẩm quyền đến từ phương pháp, không từ lời khen.</p>
-  </header>
+  ${hubHero('/assets/img/p4-taste.jpg', 'Minh bạch', 'Phương pháp đánh giá',
+    'Chúng tôi công bố phương pháp trước khi đánh giá bất kỳ sản phẩm nào và giữ nguyên trong suốt quá trình. Thẩm quyền đến từ phương pháp, không từ lời khen.')}
+
+  <section class="commit">
+    <h2 class="commit-t">Cam kết của Gu Cà Phê</h2>
+    <ul class="commit-list">
+      <li>Mua bằng tiền của chúng tôi.</li>
+      <li>Không nhận mẫu tài trợ.</li>
+      <li>Không chấm điểm khi chưa nếm mù.</li>
+      <li>Công khai phương pháp trước khi đánh giá.</li>
+      <li>Sửa sai công khai nếu phát hiện sai sót.</li>
+    </ul>
+  </section>
+
+  <h2 class="method-h">Quy trình 5 bước</h2>
   <ol class="steps">${QUY_TRINH.map(x => `<li><span>${x}</span></li>`).join('')}</ol>
+
   <div class="gallery">
-    <figure><img src="/assets/img/p1-farm.jpg" alt="Quả cà phê chín trên cành" loading="lazy"><figcaption>Vùng trồng — quả chín</figcaption></figure>
-    <figure><img src="/assets/img/p2-grind.jpg" alt="Cà phê vừa xay" loading="lazy"><figcaption>Cùng cỡ xay</figcaption></figure>
-    <figure><img src="/assets/img/p3-cup.jpg" alt="Dàn mẫu nếm mù" loading="lazy"><figcaption>Che nhãn</figcaption></figure>
-    <figure><img src="/assets/img/p4-taste.jpg" alt="Chấm điểm bằng thìa cupping" loading="lazy"><figcaption>Chấm điểm</figcaption></figure>
+    <figure><img src="/assets/img/p2-grind.jpg" alt="Cà phê xay cùng một cỡ" loading="lazy"><figcaption>Cùng cỡ xay</figcaption></figure>
+    <figure><img src="/assets/img/p3-cup.jpg" alt="Các mẫu che nhãn để nếm mù" loading="lazy"><figcaption>Che nhãn · nếm mù</figcaption></figure>
+    <figure><img src="/assets/img/p4-taste.jpg" alt="Chấm cảm quan bằng thìa cupping" loading="lazy"><figcaption>Chấm cảm quan</figcaption></figure>
+    <figure><img src="/assets/img/products/beans-tin.jpg" alt="Ghi phiếu chấm điểm" loading="lazy"><figcaption>Ghi phiếu chấm</figcaption></figure>
   </div>
+
   <div class="method-notes">
-    <p><b>Vì sao điểm số đáng tin:</b> nó là hệ quả của một quy trình ai cũng kiểm chứng lại được —
-    cùng cỡ xay, cùng tỷ lệ, cùng nhiệt độ, nếm mù. Thẩm quyền đến từ phương pháp, không từ lời khen.</p>
-    <p><b>Về hoa hồng:</b> chúng tôi nhận hoa hồng tiếp thị liên kết nếu bạn mua qua link trên trang —
-    bạn không trả thêm đồng nào. Link có ở cả sản phẩm chúng tôi khuyên cân nhắc,
-    nên không có lý do gì để khen sai. Gói đã uống nhưng chưa chấm mù, trang ghi rõ <b>“Đã uống”</b> và không gắn số.</p>
+    <p><b>Vì sao điểm số đáng tin:</b> điểm số là kết quả của một quy trình mà bất kỳ ai cũng có thể lặp lại — cùng cỡ xay, cùng tỷ lệ, cùng nhiệt độ và nếm mù. Thẩm quyền đến từ phương pháp, không từ lời khen.</p>
+    <p><b>Về hoa hồng:</b> Chúng tôi có thể nhận hoa hồng tiếp thị liên kết nếu bạn mua qua liên kết trên trang; bạn không trả thêm chi phí nào. Liên kết xuất hiện cả ở sản phẩm được khuyên mua và sản phẩm được khuyên cân nhắc, vì vậy doanh thu không quyết định điểm số.</p>
   </div>
+
+  <section class="method-limit">
+    <h2>Giới hạn của phương pháp</h2>
+    <p>Điểm số phản ánh kết quả trong điều kiện thử nghiệm của Gu Cà Phê. Khẩu vị mỗi người khác nhau; điểm số không nhằm thay thế sở thích cá nhân, mà giúp việc so sánh trở nên công bằng và nhất quán.</p>
+  </section>
+
   ${FAQ.length ? `<div class="faq">${FAQ.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${f.q}</summary><p>${f.a}</p></details>`).join('')}</div>` : ''}
+
+  <div class="method-meta">
+    <p><b>Cập nhật phương pháp:</b> 28/07/2026 · phiên bản 1.0</p>
+    <p>Nếu quy trình thay đổi, chúng tôi sẽ công bố công khai trên trang này trước khi áp dụng cho các bài đánh giá mới.</p>
+  </div>
+
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
-    title: 'Cách chúng tôi test cà phê — mua ẩn danh, nếm mù, chấm điểm | Gu Cà Phê',
-    desc: 'Quy trình đánh giá cà phê của Gu Cà Phê: mua ẩn danh, pha cùng điều kiện (cỡ xay medium, 1:15, 92°C), nếm mù rồi mới chấm. Minh bạch chính sách hoa hồng.',
+    title: 'Phương pháp đánh giá cà phê — mua ẩn danh, nếm mù, chấm cảm quan | Gu Cà Phê',
+    desc: 'Phương pháp đánh giá cà phê của Gu Cà Phê: mua ẩn danh, pha cùng điều kiện (cỡ xay medium, 1:15, 92°C), nếm mù rồi mới công bố điểm. Cam kết, giới hạn phương pháp và chính sách hoa hồng minh bạch.',
     url, ogType: 'website', schema: faqSchema, active: 'method', main
   });
 }

@@ -116,6 +116,7 @@ section:first-of-type{padding-top:64px}
 .hero-sub{color:rgba(255,255,255,.92);font-size:clamp(16px,2.4vw,20px);line-height:1.6;
   max-width:44ch;margin:20px 0 30px;text-shadow:0 1px 16px rgba(0,0,0,.4)}
 .hero-sub b{color:#fff;font-weight:700}
+.hero-sub .hero-mark{color:#F3D9B0;font-weight:800}
 .hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 #top .cta{background:#fff;color:var(--ink);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
 #top .cta:hover{background:var(--cream);transform:translateY(-2px)}
@@ -381,7 +382,24 @@ section:first-of-type{padding-top:64px}
 #method .eyebrow{color:#C9A876}
 #method h2{color:var(--cream)}
 #method .lead{color:var(--cream-dim)}
-.steps{list-style:none;counter-reset:s;margin-top:54px;border-top:1px solid var(--line);max-width:56rem}
+/* Cách test — cam kết, giới hạn, meta */
+.commit{margin-top:34px;max-width:56rem;background:var(--brown-deep);color:#fff;
+  border-radius:18px;padding:32px 34px}
+.commit-t{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;
+  color:#fff;margin:0 0 16px}
+.commit-list{list-style:none;display:grid;gap:12px}
+.commit-list li{position:relative;padding-left:30px;font-size:16px;line-height:1.5;color:rgba(255,255,255,.94)}
+.commit-list li:before{content:"✓";position:absolute;left:0;top:0;color:#F3D9B0;font-weight:800}
+.method-h{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(22px,3vw,30px);
+  letter-spacing:-.03em;margin:56px 0 0;max-width:56rem}
+.method-limit{margin-top:56px;max-width:56rem;border-left:3px solid var(--brown);
+  padding:6px 0 6px 22px}
+.method-limit h2{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;margin:0 0 10px}
+.method-limit p{font-size:16px;line-height:1.7;color:var(--ink-soft)}
+.method-meta{margin-top:56px;max-width:56rem;padding-top:22px;border-top:1px solid var(--line)}
+.method-meta p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:8px}
+.method-meta b{color:var(--ink);font-weight:600}
+.steps{list-style:none;counter-reset:s;margin-top:26px;border-top:1px solid var(--line);max-width:56rem}
 .steps li{counter-increment:s;display:flex;gap:34px;align-items:baseline;
   padding:26px 4px;border-bottom:1px solid var(--line);font-size:17.5px;line-height:1.65;color:var(--ink-soft)}
 .steps li b{color:var(--ink);font-weight:600}

@@ -105,12 +105,12 @@ function renderTop() {
       </picture>
       <div class="hero-scrim"></div>
       <div class="hero-inner">
-        <div class="hero-eyebrow">Mua thật · Nếm mù · Chấm điểm</div>
+        <div class="hero-eyebrow">Cà phê đặc sản Lâm Đồng</div>
         <h1>Chưa uống<br>thì không chấm.</h1>
-        <p class="hero-sub">Mỗi gói đều do chúng tôi <b>mua bằng tiền của mình</b> và uống thật. Điểm số chỉ gắn khi đã <b>nếm mù</b> — không bịa.</p>
+        <p class="hero-sub">Điểm số chỉ xuất hiện sau khi <b>nếm mù</b>. <b class="hero-mark">Không có bài viết tài trợ.</b></p>
         <div class="hero-cta-row">
-          <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn giúp tôi trong 15 giây</button>
-          <button class="cta-ghost" onclick="location.href='/cach-test'">Cách chúng tôi test</button>
+          <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
+          <button class="cta-ghost" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
         </div>
       </div>
     </div>
@@ -163,7 +163,7 @@ const OBJ = [
   { k:'cheap',  label:'Đắt quá',      say:'rẻ hơn',              better:(p,c)=>per100(p) && per100(p) < per100(c), rk:(a,b)=>per100(a)-per100(b) },
   { k:'bright', label:'Chua sáng hơn',say:'chua sáng, trái cây hơn', better:(p,c)=>(p.chua||3) > (c.chua||3),  rk:(a,b)=>(b.chua||3)-(a.chua||3) },
   { k:'bold',   label:'Đậm hơn',      say:'đậm, dày thân hơn',   better:(p,c)=>(p.dam||3) > (c.dam||3),        rk:(a,b)=>(b.dam||3)-(a.dam||3) },
-  { k:'easy',   label:'Nhẹ đô hơn',   say:'nhẹ đô, dễ uống hơn', better:(p,c)=>(p.dam||3) < (c.dam||3),        rk:(a,b)=>(a.dam||3)-(b.dam||3) }
+  { k:'easy',   label:'Dễ uống hơn',  say:'nhẹ đô, dễ uống hơn', better:(p,c)=>(p.dam||3) < (c.dam||3),        rk:(a,b)=>(a.dam||3)-(b.dam||3) }
 ];
 const availObj = cur => OBJ.filter(o => SP.some(p => p.id !== cur.id && o.better(p, cur)));
 function resolveObj(o, cur) {
@@ -217,7 +217,7 @@ function renderPick() {
       <div class="decide-head">
         <div class="decide-kicker">Gợi ý riêng</div>
         <h2 class="decide-title">Chọn giúp bạn</h2>
-        <p class="decide-lead">Nói gu của bạn — chúng tôi chốt một gói hợp nhất.</p>
+        <p class="decide-lead">Cho chúng tôi biết gu của bạn — chúng tôi chốt một gói hợp nhất.</p>
         ${back ? `<div class="decide-back">${memPick() ? `Lần trước bạn dừng ở <b>${memPick().brand} · ${memPick().ten}</b>. Vẫn vậy chứ?` : `Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?`}
           <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
       </div>
@@ -393,7 +393,7 @@ function renderPeak() {
     <img class="peak-bg" src="assets/img/band-life.jpg" alt="Pha pour over cà phê đặc sản" loading="lazy">
     <div class="peak-scrim"></div>
     <div class="peak-in">
-      <div class="peak-kicker">Nguyên tắc của Gu</div>
+      <div class="peak-kicker">Độc lập biên tập</div>
       <p class="peak-setup">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi</p>
       <p class="peak-punch">chưa bỏ vào miệng.</p>
     </div>`;
@@ -469,15 +469,15 @@ function renderHubs() {
   const best = SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0];
   const nBai = (typeof BAIVIET !== 'undefined') ? BAIVIET.length : 0;
   const hubs = [
-    { href:'/ca-phe',    k:'Cà phê',     img:'assets/img/p3-cup.jpg',                 alt:'Bộ mẫu cà phê đặc sản', d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:`${SP.length} gói${best ? ` · cao nhất ${best.diem}/10` : ''}`, go:'Xem tất cả →' },
-    { href:'/nha-rang',  k:'Nhà rang',   img:'assets/img/products/hand-beans.jpg',    alt:'Hạt cà phê vừa rang', d:'Hồ sơ 6 nhà cà phê xịn nhất Lâm Đồng, xếp theo vùng nguyên liệu.', m:`${(typeof ROASTER!=='undefined'?ROASTER.length:6)} nhà`, go:'Xem hồ sơ →' },
-    { href:'/vung-trong',k:'Vùng trồng', img:'assets/img/regions/cau-dat.jpg',        alt:'Quả cà phê chín trên cây', d:'Cầu Đất · Lạc Dương · Nam Ban — mỗi vùng một chất vị.', m:`${VUNG.length} vùng`, go:'Tìm hiểu →' },
-    { href:'/kien-thuc', k:'Kiến thức',  img:'assets/img/products/beans-tin.jpg',     alt:'Ghi chú nếm thử cà phê', d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:`${nBai} bài + từ điển`, go:'Đọc →' }
+    { href:'/ca-phe',    k:'Cà phê',     img:'assets/img/p3-cup.jpg',                 alt:'Bộ mẫu cà phê đặc sản', d:'Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.', m:'Đã nếm mù · đã uống thật', go:'Xem tất cả →' },
+    { href:'/nha-rang',  k:'Nhà rang',   img:'assets/img/products/hand-beans.jpg',    alt:'Hạt cà phê vừa rang', d:'Hồ sơ các nhà rang Lâm Đồng chúng tôi chọn đồng hành, xếp theo vùng nguyên liệu.', m:'Chọn lọc · thực địa', go:'Xem hồ sơ →' },
+    { href:'/vung-trong',k:'Vùng trồng', img:'assets/img/regions/cau-dat.jpg',        alt:'Quả cà phê chín trên cây', d:'Cầu Đất · Lạc Dương · Nam Ban — mỗi vùng một chất vị.', m:'Tiểu vùng Lâm Đồng', go:'Tìm hiểu →' },
+    { href:'/kien-thuc', k:'Kiến thức',  img:'assets/img/products/beans-tin.jpg',     alt:'Ghi chú nếm thử cà phê', d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:'Đọc trước khi mua', go:'Đọc →' }
   ];
   el.innerHTML = `
     <div class="eyebrow">Khám phá</div>
     <h2>Đi thẳng vào thứ bạn cần.</h2>
-    <p class="lead">Không phải cuộn vô tận. Chọn đúng ngăn — chúng tôi đã sắp sẵn.</p>
+    <p class="lead">Mọi thứ được sắp theo đúng nhu cầu.</p>
     <div class="home-hubs">
       ${hubs.map(h => `
       <a class="home-hub" href="${h.href}">

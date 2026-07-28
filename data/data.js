@@ -10,10 +10,10 @@ const SITE = {
 
 const QUY_TRINH = [
   "Mua <b>ẩn danh</b> trên Shopee bằng tiền của chúng tôi — không nhận hàng tài trợ, không nhận mẫu thử từ nhà bán.",
-  "Pha cùng điều kiện cho mọi loại: cỡ xay <code>medium</code>, tỷ lệ <code>1:15</code>, nước <code>92°C</code>.",
-  "Nếm <b>mù</b> — che nhãn, chấm điểm xong mới bóc ra xem là loại nào.",
-  "Chấm bốn tiêu chí: độ chua, độ đậm, hậu vị, và giá trên 100g.",
-  "Loại nào chúng tôi <b>chưa nếm</b>, trang sẽ ghi rõ nhãn vàng — không chấm điểm, không giả vờ đã thử."
+  "Mọi mẫu đều được pha trong <b>cùng điều kiện</b>: cỡ xay <code>medium</code>, tỷ lệ <code>1:15</code>, nước <code>92°C</code>.",
+  "Nếm <b>mù</b> — che nhãn, che giá; chấm điểm xong mới bóc ra xem là loại nào.",
+  "Ghi nhận <b>ba tiêu chí cảm quan</b>: độ chua, độ đậm, hậu vị. Đồng thời hiển thị giá quy đổi <code>/100g</code> để dễ so sánh — giá không phải tiêu chí cảm quan.",
+  "Gói đã uống nhưng <b>chưa nếm mù</b> được gắn nhãn <b>“Đã uống”</b> — không công bố điểm số, không chấm theo cảm nhận nhớ lại."
 ];
 
 /* ============================================================
@@ -105,11 +105,11 @@ const TU_DIEN = [
 /* ---- FAQ — hiện trên trang, đồng bộ với schema SEO trong index.html ---- */
 const FAQ = [
   { q:"Cà phê specialty là gì?",
-    a:"Là cà phê đạt từ 80/100 điểm theo thang SCA — truy xuất được vùng trồng, giống, cách sơ chế. Trên trang này, mỗi sản phẩm đều ghi rõ ba thông tin đó." },
+    a:"Là cà phê đạt từ 80/100 điểm theo thang SCA — truy xuất được vùng trồng, giống, cách sơ chế. Trên trang này, mỗi sản phẩm đều ghi rõ ba thông tin đó. Lưu ý: specialty không đồng nghĩa với hợp khẩu vị mọi người — nó nói về chất lượng và tính minh bạch, không phải bạn có thích hay không." },
   { q:"Mua qua link trên trang có đắt hơn không?",
     a:"Không. Bạn mua đúng giá Shopee niêm yết, chúng tôi nhận hoa hồng từ sàn — bạn không trả thêm đồng nào." },
   { q:"Vì sao có sản phẩm không có điểm số?",
-    a:"Điểm số chỉ đến từ nếm mù (che nhãn, che giá) theo quy trình. Nhiều gói chúng tôi đã mua và uống thật, thấy ngon — nhưng chưa chấm mù chính thức nên chưa gắn số. Gói đã uống ghi rõ nhãn “Đã uống”; gói đã chấm mù mới có điểm. Chúng tôi không bịa số cho cảm nhận chưa đo lường." },
+    a:"Chúng tôi chỉ công bố điểm sau khi hoàn thành bài nếm mù. Một số gói đã uống nhưng chưa qua quy trình này được gắn nhãn “Đã uống” thay vì điểm số. Chúng tôi không chấm điểm dựa trên cảm nhận nhớ lại." },
   { q:"Vì sao so giá theo 100g thay vì theo gói?",
     a:"Các gói có khối lượng khác nhau (250g, 500g…). Quy về giá/100g mới thấy gói 160.000₫/500g thực ra rẻ hơn nhiều gói 270.000₫/250g." }
 ];
