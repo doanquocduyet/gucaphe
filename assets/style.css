@@ -126,7 +126,7 @@ section:first-of-type{padding-top:88px}
   font-size:44px;line-height:1;letter-spacing:-.03em;color:var(--brown)}
 .proof-i span{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-dim);margin-top:10px;display:block}
-.proof-note{font-size:13.5px;color:var(--ink-soft);margin-top:20px;line-height:1.6;max-width:70ch}
+.proof-note{font-size:13.5px;color:var(--ink-soft);margin-top:0;line-height:1.6;max-width:70ch}
 .proof-note b{color:var(--ink);font-weight:600}
 @media(max-width:600px){
   .hero-inner{padding-bottom:46px}

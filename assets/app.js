@@ -97,8 +97,6 @@ function thumb(p, cls = '') {
 
 /* ============ 1 · HERO — lời hứa, không phải quảng cáo ============ */
 function renderTop() {
-  const nem  = SP.filter(p => p.tested).length;
-  const chua = SP.filter(p => !p.tested).length;
   $('#top').innerHTML = `
     <div class="hero-stage">
       <picture class="hero-bg">
@@ -118,11 +116,6 @@ function renderTop() {
     </div>
     <div class="hero-proof">
       <div class="wrap">
-        <div class="proof">
-          <div class="proof-i"><b>${nem}</b><span>Đã nếm mù</span></div>
-          <div class="proof-i"><b>${chua}</b><span>Đang chờ nếm</span></div>
-          <div class="proof-i"><b>0</b><span>Bài tài trợ</span></div>
-        </div>
         <p class="proof-note"><b>Nếm mù</b> = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng. Cập nhật ${SITE.capNhat}.</p>
       </div>
     </div>`;
