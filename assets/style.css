@@ -64,10 +64,10 @@ h2{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;
   margin:14px 0 14px;text-wrap:balance}
 h3{font-family:'Be Vietnam Pro',sans-serif;font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
 .lead{color:var(--ink-soft);max-width:56ch;font-size:19px;line-height:1.75}
-section{padding:76px max(28px, calc((100% - 1120px) / 2))}
-section:first-of-type{padding-top:64px}
-/* Sections lồng trong trang hub đã nằm trong main.rp.wrap — không nhân đôi padding */
-.rp section{padding:0}
+/* Chỉ các section trực tiếp của trang chủ mới có nhịp lớn này —
+   section lồng trong trang hub (main.rp) giữ padding riêng của chúng, không bị nhân đôi */
+body > section{padding:76px max(28px, calc((100% - 1120px) / 2))}
+body > section:first-of-type{padding-top:64px}
 /* #pick đứng ngay sau dải "Nếm mù" nên thu gọn trên */
 #pick{padding-top:40px}
 .foot-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-dim);
@@ -446,7 +446,7 @@ footer a:hover{border-color:#C9A876}
 /* ---------- MOBILE ---------- */
 @media(max-width:900px){
   body{font-size:16px}
-  section{padding:52px 22px}
+  body > section{padding:52px 22px}
   #top{padding:0}
   #pick{padding-top:30px}
   .hero-cta-row{gap:12px}
