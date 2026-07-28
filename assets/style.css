@@ -752,3 +752,46 @@ body:has(.buybar){padding-bottom:60px}
   .caphe-cards .vg-prod:first-of-type{border-top:none}
   .buybar-info span{display:none}
 }
+
+/* ============================================================
+   THẺ SẢN PHẨM DẠNG HÌNH (.pc) — 3 ô/hàng, ít chữ
+   ============================================================ */
+.pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:14px}
+.pc{background:var(--paper-2);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .14s,box-shadow .2s}
+.pc:hover{transform:translateY(-4px);box-shadow:0 14px 30px -18px rgba(24,20,16,.4)}
+.pc-media{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--ink)}
+.pc-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.pc:hover .pc-media img{transform:scale(1.04)}
+.pc-swatch{width:100%;height:100%;display:flex;align-items:flex-end;padding:16px}
+.pc-swatch span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(246,241,231,.85)}
+.pc-badge{position:absolute;top:12px;right:12px;background:var(--ink);color:var(--cream);
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;padding:5px 11px;border-radius:2px;
+  box-shadow:0 4px 14px -6px rgba(0,0,0,.5)}
+.pc-badge-ut{background:rgba(250,247,241,.92);color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber);
+  font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px}
+.pc-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.pc-brand{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brown);margin-bottom:5px}
+.pc-name{text-decoration:none;color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:700;font-size:16px;line-height:1.25;letter-spacing:-.01em}
+.pc-name:hover{color:var(--brown)}
+.pc-meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);margin:8px 0 16px;flex:1}
+.pc-meta span{color:var(--ink-dim)}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pc-detail{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:12.5px;
+  color:var(--brown);text-decoration:none;white-space:nowrap}
+.pc-detail:hover{text-decoration:underline}
+
+/* Thẻ nhà rang: giới hạn chữ cho gọn */
+.vg-card-tag{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Thanh mua dính — gọn lại */
+.buybar-in{height:50px}
+.buybar-info{font-size:13px}
+.buybar .cta-sm{padding:9px 18px}
+body:has(.buybar){padding-bottom:50px}
+
+@media(max-width:900px){.pc-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:560px){.pc-grid{grid-template-columns:1fr}}

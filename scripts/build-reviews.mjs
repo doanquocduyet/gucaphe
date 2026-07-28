@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260736';
+const CSS_V = '20260737';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -540,7 +540,7 @@ ${siteNav('vung')}
   <section class="vg-prods">
     <h2>Gói từ vùng này</h2>
     ${prods.length
-      ? prods.map(prodCard).join('')
+      ? `<div class="pc-grid">${prods.map(p => pcard(p)).join('')}</div>`
       : `<div class="vg-empty">
           <p>Chúng tôi <b>chưa nếm mù</b> gói nào ghi rõ xuất xứ ${esc(v.ten)} — nên chưa gắn sản phẩm ở đây. Đúng nguyên tắc của Gu: chưa thử thì không gợi ý.</p>
           <p>Gói Lâm Đồng gần nhất chúng tôi đã chấm là <b>Sơn Pacamara — Lang Biang</b> (Lạc Dương, cùng tỉnh).</p>
@@ -684,7 +684,7 @@ ${siteNav('nharang')}
   <section class="vg-prods">
     <h2>Sản phẩm trên Gu Cà Phê</h2>
     ${prods.length
-      ? prods.map(prodCard).join('')
+      ? `<div class="pc-grid">${prods.map(p => pcard(p)).join('')}</div>`
       : `<div class="vg-empty">
           <p>Gu <b>chưa mua & nếm mù</b> gói nào của ${esc(r.ten)}. Đúng nguyên tắc: chưa thử thì không chấm, không gợi ý.</p>
           <div class="vg-empty-cta">
@@ -723,31 +723,25 @@ const VUNG_ORDER = ['nam-ban', 'cau-dat', 'lac-duong', 'da-lat'];
 
 function hubNhaRang() {
   const url = `${ORIGIN}/nha-rang`;
-  const byVung = {};
-  ROASTER.forEach(r => { (byVung[r.vungSlug] = byVung[r.vungSlug] || []).push(r); });
-  const groups = VUNG_ORDER.filter(s => byVung[s]);
+  const ordered = VUNG_ORDER.flatMap(s => ROASTER.filter(r => r.vungSlug === s))
+    .concat(ROASTER.filter(r => !VUNG_ORDER.includes(r.vungSlug)));
+  const list = ordered.length === ROASTER.length ? ordered : ROASTER;
   const schema = itemListSchema('Nhà rang cà phê đặc sản Lâm Đồng',
     ROASTER.map(r => ({ url: `${ORIGIN}/roaster/${r.slug}`, name: r.ten })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Nhà rang</span></nav>
   <header class="hub-head">
     <div class="eyebrow">Nhà rang</div>
-    <h1>6 nhà cà phê xịn nhất Lâm Đồng</h1>
-    <p class="lead">Chúng tôi không dàn trải. Sáu nhà rang đại diện cho các vùng nguyên liệu của Lâm Đồng —
-    mỗi nhà một hồ sơ: câu chuyện, vùng, sản phẩm đã nếm và điểm số. Chưa nếm thì ghi rõ chưa nếm.</p>
+    <h1>6 nhà rang chúng tôi chọn đồng hành</h1>
+    <p class="lead">Sau khi đi thực địa, gặp người làm và nếm sâu, chúng tôi chọn ra sáu nhà rang xứng đáng để
+    đồng hành và giới thiệu với bạn — mỗi nhà một vùng nguyên liệu, một câu chuyện, một thế mạnh. Chỉ sáu, không hơn.</p>
   </header>
-  ${groups.map(s => {
-    const v = VUNG_BY_SLUG[s];
-    return `<section class="hub-group">
-    <h2 class="hub-group-t">Vùng ${v ? esc(v.ten) : esc(s)}</h2>
-    <div class="vg-grid">${byVung[s].map(roasterCardHTML).join('')}</div>
-  </section>`;
-  }).join('')}
+  <div class="vg-grid">${list.map(roasterCardHTML).join('')}</div>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
-    title: '6 nhà cà phê xịn nhất Lâm Đồng — Bùi, Dehavi, Tám Trình, Sơn Pacamara, The Married Beans, Là Việt | Gu Cà Phê',
-    desc: 'Hồ sơ 6 nhà rang cà phê đặc sản Lâm Đồng theo vùng nguyên liệu: Nam Ban, Cầu Đất, Lạc Dương, Đà Lạt. Câu chuyện, sản phẩm đã nếm mù và điểm số trung lập từ Gu Cà Phê.',
+    title: '6 nhà rang cà phê đặc sản Lâm Đồng chúng tôi chọn đồng hành | Gu Cà Phê',
+    desc: 'Sáu nhà rang cà phê đặc sản Lâm Đồng Gu chọn đồng hành sau khi đi thực địa và nếm sâu: Bùi, Dehavi, Tám Trình, Sơn Pacamara, The Married Beans, Là Việt.',
     url, ogType: 'website', schema, active: 'nharang', main
   });
 }
@@ -755,21 +749,27 @@ function hubNhaRang() {
 function buyMini(p, pos) {
   return `<a class="cta cta-sm" href="${esc(p.link || '#')}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'shopee',position:'${pos}',tested:${p.tested ? 1 : 0}})">Mua</a>`;
 }
+/* Thẻ sản phẩm dạng hình — 3 ô/hàng, ít chữ. anh = ảnh thật (dán link vào data.js),
+   chưa có thì hiện swatch màu rang. Muốn đọc kỹ thì bấm vào. */
+function pcard(p, pos) {
+  const t = p.tested && p.diem != null;
+  const src = p.anh ? (/^https?:/.test(p.anh) ? p.anh : '/' + p.anh) : '';
+  const media = src
+    ? `<img src="${esc(src)}" alt="${esc(p.brand)} — ${esc(p.ten)}" loading="lazy">`
+    : `<div class="pc-swatch" style="background:${ROAST_BG[p.roast] || '#8A6A44'}"><span>${esc(p.roast ? 'Rang ' + p.roast.toLowerCase() : 'Đặc sản')}</span></div>`;
+  return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
+      <a class="pc-media" href="/review/${p.slug}">${media}${t ? `<span class="pc-badge">${p.diem}</span>` : `<span class="pc-badge pc-badge-ut">Chưa nếm</span>`}</a>
+      <div class="pc-body">
+        <div class="pc-brand">${esc(p.brand)}</div>
+        <a class="pc-name" href="/review/${p.slug}">${esc(p.ten)}</a>
+        <div class="pc-meta">${money(p.gia)}${per100(p) ? ` · <span>${money(per100(p))}/100g</span>` : ''}</div>
+        <div class="pc-foot">${buyMini(p, pos || 'product_card')}<a class="pc-detail" href="/review/${p.slug}">Chi tiết →</a></div>
+      </div>
+    </div>`;
+}
 function hubCaPhe() {
   const url = `${ORIGIN}/ca-phe`;
   const rank = SP.slice().sort((a, b) => (b.tested ? 1 : 0) - (a.tested ? 1 : 0) || (b.diem || 0) - (a.diem || 0));
-  const vName = p => (VUNG_BY_SLUG[p.vungSlug] ? VUNG_BY_SLUG[p.vungSlug].ten : (p.xaHuyen || '—'));
-  const trow = p => {
-    const t = p.tested && p.diem != null;
-    return `<tr data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
-        <td class="cmp-goi"><a href="/review/${p.slug}"><small>${esc(p.brand)}</small>${esc(p.ten)}</a></td>
-        <td class="cmp-diem">${t ? `<b>${p.diem}</b><span>/10</span>` : '<span class="cmp-ut">Chưa nếm</span>'}</td>
-        <td class="cmp-vung">${esc(vName(p))}</td>
-        <td class="cmp-num">${money(p.gia)}</td>
-        <td class="cmp-num">${per100(p) ? money(per100(p)) : '—'}</td>
-        <td class="cmp-act">${buyMini(p, 'ca_phe_table')}</td>
-      </tr>`;
-  };
   const seg = NHUCAU.map(n => {
     const p = SP_BY_ID[n.spId]; if (!p) return '';
     const t = p.tested && p.diem != null;
@@ -780,15 +780,14 @@ function hubCaPhe() {
         <div class="seg-foot"><span class="seg-price">${money(p.gia)}${t ? ` · ${p.diem}/10` : ' · chưa nếm'}</span>${buyMini(p, 'ca_phe_segment')}</div>
       </div>`;
   }).join('');
-  const card = p => `<div class="caphe-item">${prodCard(p)}</div>`;
   const schema = itemListSchema('Cà phê đặc sản Lâm Đồng',
     SP.map(p => ({ url: `${ORIGIN}/review/${p.slug}`, name: `${p.brand} ${p.ten}` })));
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   <header class="hub-head">
     <div class="eyebrow">Cà phê</div>
-    <h1>Cà phê đặc sản — chọn gói đáng tiền</h1>
-    <p class="lead">Đã nếm mù thì có điểm; chưa nếm ghi rõ. So theo giá/100g cho sòng phẳng — chọn xong bấm mua thẳng trên Shopee.</p>
+    <h1>Cà phê đặc sản Lâm Đồng</h1>
+    <p class="lead">Đã nếm mù thì có điểm; chưa nếm ghi rõ. Xem nhanh, so giá/100g, bấm mua — muốn kỹ thì mở chi tiết.</p>
   </header>
 
   ${NHUCAU.length ? `<section class="seg-wrap">
@@ -798,7 +797,7 @@ function hubCaPhe() {
 
   <section class="cmp-sec">
     <div class="cmp-bar">
-      <h2 class="hub-group-t">So sánh ${SP.length} gói</h2>
+      <h2 class="hub-group-t">${SP.length} gói</h2>
       <div class="cmp-sortbar">
         <span>Sắp theo:</span>
         <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
@@ -806,13 +805,7 @@ function hubCaPhe() {
         <button onclick="cpSort('per100',this)">Giá/100g</button>
       </div>
     </div>
-    <div class="cmp-wrap">
-      <table class="cmp">
-        <thead><tr><th>Gói</th><th>Điểm</th><th>Vùng</th><th>Giá</th><th>Giá/100g</th><th></th></tr></thead>
-        <tbody>${rank.map(trow).join('')}</tbody>
-      </table>
-    </div>
-    <div class="caphe-cards vg-prods">${rank.map(card).join('')}</div>
+    <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
 
   <p class="foot-note">Chưa rõ Arabica khác Robusta chỗ nào, Natural khác Washed ra sao, hay pha phin nên chọn rang gì?
@@ -822,16 +815,16 @@ function hubCaPhe() {
   <script>
   function cpSort(k,btn){
     document.querySelectorAll('.cmp-sortbar button').forEach(function(b){b.classList.toggle('on',b===btn);});
-    var tb=document.querySelector('.cmp tbody'); if(!tb) return;
+    var g=document.querySelector('.pc-grid'); if(!g) return;
     var dir=(k==='diem')?-1:1;
-    [].slice.call(tb.querySelectorAll('tr')).sort(function(a,b){
+    [].slice.call(g.querySelectorAll('.pc')).sort(function(a,b){
       return (parseFloat(a.dataset[k])-parseFloat(b.dataset[k]))*dir;
-    }).forEach(function(r){tb.appendChild(r);});
+    }).forEach(function(x){g.appendChild(x);});
   }
   </script>`;
   return pageShell({
-    title: 'Cà phê đặc sản Lâm Đồng — bảng so sánh, đã nếm mù, giá/100g | Gu Cà Phê',
-    desc: 'Bảng so sánh cà phê đặc sản Lâm Đồng: điểm nếm mù, giá, giá/100g, mua ở đâu. Gợi ý gói theo nhu cầu — mới uống, gu đậm, mở quán, tự rang.',
+    title: 'Cà phê đặc sản Lâm Đồng — đã nếm mù, chấm điểm, giá/100g | Gu Cà Phê',
+    desc: 'Cà phê đặc sản Lâm Đồng: điểm nếm mù, giá, giá/100g, mua ở đâu. Gợi ý gói theo nhu cầu — mới uống, gu đậm, mở quán, tự rang.',
     url, ogType: 'website', schema, active: 'caphe', main
   });
 }
