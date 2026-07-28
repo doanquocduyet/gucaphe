@@ -649,6 +649,36 @@ footer a:hover{border-color:#C9A876}
   color:var(--brown)}
 .vg-hub .vg-card-go{color:#D8B983}
 
+/* --- Card nhà rang: thế mạnh + hợp ai + trust --- */
+.rc-strength{display:inline-flex;align-self:flex-start;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.01em;color:var(--brown-deep);background:rgba(122,84,51,.1);
+  border-radius:20px;padding:4px 12px;margin-bottom:12px}
+.rc-fit{font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:var(--ink-soft);line-height:1.45;margin-bottom:14px}
+.rc-fit b{color:var(--ink);font-weight:700}
+.rc-trust{display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:16px}
+.rc-trust span{position:relative;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.02em;color:var(--ink-soft);padding-left:15px}
+.rc-trust span::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:800}
+
+/* Chọn nhanh nhà rang theo nhu cầu */
+.rn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rn{display:flex;flex-direction:column;gap:6px;text-decoration:none;padding:18px 20px;
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;transition:transform .14s,border-color .15s}
+.rn:hover{transform:translateY(-3px);border-color:var(--brown)}
+.rn-need{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.35}
+.rn-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--brown-deep)}
+.rn-manh{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim)}
+
+/* Bảng so sánh nhà rang (căn trái) */
+.rc-tbl{width:100%;border-collapse:collapse;min-width:520px}
+.rc-tbl th,.rc-tbl td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);
+  font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;vertical-align:top}
+.rc-tbl thead th{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-dim)}
+.rc-tbl tbody td{color:var(--ink-soft)}
+.rc-tbl tbody td:first-child a{font-weight:800;color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;transition:.15s}
+.rc-tbl tbody td:first-child a:hover{border-color:var(--brown);color:var(--brown-deep)}
+
 /* --- Trang vùng trồng --- */
 .vg-hero{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:10px}
 .vg-hero.has-img{padding-top:22px}

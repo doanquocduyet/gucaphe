@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260765';
+const CSS_V = '20260766';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -161,12 +161,14 @@ function roasterCardHTML(r) {
   const p = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean)[0];
   const src = p && p.anh ? (/^https?:/.test(p.anh) ? p.anh : '/' + p.anh) : '';
   const img = src ? `<div class="vg-card-img"><img src="${esc(src)}" alt="${esc(r.ten)}" loading="lazy"></div>` : '';
-  return `<a class="vg-card" href="/nha-rang/${r.slug}">
+  return `<a class="vg-card rc" href="/nha-rang/${r.slug}">
       ${img}
       <div class="vg-card-body">
         <div class="vg-card-top"><div class="vg-card-name">${esc(r.ten)}</div>${badge}</div>
+        ${r.theManh ? `<div class="rc-strength">${esc(r.theManh)}</div>` : ''}
         <div class="vg-card-tag">${esc(r.gioiThieu)}</div>
-        <div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>
+        ${r.hopAi ? `<div class="rc-fit"><b>Hợp:</b> ${esc(r.hopAi)} · Vùng ${esc(r.vungChinh)}</div>` : `<div class="vg-card-meta">Vùng: ${esc(r.vungChinh)}</div>`}
+        <div class="rc-trust"><span>Đã mua</span><span>Đã uống</span><span>Đã tìm hiểu</span></div>
         <span class="vg-card-go">Xem hồ sơ →</span>
       </div>
     </a>`;
@@ -896,17 +898,51 @@ function hubNhaRang() {
   const list = ordered.length === ROASTER.length ? ordered : ROASTER;
   const schema = itemListSchema('Nhà rang cà phê đặc sản Lâm Đồng',
     ROASTER.map(r => ({ url: `${ORIGIN}/nha-rang/${r.slug}`, name: r.ten })));
+  const needCards = list.filter(r => r.nhuCau).map(r => `<a class="rn" href="/nha-rang/${r.slug}">
+      <span class="rn-need">${esc(r.nhuCau)}</span>
+      <span class="rn-name">${esc(r.ten)}</span>
+      ${r.theManh ? `<span class="rn-manh">${esc(r.theManh)}</span>` : ''}
+    </a>`).join('');
+  const cmpTable = list.every(r => r.theManh && r.hopAi) ? `<section class="rg-cmp">
+    <h2 class="rg-h">So sánh nhanh sáu nhà rang</h2>
+    <div class="rg-cmp-scroll">
+      <table class="rc-tbl">
+        <thead><tr><th>Nhà rang</th><th>Thế mạnh</th><th>Hợp ai</th></tr></thead>
+        <tbody>${list.map(r => `<tr><td><a href="/nha-rang/${r.slug}">${esc(r.ten)}</a></td><td>${esc(r.theManh)}</td><td>${esc(r.hopAi)}</td></tr>`).join('')}</tbody>
+      </table>
+    </div>
+  </section>` : '';
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Nhà rang</span></nav>
-  ${hubHero('/assets/img/hero/brew-wide.jpg', 'Nhà rang', '6 nhà rang chúng tôi chọn đồng hành',
-    'Sau khi đi thực địa, gặp người làm và nếm sâu, chúng tôi chọn ra sáu nhà rang xứng đáng để đồng hành và giới thiệu với bạn — mỗi nhà một vùng nguyên liệu, một câu chuyện, một thế mạnh. Chỉ sáu, không hơn.',
-    '<p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b>. Cả sáu chúng tôi đều đã uống thật và thấy ngon; điểm số chỉ gắn khi đã nếm mù chính thức.</p>')}
-  <div class="vg-grid">${list.map(roasterCardHTML).join('')}</div>
+  ${hubHero('/assets/img/hero/brew-wide.jpg', 'Nhà rang', 'Nhà rang chúng tôi chọn đồng hành',
+    'Không phải nhà rang lớn nhất — mà là những nơi chúng tôi đã <b>mua, uống, tìm hiểu</b> và sẵn sàng giới thiệu cho bạn. Chỉ sáu, không hơn.',
+    '<p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b> — mỗi nhà một thế mạnh riêng. Điểm số chỉ gắn khi đã nếm mù chính thức.</p>')}
+
+  <p class="hub-intro">Gu Cà Phê hiện theo dõi và đánh giá <b>6 nhà rang</b> tại Lâm Đồng. Danh sách này <b>không dựa trên phí tài trợ</b>, mà dựa trên việc chúng tôi đã mua sản phẩm, uống thử và tìm hiểu trực tiếp từng đơn vị.</p>
+
+  ${needCards ? `<section class="seg-wrap">
+    <div class="hub-sec-head">
+      <div class="eyebrow">① Chọn nhanh theo nhu cầu</div>
+      <h2 class="hub-sec-t">Bạn hợp nhà rang nào?</h2>
+      <p class="hub-sec-sub">Mỗi nhà một thế mạnh — bấm vào nhu cầu giống bạn nhất.</p>
+    </div>
+    <div class="rn-grid">${needCards}</div>
+  </section>` : ''}
+
+  <section class="cmp-sec">
+    <div class="hub-sec-head">
+      <div class="eyebrow">② Sáu hồ sơ</div>
+      <h2 class="hub-sec-t">Hồ sơ từng nhà rang</h2>
+    </div>
+    <div class="vg-grid">${list.map(roasterCardHTML).join('')}</div>
+  </section>
+
+  ${cmpTable}
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
     title: '6 nhà rang cà phê đặc sản Lâm Đồng chúng tôi chọn đồng hành | Gu Cà Phê',
-    desc: 'Sáu nhà rang cà phê đặc sản Lâm Đồng Gu chọn đồng hành sau khi đi thực địa và nếm sâu: Bùi, Dehavi, Tám Trình, Sơn Pacamara, The Married Beans, Là Việt.',
+    desc: 'Sáu nhà rang cà phê đặc sản Lâm Đồng Gu đã mua, uống và tìm hiểu: Bùi, Dehavi, Tám Trình, Sơn Pacamara, The Married Beans, Là Việt — mỗi nhà một thế mạnh, hợp ai.',
     url, ogType: 'website', schema, active: 'nharang', main
   });
 }

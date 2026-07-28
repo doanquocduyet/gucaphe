@@ -385,42 +385,54 @@ const ROASTER = [
     vungChinh: "Nam Ban", vungSlug: "nam-ban", web: "https://buicoffeesupply.com",
     gioiThieu: "Nhà rang chuyên nghiệp và có thành tích quốc tế cao nhất trong nhóm chúng tôi theo dõi ở Lâm Đồng. Muốn thử một hạt Fine Robusta được thế giới công nhận thì đây là nơi bắt đầu.",
     lichSu: "<p>Bui Coffee Supply ra đời năm 2021 với phương châm <b>“Work for better coffee”</b>, đặt nông trại Bui Origin tại Mê Linh, Lâm Hà. Cột mốc lớn nhất: dòng <b>Fine Robusta Nam Ban</b> đạt <b>Top 14 Thế Giới năm 2024</b> theo cuộc thi của CQI, cùng nhiều giải Vietnam Amazing Cup 2024–2026.</p><p>Về năng lực, xưởng rang công suất hơn <b>5 tấn mỗi ngày</b>, đạt các chứng nhận FDA, HACCP, ISO 22000 và xuất khẩu tới hơn 12 quốc gia. Điểm khác biệt của Bùi nằm ở mảng sơ chế sáng tạo — lên men muối, decaf, yếm khí kéo dài — cho ra những hạt có hương vị rất riêng. Chúng tôi xếp Bùi vào nhóm cà phê đặc sản đấu giải, không phải cà phê phổ thông.</p>",
-    sanPham: ["nb-bui"], diemTB: null, chungNhan: "Top 14 Thế giới · CQI 2024"
+    sanPham: ["nb-bui"], diemTB: null, chungNhan: "Top 14 Thế giới · CQI 2024",
+    theManh: "Fine Robusta đạt giải", hopAi: "Muốn trải nghiệm đỉnh cao",
+    nhuCau: "Thử Fine Robusta đạt giải thế giới"
   },
   {
     slug: "dehavi", ten: "Dehavi (Hân Vinh)",
     vungChinh: "Nam Ban", vungSlug: "nam-ban", web: "https://dehavi.com",
     gioiThieu: "Nhà bán lẻ giá mềm nhất trong nhóm, gốc ngay tại xã Nam Ban. Mới bắt đầu uống cà phê đặc sản và không muốn tốn nhiều thì Dehavi là điểm vào dễ chịu.",
     lichSu: "<p>Dehavi là thương hiệu rang xay của <b>Công ty TNHH Cà Phê Hân Vinh</b>, đặt tại thôn Đông Anh, xã Nam Ban, Lâm Hà — hơn <b>20 năm</b> làm nguyên liệu cà phê, đóng vai cầu nối giữa nông hộ với doanh nghiệp trong và ngoài nước.</p><p>Dehavi đạt chứng nhận <b>OCOP 4 sao</b>, ISO 22000, FDA, có nhà máy rang xay công suất lớn và vùng nguyên liệu trải nhiều tỉnh. Dòng đặc sản rang mộc nguyên chất của họ có giá tốt, hợp người uống phổ thông muốn thử hàng đặc sản mà không phải trả nhiều. Định vị của Dehavi là cà phê sạch, giá phải chăng, dễ tiếp cận.</p>",
-    sanPham: ["nb-dehavi"], diemTB: null, chungNhan: "OCOP 4 sao · ISO 22000"
+    sanPham: ["nb-dehavi"], diemTB: null, chungNhan: "OCOP 4 sao · ISO 22000",
+    theManh: "Giá mềm, dễ tiếp cận", hopAi: "Người mới specialty",
+    nhuCau: "Mới uống, muốn tiết kiệm"
   },
   {
     slug: "tam-trinh", ten: "Tám Trình Coffee",
     vungChinh: "Nam Ban", vungSlug: "nam-ban", web: "https://tamtrinhcoffee.com",
     gioiThieu: "Thương hiệu lâu đời nhất trong nhóm, mạnh về sản xuất, xuất khẩu và du lịch trải nghiệm cà phê. Hợp người mở quán, mua sỉ hoặc muốn tham quan tour cà phê.",
     lichSu: "<p>Tám Trình là công ty cà phê <b>30 năm tuổi</b> đặt tại Gia Lâm, Lâm Hà — trên cung đường du lịch ngoại thành nổi tiếng của Đà Lạt, gần Thác Voi. Họ có nhà máy xuất khẩu riêng, khu du lịch trải nghiệm với các tour cà phê nhiều độ dài, phục vụ cả tiếng Việt, tiếng Anh và tiếng Hàn.</p><p>Trên kệ bán lẻ, thế mạnh của Tám Trình là mảng <b>nhân xanh</b> và cà phê sỉ với nhiều loại Robusta chế biến kỹ. Vì là nhà sản xuất lâu năm quy mô lớn, họ hợp với người cần nguồn ổn định để mở quán. Với người mua lẻ về pha, chúng tôi ưu tiên các gói Arabica của họ hơn là dòng blend thương mại.</p>",
-    sanPham: ["nb-tamtrinh"], diemTB: null, chungNhan: "30 năm · nhà máy xuất khẩu"
+    sanPham: ["nb-tamtrinh"], diemTB: null, chungNhan: "30 năm · nhà máy xuất khẩu",
+    theManh: "Quy mô · nhân xanh & sỉ", hopAi: "Mở quán, mua sỉ",
+    nhuCau: "Mở quán hoặc mua sỉ"
   },
   {
     slug: "son-pacamara", ten: "Sơn Pacamara",
     vungChinh: "Lạc Dương", vungSlug: "lac-duong", web: "",
     gioiThieu: "Farm kiêm roastery nhỏ của ông Sơn tại Đà Lạt, làm Arabica vùng cao theo kiểu thủ công, minh bạch. Đây là nhà làm ra gói cà phê chúng tôi chấm cao nhất tới giờ.",
     lichSu: "<p>Sơn Pacamara là câu chuyện của <b>ông Sơn</b> — người mua đất ở Đà Lạt hơn hai mươi năm trước để trồng rau và hoa, tình cờ có sẵn vài cây Catimor trên đất, rồi bén duyên với cà phê đặc sản. Phương châm của ông ghi thẳng trên bao bì: <b>“No secrets, just passion”</b> (không giấu nghề, chỉ có đam mê).</p><p>Farm và roastery nằm ngay tại Đà Lạt, dưới chân vùng Lang Biang, chuyên các dòng Arabica như <b>Lang Biang</b> và <b>Heirloom</b>. Ông Sơn còn rang thuê cho các nông hộ khác, mỗi gói cà phê gửi kèm ghi chú về người trồng và cách pha. Sơn Pacamara mở cửa farm cho bất kỳ ai muốn tìm hiểu — đúng tinh thần cởi mở mà chúng tôi đánh giá cao.</p>",
-    sanPham: ["lb1"], diemTB: "9.3/10 · 1 gói đã nếm", chungNhan: "Farm minh bạch · Lạc Dương"
+    sanPham: ["lb1"], diemTB: "9.3/10 · 1 gói đã nếm", chungNhan: "Farm minh bạch · Lạc Dương",
+    theManh: "Farm Arabica vùng cao", hopAi: "Thích pour over, farm minh bạch",
+    nhuCau: "Thích Arabica vùng cao, pour over"
   },
   {
     slug: "the-married-beans", ten: "The Married Beans",
     vungChinh: "Cầu Đất", vungSlug: "cau-dat", web: "https://www.themarriedbeans.com",
     gioiThieu: "Nhà làm cà phê đặc sản nghiêm túc bậc nhất ở Cầu Đất, ghi rõ độ cao, giống, sơ chế và hương vị cho từng lô. Chúng tôi đã uống và thấy ngon — điểm chấm mù sẽ cập nhật sau.",
     lichSu: "<p>The Married Beans thành lập năm 2015 tại Đà Lạt (số ĐKKD do Sở KHĐT Lâm Đồng cấp 08/07/2015), cửa hàng ở 06 Nguyễn Văn Trỗi. Họ đồng hành với bà con nông dân các vùng <b>Cầu Đất, Đạ Sar, Lang Biang</b>, hiện liên kết hơn <b>60 nông hộ</b> canh tác khoảng <b>120 hecta</b> cà phê đặc sản.</p><p>Điểm khiến chúng tôi chú ý: mỗi lô cà phê của họ đều ghi minh bạch giống, độ cao, phương pháp sơ chế và tasting note — đúng kiểu dữ liệu mà Gu Cà Phê trân trọng. Họ đạt chứng nhận quốc tế <b>SGS</b> và có mảng xuất khẩu nhân xanh. Lưu ý: phần lớn hàng bán trên web của họ là nhân xanh (cà phê sống, cần rang trước khi pha), không phải hạt rang uống ngay.</p>",
-    sanPham: ["mb-yellowcherry"], diemTB: null, chungNhan: "Chứng nhận SGS · Cầu Đất"
+    sanPham: ["mb-yellowcherry"], diemTB: null, chungNhan: "Chứng nhận SGS · Cầu Đất",
+    theManh: "Micro-lot, truy xuất kỹ", hopAi: "Dân specialty thích micro-lot",
+    nhuCau: "Thích micro-lot, truy xuất rõ"
   },
   {
     slug: "la-viet", ten: "Là Việt Coffee",
     vungChinh: "Đà Lạt", vungSlug: "da-lat", web: "https://laviet.coffee",
     gioiThieu: "Roastery kiêm quán specialty biểu tượng của thành phố Đà Lạt, tự trồng, sơ chế, rang và pha. Chúng tôi đã uống và thấy ngon — điểm chấm mù sẽ cập nhật sau.",
     lichSu: "<p>Là Việt thành lập năm 2015 bởi Trần Nhật Quang, theo triết lý <b>“plant, process, roast and brew”</b> (trồng, sơ chế, rang và pha) — làm chủ toàn bộ chuỗi từ hạt tới ly. Không gian rang mở ngay trong quán để khách nhìn thấy cả quy trình.</p><p>Đây là một trong những cái tên specialty được biết đến nhiều nhất Đà Lạt, từng lọt danh sách <b>Asia’s Top 80</b> quán cà phê, cộng đồng theo dõi lớn trên mạng xã hội. Họ tập trung vào Arabica Đà Lạt vùng cao, có dòng hạt rang bán lẻ theo ba mức rang, đóng túi có van và ghi ngày rang — thuận tiện để mua về pha tại nhà. Nếu Sơn Pacamara đại diện cho farm thủ công thì Là Việt đại diện cho văn hóa và trải nghiệm cà phê đô thị.</p>",
-    sanPham: ["lv-balanced"], diemTB: null, chungNhan: "Asia Top 80 · Đà Lạt"
+    sanPham: ["lv-balanced"], diemTB: null, chungNhan: "Asia Top 80 · Đà Lạt",
+    theManh: "Specialty & trải nghiệm Đà Lạt", hopAi: "Yêu văn hoá cà phê Đà Lạt",
+    nhuCau: "Trải nghiệm cà phê Đà Lạt"
   }
 ];
 
