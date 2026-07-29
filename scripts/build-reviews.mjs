@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260771';
+const CSS_V = '20260772';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -1269,7 +1269,20 @@ function diagRoastScale() {
     </div>
   </figure>`;
 }
-const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale };
+function diagGrind() {
+  const row = (name, size, count, methods) => `<div class="gr-row">
+      <div class="gr-name">${name}</div>
+      <div class="gr-dots" aria-hidden="true">${Array.from({ length: count }).map(() => `<span style="width:${size}px;height:${size}px"></span>`).join('')}</div>
+      <div class="gr-methods">${methods.map(m => `<span>${esc(m)}</span>`).join('')}</div>
+    </div>`;
+  return `<figure class="kt-diag kt-grind" aria-label="Cỡ xay cà phê theo cách pha">
+    ${row('Xay thô', 9, 6, ['Cold brew', 'French Press'])}
+    ${row('Xay thường', 7, 10, ['Pour over / V60'])}
+    ${row('Xay mịn vừa', 5, 15, ['Aeropress', 'Pha phin', 'Moka pot'])}
+    ${row('Xay mịn', 3, 22, ['Pha máy (espresso)'])}
+  </figure>`;
+}
+const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale, 'co-xay': diagGrind };
 
 function hubKienThuc() {
   const url = `${ORIGIN}/kien-thuc`;

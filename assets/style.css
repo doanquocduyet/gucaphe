@@ -1159,6 +1159,23 @@ footer a:hover{border-color:#C9A876}
 .kt-roast-vi{font-size:13.5px;color:var(--ink-soft);line-height:1.4}
 .kt-roast-pha{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:11px;color:var(--brown);font-weight:700}
 
+/* Cỡ xay → cách pha */
+.kt-grind{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gr-row{display:grid;grid-template-columns:120px 1fr 1.15fr;align-items:center;gap:18px;
+  padding:15px 20px;border-bottom:1px solid var(--line-2)}
+.gr-row:last-child{border-bottom:none}
+.gr-row:nth-child(odd){background:var(--paper-2)}
+.gr-name{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:15px;letter-spacing:-.01em}
+.gr-dots{display:flex;flex-wrap:wrap;gap:3px;align-items:center}
+.gr-dots span{background:var(--brown);border-radius:50%;flex:none;opacity:.82}
+.gr-methods{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.gr-methods span{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.02em;
+  color:var(--brown-deep);background:rgba(122,84,51,.09);border-radius:20px;padding:4px 11px}
+@media(max-width:640px){
+  .gr-row{grid-template-columns:1fr;gap:8px;padding:16px 18px}
+  .gr-methods{justify-content:flex-start}
+}
+
 @media(max-width:720px){
   .kt-def-grid{grid-template-columns:1fr}
   .kt-buy-grid{grid-template-columns:1fr}

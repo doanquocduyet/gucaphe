@@ -182,6 +182,27 @@ const BAIVIET = [
     ]
   },
   {
+    id: "co-xay",
+    anh: "assets/img/products/beans-tin.jpg",
+    tag: "Cỡ xay",
+    docPhut: 2, mucDo: "Người mới",
+    tieuDe: "Cỡ xay cà phê — chọn theo cách pha",
+    dek: "Xay sai cỡ thì hạt ngon vẫn ra ly dở. Mỗi cách pha cần một cỡ xay riêng.",
+    than:
+      "<p>Cùng một gói cà phê, xay sai cỡ là ra ly khác hẳn. <b>Cỡ xay quyết định tốc độ nước chảy qua bột</b>: xay quá mịn thì nước chảy chậm, chiết quá nhiều — vị đắng gắt; xay quá thô thì nước chảy nhanh, chiết chưa tới — vị loãng và chua.</p>" +
+      "<p><b>Quy tắc chung:</b> cách pha càng nhanh thì xay càng mịn. Espresso (pha máy) chỉ vài chục giây → xay <b>mịn</b>. Phin và Moka pot lâu hơn → <b>mịn vừa</b>. Pour over / V60 → cỡ <b>thường</b>. Cold brew ngâm nhiều giờ → xay <b>thô</b>.</p>" +
+      "<p>Nếu mua hạt về tự xay, chỉnh cối theo bảng dưới rồi nếm và tinh chỉnh: <b>đắng gắt thì xay thô hơn, chua loãng thì xay mịn hơn</b>.</p>",
+    faq: [
+      { q: "Pha phin nên xay cỡ nào?", a: "Xay mịn vừa — cỡ như cát mịn. Mịn quá thì phin chảy quá chậm, dễ đắng; thô quá thì nước loãng, nhạt." },
+      { q: "Pha máy (espresso) xay mịn hay thô?", a: "Xay mịn. Espresso chiết rất nhanh dưới áp suất nên cần bột mịn để đủ vị; xay thô sẽ ra chua và loãng." },
+      { q: "Pha V60 nên xay cỡ nào?", a: "Cỡ thường (medium) — như đường cát. Đây là điểm cân bằng cho pour over; đắng thì xay thô hơn, chua loãng thì xay mịn hơn." }
+    ],
+    links: [
+      { label: "Cách Gu pha khi test", href: "/cach-test" },
+      { label: "Xem các gói đã thử", href: "/ca-phe" }
+    ]
+  },
+  {
     id: "vi-sao-specialty-dat",
     anh: "assets/img/art-3.jpg",
     tag: "Đáng tiền không?",
