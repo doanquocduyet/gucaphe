@@ -1176,6 +1176,47 @@ footer a:hover{border-color:#C9A876}
   .gr-methods{justify-content:flex-start}
 }
 
+/* Công thức pha — bảng */
+.kt-brew-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.kt-brew-tbl{width:100%;border-collapse:collapse;min-width:640px}
+.kt-brew-tbl th,.kt-brew-tbl td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--line-2);
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+.kt-brew-tbl thead th{background:var(--paper-2);font-weight:700;font-size:11px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-dim)}
+.kt-brew-tbl tbody th{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:14px;color:var(--ink);text-align:left}
+.kt-brew-tbl tbody tr:last-child th,.kt-brew-tbl tbody tr:last-child td{border-bottom:none}
+.kt-brew-tbl thead th.is-m,.kt-brew-tbl tbody th{position:sticky;left:0;background:var(--paper)}
+.kt-brew-tbl thead th.is-m{background:var(--paper-2)}
+.kt-brew figcaption{font-size:12.5px;color:var(--ink-dim);line-height:1.5;margin-top:12px;max-width:70ch}
+
+/* Độ tươi — timeline */
+.kt-fresh-bar{height:10px;border-radius:20px;margin-bottom:16px;
+  background:linear-gradient(90deg,#D9C2A0 0%,var(--amber) 22%,var(--amber) 62%,#B9A88E 100%)}
+.kt-fresh-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kt-fresh-step{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2)}
+.kt-fresh-step.is-gold{background:rgba(176,122,42,.08);border-color:rgba(176,122,42,.32)}
+.kt-fresh-t{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--ink-dim)}
+.kt-fresh-n{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.01em;margin:4px 0 8px}
+.kt-fresh-step.is-gold .kt-fresh-n{color:var(--brown-deep)}
+.kt-fresh-d{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+
+/* Trục cảm quan — explainer */
+.kt-axes{max-width:70ch;display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kt-axis{display:grid;grid-template-columns:120px 120px 1fr;align-items:center;gap:18px;padding:16px 20px;border-bottom:1px solid var(--line-2)}
+.kt-axis:last-child{border-bottom:none}
+.kt-axis:nth-child(odd){background:var(--paper-2)}
+.kt-axis-k{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:15px}
+.kt-axis-scale{display:flex;align-items:center;gap:6px}
+.kt-axis-scale span{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-dim)}
+.kt-axis-scale i{flex:1;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--line),var(--brown))}
+.kt-axis-d{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+@media(max-width:640px){
+  .kt-fresh-bar{display:none}
+  .kt-fresh-steps{grid-template-columns:1fr}
+  .kt-axis{grid-template-columns:1fr;gap:8px}
+  .kt-axis-scale{max-width:180px}
+}
+
 @media(max-width:720px){
   .kt-def-grid{grid-template-columns:1fr}
   .kt-buy-grid{grid-template-columns:1fr}

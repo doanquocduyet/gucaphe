@@ -203,6 +203,46 @@ const BAIVIET = [
     ]
   },
   {
+    id: "cong-thuc-pha",
+    anh: "assets/img/p3-cup.jpg",
+    tag: "Pha chuẩn",
+    docPhut: 2, mucDo: "Thực hành",
+    tieuDe: "Công thức pha chuẩn theo cách pha",
+    dek: "Cùng một hạt, sai tỉ lệ hay nhiệt độ là hỏng. Đây là công thức nền để bắt đầu, rồi tinh chỉnh theo gu.",
+    than:
+      "<p>Không có con số nào đúng tuyệt đối, nhưng có <b>điểm khởi đầu chuẩn</b> cho từng cách pha. Pha xong thấy <b>đắng gắt → giảm cà phê hoặc hạ nhiệt độ</b>; thấy <b>chua loãng → tăng cà phê, xay mịn hơn hoặc tăng nhiệt</b>.</p>" +
+      "<p>Bảng dưới là công thức nền Gu dùng khi thử. Tỉ lệ ghi theo dạng <b>cà phê : nước</b> — ví dụ 1:15 nghĩa là 1g cà phê cho 15ml nước.</p>",
+    faq: [
+      { q: "Tỉ lệ 1:15 nghĩa là gì?", a: "1g cà phê cho 15ml nước. Ví dụ 16g cà phê thì dùng khoảng 240ml nước. Tỉ lệ càng nhỏ (1:12) thì càng đậm, càng lớn (1:17) thì càng nhạt." },
+      { q: "Nước pha cà phê nên bao nhiêu độ?", a: "Khoảng 90–93°C cho phần lớn cách pha. Nóng quá (sôi 100°C) dễ ra đắng gắt; nguội quá thì chiết chưa tới, chua và nhạt." },
+      { q: "Pha phin theo tỉ lệ nào?", a: "Khoảng 1:4 — đậm hơn nhiều cách pha khác vì đây là kiểu pha đặc truyền thống. Ví dụ 20g cà phê cho ~80ml nước." }
+    ],
+    links: [
+      { label: "Chọn cỡ xay theo cách pha", href: "/kien-thuc#co-xay" },
+      { label: "Xem các gói đã thử", href: "/ca-phe" }
+    ]
+  },
+  {
+    id: "do-tuoi",
+    anh: "assets/img/products/beans-tin.jpg",
+    tag: "Độ tươi",
+    docPhut: 2, mucDo: "Thực hành",
+    tieuDe: "Cà phê ngon nhất khi nào? Đọc ngày rang",
+    dek: "Cà phê vừa rang xong chưa chắc ngon nhất. Có một “tuần vàng” để thưởng thức.",
+    than:
+      "<p>Hạt cà phê rang xong vẫn <b>nhả khí CO₂</b> trong nhiều ngày (gọi là <i>degas</i>). Pha ngay lúc còn quá nhiều khí thì nước khó thấm đều, vị chưa ổn định. Vì vậy hãy nhìn <b>ngày rang</b> trên bao, đừng chỉ nhìn hạn dùng.</p>" +
+      "<p>Bảo quản nơi khô mát, tránh nắng và không khí; xay tới đâu pha tới đó. Túi có van một chiều và ghi ngày rang là dấu hiệu nhà rang làm nghiêm túc.</p>",
+    faq: [
+      { q: "Cà phê rang xong bao lâu thì uống ngon nhất?", a: "Khoảng 7–45 ngày sau ngày rang — gọi là 'tuần vàng'. Trước đó hạt còn nhả khí, sau đó hương vị nhạt dần." },
+      { q: "Cà phê để lâu có hỏng không?", a: "Sau ~45 ngày vẫn uống được nếu bảo quản kín, khô mát — chỉ kém tươi và thơm hơn. Đừng để nơi nóng, ẩm hay nắng chiếu." },
+      { q: "Nên nhìn ngày rang hay hạn dùng?", a: "Ngày rang. Hạn dùng thường rất xa, còn chất lượng vị phụ thuộc thời gian kể từ ngày rang." }
+    ],
+    links: [
+      { label: "Phương pháp đánh giá của Gu", href: "/cach-test" },
+      { label: "Xem các gói đã thử", href: "/ca-phe" }
+    ]
+  },
+  {
     id: "vi-sao-specialty-dat",
     anh: "assets/img/art-3.jpg",
     tag: "Đáng tiền không?",

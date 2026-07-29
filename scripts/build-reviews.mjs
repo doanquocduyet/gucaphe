@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260772';
+const CSS_V = '20260773';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -313,7 +313,7 @@ function related(p) {
         <a class="rp-rel" href="/review/${o.slug}">
           <div class="rp-rel-brand">${esc(o.brand)}</div>
           <div class="rp-rel-name">${esc(o.ten)}</div>
-          <div class="rp-rel-meta">${o.tested && o.diem != null ? `<b>${o.diem}/10</b>` : `<span class="rp-ut">${o.daUong ? 'Đã uống' : 'Chưa nếm'}</span>`} · ${money(o.gia)}</div>
+          <div class="rp-rel-meta">${o.tested && o.diem != null ? `<b>${o.diem}/10</b> · ` : ''}${money(o.gia)}</div>
         </a>`).join('')}
       </div>
     </section>`;
@@ -342,20 +342,19 @@ const FLAVOR_ROWS = [['chua', 'Độ chua'], ['dam', 'Body'], ['ngot', 'Ngọt']
 function productReviewBody(p, tested) {
   const r = ROASTER_BY_PID[p.id];
   const v = VUNG_BY_SLUG[p.vungSlug];
-  const status = tested ? 'Đã nếm mù' : (p.daUong ? 'Đã uống' : 'Chưa nếm');
 
   // HERO
   const hero = `<header class="rp-hero">
     ${media(p)}
     <div class="rp-hero-body">
-      <div class="eyebrow">Review · ${status}</div>
+      <div class="eyebrow">Review${tested ? ' · Đã nếm mù' : ' · Gu tuyển chọn'}</div>
       <div class="rp-brand">${r ? `<a href="/nha-rang/${r.slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
       <h1>${esc(p.ten)}</h1>
       ${p.chot ? `<p class="rp-chot">${esc(p.chot)}</p>` : ''}
       ${crossLinks(p)}
       <div class="rp-buy">
         <div class="rp-price-row">
-          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : `<div class="rp-noscore">${p.daUong ? 'Đã uống · chưa chấm mù' : 'Chưa chấm điểm'}</div>`}
+          ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : ''}
           ${!tested && p.chungNhan ? `<div class="rp-cred">${esc(p.chungNhan)}</div>` : ''}
           <div class="rp-price"><b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}</div>
         </div>
@@ -382,7 +381,7 @@ function productReviewBody(p, tested) {
     ['Giá', money(p.gia)],
     ['Giá / 100g', per100(p) ? `${money(per100(p))}` : ''],
     ['Hợp pha', (p.pha && p.pha.length) ? p.pha.map(x => PHA_TEN[x] || x).join(' · ') : ''],
-    ['Nếm mù', tested ? '✓ Đã chấm mù' : '○ Chưa chấm mù']
+    ['Nếm mù', tested ? '✓ Đã chấm mù' : '']
   ].filter(x => x[1]);
   const specSec = `<section class="pv-sec">
     <h2 class="rg-h">Thông số</h2>
@@ -424,12 +423,12 @@ function productReviewBody(p, tested) {
     <div class="pv-review">${p.review}</div>
   </section>` : '';
 
-  // 8 · TEST PROTOCOL (component cố định)
-  const protoSec = `<section class="pv-proto">
-    <span class="pv-kick">Cách Gu test</span>
+  // 8 · TEST PROTOCOL (chỉ hiện ở gói đã nếm mù — moat)
+  const protoSec = tested ? `<section class="pv-proto">
+    <span class="pv-kick">Cách Gu chấm mù</span>
     <ul class="pv-proto-list"><li>Mua thật</li><li>Nếm mù (che nhãn)</li><li>Nước 92°C</li><li>Tỷ lệ 1:15</li><li>Xay medium</li></ul>
-    <p class="pv-proto-note">${tested ? 'Gói này đã qua đủ quy trình trên và được chấm mù.' : 'Gói này đã <b>mua & uống thật</b> nhưng <b>chưa nếm mù</b> — nên chưa gắn điểm.'} <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
-  </section>`;
+    <p class="pv-proto-note">Gói này đã qua đủ quy trình trên và được chấm mù. <a href="/cach-test">Xem quy trình đầy đủ →</a></p>
+  </section>` : '';
 
   // 9 · FAQ
   const faqSec = (p.faq && p.faq.length) ? `<section class="rg-faq">
@@ -1096,9 +1095,7 @@ function pcard(p, pos) {
   const media = src
     ? `<img src="${esc(src)}" alt="${esc(p.brand)} — ${esc(p.ten)}" loading="lazy">`
     : `<div class="pc-swatch" style="background:${ROAST_BG[p.roast] || '#8A6A44'}"><span>${esc(p.roast ? 'Rang ' + p.roast.toLowerCase() : 'Đặc sản')}</span></div>`;
-  const badge = t
-    ? `<span class="pc-badge pc-badge-scored"><i>Đã chấm mù</i>${p.diem}</span>`
-    : `<span class="pc-badge ${p.daUong ? 'pc-badge-tasted' : 'pc-badge-ut'}">${p.daUong ? 'Đã uống' : 'Chưa nếm'}</span>`;
+  const badge = t ? `<span class="pc-badge pc-badge-scored">${p.diem}</span>` : '';
   return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
       <a class="pc-media" href="/review/${p.slug}">${media}${badge}</a>
       <div class="pc-body">
@@ -1139,7 +1136,7 @@ function hubCaPhe() {
   const seg = NHUCAU.map((n, i) => {
     const p = SP_BY_ID[n.spId]; if (!p) return '';
     const t = p.tested && p.diem != null;
-    const tag = t ? `<span class="seg-score">${p.diem}/10</span>` : (p.daUong ? '<span class="seg-tasted">Đã uống</span>' : '');
+    const tag = t ? `<span class="seg-score">${p.diem}/10</span>` : '';
     return `<div class="seg">
         <div class="seg-need">
           <span class="seg-n">${String(i + 1).padStart(2, '0')}</span>
@@ -1282,7 +1279,58 @@ function diagGrind() {
     ${row('Xay mịn', 3, 22, ['Pha máy (espresso)'])}
   </figure>`;
 }
-const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale, 'co-xay': diagGrind };
+function diagBrewing() {
+  const COLS = ['Cách pha', 'Cỡ xay', 'Tỉ lệ', 'Cà phê', 'Nước', 'Nhiệt độ', 'Thời gian'];
+  const ROWS = [
+    ['Pour over / V60', 'Vừa', '1:15', '15–18g', '225–280ml', '91°C', '4–5 phút'],
+    ['Espresso', 'Rất mịn', '1:2–1:3', '18–20g', '36–40ml*', '92–94°C', '30–45 giây'],
+    ['Phin', 'Vừa', '1:4', '20g', '80ml', '91°C', '4–5 phút'],
+    ['Cold brew', 'Thô', '1:10', '50g', '500ml', 'Lạnh 4–6°C', '~20 giờ'],
+    ['Moka pot', 'Mịn', '—', '18g', '240ml', '—', '—'],
+    ['Aeropress', 'Vừa', '1:14', '16g', '224ml', '90°C', '2,5–3 phút']
+  ];
+  return `<figure class="kt-diag kt-brew" aria-label="Công thức pha chuẩn theo cách pha">
+    <div class="kt-brew-scroll">
+      <table class="kt-brew-tbl">
+        <thead><tr>${COLS.map((c, i) => `<th${i === 0 ? ' class="is-m"' : ''}>${c}</th>`).join('')}</tr></thead>
+        <tbody>${ROWS.map(r => `<tr>${r.map((v, i) => i === 0 ? `<th scope="row">${v}</th>` : `<td>${v}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table>
+    </div>
+    <figcaption>*Espresso: lượng nước lấy ra khỏi ly, không phải nước đổ vào. Con số là điểm khởi đầu — tinh chỉnh theo gu.</figcaption>
+  </figure>`;
+}
+function diagFreshness() {
+  const P = [
+    ['0–7 ngày', 'Degas', 'Hạt còn nhả khí CO₂ — vị chưa ổn định, nước khó thấm đều.', false],
+    ['7–45 ngày', 'Tuần vàng', 'Thời điểm ngon nhất: hương vị ổn định, ngọt và thơm nhất.', true],
+    ['sau 45 ngày', 'Về sau', 'Vẫn uống được nếu bảo quản kín, chỉ kém tươi và thơm dần.', false]
+  ];
+  return `<figure class="kt-diag kt-fresh" aria-label="Cà phê ngon nhất khi nào tính theo ngày rang">
+    <div class="kt-fresh-bar"></div>
+    <div class="kt-fresh-steps">
+      ${P.map(([t, name, desc, gold]) => `<div class="kt-fresh-step${gold ? ' is-gold' : ''}">
+        <div class="kt-fresh-t">${t}</div>
+        <div class="kt-fresh-n">${name}</div>
+        <div class="kt-fresh-d">${desc}</div>
+      </div>`).join('')}
+    </div>
+  </figure>`;
+}
+const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale, 'co-xay': diagGrind, 'cong-thuc-pha': diagBrewing, 'do-tuoi': diagFreshness };
+
+/* Giải thích 5 trục cảm quan Gu ghi nhận (dùng ở /cach-test) */
+function diagFlavorAxes() {
+  const AX = [
+    ['Độ chua', 'Vị chua sáng kiểu cam, chanh, trái cây — dấu hiệu Arabica vùng cao, không phải chua hỏng.'],
+    ['Body', 'Độ dày, cảm giác “đầy miệng” của ly — từ mỏng nhẹ tới dày như chocolate.'],
+    ['Ngọt', 'Vị ngọt tự nhiên và hậu ngọt, không phải do thêm đường.'],
+    ['Hậu vị', 'Vị đọng lại sau khi nuốt — dài và sạch, hay ngắn và gắt.'],
+    ['Độ sạch', 'Ly cà phê trong trẻo, rõ vị hay bị đục, tạp.']
+  ];
+  return `<figure class="kt-diag kt-axes" aria-label="Các trục cảm quan Gu ghi nhận">
+    ${AX.map(([k, d]) => `<div class="kt-axis"><div class="kt-axis-k">${esc(k)}</div><div class="kt-axis-scale" aria-hidden="true"><span>nhẹ</span><i></i><span>đậm</span></div><div class="kt-axis-d">${esc(d)}</div></div>`).join('')}
+  </figure>`;
+}
 
 function hubKienThuc() {
   const url = `${ORIGIN}/kien-thuc`;
@@ -1392,6 +1440,9 @@ function hubCachTest() {
 
   <h2 class="method-h">Quy trình 5 bước</h2>
   <ol class="steps">${QUY_TRINH.map(x => `<li><span>${x}</span></li>`).join('')}</ol>
+
+  <h2 class="method-h">Gu ghi nhận những trục vị nào?</h2>
+  ${diagFlavorAxes()}
 
   <div class="gallery">
     <figure><img src="/assets/img/p2-grind.jpg" alt="Cà phê xay cùng một cỡ" loading="lazy"><figcaption>Cùng cỡ xay</figcaption></figure>
