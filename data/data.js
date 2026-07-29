@@ -52,7 +52,7 @@ const SP = [
   /* ===== Sơn Pacamara — 2 gói micro-lot khác (xác minh từ store chính thức). ===== */
   { id:"sp-pacamara", guPick:"signature", confidence:"editor_research", verificationDate:"2026-07-29",
     selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true},
-    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot 100g", nhom:"hat", gia:205000, gram:100,
+    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot", nhom:"hat", gia:205000, gram:100,
     slug:"son-pacamara-pacamara", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
     giong:"Pacamara", doCao:"", process:"Anaerobic washed", roast:"Light", ngayRang:"",
