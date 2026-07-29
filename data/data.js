@@ -58,7 +58,7 @@ const SP = [
     tags:["Thân dày","Hậu ngọt","Pha phin/máy"],
     nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm, thân dày","Pha phin hoặc espresso"],
     khong:["Ngân sách rất eo hẹp","Thích chua sáng nhẹ kiểu Arabica"],
-    link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"assets/img/products/beans-tin.jpg" },
+    link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"assets/img/products/bui-fine-robusta.jpg" },
   { id:"nb-tamtrinh", brand:"Tám Trình Coffee", ten:"Arabica Cầu Đất & Lạc Dương Blend (pha máy) 250g", nhom:"hat", gia:150000, gram:250,
     slug:"tam-trinh-arabica-blend", pha:["espresso","phin"],
     vungSlug:"cau-dat", xaHuyen:"Cầu Đất + Lạc Dương, Lâm Đồng",
