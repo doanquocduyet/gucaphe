@@ -137,7 +137,8 @@ body > section:first-of-type{padding-top:64px}
 .hero-inner{position:relative;z-index:2;width:100%;max-width:1120px;margin:0 auto;
   padding:0 28px 64px;color:#fff}
 .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;
+  text-shadow:0 1px 12px rgba(16,10,5,.6)}
 #top h1{color:#fff;font-size:clamp(42px,8.5vw,84px);line-height:.98;letter-spacing:-.03em;
   margin:0;text-shadow:0 2px 30px rgba(0,0,0,.35)}
 .hero-sign{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(12px,1.5vw,14px);
@@ -414,7 +415,7 @@ body > section:first-of-type{padding-top:64px}
 #method h2{color:var(--cream)}
 #method .lead{color:var(--cream-dim)}
 /* Cách test — cam kết, giới hạn, meta */
-.commit{margin-top:34px;max-width:56rem;background:var(--brown-deep);color:#fff;
+.commit{margin-top:34px;max-width:56rem;background:var(--btn-bg);color:#fff;
   border-radius:18px;padding:32px 34px}
 .commit-t{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;
   color:#fff;margin:0 0 16px}
@@ -607,7 +608,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .rp-who li.n::before{content:'–';color:var(--ink-dim)}
 .rp-method{background:var(--paper-2);padding:26px 30px;margin:36px 0;border-radius:2px}
 .rp-method p{margin:0;font-size:15.5px;color:var(--ink-soft)}
-.rp-method a{color:var(--brown);text-decoration:none;border-bottom:1.5px solid transparent}
+.rp-method a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--accent)}
 .rp-method a:hover{border-color:var(--brown)}
 .rp-cta-foot{margin:40px 0 0}
 
@@ -733,7 +734,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .rp-cred-line{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
   font-size:14px;color:var(--ink-soft)}
 .rp-cred-line b{color:var(--ink)}
-.rp-cred-line a{color:var(--brown)}
+.rp-cred-line a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
 
 /* Điểm nếm mù nổi ở hero (nhà rang đã có gói chấm mù) */
 .rr-score{display:flex;align-items:center;gap:14px;margin:4px 0 18px}
@@ -768,7 +769,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .pv-specs th{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;color:var(--ink-dim);width:38%;white-space:nowrap}
 .pv-specs td{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:15px;color:var(--ink)}
-.pv-specs td a{color:var(--brown);text-decoration:none;border-bottom:1px solid var(--line)}
+.pv-specs td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
 .pv-specs td a:hover{border-color:var(--brown)}
 .pv-bars{max-width:60ch;display:flex;flex-direction:column;gap:2px}
 .pv-notes{display:flex;flex-wrap:wrap;gap:9px}
@@ -784,7 +785,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .pv-proto-list li::before{content:'✓';position:absolute;left:0;color:var(--brown);font-weight:800}
 .pv-proto-note{font-size:14px;color:var(--ink-soft);line-height:1.55}
 .pv-proto-note b{color:var(--ink)}
-.pv-proto-note a{color:var(--brown)}
+.pv-proto-note a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
 
 /* --- Gu Selection: nhãn guPick + confidence --- */
 .pc-gp{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;
@@ -969,7 +970,7 @@ footer a:hover{border-color:var(--gold-soft)}
   letter-spacing:.06em;color:var(--amber);margin-bottom:8px}
 .rg-special p{font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
 .rg-special b{color:var(--ink)}
-.rg-special a{color:var(--brown);text-decoration:underline;text-underline-offset:2px}
+.rg-special a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
 
 /* Ai nên chọn */
 .rg-fit{margin:44px 0}
@@ -1036,7 +1037,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .rg-more[open] summary::after{content:'–'}
 .rg-more-body{padding:0 22px 20px}
 .rg-more-body p{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:12px}
-.rg-more-body a{color:var(--brown)}
+.rg-more-body a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
 
 @media(max-width:720px){
   .rg-sum{padding:24px 22px}
@@ -1076,7 +1077,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .hub-hero-scrim{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(20,13,7,.15) 0%,rgba(20,13,7,0) 38%,rgba(20,13,7,.6) 100%)}
 .hub-hero-cap{position:relative;z-index:2;padding:34px 36px}
-.hub-hero-cap .eyebrow{color:var(--gold-soft)}
+.hub-hero-cap .eyebrow{color:var(--gold-soft);text-shadow:0 1px 12px rgba(16,10,5,.6)}
 .hub-hero-cap h1{color:#fff;font-size:clamp(30px,4.4vw,50px);margin:10px 0 0;letter-spacing:-.03em;
   line-height:1.05;text-shadow:0 2px 26px rgba(0,0,0,.4);max-width:16ch;text-wrap:balance}
 .hub-hero-text{max-width:70ch;margin-top:24px}
