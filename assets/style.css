@@ -257,20 +257,21 @@ body > section:first-of-type{padding-top:64px}
 .rec.in{animation:recIn .42s cubic-bezier(.2,.7,.2,1)}
 @keyframes recIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .rec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 24px;
-  background:var(--brown-deep);color:#fff}
+  background:var(--accent-soft);color:var(--ink);border-bottom:1px solid var(--border)}
 .rec-tag{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;background:rgba(255,255,255,.16);padding:5px 10px;border-radius:6px;flex:none}
-.rec-intent{font-size:13px;color:rgba(255,255,255,.92);line-height:1.4}
-.rec-intent b{color:#fff;font-weight:700}
+  text-transform:uppercase;background:var(--paper);color:var(--accent-ink);
+  box-shadow:inset 0 0 0 1px rgba(194,99,44,.28);padding:5px 10px;border-radius:6px;flex:none}
+.rec-intent{font-size:13px;color:var(--ink-soft);line-height:1.4}
+.rec-intent b{color:var(--ink);font-weight:700}
 .rec-undo{margin-left:auto;background:none;border:none;cursor:pointer;padding:0;
-  font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.85)}
-.rec-undo:hover{color:#fff;text-decoration:underline}
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim)}
+.rec-undo:hover{color:var(--accent);text-decoration:underline}
 .rec-card{display:grid;grid-template-columns:300px 1fr}
 .rec-photo{position:relative;display:block;background:var(--line-2);min-height:300px}
 .rec-photo img,.rec-photo-gen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rec-badge{position:absolute;top:14px;left:14px;font-family:'Be Vietnam Pro',sans-serif;
   font-weight:800;padding:6px 12px;border-radius:9px;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
-.rec-badge-score{background:var(--brown-deep);color:#fff;font-size:21px}
+.rec-badge-score{background:var(--btn-bg);color:var(--gold-soft);font-size:21px}
 .rec-badge-score i{font-style:normal;font-size:12px;opacity:.8}
 .rec-badge-tasted{background:rgba(255,255,255,.95);color:var(--brown-deep);font-size:11px;
   letter-spacing:.06em;text-transform:uppercase;box-shadow:inset 0 0 0 1px var(--brown),0 8px 20px -10px rgba(0,0,0,.4)}
