@@ -1145,6 +1145,60 @@ footer a:hover{border-color:#C9A876}
   text-decoration:none;border-bottom:1.5px solid transparent;align-self:flex-start;transition:.15s}
 .kt-buy-go:hover{border-color:var(--brown)}
 
+/* --- Kiến thức: lưới thẻ theo nhóm (hub gọn, có ảnh, không nhảy trong trang) --- */
+.kt-group{margin:44px 0}
+.kt-group-head{margin-bottom:20px}
+.kt-group-head .eyebrow{color:var(--brown)}
+.kt-group-t{font-size:clamp(22px,3vw,28px);letter-spacing:-.02em;margin:6px 0 6px}
+.kt-group-sub{font-size:15.5px;color:var(--ink-soft);max-width:60ch;line-height:1.55}
+.kt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kt-card{display:flex;flex-direction:column;text-decoration:none;background:var(--paper);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
+.kt-card:hover{transform:translateY(-3px);border-color:var(--brown);box-shadow:0 12px 30px -18px rgba(90,61,34,.4)}
+.kt-card-img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
+.kt-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.kt-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.kt-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.kt-card-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--brown)}
+.kt-card-min{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink-dim)}
+.kt-card-t{font-size:17.5px;line-height:1.32;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px}
+.kt-card-dek{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0 0 16px;flex:1}
+.kt-card-go{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown);
+  align-self:flex-start}
+
+/* Từ điển — thu gọn trong details */
+.kt-tudien{margin:52px 0 8px}
+.kt-tudien-d{border:1px solid var(--line);border-radius:14px;background:var(--paper-2);overflow:hidden}
+.kt-tudien-d>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;padding:20px 24px;font-family:'Be Vietnam Pro',sans-serif}
+.kt-tudien-d>summary::-webkit-details-marker{display:none}
+.kt-tudien-s{font-weight:800;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.kt-tudien-c{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim)}
+.kt-tudien-d>summary::after{content:'+';color:var(--brown);font-weight:800;font-size:20px;margin-left:auto}
+.kt-tudien-d[open]>summary::after{content:'–'}
+.kt-tudien-d[open]>summary{border-bottom:1px solid var(--line)}
+.kt-tudien-d .kt-def-grid{padding:22px 24px}
+
+/* --- Trang bài kiến thức riêng (/kien-thuc/<id>) --- */
+.kta-wrap{max-width:760px}
+.kta{margin-top:4px}
+.kta-head{margin-bottom:22px}
+.kta-head .kt-meta{margin-bottom:14px}
+.kta-t{font-size:clamp(27px,4.2vw,40px);line-height:1.14;letter-spacing:-.03em;margin:0 0 14px}
+.kta-dek{font-family:'Be Vietnam Pro',sans-serif;font-style:italic;font-size:19px;line-height:1.5;
+  color:var(--ink-soft);margin:0;max-width:56ch}
+.kta-hero{margin:0 0 30px;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:var(--paper-2)}
+.kta-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.kta-body{max-width:none;font-size:17.5px}
+.kta-body p{line-height:1.72}
+.kta .kt-diag{max-width:none}
+.kta .kt-art-links{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.kta-faq{margin:40px 0 8px;max-width:none}
+.kta-faq-h{font-size:22px;letter-spacing:-.02em;margin-bottom:8px}
+.kta-more{margin:52px 0 12px;padding-top:36px;border-top:1px solid var(--line)}
+.kta-more-h{font-size:22px;letter-spacing:-.02em;margin-bottom:20px}
+
 /* --- Minh hoạ mang thông tin (diagram) --- */
 .kt-diag{max-width:68ch;margin:24px 0 6px}
 .kt-diag--nw{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:14px}
@@ -1379,6 +1433,23 @@ body:has(.buybar){padding-bottom:60px}
   .caphe-cards{display:block;margin-top:14px;border-top:1px solid var(--line)}
   .caphe-cards .vg-prod:first-of-type{border-top:none}
   .buybar-info span{display:none}
+}
+
+/* Kiến thức — lưới thẻ responsive */
+@media(max-width:920px){.kt-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .kt-grid{grid-template-columns:1fr;gap:14px}
+  .kt-group{margin:34px 0}
+  .kt-card{flex-direction:row}
+  .kt-card-img{flex:none;width:118px;aspect-ratio:1/1}
+  .kt-card-body{padding:13px 15px}
+  .kt-card-t{font-size:15.5px}
+  .kt-card-dek{display:none}
+  .kta-wrap{max-width:100%}
+  .kta-hero{aspect-ratio:16/10;margin-bottom:22px}
+  .kt-tudien-d>summary{padding:16px 18px}
+  .kt-tudien-s{font-size:17px}
+  .kt-tudien-d .kt-def-grid{padding:16px 18px;grid-template-columns:1fr}
 }
 
 /* ============================================================

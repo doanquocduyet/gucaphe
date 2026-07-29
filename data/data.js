@@ -253,7 +253,7 @@ const BAIVIET = [
       { q: "Pha phin theo tỉ lệ nào?", a: "Khoảng 1:4 — đậm hơn nhiều cách pha khác vì đây là kiểu pha đặc truyền thống. Ví dụ 20g cà phê cho ~80ml nước." }
     ],
     links: [
-      { label: "Chọn cỡ xay theo cách pha", href: "/kien-thuc#co-xay" },
+      { label: "Chọn cỡ xay theo cách pha", href: "/kien-thuc/co-xay" },
       { label: "Xem các gói đã thử", href: "/ca-phe" }
     ]
   },
@@ -338,7 +338,7 @@ const MUA_GI = [
     label: "Vùng ít chua: Nam Ban", href: "/vung-trong/nam-ban" },
   { q: "Pha phin nên chọn rang gì?",
     a: "Chọn <b>Medium đến Dark</b>. Rang sáng ngâm lâu trong phin dễ chua gắt; rang đậm cho body dày, vị chocolate hợp gu phin.",
-    label: "Đọc: rang sáng hay rang đậm", href: "/kien-thuc#rang-sang-dam" },
+    label: "Đọc: rang sáng hay rang đậm", href: "/kien-thuc/rang-sang-dam" },
   { q: "Pha V60 đầu tiên nên mua gói nào?",
     a: "Chọn gói <b>rang sáng, chua sáng</b>. Gói chúng tôi đã <b>chấm mù</b> và hợp V60 nhất là Sơn Pacamara — Lang Biang (9,3/10).",
     label: "Xem Sơn Pacamara — Lang Biang", href: "/review/son-pacamara-lang-biang" }

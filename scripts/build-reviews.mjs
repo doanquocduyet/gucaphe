@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260774';
+const CSS_V = '20260775';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -1353,45 +1353,117 @@ function diagFlavorAxes() {
   </figure>`;
 }
 
-function hubKienThuc() {
-  const url = `${ORIGIN}/kien-thuc`;
-  const chip = b => `<span class="kt-meta">${[
-    b.docPhut ? `Đọc ${b.docPhut} phút` : '',
-    b.mucDo || ''
-  ].filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</span>`;
+/* Nhóm bài theo mức độ — mỗi nhóm là một lưới thẻ gọn, bấm vào mở trang bài riêng */
+const KT_GROUPS = [
+  { key: 'Người mới', kick: 'Nền tảng', title: 'Người mới bắt đầu từ đây',
+    sub: 'Vài phút để đọc bao bì như dân trong nghề: sơ chế, độ rang, cỡ xay, và specialty có đáng tiền không.' },
+  { key: 'Thực hành', kick: 'Pha & bảo quản', title: 'Ra ly ngon từ gói bạn đã có',
+    sub: 'Công thức nền theo từng cách pha và cách đọc ngày rang để uống đúng “tuần vàng”.' },
+  { key: 'Chọn mua', kick: 'So sánh', title: 'Chọn đúng gói để mua',
+    sub: 'So sánh thẳng giữa các nhà, nối tới gói thật đã mua và uống.' }
+];
 
-  // Lộ trình học — người mới đọc gì trước
-  const pathArts = BAIVIET.filter(b => b.mucDo === 'Người mới');
-  const pathMin = pathArts.reduce((s, b) => s + (b.docPhut || 0), 0);
-  const learnPath = pathArts.length ? `<section class="kt-path">
-    <div class="kt-path-head">
-      <span class="kt-path-kick">Người mới bắt đầu từ đâu?</span>
-      <h2 class="kt-path-t">Học nền tảng trong ~${pathMin} phút</h2>
+const ktImg = b => b.anh ? (/^https?:/.test(b.anh) ? b.anh : '/' + b.anh) : '';
+
+/* Thẻ bài kiến thức — ảnh + tag + thời gian đọc + tiêu đề + dek, bấm mở /kien-thuc/<id> */
+function ktCard(b) {
+  const src = ktImg(b);
+  return `<a class="kt-card" href="/kien-thuc/${b.id}">
+    ${src ? `<div class="kt-card-img"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" loading="lazy"></div>` : ''}
+    <div class="kt-card-body">
+      <div class="kt-card-meta"><span class="kt-card-tag">${esc(b.tag)}</span>${b.docPhut ? `<span class="kt-card-min">${b.docPhut} phút đọc</span>` : ''}</div>
+      <h3 class="kt-card-t">${esc(b.tieuDe)}</h3>
+      <p class="kt-card-dek">${esc(b.dek)}</p>
+      <span class="kt-card-go">Đọc →</span>
     </div>
-    <ol class="kt-path-list">
-      ${pathArts.map((b, i) => `<li><a href="#${b.id}">
-        <span class="kt-path-n">${i + 1}</span>
-        <span class="kt-path-body"><span class="kt-path-name">${esc(b.tieuDe)}</span><span class="kt-path-min">${b.docPhut ? `${b.docPhut} phút` : ''}</span></span>
-      </a></li>`).join('')}
-      <li class="kt-path-end"><a href="/#pick">
-        <span class="kt-path-n">✓</span>
-        <span class="kt-path-body"><span class="kt-path-name">Chọn sản phẩm hợp gu của bạn</span><span class="kt-path-min">15 giây</span></span>
-      </a></li>
-    </ol>
+  </a>`;
+}
+
+/* Trang bài kiến thức riêng — /kien-thuc/<id>. Một chủ đề mỗi trang: hết cảnh nhảy lung tung. */
+function articlePage(b) {
+  const url = `${ORIGIN}/kien-thuc/${b.id}`;
+  const src = ktImg(b);
+  const meta = `<div class="kt-meta">${[b.tag, b.docPhut ? `Đọc ${b.docPhut} phút` : '', b.mucDo]
+    .filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</div>`;
+  const faqBlock = (b.faq && b.faq.length) ? `<section class="kta-faq">
+    <h2 class="kta-faq-h">Câu hỏi thường gặp</h2>
+    ${b.faq.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}
+  </section>` : '';
+  const linksBlock = (b.links && b.links.length)
+    ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : '';
+
+  // Đọc tiếp — ưu tiên bài cùng nhóm, đủ 3 thẻ
+  const related = [...BAIVIET.filter(x => x.id !== b.id && x.mucDo === b.mucDo),
+    ...BAIVIET.filter(x => x.id !== b.id && x.mucDo !== b.mucDo)].slice(0, 3);
+  const moreBlock = related.length ? `<section class="kta-more">
+    <h2 class="kta-more-h">Đọc tiếp</h2>
+    <div class="kt-grid">${related.map(ktCard).join('')}</div>
   </section>` : '';
 
-  // Bài viết — kèm meta, FAQ, liên kết nội bộ
-  const arts = BAIVIET.map(b => `<article class="kt-art" id="${b.id}">
-    <div class="kt-art-top"><div class="kt-art-tag">${esc(b.tag)}</div>${chip(b)}</div>
-    <h2>${b.tieuDe}</h2>
-    <p class="kt-art-dek">${b.dek}</p>
-    ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
-    <div class="kt-art-body">${b.than}</div>
-    ${(b.faq && b.faq.length) ? `<div class="kt-art-faq">${b.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>` : ''}
-    ${(b.links && b.links.length) ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : ''}
-  </article>`).join('');
+  const schemas = [];
+  schemas.push(`<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: b.tieuDe, description: b.dek, inLanguage: 'vi-VN',
+    ...(src ? { image: `${ORIGIN}${src}` } : {}),
+    mainEntityOfPage: url, publisher: { '@type': 'Organization', name: 'Gu Cà Phê' }
+  })}</script>`);
+  schemas.push(`<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Gu Cà Phê', item: `${ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: 'Kiến thức', item: `${ORIGIN}/kien-thuc` },
+      { '@type': 'ListItem', position: 3, name: b.tieuDe, item: url }
+    ]
+  })}</script>`);
+  if (b.faq && b.faq.length) schemas.push(`<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: b.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  })}</script>`);
 
-  // Mua gì? — câu hỏi intent cao
+  const main = `<main class="rp wrap kta-wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><a href="/kien-thuc">Kiến thức</a><i>/</i><span>${esc(b.tag)}</span></nav>
+  <article class="kta">
+    <header class="kta-head">
+      ${meta}
+      <h1 class="kta-t">${b.tieuDe}</h1>
+      <p class="kta-dek">${b.dek}</p>
+    </header>
+    ${src ? `<figure class="kta-hero"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" fetchpriority="high"></figure>` : ''}
+    ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
+    <div class="kt-art-body kta-body">${b.than}</div>
+    ${linksBlock}
+  </article>
+  ${faqBlock}
+  ${moreBlock}
+  <a class="rp-home" href="/kien-thuc">← Tất cả bài kiến thức</a>
+  </main>`;
+  return pageShell({
+    title: `${b.tieuDe} | Kiến thức — Gu Cà Phê`,
+    desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: 'kienthuc', main
+  });
+}
+
+function hubKienThuc() {
+  const url = `${ORIGIN}/kien-thuc`;
+
+  // Lưới thẻ theo nhóm mức độ — gọn, có ảnh, bấm mở trang bài riêng (không nhảy trong trang)
+  const covered = new Set();
+  const groups = KT_GROUPS.map(g => {
+    const arts = BAIVIET.filter(b => b.mucDo === g.key);
+    arts.forEach(b => covered.add(b.id));
+    if (!arts.length) return '';
+    return `<section class="kt-group">
+      <div class="kt-group-head"><span class="eyebrow">${esc(g.kick)}</span><h2 class="kt-group-t">${esc(g.title)}</h2><p class="kt-group-sub">${esc(g.sub)}</p></div>
+      <div class="kt-grid">${arts.map(ktCard).join('')}</div>
+    </section>`;
+  }).join('');
+  const rest = BAIVIET.filter(b => !covered.has(b.id));
+  const restBlock = rest.length ? `<section class="kt-group">
+    <div class="kt-group-head"><h2 class="kt-group-t">Bài khác</h2></div>
+    <div class="kt-grid">${rest.map(ktCard).join('')}</div>
+  </section>` : '';
+
+  // Mua gì? — câu hỏi intent cao, nối thẳng tới gói/vùng thật
   const muaGi = MUA_GI.length ? `<section class="kt-buy">
     <div class="kt-buy-head">
       <span class="kt-buy-kick">Mua gì?</span>
@@ -1407,10 +1479,12 @@ function hubKienThuc() {
     </div>
   </section>` : '';
 
-  // Từ điển — dạng thẻ
+  // Từ điển — thu gọn trong <details> để trang không dài lê thê
   const tudien = TU_DIEN.length ? `<section class="kt-tudien">
-    <h2>Từ điển cà phê nhanh</h2>
-    <div class="kt-def-grid">${TU_DIEN.map(t => `<div class="kt-def"><dt>${esc(t.t)}</dt><dd>${esc(t.d)}</dd></div>`).join('')}</div>
+    <details class="kt-tudien-d">
+      <summary><span class="kt-tudien-s">Từ điển cà phê nhanh</span><span class="kt-tudien-c">${TU_DIEN.length} thuật ngữ</span></summary>
+      <div class="kt-def-grid">${TU_DIEN.map(t => `<div class="kt-def"><dt>${esc(t.t)}</dt><dd>${esc(t.d)}</dd></div>`).join('')}</div>
+    </details>
   </section>` : '';
 
   // Schema FAQ gộp (bài viết + Mua gì) cho AI Search
@@ -1424,8 +1498,8 @@ function hubKienThuc() {
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Kiến thức</span></nav>
   ${hubHero('/assets/img/products/beans-tin.jpg', 'Kiến thức', 'Hiểu trước khi mua',
     'Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề — rồi trả lời thẳng câu “tôi nên mua gì?”.')}
-  ${learnPath}
-  ${arts}
+  ${groups}
+  ${restBlock}
   ${muaGi}
   ${tudien}
   <a class="rp-home" href="/">← Về trang chủ</a>
@@ -1540,6 +1614,16 @@ for (const [slug, fn] of HUBS) {
   console.log(`✓ ${slug}.html`);
 }
 
+/* ---- Ghi trang bài kiến thức riêng (/kien-thuc/<id>) ---- */
+if (BAIVIET.length) mkdirSync(join(ROOT, 'kien-thuc'), { recursive: true });
+const articleUrls = [];
+for (const b of BAIVIET) {
+  if (!b.id) { console.warn('⚠️  Bỏ qua bài thiếu id'); continue; }
+  writeFileSync(join(ROOT, 'kien-thuc', `${b.id}.html`), articlePage(b), 'utf8');
+  articleUrls.push(`${ORIGIN}/kien-thuc/${b.id}`);
+  console.log(`✓ kien-thuc/${b.id}.html`);
+}
+
 /* ---- Cập nhật sitemap.xml (trang chủ + hub + review + nhà rang + vùng trồng) ---- */
 const lastmod = isoDate(SITE.capNhat);
 const entry = (u, pri) => `  <url>
@@ -1558,11 +1642,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 ${hubUrls.map(u => entry(u, '0.9')).join('\n')}
 ${urls.map(u => entry(u, '0.8')).join('\n')}
+${articleUrls.map(u => entry(u, '0.7')).join('\n')}
 ${roasterUrls.map(u => entry(u, '0.7')).join('\n')}
 ${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 </urlset>
 `;
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
-const total = hubUrls.length + urls.length + roasterUrls.length + regionUrls.length + 1;
+const total = hubUrls.length + urls.length + articleUrls.length + roasterUrls.length + regionUrls.length + 1;
 console.log(`✓ sitemap.xml (${total} URL)`);
-console.log(`\nXong. ${hubUrls.length} hub · ${urls.length} review · ${roasterUrls.length} nhà rang · ${regionUrls.length} vùng trồng.`);
+console.log(`\nXong. ${hubUrls.length} hub · ${urls.length} review · ${articleUrls.length} bài · ${roasterUrls.length} nhà rang · ${regionUrls.length} vùng trồng.`);
