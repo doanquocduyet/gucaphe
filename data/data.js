@@ -176,7 +176,7 @@ const FAQ = [
 const BAIVIET = [
   {
     id: "natural-washed",
-    anh: "assets/img/art-1.jpg",
+    anh: "assets/img/art-natural-drying.jpg",
     tag: "Sơ chế",
     docPhut: 2, mucDo: "Người mới",
     tieuDe: "Natural hay Washed — vị khác nhau chỗ nào?",
@@ -279,7 +279,7 @@ const BAIVIET = [
   },
   {
     id: "vi-sao-specialty-dat",
-    anh: "assets/img/art-3.jpg",
+    anh: "assets/img/art-yellow-cherry.jpg",
     tag: "Đáng tiền không?",
     docPhut: 3, mucDo: "Người mới",
     tieuDe: "Specialty đắt hơn — bạn trả tiền cho điều gì?",
