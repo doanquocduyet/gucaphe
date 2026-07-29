@@ -2,7 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/roaster/:path*", "destination": "/nha-rang/:path*", "statusCode": 301 }
+    { "source": "/roaster/:path*", "destination": "/nha-rang/:path*", "statusCode": 301 },
+    { "source": "/review/dehavi-arabica-lac-duong", "destination": "/review/dehavi-yellow-bourbon-cau-dat", "statusCode": 301 }
   ],
   "headers": [
     {

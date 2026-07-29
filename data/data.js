@@ -69,16 +69,23 @@ const SP = [
     nen:["Mở quán, cần nguồn ổn định","Mua sỉ nhân xanh","Thích blend cân bằng"],
     khong:["Chỉ mua lẻ 1 gói thử","Muốn single-origin rõ vùng"],
     link:"https://tamtrinhcoffee.com/arabica-blend-ca-phe-pha-may/", anh:"assets/img/products/tamtrinh-natural.jpg" },
-  { id:"nb-dehavi", brand:"Dehavi (Hân Vinh)", ten:"Cà phê Đặc Sản Arabica Lạc Dương 250g", nhom:"hat", gia:130000, gram:250,
-    slug:"dehavi-arabica-lac-duong", pha:["phin","espresso"],
-    vungSlug:"lac-duong", xaHuyen:"Lạc Dương, Lâm Đồng",
-    giong:"Arabica", doCao:"", process:"Rang mộc nguyên chất", roast:"Medium", ngayRang:"",
+  { id:"nb-dehavi", brand:"Dehavi (Hân Vinh)", ten:"Yellow Bourbon Cầu Đất 250g", nhom:"hat", gia:175000, gram:250,
+    slug:"dehavi-yellow-bourbon-cau-dat", pha:["phin","espresso"],
+    vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Đà Lạt, Lâm Đồng",
+    giong:"Yellow Bourbon (Arabica)", doCao:"1.550–1.700m", process:"Full washed", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"OCOP 4 sao · ISO 22000", diem:null, chua:null, dam:null, hau:null,
-    flavor:"Đã mua và uống thật — sạch, dịu, dễ tiếp cận cho người mới uống đặc sản; giá mềm nhất nhóm. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
-    tags:["Cho người mới","Giá mềm","Pha phin"],
-    nen:["Mới uống đặc sản","Ngân sách vừa","Muốn thử mà không tốn nhiều"],
-    khong:["Muốn dòng đạt giải quốc tế","Cần sơ chế đặc biệt"],
-    link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-bag.jpg" },
+    chot:"Yellow Bourbon Cầu Đất — ngọt trái cây, chocolate sữa, hậu vị sạch.",
+    nhanXet:"Gói 100% Yellow Bourbon rang mộc từ Cầu Đất (1.550–1.700m), sơ chế full washed. Vị ngọt trái cây, chocolate sữa, thoáng hương nhài, hậu vị sạch — dễ uống, hợp cả pha phin lẫn pha máy. Là dòng chủ lực dễ tiếp cận của Dehavi cho người mới bước vào specialty.",
+    flavor:"Đã mua và uống thật — ngọt trái cây, chocolate sữa, thoáng hương nhài, hậu vị sạch. 100% Yellow Bourbon rang mộc. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
+    tags:["Yellow Bourbon","Ngọt · chocolate","Cầu Đất 1.550m"],
+    nen:["Mới uống đặc sản","Thích ngọt trái cây, chocolate sữa","Pha phin hoặc pha máy"],
+    khong:["Muốn dòng đạt giải quốc tế","Thích rang nhạt, chua sáng gắt"],
+    faq:[
+      {q:"Yellow Bourbon là gì?",a:"Là biến chủng Arabica cho quả chín màu vàng, nổi tiếng vị ngọt và cân bằng. Gói này 100% Yellow Bourbon trồng ở Cầu Đất 1.550–1.700m, sơ chế full washed."},
+      {q:"Gói này hợp pha gì?",a:"Rang medium, sơ chế washed nên linh hoạt — hợp pha phin và pha máy, vẫn ổn với pour over."},
+      {q:"Có hợp người mới không?",a:"Rất hợp. Vị ngọt, sạch, dễ uống, giá dễ tiếp cận — là điểm vào specialty dễ chịu."}
+    ],
+    link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-yellow-bourbon.jpg" },
   /* ===== 2 nhà mới (Thay đổi ③) — số liệu tra web thật 07/2026, giá THAM KHẢO, tested:false. ===== */
   { id:"mb-yellowcherry", brand:"The Married Beans", ten:"Yellow Cherry Natural Cầu Đất (nhân xanh) 500g", nhom:"hat", gia:450000, gram:500,
     slug:"married-beans-yellow-cherry-cau-dat", pha:["v60","coldbrew"],
@@ -205,13 +212,13 @@ const BAIVIET = [
     dek: "Bùi, Tám Trình hay Dehavi — ba nhà mạnh nhất Nam Ban, mỗi nhà một thế mạnh. Gu mua thật, pha mù, chấm điểm để bạn chọn đúng gói cho túi tiền của mình.",
     than:
       "<p>Nam Ban (Lâm Hà, Lâm Đồng) có ba nhà cà phê đáng chú ý nhất: <b>Bùi</b>, <b>Tám Trình</b> và <b>Dehavi</b>. Cả ba đều tự nói mình ngon — vì họ là người bán. Trang này khác: chúng tôi không bán cà phê của mình, mà mua của cả ba, pha mù, chấm theo cùng một thang.</p>" +
-      "<p><b>Chọn nhanh:</b> Mới uống hoặc ngân sách vừa → <b>Dehavi Arabica Lạc Dương (130k)</b>. Muốn ngon chuẩn giải quốc tế → <b>Bùi Fine Robusta Nam Ban (179k)</b>, dòng đạt Top 14 Thế Giới 2024. Mở quán hoặc mua sỉ → <b>Tám Trình</b>, 30 năm, mạnh nhân xanh.</p>" +
+      "<p><b>Chọn nhanh:</b> Mới uống, muốn Arabica dễ uống → <b>Dehavi Yellow Bourbon Cầu Đất (175k)</b>. Muốn ngon chuẩn giải quốc tế → <b>Bùi Fine Robusta Nam Ban (179k)</b>, dòng đạt Top 14 Thế Giới 2024. Mở quán hoặc mua sỉ → <b>Tám Trình</b>, 30 năm, mạnh nhân xanh.</p>" +
       "<p><b>① Bùi</b> (nông trại Bui Origin, Mê Linh): chuyên nghiệp và thành tích quốc tế nhất. Fine Robusta Nam Ban Top 14 Thế Giới 2024, xưởng 5 tấn/ngày, chứng nhận FDA/HACCP/ISO22000, xuất khẩu 12+ nước. Hợp người muốn trải nghiệm đặc sản đỉnh cao. Giá: Fine Robusta Nam Ban 179k, Arabica Cầu Đất 189k.</p>" +
       "<p><b>② Tám Trình</b> (Gia Lâm): lâu đời nhất, 30 năm, mạnh sản xuất, xuất khẩu và du lịch trải nghiệm. Shop mạnh mảng nhân xanh và sỉ. Hợp người mở quán, mua sỉ. Giá lẻ: coldbrew 100–280k, Arabica blend 150–280k.</p>" +
-      "<p><b>③ Dehavi</b> (Đông Anh, Nam Ban): bán lẻ giá mềm nhất, dễ tiếp cận cho người uống phổ thông. Chứng nhận OCOP 4 sao, ISO22000, FDA. Giá: Arabica Lạc Dương 130k (rẻ nhất), Yellow Bourbon 175k, Moka 230k.</p>" +
+      "<p><b>③ Dehavi</b> (Đông Anh, Nam Ban): mạnh dòng Arabica rang mộc dễ uống, nhiều mức giá dễ tiếp cận. Chứng nhận OCOP 4 sao, ISO22000, FDA. Dòng chủ lực: Yellow Bourbon Cầu Đất 175k; ngoài ra có Arabica Lạc Dương 130k, Moka 230k.</p>" +
       "<p><b>Cam kết:</b> Chúng tôi không nhận tài trợ để viết bài này. Điểm số cập nhật sau khi nếm mù từng gói — ngon thật chấm cao thật, có điểm yếu nói thẳng. Chưa uống thì chúng tôi không chấm.</p>",
     faq: [
-      { q: "Cà phê Nam Ban nên mua nhà nào?", a: "Tuỳ nhu cầu: mới uống hoặc ngân sách vừa → Dehavi Arabica Lạc Dương (130k). Muốn chuẩn giải quốc tế → Bùi Fine Robusta Nam Ban (179k), Top 14 Thế Giới 2024. Mở quán, mua sỉ → Tám Trình, 30 năm, mạnh nhân xanh." },
+      { q: "Cà phê Nam Ban nên mua nhà nào?", a: "Tuỳ nhu cầu: mới uống, muốn Arabica dễ uống → Dehavi Yellow Bourbon Cầu Đất (175k). Muốn chuẩn giải quốc tế → Bùi Fine Robusta Nam Ban (179k), Top 14 Thế Giới 2024. Mở quán, mua sỉ → Tám Trình, 30 năm, mạnh nhân xanh." },
       { q: "Cà phê Bùi (Bui Coffee) có tốt không?", a: "Bùi là nhà có thành tích quốc tế cao nhất nhóm: Fine Robusta Nam Ban đạt Top 14 Thế Giới 2024, xưởng 5 tấn/ngày, chứng nhận FDA/HACCP/ISO 22000. Hợp người muốn trải nghiệm đặc sản đỉnh cao." },
       { q: "Cà phê Nam Ban rẻ nhất mua ở đâu?", a: "Trong nhóm chúng tôi theo dõi, Dehavi bán lẻ giá mềm nhất — Arabica Lạc Dương 130.000₫/250g (52k/100g), dễ tiếp cận cho người uống phổ thông." }
     ],
@@ -228,8 +235,8 @@ const MUA_GI = [
     a: "Bắt đầu với <b>Arabica</b>: dịu, thơm, dễ uống và ít gắt. Robusta (kể cả Fine Robusta) mạnh và nhiều caffeine hơn — để dành khi bạn đã quen vị đậm.",
     label: "Vùng Arabica: Cầu Đất", href: "/vung-trong/cau-dat" },
   { q: "Dưới 200.000₫ nên mua gói nào?",
-    a: "Trong các gói chúng tôi <b>đã uống thật</b>, Dehavi — Arabica Lạc Dương (130.000₫ · 52k/100g) là lựa chọn dễ tiếp cận nhất.",
-    label: "Xem Dehavi Arabica Lạc Dương", href: "/review/dehavi-arabica-lac-duong" },
+    a: "Dehavi — Yellow Bourbon Cầu Đất (175.000₫ · 70k/100g) là Arabica ngọt, dễ uống, dễ tiếp cận cho người mới.",
+    label: "Xem Dehavi Yellow Bourbon", href: "/review/dehavi-yellow-bourbon-cau-dat" },
   { q: "Thích ít chua thì tránh loại nào?",
     a: "Tránh cà phê vùng cao <b>chua sáng</b> như Cầu Đất và các gói <b>rang sáng (Light)</b>. Chọn vùng thấp body dày như Nam Ban, rang Medium–Dark.",
     label: "Vùng ít chua: Nam Ban", href: "/vung-trong/nam-ban" },
@@ -414,20 +421,20 @@ const ROASTER = [
   {
     slug: "dehavi", ten: "Dehavi (Hân Vinh)",
     vungChinh: "Nam Ban", vungSlug: "nam-ban", web: "https://dehavi.com",
-    gioiThieu: "Nhà bán lẻ giá mềm nhất trong nhóm, gốc ngay tại xã Nam Ban. Mới bắt đầu uống cà phê đặc sản và không muốn tốn nhiều thì Dehavi là điểm vào dễ chịu.",
+    gioiThieu: "Nhà rang gốc Nam Ban, mạnh dòng Arabica rang mộc dễ uống. Dòng chủ lực Yellow Bourbon Cầu Đất hợp người mới bước vào cà phê đặc sản.",
     lichSu: "<p>Dehavi là thương hiệu rang xay của <b>Công ty TNHH Cà Phê Hân Vinh</b>, đặt tại thôn Đông Anh, xã Nam Ban, Lâm Hà — hơn <b>20 năm</b> làm nguyên liệu cà phê, đóng vai cầu nối giữa nông hộ với doanh nghiệp trong và ngoài nước.</p><p>Dehavi đạt chứng nhận <b>OCOP 4 sao</b>, ISO 22000, FDA, có nhà máy rang xay công suất lớn và vùng nguyên liệu trải nhiều tỉnh. Dòng đặc sản rang mộc nguyên chất của họ có giá tốt, hợp người uống phổ thông muốn thử hàng đặc sản mà không phải trả nhiều. Định vị của Dehavi là cà phê sạch, giá phải chăng, dễ tiếp cận.</p>",
     sanPham: ["nb-dehavi"], diemTB: null, chungNhan: "OCOP 4 sao · ISO 22000",
-    theManh: "Giá mềm, dễ tiếp cận", hopAi: "Người mới specialty", doiTuong: "Người mới",
-    nhuCau: "Mới uống, muốn tiết kiệm",
+    theManh: "Yellow Bourbon dễ uống", hopAi: "Người mới specialty", doiTuong: "Người mới",
+    nhuCau: "Mới uống specialty, Arabica dễ uống",
     motCau: "Dehavi là nhà rang giá mềm, dễ tiếp cận nhất trong nhóm Gu theo dõi, phù hợp người mới bắt đầu uống cà phê đặc sản.",
-    verdict: "Nếu bạn mới chuyển sang specialty và không muốn tốn nhiều, Dehavi là điểm vào dễ chịu nhất.",
+    verdict: "Nếu bạn mới chuyển sang specialty và muốn một Arabica ngọt, dễ uống, Dehavi Yellow Bourbon là điểm vào dễ chịu.",
     hopNhat: ["Người mới specialty", "Ngân sách dưới 200.000₫", "Pha phin, uống hằng ngày"],
     khongHop: ["Muốn trải nghiệm micro-lot, lô hiếm", "Muốn hương vị thật phức tạp"],
-    diemManh: ["Giá mềm nhất nhóm (Arabica Lạc Dương 130k)", "Chứng nhận OCOP 4 sao, ISO 22000, FDA", "Hơn 20 năm làm nguyên liệu, nguồn ổn định", "Định vị rõ: sạch, giá phải chăng"],
+    diemManh: ["Dòng chủ lực Yellow Bourbon Cầu Đất — ngọt, dễ uống", "Chứng nhận OCOP 4 sao, ISO 22000, FDA", "Hơn 20 năm làm nguyên liệu, nguồn ổn định", "Nhiều mức giá, có cả dòng 130k dễ tiếp cận"],
     diemCanBiet: ["Không nhắm phân khúc lô hiếm / đấu giá", "Hương vị an toàn, ít 'gây bất ngờ'"],
     faq: [
-      { q: "Dehavi có đáng mua không?", a: "Đáng, nếu bạn mới uống specialty và muốn giá mềm. Gói Arabica Lạc Dương 130.000₫ (52k/100g) là điểm vào rẻ và dễ chịu. Gu đã mua và uống thật." },
-      { q: "Dehavi có hợp người mới không?", a: "Rất hợp. Đây là nhà bán lẻ giá mềm nhất nhóm, định vị cà phê sạch, giá phải chăng, dễ tiếp cận — điểm vào lý tưởng cho người mới specialty." },
+      { q: "Dehavi có đáng mua không?", a: "Đáng, nếu bạn muốn một Arabica ngọt, sạch, dễ uống. Dòng chủ lực Yellow Bourbon Cầu Đất (175k) rang mộc, hợp người mới; Dehavi cũng có dòng 130k dễ tiếp cận hơn. Gu đã mua và uống thật." },
+      { q: "Dehavi có hợp người mới không?", a: "Rất hợp. Định vị cà phê sạch, dễ uống, nhiều mức giá dễ tiếp cận — điểm vào lý tưởng cho người mới specialty." },
       { q: "Dehavi mạnh nhất về gì?", a: "Arabica giá tốt và độ phủ ổn định. Dehavi hơn 20 năm làm nguyên liệu, đạt OCOP 4 sao và ISO 22000." },
       { q: "Cà phê Dehavi có phải đặc sản không?", a: "Dòng rang mộc nguyên chất của họ hướng tới đặc sản phổ thông — minh bạch, có chứng nhận, nhưng không phải lô đấu giá." }
     ]
@@ -520,7 +527,7 @@ const ROASTER = [
 /* ---- Gợi ý theo nhu cầu — "Mua cho ai". Mỗi nhóm khách trỏ tới 1 gói (spId).
    Dùng ở hub /ca-phe để khách quyết định nhanh rồi bấm mua. ---- */
 const NHUCAU = [
-  { label: "Mới uống · tiết kiệm", vi: "Nhập môn đặc sản, không tốn nhiều tiền.", spId: "nb-dehavi" },
+  { label: "Mới uống specialty", vi: "Arabica Yellow Bourbon ngọt, dễ uống cho người nhập môn.", spId: "nb-dehavi" },
   { label: "Đạt giải quốc tế", vi: "Fine Robusta Nam Ban — Top 14 Thế Giới 2024.", spId: "nb-bui" },
   { label: "Chua sáng · pha V60", vi: "Arabica vùng cao, gói điểm nếm mù cao nhất.", spId: "lb1" },
   { label: "Mở quán · mua sỉ", vi: "Nhà rang lớn, phù hợp mua số lượng.", spId: "nb-tamtrinh" },
