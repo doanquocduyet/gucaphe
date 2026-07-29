@@ -67,7 +67,7 @@ const SP = [
       {q:"Gói này bao nhiêu điểm?",a:"Nhà rang công bố 81–83 điểm SCA. Gu chưa nếm mù gói này nên chưa gắn điểm của Gu — nếm xong sẽ cập nhật."},
       {q:"Hợp pha gì?",a:"Rang sáng, lên men anaerobic nên hợp pour over (V60, Chemex) để tôn hương trái cây và hoa; không hợp pha phin đậm."}
     ],
-    link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"" },
+    link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-lot.jpg" },
 
   { id:"sp-heirloom", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-29",
     selectionCriteria:{signature:false,community:true,khacBiet:true,hocThuat:true,benVung:false},
