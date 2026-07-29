@@ -1,3 +1,25 @@
+# Gu Cà Phê — Product Review Specification v1.1
+
+> **HIẾN PHÁP:** Mọi dữ liệu phải có nguồn xác minh từ **chính Gu** hoặc **nguồn chính thức của nhà rang**. Chưa xác minh → để `null`, UI tự ẩn. **Gu ưu tiên tính đúng hơn tính đầy đủ. Gu không thu thập sản phẩm — Gu tuyển chọn bằng chứng.**
+
+## Ba trường tuyển chọn (v1.1)
+
+- **`confidence`** — mức Gu đã xác minh tới đâu:
+  - `blind_tested` → Gu đã mua + nếm mù + chấm điểm (có `diem`, `chua/dam/hau/ngot/sach`).
+  - `editor_tasted` → Gu đã mua & uống thật, chưa nếm mù (không có điểm).
+  - `editor_research` → mới nghiên cứu từ nguồn chính thức, **chưa mua/nếm**. Hiện nhãn “Mới nghiên cứu”; giá/thông số chưa xác minh để `null`.
+- **`guPick`** — vai trò trong bộ sưu tập (khác `confidence`):
+  - `editor` 🏆 Editor’s Pick (gói đại diện nhà rang) · `signature` 🥈 (gói đặc trưng) · `collector` 💎 (dòng hiếm/thử nghiệm).
+- **`selectionCriteria`** — 5 boolean, gói vào bộ sưu tập nên đạt ≥4/5:
+  `{signature, community, khacBiet, hocThuat, benVung}` — (1) signature của nhà, (2) cộng đồng specialty ghi nhận, (3) khác biệt gói đã có, (4) giá trị học về giống/sơ chế/vùng, (5) bán ổn định 2–3 năm.
+- **`verificationDate`** — ngày xác minh dữ liệu (vd "2026-07-29").
+
+Quy tắc render: `blind_tested` → điểm + hồ sơ vị + quy trình chấm mù. `editor_tasted` → card mộc (model A, không nhãn trạng thái). `editor_research` → nhãn “Mới nghiên cứu” + banner minh bạch, `gia:null` → hiện “Giá đang cập nhật”. **Không suy ra vị/điểm cho gói chưa nếm.** Điểm SCA do nhà rang công bố (nếu có) phải ghi rõ “nhà rang công bố”, không trộn với điểm của Gu.
+
+Lớp dữ liệu: **public** (product/review/guPick/confidence/flavor/score/faq) = 100% đúng hoặc trống. **Nội bộ** (status đặt/nhận, chi phí, batch, coverage dashboard) = KHÔNG lên web (để Google Sheet).
+
+---
+
 # Gu Cà Phê — Product Review Specification v1.0
 
 Mỗi trang `/review/<slug>` là **một bản ghi dữ liệu (structured record)**, không phải một bài viết.

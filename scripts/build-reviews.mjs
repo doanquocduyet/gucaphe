@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260773';
+const CSS_V = '20260774';
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
@@ -40,8 +40,8 @@ const ROASTER_BY_PID = {};
 ROASTER.forEach(r => (r.sanPham || []).forEach(id => { ROASTER_BY_PID[id] = r; }));
 
 /* ---- Helpers ---- */
-const money  = n => Number(n).toLocaleString('vi-VN') + '₫';
-const per100 = p => p.gram ? Math.round(p.gia / p.gram * 100) : null;
+const money  = n => (n == null ? '' : Number(n).toLocaleString('vi-VN') + '₫');
+const per100 = p => (p.gram && p.gia != null) ? Math.round(p.gia / p.gram * 100) : null;
 /* 3 tầng trung thực: đã chấm mù (có điểm) · đã uống (chưa chấm mù) · chưa thử */
 const isScored = p => p.tested && p.diem != null;
 const statusTxt = p => isScored(p) ? `${p.diem}/10` : (p.daUong ? 'Đã uống' : 'Chưa nếm');
@@ -347,7 +347,7 @@ function productReviewBody(p, tested) {
   const hero = `<header class="rp-hero">
     ${media(p)}
     <div class="rp-hero-body">
-      <div class="eyebrow">Review${tested ? ' · Đã nếm mù' : ' · Gu tuyển chọn'}</div>
+      <div class="eyebrow">${p.guPick ? esc(GUPICK[p.guPick]) + ' · ' : ''}Review${tested ? ' · Đã nếm mù' : (p.confidence === 'editor_research' ? ' · Mới nghiên cứu' : '')}</div>
       <div class="rp-brand">${r ? `<a href="/nha-rang/${r.slug}">${esc(p.brand)}</a>` : esc(p.brand)}</div>
       <h1>${esc(p.ten)}</h1>
       ${p.chot ? `<p class="rp-chot">${esc(p.chot)}</p>` : ''}
@@ -356,7 +356,7 @@ function productReviewBody(p, tested) {
         <div class="rp-price-row">
           ${tested ? `<div class="rp-score">${p.diem}<span>/10</span></div>` : ''}
           ${!tested && p.chungNhan ? `<div class="rp-cred">${esc(p.chungNhan)}</div>` : ''}
-          <div class="rp-price"><b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}</div>
+          <div class="rp-price">${p.gia != null ? `<b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}` : '<b class="rp-tbd">Giá đang cập nhật</b>'}</div>
         </div>
         ${buyLink(p)}
         <p class="rp-aff-note">Link tiếp thị liên kết — bạn mua đúng giá Shopee niêm yết, không trả thêm đồng nào.</p>
@@ -365,6 +365,11 @@ function productReviewBody(p, tested) {
   </header>`;
 
   // 1 · GU VERDICT
+  const researchNote = p.confidence === 'editor_research' ? `<div class="pv-research">
+    <span class="pv-research-k">Mới nghiên cứu</span>
+    <p>Gu <b>chưa mua & nếm</b> gói này — thông tin lấy từ nguồn chính thức của nhà rang. Trường nào chưa xác minh sẽ để trống. Điểm số của Gu chỉ có sau khi nếm mù.</p>
+  </div>` : '';
+
   const verdictSec = `<section class="pv-verdict">
     <span class="pv-kick">Gu Cà Phê nhận xét</span>
     <p>${p.nhanXet ? esc(p.nhanXet) : verdict(p)}</p>
@@ -439,6 +444,7 @@ function productReviewBody(p, tested) {
   const ctaFoot = `<div class="rp-cta-foot">${buyLink(p, 'Mua ' + esc(p.brand))}</div>`;
 
   return `${hero}
+  ${researchNote}
   ${verdictSec}
   ${specSec}
   ${flavorSec}
@@ -1096,18 +1102,24 @@ function pcard(p, pos) {
     ? `<img src="${esc(src)}" alt="${esc(p.brand)} — ${esc(p.ten)}" loading="lazy">`
     : `<div class="pc-swatch" style="background:${ROAST_BG[p.roast] || '#8A6A44'}"><span>${esc(p.roast ? 'Rang ' + p.roast.toLowerCase() : 'Đặc sản')}</span></div>`;
   const badge = t ? `<span class="pc-badge pc-badge-scored">${p.diem}</span>` : '';
-  return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia}" data-per100="${per100(p) || 0}">
-      <a class="pc-media" href="/review/${p.slug}">${media}${badge}</a>
+  const rchip = p.confidence === 'editor_research' ? `<span class="pc-research">Mới nghiên cứu</span>` : '';
+  return `<div class="pc" data-tested="${t ? 1 : 0}" data-diem="${p.diem || 0}" data-gia="${p.gia || 0}" data-per100="${per100(p) || 0}">
+      <a class="pc-media" href="/review/${p.slug}">${media}${badge}${rchip}</a>
       <div class="pc-body">
+        ${p.guPick ? `<div class="pc-gp pc-gp--${p.guPick}">${GUPICK[p.guPick]}</div>` : ''}
         <div class="pc-brand">${esc(p.brand)}</div>
         <a class="pc-name" href="/review/${p.slug}">${esc(p.ten)}</a>
         ${p.chungNhan ? `<div class="pc-cred"><span class="pc-cred-ic">✓</span>${esc(p.chungNhan)}</div>` : ''}
         ${(p.tags && p.tags.length) ? `<div class="pc-tags">${p.tags.slice(0, 3).map(t => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
-        <div class="pc-meta">${money(p.gia)}${per100(p) ? ` · <span>${money(per100(p))}/100g</span>` : ''}</div>
+        <div class="pc-meta">${priceHTML(p)}</div>
         <div class="pc-foot">${buyMini(p, pos || 'product_card')}<a class="pc-detail" href="/review/${p.slug}">Chi tiết →</a></div>
       </div>
     </div>`;
 }
+const GUPICK = { editor: 'Editor’s Pick', signature: 'Signature', collector: 'Collector' };
+const priceHTML = p => p.gia != null
+  ? `${money(p.gia)}${per100(p) ? ` · <span>${money(per100(p))}/100g</span>` : ''}`
+  : `<span class="pc-tbd">Giá đang cập nhật</span>`;
 /* ---- Bộ chọn theo vị — dùng chung /ca-phe & /vung-trong (nhất quán "ngôn ngữ hương vị") ---- */
 function tasteSelector(title) {
   const subs = VUNG.filter(v => !v.hub);
@@ -1154,12 +1166,14 @@ function hubCaPhe() {
   const nGoi = SP.length;
   const nRang = ROASTER.filter(r => (r.sanPham || []).some(id => SP_BY_ID[id])).length;
   const nCham = SP.filter(p => p.tested && p.diem != null).length;
+  const nUong = SP.filter(p => (p.tested && p.diem != null) || p.daUong).length;
+  const nNC = SP.filter(p => p.confidence === 'editor_research').length;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
-    'Cả 6 gói chúng tôi đều đã <b>mua và uống thật</b>. Gói nào đã <b>chấm mù</b> thì có điểm; gói mới <b>“Đã uống”</b> thì chưa gắn số. Danh sách dưới đây không phải bảng xếp hạng.')}
+    'Bộ sưu tập tuyển chọn — mỗi gói đại diện cho một phần bức tranh cà phê đặc sản. Gói nào Gu đã <b>chấm mù</b> thì có điểm; gói mới nghiên cứu từ nguồn chính thức được ghi rõ <b>“Mới nghiên cứu”</b>. Không phải bảng xếp hạng.')}
 
-  <p class="hub-intro">Gu Cà Phê đã <b>mua và uống thật ${nGoi} gói</b> cà phê từ <b>${nRang} nhà rang</b> ở Lâm Đồng, trong đó <b>${nCham} gói đã chấm mù</b>. Danh sách được phân loại theo nhu cầu, vùng trồng, cách pha và mức giá để bạn dễ chọn.</p>
+  <p class="hub-intro">Gu Cà Phê đã <b>mua và uống thật ${nUong} gói</b> từ <b>${nRang} nhà rang</b> ở Lâm Đồng${nCham ? `, trong đó <b>${nCham} gói đã chấm mù</b>` : ''}${nNC ? `; thêm <b>${nNC} gói đang nghiên cứu</b> từ nguồn chính thức (ghi rõ nhãn “Mới nghiên cứu”, chưa gắn điểm)` : ''}. Mỗi gói được chọn vì bổ sung một góc khác của bản đồ cà phê đặc sản.</p>
 
   ${NHUCAU.length ? `<section class="seg-wrap">
     <div class="hub-sec-head">
@@ -1176,7 +1190,7 @@ function hubCaPhe() {
     <div class="hub-sec-head">
       <div class="eyebrow">② Tất cả sản phẩm</div>
       <div class="cmp-bar">
-        <h2 class="hub-sec-t">Tất cả những gói Gu đã mua</h2>
+        <h2 class="hub-sec-t">Bộ sưu tập tuyển chọn của Gu</h2>
         <div class="cmp-sortbar">
           <span>Sắp theo:</span>
           <button class="on" onclick="cpSort('diem',this)">Điểm cao</button>
@@ -1184,7 +1198,14 @@ function hubCaPhe() {
           <button onclick="cpSort('per100',this)">Giá/100g</button>
         </div>
       </div>
-      <p class="hub-sec-sub">So sánh tất cả sản phẩm theo điểm, giá và giá/100g.</p>
+      <p class="hub-sec-sub">Mỗi gói được chọn vì đại diện cho một phần của bức tranh cà phê đặc sản — không phải catalog.</p>
+    </div>
+    <div class="gu-legend">
+      <span class="gu-legend-t">Nhãn tuyển chọn:</span>
+      <span class="pc-gp pc-gp--editor">Editor’s Pick</span> gói đại diện nhà rang ·
+      <span class="pc-gp pc-gp--signature">Signature</span> gói đặc trưng ·
+      <span class="pc-gp pc-gp--collector">Collector</span> dòng hiếm ·
+      <span class="pc-research pc-research--inline">Mới nghiên cứu</span> Gu chưa nếm
     </div>
     <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
