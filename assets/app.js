@@ -51,9 +51,14 @@ function aff(id, channel, pos) {
   if (url && url !== '#') window.open(url, '_blank', 'noopener');
 }
 
+/* ---- Nhãn nút mua theo nơi bán thật (Shopee vs trang chính hãng) ---- */
+const isShopee = p => /shopee\./i.test(p.link || '');
+const buyLabel = p => isShopee(p) ? 'Mua trên Shopee' : 'Mua chính hãng';
+
 /* ---- Nút mua: hiện giá ngay trên nút (neo giá) + kênh phụ nếu có link ---- */
 function buyCTA(p, pos, label) {
-  const main = `<button class="cta" onclick="aff('${p.id}','shopee','${pos}')">${label || 'Mua trên Shopee'} · ${money(p.gia)}</button>`;
+  const ch = isShopee(p) ? 'shopee' : 'brand';
+  const main = `<button class="cta" onclick="aff('${p.id}','${ch}','${pos}')">${label || buyLabel(p)} · ${money(p.gia)}</button>`;
   const alts = [];
   if (p.lazada) alts.push(`<button class="cta-alt" onclick="aff('${p.id}','lazada','${pos}')">Lazada</button>`);
   if (p.tiki)   alts.push(`<button class="cta-alt" onclick="aff('${p.id}','tiki','${pos}')">Tiki</button>`);

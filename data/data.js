@@ -165,7 +165,7 @@ const FAQ = [
   { q:"Cà phê specialty là gì?",
     a:"Là cà phê đạt từ 80/100 điểm theo thang SCA — truy xuất được vùng trồng, giống, cách sơ chế. Trên trang này, mỗi sản phẩm đều ghi rõ ba thông tin đó. Lưu ý: specialty không đồng nghĩa với hợp khẩu vị mọi người — nó nói về chất lượng và tính minh bạch, không phải bạn có thích hay không." },
   { q:"Mua qua link trên trang có đắt hơn không?",
-    a:"Không. Bạn mua đúng giá Shopee niêm yết, chúng tôi nhận hoa hồng từ sàn — bạn không trả thêm đồng nào." },
+    a:"Không. Bạn mua đúng giá niêm yết tại nơi bán (Shopee hoặc trang chính hãng của nhà rang); chúng tôi nhận hoa hồng tiếp thị — bạn không trả thêm đồng nào." },
   { q:"Vì sao có sản phẩm không có điểm số?",
     a:"Chúng tôi chỉ công bố điểm sau khi hoàn thành bài nếm mù. Một số gói đã uống nhưng chưa qua quy trình này được gắn nhãn “Đã uống” thay vì điểm số. Chúng tôi không chấm điểm dựa trên cảm nhận nhớ lại." },
   { q:"Vì sao so giá theo 100g thay vì theo gói?",

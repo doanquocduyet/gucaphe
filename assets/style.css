@@ -1246,14 +1246,16 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-buy-sub{font-size:16px;color:var(--ink-soft);margin-bottom:26px;max-width:60ch}
 .kt-buy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .kt-buy-card{padding:24px 26px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2);
-  display:flex;flex-direction:column}
+  display:flex;flex-direction:column;text-decoration:none;
+  transition:transform .15s,border-color .15s,box-shadow .15s}
+.kt-buy-card:hover{transform:translateY(-3px);border-color:var(--brown);box-shadow:0 14px 32px -22px rgba(90,61,34,.5)}
 .kt-buy-q{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;
   color:var(--ink);margin-bottom:10px}
 .kt-buy-a{font-size:15px;line-height:1.6;color:var(--ink-soft);margin-bottom:16px;flex:1}
 .kt-buy-a b{color:var(--ink);font-weight:700}
 .kt-buy-go{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--brown);
-  text-decoration:none;border-bottom:1.5px solid transparent;align-self:flex-start;transition:.15s}
-.kt-buy-go:hover{border-color:var(--brown)}
+  border-bottom:1.5px solid transparent;align-self:flex-start;transition:.15s}
+.kt-buy-card:hover .kt-buy-go{border-color:var(--brown)}
 
 /* --- Kiến thức: lưới thẻ theo nhóm (hub gọn, có ảnh, không nhảy trong trang) --- */
 .kt-group{margin:44px 0}
@@ -1572,7 +1574,8 @@ footer a:hover{border-color:var(--gold-soft)}
 .buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(250,247,241,.94);
   backdrop-filter:saturate(160%) blur(14px);border-top:1px solid var(--line)}
 .buybar-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
-.buybar-info{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;color:var(--ink)}
+.buybar .cta{white-space:nowrap;flex:none}
+.buybar-info{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;color:var(--ink);min-width:0}
 .buybar-info b{font-weight:800}
 .buybar-info span{color:var(--ink-dim);font-family:'JetBrains Mono',monospace;font-size:11.5px}
 body:has(.buybar){padding-bottom:60px}

@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260796';
+const CSS_V = '20260797';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -261,13 +261,18 @@ function flavorPara(p) {
   return `<p>${notes}${esc(p.flavor || '')}</p>`;
 }
 
+/* ---- Nhãn nút mua theo nơi bán thật (Shopee vs trang chính hãng nhà rang) ---- */
+const isShopee = p => /shopee\./i.test(p.link || '');
+const buyLabel = p => isShopee(p) ? 'Mua trên Shopee' : 'Mua chính hãng';
+const buyChannel = p => isShopee(p) ? 'shopee' : 'brand';
+
 /* ---- Nút mua (affiliate) — rel="sponsored" đúng chuẩn Google ---- */
 function buyLink(p, label) {
   const url = esc(p.link || '#');
   const alts = [];
   if (p.lazada) alts.push(`<a class="cta-alt" href="${esc(p.lazada)}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'lazada',position:'review_page',tested:${p.tested ? 1 : 0}})">Lazada</a>`);
   if (p.tiki)   alts.push(`<a class="cta-alt" href="${esc(p.tiki)}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'tiki',position:'review_page',tested:${p.tested ? 1 : 0}})">Tiki</a>`);
-  return `<a class="cta" href="${url}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'shopee',position:'review_page',tested:${p.tested ? 1 : 0}})">${label || 'Mua trên Shopee'} · ${money(p.gia)}</a>`
+  return `<a class="cta" href="${url}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_page',tested:${p.tested ? 1 : 0}})">${label || buyLabel(p)} · ${money(p.gia)}</a>`
     + (alts.length ? `<div class="cta-alts"><span>Hoặc:</span>${alts.join('')}</div>` : '');
 }
 
@@ -382,7 +387,9 @@ function productReviewBody(p, tested) {
           <div class="rp-price">${p.gia != null ? `<b>${money(p.gia)}</b>${per100(p) ? `<span>${money(per100(p))} / 100g · ${p.gram}g</span>` : ''}` : '<b class="rp-tbd">Giá đang cập nhật</b>'}</div>
         </div>
         ${buyLink(p)}
-        <p class="rp-aff-note">Link tiếp thị liên kết — bạn mua đúng giá Shopee niêm yết, không trả thêm đồng nào.</p>
+        <p class="rp-aff-note">${isShopee(p)
+          ? 'Link tiếp thị liên kết — bạn mua đúng giá Shopee niêm yết, không trả thêm đồng nào.'
+          : `Dẫn tới trang bán chính hãng của ${esc(p.brand)} — bạn mua đúng giá niêm yết, không trả thêm đồng nào.`}</p>
       </div>
     </div>
   </header>`;
@@ -543,7 +550,7 @@ ${siteNav('caphe')}
 <div class="buybar">
   <div class="wrap buybar-in">
     <div class="buybar-info"><b>${esc(p.brand)}</b> · ${money(p.gia)}${per100(p) ? ` <span>· ${money(per100(p))}/100g</span>` : ''}${tested ? ` <span>· ${p.diem}/10</span>` : ''}</div>
-    <a class="cta cta-sm" href="${esc(p.link || '#')}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'shopee',position:'review_stickybar',tested:${tested ? 1 : 0}})">Mua trên Shopee →</a>
+    <a class="cta cta-sm" href="${esc(p.link || '#')}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_stickybar',tested:${tested ? 1 : 0}})">${buyLabel(p)} →</a>
   </div>
 </div>
 
@@ -1552,11 +1559,11 @@ function hubKienThuc() {
       <p class="kt-buy-sub">Trả lời nhanh những câu hỏi hay gặp nhất — nối thẳng tới gói hoặc vùng thật.</p>
     </div>
     <div class="kt-buy-grid">
-      ${MUA_GI.map(m => `<div class="kt-buy-card">
+      ${MUA_GI.map(m => `<a class="kt-buy-card" href="${m.href}">
         <div class="kt-buy-q">${esc(m.q)}</div>
         <p class="kt-buy-a">${m.a}</p>
-        <a class="kt-buy-go" href="${m.href}">${esc(m.label)} →</a>
-      </div>`).join('')}
+        <span class="kt-buy-go">${esc(m.label)} →</span>
+      </a>`).join('')}
     </div>
   </section>` : '';
 
