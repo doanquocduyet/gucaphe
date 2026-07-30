@@ -496,8 +496,10 @@ footer a:hover{border-color:var(--gold-soft)}
   body > section{padding:52px 22px}
   #top{padding:0}
   #pick{padding-top:30px}
+  .hero-stage{min-height:clamp(400px,66svh,540px)}
   .hero-cta-row{gap:12px}
   .hero-cta-row .cta,.hero-cta-row .cta-ghost{width:100%;justify-content:center}
+  .hero-proof-in{gap:6px 0;padding:13px 22px 15px}
   /* Menu mobile — overlay mực đen, editorial, số thứ tự mono, hé lộ từng dòng */
   .nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;
     width:44px;height:44px;margin-left:auto;cursor:pointer;position:relative;z-index:60;
