@@ -106,18 +106,14 @@ function renderTop() {
       <div class="hero-scrim"></div>
       <div class="hero-inner">
         <div class="hero-eyebrow">Cà phê đặc sản Lâm Đồng</div>
-        <h1>Chưa uống<br>thì không chấm.</h1>
+        <h1>Chưa uống<br>thì không chấm</h1>
         <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm</div>
+        <p class="hero-note"><b>Nếm mù</b> = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng.</p>
         <div class="hero-flags"><span class="hero-flag">Không có bài viết tài trợ</span></div>
         <div class="hero-cta-row">
           <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
           <button class="cta-ghost" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
         </div>
-      </div>
-    </div>
-    <div class="hero-proof">
-      <div class="wrap">
-        <p class="proof-note"><b>Nếm mù</b> = uống thử mà không biết trước giá hay nhãn hiệu, để chấm cho công bằng. Cập nhật ${SITE.capNhat}.</p>
       </div>
     </div>`;
 }
@@ -396,7 +392,7 @@ function renderPeak() {
     <div class="peak-in">
       <div class="peak-kicker">Độc lập biên tập</div>
       <p class="peak-setup">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi</p>
-      <p class="peak-punch">chưa bỏ vào miệng.</p>
+      <p class="peak-punch">chưa bỏ vào miệng</p>
     </div>`;
 }
 
