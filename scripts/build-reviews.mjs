@@ -29,7 +29,8 @@ const CSS_V = '20260778';
 const OG_DEFAULT = `${ORIGIN}/assets/img/og/default.jpg`;
 const OG_SET = new Set(['cau-dat.jpg', 'nam-ban.jpg', 'lac-duong.jpg', 'da-lat.jpg',
   'cherries-branch.jpg', 'green-beans.jpg', 'art-natural-drying.jpg',
-  'son-pacamara-lot.jpg', 'son-heirloom.jpg', 'bui-fine-robusta.jpg', 'dehavi-yellow-bourbon.jpg']);
+  'son-pacamara-lot.jpg', 'son-heirloom.jpg', 'bui-fine-robusta.jpg', 'dehavi-yellow-bourbon.jpg',
+  'art-cherry-hand.jpg', 'espresso-pull.jpg', 'green-beans-hand.jpg', 'cup-espresso.jpg', 'roasting.jpg']);
 const ogForSrc = src => {
   const b = src ? src.split('/').pop() : '';
   return b && OG_SET.has(b) ? `${ORIGIN}/assets/img/og/${b}` : OG_DEFAULT;
@@ -1111,7 +1112,8 @@ function hubNhaRang() {
   return pageShell({
     title: '6 nhà rang cà phê đặc sản Lâm Đồng chúng tôi chọn đồng hành | Gu Cà Phê',
     desc: 'Sáu nhà rang cà phê đặc sản Lâm Đồng Gu đã mua, uống và tìm hiểu: Bùi, Dehavi, Tám Trình, Sơn Pacamara, The Married Beans, Là Việt — mỗi nhà một thế mạnh, hợp ai.',
-    url, ogType: 'website', schema, active: 'nharang', main
+    url, ogType: 'website', schema, active: 'nharang', main,
+    ogImage: ogForSrc('roasting.jpg'), ogAlt: 'Nhà rang cà phê đặc sản Lâm Đồng'
   });
 }
 
@@ -1255,7 +1257,8 @@ function hubCaPhe() {
   return pageShell({
     title: 'Cà phê đặc sản Lâm Đồng — đã nếm mù, chấm điểm, giá/100g | Gu Cà Phê',
     desc: 'Cà phê đặc sản Lâm Đồng: điểm nếm mù, giá, giá/100g, mua ở đâu. Gợi ý gói theo nhu cầu — mới uống, gu đậm, mở quán, tự rang.',
-    url, ogType: 'website', schema, active: 'caphe', main
+    url, ogType: 'website', schema, active: 'caphe', main,
+    ogImage: ogForSrc('cup-espresso.jpg'), ogAlt: 'Cà phê đặc sản Lâm Đồng'
   });
 }
 
@@ -1596,7 +1599,8 @@ function hubCachTest() {
   return pageShell({
     title: 'Phương pháp đánh giá cà phê — mua ẩn danh, nếm mù, chấm cảm quan | Gu Cà Phê',
     desc: 'Phương pháp đánh giá cà phê của Gu Cà Phê: mua ẩn danh, pha cùng điều kiện (cỡ xay medium, 1:15, 92°C), nếm mù rồi mới công bố điểm. Cam kết, giới hạn phương pháp và chính sách hoa hồng minh bạch.',
-    url, ogType: 'website', schema: faqSchema, active: 'method', main
+    url, ogType: 'website', schema: faqSchema, active: 'method', main,
+    ogImage: ogForSrc('espresso-pull.jpg'), ogAlt: 'Phương pháp đánh giá cà phê của Gu'
   });
 }
 

@@ -132,7 +132,7 @@ const SP = [
     tags:["Nhân xanh","Cần tự rang","Trái cây nhiệt đới"],
     nen:["Người tự rang / có mối rang","Thích lô truy xuất rõ nguồn gốc"],
     khong:["Muốn mua về pha uống ngay (đây là nhân xanh)","Chưa có thiết bị rang"],
-    link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"assets/img/products/green-beans.jpg" },
+    link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"assets/img/products/green-beans-hand.jpg" },
   { id:"lv-balanced", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:false,community:true,khacBiet:false,hocThuat:false,benVung:true}, brand:"Là Việt Coffee", ten:"Là Việt Balanced 100% Arabica (hạt rang) 250g", nhom:"hat", gia:160000, gram:250,
     slug:"la-viet-balanced-arabica-da-lat", pha:["phin","espresso"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt, Lâm Đồng",
@@ -239,7 +239,7 @@ const BAIVIET = [
   },
   {
     id: "cong-thuc-pha",
-    anh: "assets/img/p3-cup.jpg",
+    anh: "assets/img/espresso-pull.jpg",
     tag: "Pha chuẩn",
     docPhut: 2, mucDo: "Thực hành",
     tieuDe: "Công thức pha chuẩn theo cách pha",
@@ -279,7 +279,7 @@ const BAIVIET = [
   },
   {
     id: "vi-sao-specialty-dat",
-    anh: "assets/img/art-yellow-cherry.jpg",
+    anh: "assets/img/art-cherry-hand.jpg",
     tag: "Đáng tiền không?",
     docPhut: 3, mucDo: "Người mới",
     tieuDe: "Specialty đắt hơn — bạn trả tiền cho điều gì?",
