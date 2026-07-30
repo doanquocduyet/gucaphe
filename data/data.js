@@ -370,6 +370,113 @@ const BAIVIET = [
       { label: "Cách Gu chấm điểm cà phê", href: "/cach-test" },
       { label: "Xem các gói Gu đã mô tả hương vị", href: "/ca-phe" }
     ]
+  },
+
+  /* ===== Lộ trình "Bắt đầu với cà phê" — 6 bài liền mạch cho người mới (route /bat-dau) ===== */
+  {
+    id: "ca-phe-dac-san-la-gi",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 1, docPhut: 2,
+    tieuDe: "Cà phê đặc sản là gì? Khác cà phê thường ở đâu?",
+    dek: "Không phải cứ đắt là đặc sản. Đây là khác biệt thật, nói cho người chưa biết gì.",
+    than:
+      "<p>Bạn nghe 'cà phê đặc sản' (specialty coffee) và tưởng đó là cà phê đắt tiền cho dân sành? Không hẳn. Khác biệt nằm ở chỗ khác.</p>" +
+      "<h3>Khác ở 3 điểm</h3>" +
+      "<p><b>1. Được chấm điểm.</b> Cà phê đặc sản là cà phê được người thẩm định chuyên nghiệp chấm trên 80/100 điểm. Cà phê thường không qua bước chấm này.</p>" +
+      "<p><b>2. Biết rõ nguồn gốc.</b> Đặc sản truy được: trồng ở đồi nào, độ cao bao nhiêu, ai trồng, hái tháng mấy. Cà phê thường trộn lẫn nhiều nguồn, không rõ từ đâu.</p>" +
+      "<p><b>3. Để lộ vị thật của hạt.</b> Đặc sản rang vừa phải để giữ hương vị tự nhiên. Cà phê thường hay rang thật đậm — một phần để tạo vị 'mạnh' quen thuộc, một phần để che khuyết điểm của hạt kém.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> 'Đặc sản = đắt tiền để làm màu.' Thật ra giá cao hơn đến từ công sức: hái chín từng quả, sơ chế kỹ, trồng ở vùng núi cao sản lượng thấp. Bạn trả cho <b>chất lượng và sự minh bạch</b>, không phải cho thương hiệu.</div>" +
+      "<p>Nói ngắn gọn: cà phê thường cho bạn <b>chất 'phê'</b> quen thuộc. Cà phê đặc sản cho bạn <b>hương vị</b> — chua thanh, ngọt hậu, thơm nhiều tầng — thứ mà cà phê rang cháy đã đốt mất.</p>" +
+      "<p><b>Gu khuyên:</b> Tò mò rồi? Bài tiếp theo sẽ giúp bạn chọn: <a href='/bat-dau/arabica-robusta'>Arabica và Robusta khác nhau thế nào, nên uống loại nào?</a></p>"
+  },
+  {
+    id: "arabica-robusta",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 2, docPhut: 3,
+    tieuDe: "Arabica và Robusta khác nhau thế nào? Tôi nên uống loại nào?",
+    dek: "Hai loại hạt cà phê chính, khác nhau một trời một vực. Biết cái này là biết mình hợp gì.",
+    than:
+      "<p>Gần như mọi ly cà phê bạn từng uống đến từ một trong hai loại hạt: <b>Robusta</b> hoặc <b>Arabica</b>. Chúng khác nhau rõ rệt.</p>" +
+      "<h3>Robusta — cà phê 'phê' quen thuộc</h3>" +
+      "<p>Đắng mạnh, đậm, ít chua, nhiều caffeine (nên dễ tỉnh táo, dễ 'phê'). Đây là loại làm nên ly cà phê phin đen đá, cà phê sữa đá quen thuộc của người Việt. Trồng dễ, giá rẻ hơn.</p>" +
+      "<h3>Arabica — cà phê 'hương vị'</h3>" +
+      "<p>Thơm, chua thanh như trái cây, ngọt hậu, nhiều tầng vị. Ít caffeine hơn Robusta. Đây là loại cà phê đặc sản thế giới ưa chuộng, hợp pha để cảm nhận vị hơn là để 'phê'.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> 'Arabica xịn hơn, Robusta là hàng dởm.' Sai. Không loại nào tốt hơn — tùy gu. Và Việt Nam giờ có <b>Fine Robusta</b> (Robusta đặc sản chất lượng cao) ngon không kém, thậm chí đạt giải quốc tế.</div>" +
+      "<h3>Vậy nên uống loại nào?</h3>" +
+      "<p>• Thích <b>mạnh, đậm, tỉnh táo nhanh</b>, quen phin sữa đá → Robusta (hoặc Fine Robusta nếu muốn thử bản cao cấp).<br>" +
+      "• Muốn thử <b>vị thơm, chua thanh, nhiều tầng</b>, uống chậm cảm nhận → Arabica.</p>" +
+      "<p>Người mới muốn bước vào thế giới đặc sản thường bắt đầu với Arabica vì vị dễ gây bất ngờ ('ồ, cà phê mà có vị trái cây').</p>" +
+      "<p><b>Gu khuyên:</b> Nghe 'chua thanh' mà thấy lạ? Đọc tiếp bài quan trọng nhất: <a href='/bat-dau/ca-phe-chua'>Cà phê chua có phải bị hỏng không?</a></p>"
+  },
+  {
+    id: "ca-phe-chua",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 3, docPhut: 3,
+    tieuDe: "Cà phê chua có phải bị hỏng không?",
+    dek: "Đây là hiểu lầm lớn nhất khiến nhiều người bỏ lỡ những ly cà phê ngon nhất đời.",
+    than:
+      "<p>Bạn uống một ngụm cà phê, thấy <b>chua</b>, và nghĩ ngay: 'hỏng rồi' hoặc 'pha dở'? Bạn không đơn độc — đây là phản xạ của hầu hết người Việt quen cà phê phin đậm. Nhưng nó là một hiểu lầm.</p>" +
+      "<h3>Chua thanh là dấu hiệu hạt TỐT</h3>" +
+      "<p>Cà phê ngon tự nhiên có vị chua thanh — giống vị chua tươi mát của cam, táo, hay chanh dây. Vị chua này đến từ hạt <b>Arabica trồng ở vùng núi cao</b>. Càng cao, khí hậu càng lạnh, quả chín càng chậm, vị chua thanh và hương thơm càng rõ. Đây là thứ dân cà phê khắp thế giới săn lùng.</p>" +
+      "<h3>Vậy cái 'đắng gắt' quen thuộc là gì?</h3>" +
+      "<p>Vị đắng gắt mà nhiều người tưởng là chuẩn mực cà phê, thật ra thường đến từ <b>rang cháy</b>. Rang thật đậm tạo vị đắng mạnh — và tiện thể che luôn khuyết điểm của hạt kém. Đắng không phải là dấu hiệu ngon; nhiều khi ngược lại.</p>" +
+      "<div class='callout'><b>⚠️ Phân biệt 2 loại chua:</b> Có <b>chua thanh</b> (dễ chịu, mát, như trái cây tươi — đây là ngon) và <b>chua gắt</b> (khó chịu, như đồ ôi, gắt cổ — đây mới là hỏng hoặc pha sai). Vị giác bạn sẽ tự phân biệt được sau vài lần uống.</div>" +
+      "<p>Thử thế này: lần tới uống cà phê đặc sản thấy chua, đừng vội chê. Nuốt xong, để ý xem có vị ngọt đọng lại không. Nếu có — đó chính là ly cà phê ngon mà trước giờ bạn tưởng là 'hỏng'.</p>" +
+      "<p><b>Gu khuyên:</b> Hết sợ vị chua rồi? Giờ tới câu thực tế nhất: <a href='/bat-dau/mua-goi-nao-dau-tien'>Muốn uống ngon thì nên mua gói nào đầu tiên?</a></p>"
+  },
+  {
+    id: "mua-goi-nao-dau-tien",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 4, docPhut: 3,
+    tieuDe: "Muốn uống ngon thì nên mua gói nào đầu tiên?",
+    dek: "Đừng nhảy vào loại kỳ lạ nhất. Đây là gói dễ uống để bắt đầu, và gói Gu khuyên cụ thể.",
+    than:
+      "<p>Đứng trước hàng chục loại cà phê đặc sản với đủ tên lạ — honey, natural, yếm khí, lên men — người mới rất dễ hoang mang. Quy tắc đơn giản: <b>đừng bắt đầu bằng loại kỳ lạ nhất.</b></p>" +
+      "<h3>Gói đầu tiên nên có 3 điều</h3>" +
+      "<p><b>1. Là Arabica</b> (hoặc blend nhẹ) — vị dễ tiếp cận, không gây sốc.<br>" +
+      "<b>2. Rang vừa (medium)</b> — cân bằng, không quá chua cũng không quá đắng.<br>" +
+      "<b>3. Từ vùng quen thuộc</b> như Đà Lạt, Cầu Đất, Lạc Dương — nền tảng ổn định để bạn làm quen 'vị đặc sản'.</p>" +
+      "<p>Uống gói này vài lần cho quen, rồi mới thử các loại đặc biệt hơn. Giống như tập bơi ở hồ nông trước khi ra biển.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> 'Mua ngay loại đắt/lạ nhất cho đáng.' Ngược lại — loại lên men, yếm khí có vị rất mạnh và lạ, người mới dễ thấy 'khó uống' rồi bỏ luôn cà phê đặc sản. Đi từ dễ đến khó.</div>" +
+      "<h3>Gu khuyên gói cụ thể nào?</h3>" +
+      "<p>Thay vì để bạn tự đoán, Gu đã mua thật, nếm mù và chấm điểm từng gói. Gói Gu khuyên cho người mới bắt đầu — dễ uống, điểm cao, đúng 3 tiêu chí trên — chính là gói này:</p>" +
+      "{{GU_PICK}}" +
+      "<p><b>Gu khuyên:</b> Lo phải mua máy móc đắt tiền để pha? Đọc tiếp: <a href='/bat-dau/co-can-may-dat-tien'>Có cần máy pha đắt tiền không?</a></p>"
+  },
+  {
+    id: "co-can-may-dat-tien",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 5, docPhut: 3,
+    tieuDe: "Có cần máy pha đắt tiền không?",
+    dek: "Không. Cái phin bạn đang có pha cà phê đặc sản vẫn ngon. Chỉ cần nhớ 2 điều.",
+    than:
+      "<p>Nhiều người tưởng uống cà phê đặc sản phải sắm máy pha vài triệu, cân điện tử, ấm cổ ngỗng... rồi thấy phiền quá nên thôi. Sự thật nhẹ nhàng hơn nhiều.</p>" +
+      "<h3>Phin Việt Nam là đủ</h3>" +
+      "<p>Cái <b>phin</b> bạn đang có pha cà phê đặc sản hoàn toàn ngon. Nếu muốn vị trong trẻo hơn để cảm nhận rõ hương trái cây, có thể thử thêm <b>phễu lọc giấy V60</b> (giá rẻ, vài chục nghìn) — nhưng không bắt buộc. Không cần máy đắt tiền nào cả để bắt đầu.</p>" +
+      "<h3>2 điều quan trọng hơn cả dụng cụ</h3>" +
+      "<p><b>1. Nước đừng quá sôi.</b> Nước đang sôi sùng sục (100°C) sẽ 'nấu cháy' cà phê, ra vị đắng gắt. Đun sôi xong, chờ khoảng 30 giây rồi hãy rót. Đây là mẹo nâng chất lượng ly cà phê rõ rệt mà không tốn đồng nào.</p>" +
+      "<p><b>2. Cà phê nên mới xay.</b> Cà phê xay ra để lâu sẽ bay hết mùi thơm trong vòng ít phút. Nếu có điều kiện, mua hạt và xay tới đâu pha tới đó. Chưa có máy xay thì mua gói xay sẵn loại nhỏ, dùng nhanh trong 1–2 tuần.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> 'Cà phê dở là do chưa có máy xịn.' Thật ra hai lỗi phổ biến nhất — nước quá sôi và cà phê để lâu mất mùi — chẳng liên quan gì đến máy đắt tiền. Sửa hai lỗi này còn hiệu quả hơn mua máy triệu bạc.</div>" +
+      "<p>Tóm lại: bắt đầu bằng phin sẵn có, nước nguội bớt một chút, cà phê càng mới càng tốt. Vậy là đủ để uống ngon.</p>" +
+      "<p><b>Gu khuyên:</b> Câu cuối cùng, và là câu giúp bạn tin Gu: <a href='/bat-dau/gu-cham-diem-the-nao'>Gu chọn gói cà phê như thế nào?</a></p>"
+  },
+  {
+    id: "gu-cham-diem-the-nao",
+    tag: "Bắt đầu với cà phê",
+    thuTu: 6, docPhut: 3,
+    tieuDe: "Gu chọn gói cà phê như thế nào?",
+    dek: "Điểm số của Gu đến từ đâu? Nói thẳng cách làm, để bạn tự quyết có tin hay không.",
+    than:
+      "<p>Bạn thấy Gu chấm gói này 9.3, gói kia 8.7 — và tự hỏi: điểm đó ở đâu ra, có phải phán bừa không? Câu hỏi đúng. Đây là cách Gu làm, nói thẳng.</p>" +
+      "<h3>Mua thật bằng tiền của Gu</h3>" +
+      "<p>Gu <b>tự bỏ tiền mua</b> cà phê trên thị trường như một khách hàng bình thường, không nhận hàng tài trợ, không nhận mẫu thử miễn phí từ nhà bán. Vì sao? Nhận đồ miễn phí thì khó chấm thẳng tay.</p>" +
+      "<h3>Nếm mù — không biết trước gói nào</h3>" +
+      "<p>Khi chấm điểm, Gu <b>nếm mù</b>: che nhãn, không biết đang uống gói của nhà nào, đánh số 1-2-3 rồi mới chấm. Chấm xong mới lật nhãn ra. Làm vậy để cảm tình với thương hiệu không làm lệch điểm.</p>" +
+      "<h3>Chấm theo 6 tiêu chí</h3>" +
+      "<p>Mỗi gói được cho điểm trên 6 mặt: <b>hương thơm, vị chua, độ đậm đà, vị ngọt, hậu vị, và cảm nhận tổng thể</b>. Cộng lại lấy trung bình ra điểm cuối. Không phải một con số cảm tính.</p>" +
+      "<div class='callout'><b>⚠️ Về chuyện hoa hồng:</b> Gu có nhận hoa hồng khi bạn mua qua link giới thiệu. Nhưng điểm số được chấm mù <b>trước</b> khi có bất kỳ thỏa thuận nào, và <b>không nhà nào trả tiền để được điểm cao</b>. Gói dở thì Gu nói dở, hoặc loại thẳng khỏi web.</div>" +
+      "<p>Đó là lý do khi Gu nói một gói đáng mua, bạn có thể tin — vì Gu chấm nó như một người mua khó tính, không phải như một người đi bán.</p>" +
+      "<p><b>Gu khuyên:</b> Giờ bạn đã hiểu và tin cách Gu chọn. Xem gói Gu khuyên cho ly cà phê đặc sản đầu tiên của bạn: <b><a href='/ca-phe'>Gói Gu khuyên cho người mới →</a></b></p>"
   }
 ];
 

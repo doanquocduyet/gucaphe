@@ -116,6 +116,7 @@ function renderTop() {
           <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
           <button class="cta-ghost" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
         </div>
+        <a class="hero-newbie" href="/bat-dau">Mới uống cà phê đặc sản? Bắt đầu từ đây →</a>
       </div>
     </div>`;
 }

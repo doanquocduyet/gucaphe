@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260791';
+const CSS_V = '20260793';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -110,6 +110,7 @@ function siteFooter() {
   return `<footer>
   <div class="wrap">
     <div id="tagline">${esc(SITE.tagline)}</div>
+    <a class="foot-newbie" href="/bat-dau">Người mới bắt đầu? →</a>
     <div>
       <a href="/nha-rang">Nhà rang</a>
       <a href="/ca-phe">Cà phê</a>
@@ -1405,10 +1406,18 @@ const KT_GROUPS = [
 
 const ktImg = b => b.anh ? (/^https?:/.test(b.anh) ? b.anh : '/' + b.anh) : '';
 
-/* Thẻ bài kiến thức — ảnh + tag + thời gian đọc + tiêu đề + dek, bấm mở /kien-thuc/<id> */
+/* Lộ trình người mới "Bắt đầu với cà phê" — route riêng /bat-dau, tách khỏi /kien-thuc */
+const BATDAU_TAG = 'Bắt đầu với cà phê';
+const isBatDau = b => b.tag === BATDAU_TAG;
+const artBase = b => (isBatDau(b) ? 'bat-dau' : 'kien-thuc');
+const batDauSteps = () => BAIVIET.filter(isBatDau).sort((a, b) => (a.thuTu || 0) - (b.thuTu || 0));
+/* Gói Gu khuyên cho người mới = gói điểm nếm mù cao nhất (tự cập nhật theo dữ liệu) */
+const topPick = () => SP.filter(p => p.tested && p.diem != null).sort((a, b) => b.diem - a.diem)[0] || SP[0];
+
+/* Thẻ bài — ảnh + tag + thời gian đọc + tiêu đề + dek, bấm mở /<route>/<id> */
 function ktCard(b) {
   const src = ktImg(b);
-  return `<a class="kt-card" href="/kien-thuc/${b.id}">
+  return `<a class="kt-card" href="/${artBase(b)}/${b.id}">
     ${src ? `<div class="kt-card-img"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" loading="lazy"></div>` : ''}
     <div class="kt-card-body">
       <div class="kt-card-meta"><span class="kt-card-tag">${esc(b.tag)}</span>${b.docPhut ? `<span class="kt-card-min">${b.docPhut} phút đọc</span>` : ''}</div>
@@ -1419,11 +1428,17 @@ function ktCard(b) {
   </a>`;
 }
 
-/* Trang bài kiến thức riêng — /kien-thuc/<id>. Một chủ đề mỗi trang: hết cảnh nhảy lung tung. */
+/* Trang bài riêng — /kien-thuc/<id> hoặc /bat-dau/<id>. Một chủ đề mỗi trang. */
 function articlePage(b) {
-  const url = `${ORIGIN}/kien-thuc/${b.id}`;
+  const bd = isBatDau(b);
+  const base = artBase(b);
+  const hubHref = bd ? '/bat-dau' : '/kien-thuc';
+  const hubName = bd ? 'Bắt đầu với cà phê' : 'Kiến thức';
+  const url = `${ORIGIN}/${base}/${b.id}`;
   const src = ktImg(b);
-  const meta = `<div class="kt-meta">${[b.tag, b.docPhut ? `Đọc ${b.docPhut} phút` : '', b.mucDo]
+  const steps = bd ? batDauSteps() : [];
+  const stepChip = bd && b.thuTu ? `Bước ${b.thuTu}/${steps.length}` : '';
+  const meta = `<div class="kt-meta">${[b.tag, stepChip, b.docPhut ? `Đọc ${b.docPhut} phút` : '', b.mucDo]
     .filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</div>`;
   const faqBlock = (b.faq && b.faq.length) ? `<section class="kta-faq">
     <h2 class="kta-faq-h">Câu hỏi thường gặp</h2>
@@ -1432,13 +1447,31 @@ function articlePage(b) {
   const linksBlock = (b.links && b.links.length)
     ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : '';
 
-  // Đọc tiếp — ưu tiên bài cùng nhóm, đủ 3 thẻ
-  const related = [...BAIVIET.filter(x => x.id !== b.id && x.mucDo === b.mucDo),
-    ...BAIVIET.filter(x => x.id !== b.id && x.mucDo !== b.mucDo)].slice(0, 3);
-  const moreBlock = related.length ? `<section class="kta-more">
-    <h2 class="kta-more-h">Đọc tiếp</h2>
-    <div class="kt-grid">${related.map(ktCard).join('')}</div>
-  </section>` : '';
+  // Thân bài — chèn thẻ gói Gu khuyên vào marker {{GU_PICK}} (bài 4 lộ trình người mới)
+  let body = b.than;
+  if (body.includes('{{GU_PICK}}')) {
+    const tp = topPick();
+    const card = `<div class="bd-pick"><div class="bd-pick-cap">Gu khuyên bạn bắt đầu với:</div><div class="pc-grid bd-pick-grid">${pcard(tp, 'bat_dau_pick')}</div></div>`;
+    body = body.split('{{GU_PICK}}').join(card);
+  }
+
+  // Đọc tiếp — bat-dau: bước kế trong lộ trình; kien-thuc: bài cùng nhóm
+  let moreBlock = '';
+  if (bd) {
+    const next = steps.find(s => (s.thuTu || 0) === (b.thuTu || 0) + 1);
+    moreBlock = `<section class="kta-more">
+      <h2 class="kta-more-h">${next ? 'Bước tiếp theo' : 'Hoàn thành lộ trình'}</h2>
+      ${next ? `<div class="kt-grid">${ktCard(next)}</div>` : `<p class="bd-done">Bạn đã đọc hết lộ trình người mới. Giờ chọn gói đầu tiên: <a href="/ca-phe">Xem các gói Gu khuyên →</a></p>`}
+      <a class="bd-allsteps" href="/bat-dau">Xem cả 6 bước →</a>
+    </section>`;
+  } else {
+    const related = [...BAIVIET.filter(x => !isBatDau(x) && x.id !== b.id && x.mucDo === b.mucDo),
+      ...BAIVIET.filter(x => !isBatDau(x) && x.id !== b.id && x.mucDo !== b.mucDo)].slice(0, 3);
+    moreBlock = related.length ? `<section class="kta-more">
+      <h2 class="kta-more-h">Đọc tiếp</h2>
+      <div class="kt-grid">${related.map(ktCard).join('')}</div>
+    </section>` : '';
+  }
 
   const schemas = [];
   schemas.push(`<script type="application/ld+json">${JSON.stringify({
@@ -1451,7 +1484,7 @@ function articlePage(b) {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Gu Cà Phê', item: `${ORIGIN}/` },
-      { '@type': 'ListItem', position: 2, name: 'Kiến thức', item: `${ORIGIN}/kien-thuc` },
+      { '@type': 'ListItem', position: 2, name: hubName, item: `${ORIGIN}${hubHref}` },
       { '@type': 'ListItem', position: 3, name: b.tieuDe, item: url }
     ]
   })}</script>`);
@@ -1461,7 +1494,7 @@ function articlePage(b) {
   })}</script>`);
 
   const main = `<main class="rp wrap kta-wrap">
-  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><a href="/kien-thuc">Kiến thức</a><i>/</i><span>${esc(b.tag)}</span></nav>
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><a href="${hubHref}">${hubName}</a><i>/</i><span>${esc(b.tag)}</span></nav>
   <article class="kta">
     <header class="kta-head">
       ${meta}
@@ -1470,16 +1503,16 @@ function articlePage(b) {
     </header>
     ${src ? `<figure class="kta-hero"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" fetchpriority="high"></figure>` : ''}
     ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
-    <div class="kt-art-body kta-body">${b.than}</div>
+    <div class="kt-art-body kta-body">${body}</div>
     ${linksBlock}
   </article>
   ${faqBlock}
   ${moreBlock}
-  <a class="rp-home" href="/kien-thuc">← Tất cả bài kiến thức</a>
+  <a class="rp-home" href="${hubHref}">← ${bd ? 'Lộ trình người mới' : 'Tất cả bài kiến thức'}</a>
   </main>`;
   return pageShell({
-    title: `${b.tieuDe} | Kiến thức — Gu Cà Phê`,
-    desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: 'kienthuc', main,
+    title: `${b.tieuDe} | ${hubName} — Gu Cà Phê`,
+    desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: bd ? 'batdau' : 'kienthuc', main,
     ogImage: ogForSrc(b.anh), ogAlt: b.tieuDe
   });
 }
@@ -1498,11 +1531,18 @@ function hubKienThuc() {
       <div class="kt-grid">${arts.map(ktCard).join('')}</div>
     </section>`;
   }).join('');
-  const rest = BAIVIET.filter(b => !covered.has(b.id));
+  const rest = BAIVIET.filter(b => !isBatDau(b) && !covered.has(b.id));
   const restBlock = rest.length ? `<section class="kt-group">
     <div class="kt-group-head"><h2 class="kt-group-t">Bài khác</h2></div>
     <div class="kt-grid">${rest.map(ktCard).join('')}</div>
   </section>` : '';
+
+  // Băng dẫn người mới sang lộ trình /bat-dau
+  const newbie = batDauSteps().length ? `<a class="kt-newbie" href="/bat-dau">
+    <span class="kt-newbie-k">Mới uống cà phê?</span>
+    <span class="kt-newbie-t">Lộ trình 6 bước cho người mới — từ “đặc sản là gì” tới “nên mua gói nào”.</span>
+    <span class="kt-newbie-go">Bắt đầu →</span>
+  </a>` : '';
 
   // Mua gì? — câu hỏi intent cao, nối thẳng tới gói/vùng thật
   const muaGi = MUA_GI.length ? `<section class="kt-buy">
@@ -1529,7 +1569,7 @@ function hubKienThuc() {
   </section>` : '';
 
   // Schema FAQ gộp (bài viết + Mua gì) cho AI Search
-  const allFaq = [...BAIVIET.flatMap(b => b.faq || []), ...MUA_GI.map(m => ({ q: m.q, a: m.a.replace(/<[^>]+>/g, '') }))];
+  const allFaq = [...BAIVIET.filter(b => !isBatDau(b)).flatMap(b => b.faq || []), ...MUA_GI.map(m => ({ q: m.q, a: m.a.replace(/<[^>]+>/g, '') }))];
   const schema = allFaq.length ? `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: allFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
@@ -1539,6 +1579,7 @@ function hubKienThuc() {
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Kiến thức</span></nav>
   ${hubHero('/assets/img/products/beans-tin.jpg', 'Kiến thức', 'Hiểu trước khi mua',
     'Chọn sai không phải vì hạt dở, mà vì không biết mình đang mua gì. Vài bài ngắn để bạn đọc bao bì như dân trong nghề — rồi trả lời thẳng câu “tôi nên mua gì?”.')}
+  ${newbie}
   ${groups}
   ${restBlock}
   ${muaGi}
@@ -1550,6 +1591,37 @@ function hubKienThuc() {
     desc: 'Học nền tảng cà phê đặc sản trong 10 phút: Natural khác Washed, rang sáng hay đậm, specialty có đáng tiền, và nên mua gói nào theo nhu cầu — dưới 200k, ít chua, pha phin, pha V60.',
     url, ogType: 'website', schema, active: 'kienthuc', main,
     ogImage: ogForSrc('art-natural-drying.jpg'), ogAlt: 'Kiến thức cà phê đặc sản'
+  });
+}
+
+/* /bat-dau — lộ trình 6 bước cho người mới, dạng đường đi có đánh số */
+function hubBatDau() {
+  const url = `${ORIGIN}/bat-dau`;
+  const steps = batDauSteps();
+  const totalMin = steps.reduce((s, b) => s + (b.docPhut || 2), 0);
+  const path = steps.map(b => `<a class="bd-step" href="/bat-dau/${b.id}">
+    <span class="bd-step-n">${b.thuTu}</span>
+    <span class="bd-step-body">
+      <span class="bd-step-t">${esc(b.tieuDe)}</span>
+      <span class="bd-step-dek">${esc(b.dek)}</span>
+    </span>
+    <span class="bd-step-go">→</span>
+  </a>`).join('');
+  const schema = steps.length ? itemListSchema('Lộ trình bắt đầu với cà phê đặc sản',
+    steps.map(b => ({ url: `${ORIGIN}/bat-dau/${b.id}`, name: b.tieuDe }))) : '';
+  const main = `<main class="rp wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Người mới</span></nav>
+  ${hubHero('/assets/img/espresso-pull.jpg', 'Người mới', 'Bắt đầu với cà phê',
+    `Sáu bài ngắn, đọc hết trong ~${totalMin} phút. Đi lần lượt từ “cà phê đặc sản là gì” tới “nên mua gói nào” — để bạn <b>hết sợ vị lạ, biết mua gì, và hiểu vì sao tin Gu</b>.`)}
+  <p class="hub-intro">Không cần đọc lung tung. Cứ đi từ bước 1 tới bước 6, mỗi bài dắt sang bài kế — như một lối đi thẳng, không ngõ cụt.</p>
+  <section class="bd-path">${path}</section>
+  <a class="rp-home" href="/">← Về trang chủ</a>
+  </main>`;
+  return pageShell({
+    title: 'Bắt đầu với cà phê đặc sản — lộ trình 6 bước cho người mới | Gu Cà Phê',
+    desc: 'Mới uống cà phê đặc sản? Lộ trình 6 bước: đặc sản là gì, Arabica/Robusta, cà phê chua có phải hỏng, mua gói nào đầu tiên, có cần máy đắt tiền, và cách Gu chọn gói.',
+    url, ogType: 'website', schema, active: 'batdau', main,
+    ogImage: ogForSrc('espresso-pull.jpg'), ogAlt: 'Bắt đầu với cà phê đặc sản'
   });
 }
 
@@ -1648,7 +1720,8 @@ for (const r of ROASTER) {
 /* ---- Ghi hub pages (trang danh mục / hub theo menu) ---- */
 const HUBS = [
   ['nha-rang', hubNhaRang], ['ca-phe', hubCaPhe], ['vung-trong', hubVung],
-  ['kien-thuc', hubKienThuc], ['cach-test', hubCachTest]
+  ['kien-thuc', hubKienThuc], ['cach-test', hubCachTest],
+  ...(batDauSteps().length ? [['bat-dau', hubBatDau]] : [])
 ];
 const hubUrls = [];
 for (const [slug, fn] of HUBS) {
@@ -1657,14 +1730,16 @@ for (const [slug, fn] of HUBS) {
   console.log(`✓ ${slug}.html`);
 }
 
-/* ---- Ghi trang bài kiến thức riêng (/kien-thuc/<id>) ---- */
+/* ---- Ghi trang bài riêng: /kien-thuc/<id> và /bat-dau/<id> ---- */
 if (BAIVIET.length) mkdirSync(join(ROOT, 'kien-thuc'), { recursive: true });
+if (batDauSteps().length) mkdirSync(join(ROOT, 'bat-dau'), { recursive: true });
 const articleUrls = [];
 for (const b of BAIVIET) {
   if (!b.id) { console.warn('⚠️  Bỏ qua bài thiếu id'); continue; }
-  writeFileSync(join(ROOT, 'kien-thuc', `${b.id}.html`), articlePage(b), 'utf8');
-  articleUrls.push(`${ORIGIN}/kien-thuc/${b.id}`);
-  console.log(`✓ kien-thuc/${b.id}.html`);
+  const base = artBase(b);
+  writeFileSync(join(ROOT, base, `${b.id}.html`), articlePage(b), 'utf8');
+  articleUrls.push(`${ORIGIN}/${base}/${b.id}`);
+  console.log(`✓ ${base}/${b.id}.html`);
 }
 
 /* ---- Cập nhật sitemap.xml (trang chủ + hub + review + nhà rang + vùng trồng) ---- */
