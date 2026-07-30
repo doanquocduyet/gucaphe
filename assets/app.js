@@ -110,6 +110,7 @@ function renderTop() {
         <div class="hero-eyebrow">Cà phê đặc sản · Lâm Đồng</div>
         <h1>Chưa uống<br>thì không chấm</h1>
         <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm</div>
+        <p class="hero-note"><b>Nếm mù</b> = uống thử che nhãn, che giá — để chấm cho công bằng.</p>
         <div class="hero-cta-row">
           <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
           <button class="cta-ghost" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
@@ -119,7 +120,6 @@ function renderTop() {
     <div class="hero-proof">
       <div class="wrap hero-proof-in">
         <span class="hp-item">Không nhận bài tài trợ</span>
-        <span class="hp-item"><b>Nếm mù</b> — che nhãn, che giá</span>
         <a class="hp-newbie" href="/bat-dau">Mới uống cà phê? Bắt đầu →</a>
       </div>
     </div>`;
