@@ -3,6 +3,8 @@
    Đọc data.js → tự sinh mọi trang.
    Giọng thương hiệu: curator có gu — ít chữ, chắc, không hô hào.
    ============================================================ */
+/* Bật :active trên iOS (Safari chỉ áp :active khi trang có listener touch) */
+try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){}
 
 const $ = s => document.querySelector(s);
 const money   = n => n.toLocaleString('vi-VN') + '₫';

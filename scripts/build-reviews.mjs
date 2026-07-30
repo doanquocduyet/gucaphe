@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260788';
+const CSS_V = '20260789';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -150,6 +150,7 @@ ${schema}
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script>
 (function(){
+  try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
   var GA=${JSON.stringify(ga)};
   window.dataLayer=window.dataLayer||[];
   window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
@@ -517,6 +518,7 @@ ${schema(p)}
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script>
 (function(){
+  try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
   var GA=${JSON.stringify(ga)};
   window.dataLayer=window.dataLayer||[];
   window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
@@ -728,6 +730,7 @@ ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script>
 (function(){
+  try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
   var GA=${JSON.stringify(ga)};
   window.dataLayer=window.dataLayer||[];
   window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
@@ -939,6 +942,7 @@ ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script>
 (function(){
+  try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
   var GA=${JSON.stringify(ga)};
   window.dataLayer=window.dataLayer||[];
   window.guTrack=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{});dataLayer.push(Object.assign({event:ev},p||{}));}catch(e){}};
