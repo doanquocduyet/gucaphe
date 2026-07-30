@@ -24,6 +24,23 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
 const CSS_V = '20260778';
 
+/* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
+   còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
+const OG_DEFAULT = `${ORIGIN}/assets/img/og/default.jpg`;
+const OG_SET = new Set(['cau-dat.jpg', 'nam-ban.jpg', 'lac-duong.jpg', 'da-lat.jpg',
+  'cherries-branch.jpg', 'green-beans.jpg', 'art-natural-drying.jpg',
+  'son-pacamara-lot.jpg', 'son-heirloom.jpg', 'bui-fine-robusta.jpg', 'dehavi-yellow-bourbon.jpg']);
+const ogForSrc = src => {
+  const b = src ? src.split('/').pop() : '';
+  return b && OG_SET.has(b) ? `${ORIGIN}/assets/img/og/${b}` : OG_DEFAULT;
+};
+const ogMeta = (img, alt) => `<meta property="og:image" content="${img}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(alt || 'Gu Cà Phê — cà phê đặc sản Lâm Đồng')}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${img}">`;
+
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
   const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI'];
@@ -104,7 +121,7 @@ function siteFooter() {
   </div>
 </footer>`;
 }
-function pageHead({ title, desc, url, ogType = 'article', schema = '' }) {
+function pageHead({ title, desc, url, ogType = 'article', schema = '', ogImage = OG_DEFAULT, ogAlt = '' }) {
   const ga = (SITE.ga4 || '').trim();
   return `<!DOCTYPE html>
 <html lang="vi">
@@ -119,6 +136,8 @@ function pageHead({ title, desc, url, ogType = 'article', schema = '' }) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Gu Cà Phê">
+${ogMeta(ogImage, ogAlt)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -138,8 +157,8 @@ ${schema}
 </script>
 </head>`;
 }
-function pageShell({ title, desc, url, ogType, schema, active, main }) {
-  return `${pageHead({ title, desc, url, ogType, schema })}
+function pageShell({ title, desc, url, ogType, schema, active, main, ogImage, ogAlt }) {
+  return `${pageHead({ title, desc, url, ogType, schema, ogImage, ogAlt })}
 <body class="rp-body">
 ${siteNav(active)}
 ${main}
@@ -484,6 +503,8 @@ function page(p) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Gu Cà Phê">
+${ogMeta(ogForSrc(p.anh), `${p.brand} ${p.ten}`)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -691,6 +712,8 @@ function regionPage(v) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Gu Cà Phê">
+${ogMeta(ogForSrc(v.anh), `Cà phê ${v.ten}`)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -900,6 +923,8 @@ function roasterPage(r) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Gu Cà Phê">
+${ogMeta(ogForSrc(prods[0] && prods[0].anh), r.ten)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1256,7 +1281,8 @@ function hubVung() {
   return pageShell({
     title: 'Vùng trồng cà phê Lâm Đồng — Cầu Đất, Lạc Dương, Nam Ban | Gu Cà Phê',
     desc: 'Ba tiểu vùng cà phê đặc sản Lâm Đồng: Cầu Đất, Lạc Dương, Nam Ban — độ cao, giống, hương vị đặc trưng và gói đáng mua từng vùng.',
-    url, ogType: 'website', schema, active: 'vung', main
+    url, ogType: 'website', schema, active: 'vung', main,
+    ogImage: ogForSrc('regions/da-lat.jpg'), ogAlt: 'Vùng trồng cà phê Lâm Đồng'
   });
 }
 
@@ -1439,7 +1465,8 @@ function articlePage(b) {
   </main>`;
   return pageShell({
     title: `${b.tieuDe} | Kiến thức — Gu Cà Phê`,
-    desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: 'kienthuc', main
+    desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: 'kienthuc', main,
+    ogImage: ogForSrc(b.anh), ogAlt: b.tieuDe
   });
 }
 
@@ -1507,7 +1534,8 @@ function hubKienThuc() {
   return pageShell({
     title: 'Kiến thức cà phê đặc sản — Natural/Washed, độ rang, mua gì? | Gu Cà Phê',
     desc: 'Học nền tảng cà phê đặc sản trong 10 phút: Natural khác Washed, rang sáng hay đậm, specialty có đáng tiền, và nên mua gói nào theo nhu cầu — dưới 200k, ít chua, pha phin, pha V60.',
-    url, ogType: 'website', schema, active: 'kienthuc', main
+    url, ogType: 'website', schema, active: 'kienthuc', main,
+    ogImage: ogForSrc('art-natural-drying.jpg'), ogAlt: 'Kiến thức cà phê đặc sản'
   });
 }
 
