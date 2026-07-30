@@ -1121,6 +1121,22 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-art-body{font-size:17px}
 .kt-art-body p{margin-bottom:16px;color:var(--ink-soft)}
 .kt-art-body b{color:var(--ink);font-weight:600}
+.kt-art-body h3{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,22px);
+  letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px}
+.kt-art-body i{color:var(--ink-soft)}
+
+/* Hộp "hiểu lầm phổ biến" */
+.callout{background:var(--accent-soft,#F4ECE2);border-left:3px solid var(--accent,#C2632C);
+  border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.callout b{color:var(--ink)}
+
+/* Khối ví dụ "trước → sau" */
+.flavor-eg{background:var(--bg-soft,#F8F3EC);border:1px solid var(--border,#EEE4D6);
+  border-radius:10px;padding:16px 18px;margin:18px 0}
+.flavor-eg p{margin:2px 0}
+.flavor-eg .eg-before{font-size:18px;font-weight:700;color:var(--ink-soft,#7A6A5C);text-decoration:line-through}
+.flavor-eg .eg-after{font-size:18px;font-weight:700;color:var(--accent,#C2632C)}
+.ghi-chu-nho{opacity:.65;font-size:.9em;margin-top:14px}
 .kt-tudien{margin-top:52px}
 .kt-tudien h2{font-size:26px;margin-bottom:22px}
 .kt-def-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}

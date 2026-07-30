@@ -322,6 +322,54 @@ const BAIVIET = [
       { label: "Đọc hồ sơ vùng Nam Ban", href: "/vung-trong/nam-ban" },
       { label: "Xem các nhà rang", href: "/nha-rang" }
     ]
+  },
+  {
+    id: "vong-tron-huong-vi",
+    anh: "assets/img/p4-taste.jpg",
+    tag: "Kiến thức",
+    docPhut: 4, mucDo: "Người mới",
+    tieuDe: "Vòng tròn hương vị cà phê: nó giúp gì cho bạn?",
+    dek: "Bạn không cần học thuộc gì cả. Chỉ cần biết một điều: công cụ này giúp bạn gọi tên được cái mình đang nếm, thay vì chỉ nói 'ngon thật'.",
+    than:
+      "<p>Bạn có bao giờ uống một ly cà phê ngon và chỉ biết nói <i>'ngon thật'</i>, nhưng không tả được ngon ở chỗ nào không? Gần như ai mới uống cà phê cũng vậy — cảm nhận được mà không gọi tên được.</p>" +
+
+      "<h3>Nó giúp gì cho bạn?</h3>" +
+      "<p>Bạn <b>không cần nhớ hết</b> vòng tròn này. Bạn chỉ cần biết một điều: nó giúp bạn <b>gọi tên điều mình đang nếm</b>.</p>" +
+      "<div class='flavor-eg'>" +
+        "<p>Thay vì nói:</p>" +
+        "<p class='eg-before'>“Ly này ngon.”</p>" +
+        "<p>Bạn sẽ nói được:</p>" +
+        "<p class='eg-after'>“Ly này có vị cam, socola và hậu ngọt.”</p>" +
+      "</div>" +
+      "<p>Đó chính là toàn bộ mục đích của vòng tròn hương vị. Không phải để thi cử, mà để bạn diễn tả được thứ mình thích — và lần sau biết đường tìm mua lại.</p>" +
+
+      "<h3>Vòng tròn hương vị là gì?</h3>" +
+      "<p>Nó là một tấm bản đồ các mùi vị có thể có trong cà phê, vẽ thành vòng tròn nhiều tầng, đọc từ <b>trong ra ngoài</b>:</p>" +
+      "<p>• <b>Tầng trong cùng</b> — nhóm vị lớn: chua, ngọt, đắng, mùi trái cây, mùi hạt, mùi hoa…<br>" +
+      "• <b>Tầng giữa</b> — chi tiết hơn: trong 'trái cây' tách ra họ cam quýt, họ berry, trái cây khô…<br>" +
+      "• <b>Tầng ngoài cùng</b> — cụ thể nhất: trong 'berry' lại có dâu, việt quất, mâm xôi…</p>" +
+      "<p>Càng ra ngoài càng chi tiết. <b>Ví dụ:</b> bạn thấy có mùi trái cây → nhìn sang nhóm trái cây → rồi nhận ra nó giống mùi cam hơn là mùi dâu. Vậy là xong, bạn vừa gọi tên được một hương vị.</p>" +
+
+      "<h3>Dùng thực tế: chỉ 3 câu hỏi</h3>" +
+      "<p>Uống một ngụm, tự hỏi 3 câu, mỗi câu đi sâu một tầng:</p>" +
+      "<p>1. <b>Vị chính là gì?</b> (chua / ngọt / đắng)<br>" +
+      "2. <b>Có mùi gì đi kèm?</b> (trái cây / hoa / socola / hạt)<br>" +
+      "3. <b>Cụ thể hơn được không?</b> (trái cây → cam hay berry?)</p>" +
+      "<p>Không ai nhớ hết vòng tròn này ngay từ đầu. Bạn chỉ cần mỗi lần uống nhận ra thêm một mùi vị mới. Sau vài chục ly, bạn sẽ ngạc nhiên vì mình gọi tên hương vị dễ hơn hẳn.</p>" +
+
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> Vị <b>chua</b> trong cà phê <b>không phải là hỏng</b>. Với người quen cà phê phin đậm, chua nghe như dở. Nhưng trong cà phê đặc sản, chua thanh (kiểu chua của trái cây tươi) là <b>dấu hiệu hạt tốt, trồng ở vùng núi cao</b>. Cái đắng gắt mà nhiều người tưởng là chuẩn cà phê, thật ra thường do rang cháy để át hạt kém. Vòng tròn giúp bạn phân biệt 'chua ngon' với 'chua hỏng'.</div>" +
+
+      "<h3>Ai làm ra nó?</h3>" +
+      "<p>Đây là công cụ do Hiệp hội Cà phê Đặc sản (SCA) cùng các nhà nghiên cứu phát triển, hiện được dùng rộng rãi trong ngành cà phê đặc sản trên thế giới — như một 'ngôn ngữ chung' để nói về hương vị. Nó không phải thước đo cứng: vị giác mỗi người một khác, cùng một ngụm hai người có thể tả hai kiểu. Vòng tròn chỉ cho bạn <b>bộ từ để diễn đạt</b> — dùng như la bàn, đừng dùng như thước.</p>" +
+
+      "<h3>Vì sao Gu kể bạn nghe điều này</h3>" +
+      "<p>Từ bây giờ, mỗi khi Gu mô tả một ly cà phê có vị <i>cam</i>, <i>socola</i> hay <i>hoa trắng</i>, bạn sẽ biết đó <b>không phải hương liệu được thêm vào</b> — mà là cách diễn tả hương vị <b>tự nhiên có sẵn trong hạt</b>. Và đó cũng là lý do Gu luôn cố gắng mô tả hương vị thật cụ thể, thay vì chỉ nói 'ngon' hay 'đậm'. Nói cụ thể thì bạn mới biết gói nào hợp gu mình.</p>" +
+
+      "<p class='ghi-chu-nho'>Muốn xem hình gốc màu: tra từ khóa tiếng Anh 'Coffee Taster's Flavor Wheel' hoặc 'SCA flavor wheel' — trang SCA có bản tải miễn phí.</p>",
+    links: [
+      { label: "Cách Gu chấm điểm cà phê", href: "/cach-test" },
+      { label: "Xem các gói Gu đã mô tả hương vị", href: "/ca-phe" }
+    ]
   }
 ];
 
