@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260785';
+const CSS_V = '20260787';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -101,6 +101,7 @@ function siteNav(active) {
         const cls = [k === 'method' ? 'learn' : '', k === active ? 'on' : ''].filter(Boolean).join(' ');
         return `<li><a href="${h}"${cls ? ` class="${cls}"` : ''}>${l}</a></li>`;
       }).join('')}
+      <li class="nav-close-li"><label for="nav-toggle" class="nav-x" aria-label="Đóng menu">Đóng</label></li>
     </ul>
   </div>
 </nav>`;
