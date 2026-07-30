@@ -63,7 +63,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--pap
 ::selection{background:var(--brown);color:var(--cream)}
 
 /* ---------- NAV ---------- */
-nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);
+body>nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);
   backdrop-filter:saturate(150%) blur(16px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;height:66px;gap:28px}
 #logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);white-space:nowrap}
@@ -483,19 +483,43 @@ footer a:hover{border-color:var(--gold-soft)}
   #pick{padding-top:30px}
   .hero-cta-row{gap:12px}
   .hero-cta-row .cta,.hero-cta-row .cta-ghost{width:100%;justify-content:center}
-  /* Menu mobile — hamburger mở overlay toàn màn hình */
+  /* Menu mobile — overlay mực đen, editorial, số thứ tự mono, hé lộ từng dòng */
   .nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;
     width:44px;height:44px;margin-left:auto;cursor:pointer;position:relative;z-index:60;
     -webkit-tap-highlight-color:transparent}
   .nav-burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;margin:0 auto;
-    transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .2s}
-  .nav-links{position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;margin:0;gap:6px;
-    background:var(--paper);flex-direction:column;justify-content:center;align-items:center;
-    opacity:0;visibility:hidden;transform:translateY(-10px);transition:.3s cubic-bezier(.2,.7,.2,1);z-index:55}
-  .nav-toggle:checked ~ .nav-links{opacity:1;visibility:visible;transform:none}
-  .nav-links a{font-size:30px;font-weight:700;color:var(--ink);padding:14px 8px;border-bottom:none;
-    letter-spacing:-.02em}
-  .nav-links a.learn,.nav-links a.on{color:var(--brown-deep)}
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .2s,background .3s}
+  .nav-links{position:fixed;inset:0;width:100vw;height:100dvh;margin:0;gap:0;padding:0 34px;
+    background:var(--ink);flex-direction:column;justify-content:center;align-items:stretch;
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;z-index:55;
+    counter-reset:navi;overscroll-behavior:contain}
+  .nav-toggle:checked ~ .nav-links{opacity:1;visibility:visible}
+  .nav-links::before{content:"GU CÀ PHÊ";position:absolute;top:24px;left:34px;
+    font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;
+    color:var(--cream);opacity:0;transition:opacity .5s .12s}
+  .nav-links::after{content:"Mua thật · Nếm mù · Chấm điểm";position:absolute;left:34px;bottom:34px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold-soft);opacity:0;transition:opacity .5s .38s}
+  .nav-toggle:checked ~ .nav-links::before{opacity:1}
+  .nav-toggle:checked ~ .nav-links::after{opacity:.85}
+  .nav-links li{counter-increment:navi;border-bottom:1px solid rgba(255,255,255,.09)}
+  .nav-links li:first-child{border-top:1px solid rgba(255,255,255,.09)}
+  .nav-links a{display:flex;align-items:baseline;gap:18px;font-size:clamp(30px,8.5vw,40px);
+    font-weight:700;color:var(--cream);padding:19px 2px;border-bottom:none;letter-spacing:-.025em;
+    transform:translateY(16px);opacity:0;
+    transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s,color .2s}
+  .nav-links a::before{content:counter(navi,decimal-leading-zero);flex:none;align-self:center;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.05em;
+    color:var(--gold-soft)}
+  .nav-links li a.learn,.nav-links li a.on{color:var(--gold-soft)}
+  .nav-links li a.on::before{color:var(--cream)}
+  .nav-toggle:checked ~ .nav-links a{transform:none;opacity:1}
+  .nav-toggle:checked ~ .nav-links li:nth-child(1) a{transition-delay:.10s}
+  .nav-toggle:checked ~ .nav-links li:nth-child(2) a{transition-delay:.16s}
+  .nav-toggle:checked ~ .nav-links li:nth-child(3) a{transition-delay:.22s}
+  .nav-toggle:checked ~ .nav-links li:nth-child(4) a{transition-delay:.28s}
+  .nav-toggle:checked ~ .nav-links li:nth-child(5) a{transition-delay:.34s}
+  .nav-toggle:checked ~ .nav-burger span{background:var(--cream)}
   .nav-toggle:checked ~ .nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle:checked ~ .nav-burger span:nth-child(2){opacity:0}
   .nav-toggle:checked ~ .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
