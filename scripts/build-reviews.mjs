@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260779';
+const CSS_V = '20260780';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1067,11 +1067,16 @@ function hubNhaRang() {
   const list = ordered.length === ROASTER.length ? ordered : ROASTER;
   const schema = itemListSchema('Nhà rang cà phê đặc sản Lâm Đồng',
     ROASTER.map(r => ({ url: `${ORIGIN}/nha-rang/${r.slug}`, name: r.ten })));
-  const needCards = list.filter(r => r.nhuCau).map(r => `<a class="rn" href="/nha-rang/${r.slug}">
+  const needCards = list.filter(r => r.nhuCau).map(r => {
+    const lead = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean)[0];
+    const src = lead && lead.anh ? (/^https?:/.test(lead.anh) ? lead.anh : '/' + lead.anh) : '';
+    return `<a class="rn" href="/nha-rang/${r.slug}">
       <span class="rn-need">${esc(r.nhuCau)}</span>
       <span class="rn-name">${esc(r.ten)}</span>
+      ${src ? `<span class="rn-thumb"><img src="${esc(src)}" alt="${esc(r.ten)}" loading="lazy"></span>` : ''}
       ${r.theManh ? `<span class="rn-manh">${esc(r.theManh)}</span>` : ''}
-    </a>`).join('');
+    </a>`;
+  }).join('');
   const cmpTable = list.every(r => r.theManh && r.hopAi) ? `<section class="rg-cmp">
     <h2 class="rg-h">So sánh nhanh sáu nhà rang</h2>
     <div class="rg-cmp-scroll">
