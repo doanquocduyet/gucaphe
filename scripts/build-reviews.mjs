@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260780';
+const CSS_V = '20260781';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -954,6 +954,12 @@ ${siteNav('nharang')}
     <a href="/">Gu Cà Phê</a><i>/</i><a href="/nha-rang">Nhà rang</a><i>/</i><span>${esc(r.ten)}</span>
   </nav>
 
+  ${vung && vung.anh ? `<div class="rr-cover">
+    <img src="${/^https?:/.test(vung.anh) ? vung.anh : '/' + vung.anh}" alt="Vùng nguyên liệu ${esc(vung.ten)}" fetchpriority="high">
+    <div class="rr-cover-scrim"></div>
+    <span class="rr-cover-cap">Vùng nguyên liệu · ${esc(vung.ten)}</span>
+  </div>` : ''}
+
   <header class="vg-hero${a ? ' has-score' : ''}">
     <div class="eyebrow">Nhà rang${vung ? ` · ${esc(vung.ten)}` : ''}</div>
     <h1>${esc(r.ten)}</h1>
@@ -1067,16 +1073,11 @@ function hubNhaRang() {
   const list = ordered.length === ROASTER.length ? ordered : ROASTER;
   const schema = itemListSchema('Nhà rang cà phê đặc sản Lâm Đồng',
     ROASTER.map(r => ({ url: `${ORIGIN}/nha-rang/${r.slug}`, name: r.ten })));
-  const needCards = list.filter(r => r.nhuCau).map(r => {
-    const lead = (r.sanPham || []).map(id => SP_BY_ID[id]).filter(Boolean)[0];
-    const src = lead && lead.anh ? (/^https?:/.test(lead.anh) ? lead.anh : '/' + lead.anh) : '';
-    return `<a class="rn" href="/nha-rang/${r.slug}">
+  const needCards = list.filter(r => r.nhuCau).map(r => `<a class="rn" href="/nha-rang/${r.slug}">
       <span class="rn-need">${esc(r.nhuCau)}</span>
       <span class="rn-name">${esc(r.ten)}</span>
-      ${src ? `<span class="rn-thumb"><img src="${esc(src)}" alt="${esc(r.ten)}" loading="lazy"></span>` : ''}
       ${r.theManh ? `<span class="rn-manh">${esc(r.theManh)}</span>` : ''}
-    </a>`;
-  }).join('');
+    </a>`).join('');
   const cmpTable = list.every(r => r.theManh && r.hopAi) ? `<section class="rg-cmp">
     <h2 class="rg-h">So sánh nhanh sáu nhà rang</h2>
     <div class="rg-cmp-scroll">
@@ -1088,7 +1089,7 @@ function hubNhaRang() {
   </section>` : '';
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Nhà rang</span></nav>
-  ${hubHero('/assets/img/hero/brew-wide.jpg', 'Nhà rang', 'Nhà rang chúng tôi chọn đồng hành',
+  ${hubHero('/assets/img/hero/roasting.jpg', 'Nhà rang', 'Nhà rang chúng tôi chọn đồng hành',
     'Không phải nhà rang lớn nhất — mà là những nơi chúng tôi đã <b>mua, uống, tìm hiểu</b> và sẵn sàng giới thiệu cho bạn. Chỉ sáu, không hơn.',
     '<p class="hub-fair">Thứ tự bên dưới <b>không phải xếp hạng</b> — mỗi nhà một thế mạnh riêng. Điểm số chỉ gắn khi đã nếm mù chính thức.</p>')}
 
