@@ -69,18 +69,23 @@ const SP = [
     ],
     link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-lot.jpg" },
 
-  { id:"sp-heirloom", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-29",
+  { id:"sp-heirloom", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31",
     selectionCriteria:{signature:false,community:true,khacBiet:true,hocThuat:true,benVung:false},
-    brand:"Sơn Pacamara", ten:"Heirloom Sơn Farm 250g", nhom:"hat", gia:null, gram:250,
+    brand:"Sơn Pacamara", ten:"Heirloom Sơn Farm — 100% Arabica 250g", nhom:"hat", gia:265000, gram:250,
     slug:"son-pacamara-heirloom", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
-    giong:"Heirloom", doCao:"", process:"Washed", roast:"Light", ngayRang:"",
+    giong:"Heirloom (Arabica lâu năm)", doCao:"", process:"Double washed", roast:"Light", ngayRang:"",
     tested:false, daUong:false, chungNhan:"", diem:null, chua:null, dam:null, hau:null,
-    chot:"Giống Heirloom cổ, washed rang sáng — citrus, ngọt nhẹ.",
-    flavor:"Lô Heirloom washed rang sáng từ Sơn Farm. Nhà rang mô tả vị citrus, đường nâu, ngọt nhẹ. Gu chưa nếm mù, chưa gắn điểm. Giá đang cập nhật.",
-    notes:[], tags:["Heirloom","Washed","Pour over"],
-    nen:["Thích Arabica giống cổ","Pha V60 / pour over","Thích vị citrus, ngọt nhẹ"],
-    khong:["Thích vị đậm kiểu Robusta","Chủ yếu pha phin"],
+    chot:"Heirloom Sơn Farm — Arabica lâu năm, double washed rang sáng; chua sáng, cam chanh.",
+    flavor:"Lô Heirloom (các cây Arabica lâu năm ở Sơn Farm, Đà Lạt), sơ chế double washed, rang sáng. Nhà rang mô tả: hương cam chanh tươi, đường nâu, vị chua sáng, hậu ngọt nhẹ và sạch — hợp pour over (V60, Chemex). Gu chưa nếm mù nên chưa gắn điểm; thông số và mô tả vị lấy từ nhà rang.",
+    notes:[], tags:["Heirloom","Chua sáng","Pour over"],
+    nen:["Thích Arabica giống lâu năm","Pha V60 / pour over để tôn hương","Thích vị chua sáng, cam chanh"],
+    khong:["Thích vị đậm kiểu Robusta","Chủ yếu pha phin (rang sáng dễ chua gắt)"],
+    faq:[
+      {q:"Heirloom là giống gì?",a:"Ở đây “Heirloom” chỉ các cây Arabica lâu năm trồng tại Sơn Farm (không xác định rõ giống). Nhà rang lên men double washed để giữ vị sạch và sáng."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù gói này nên chưa gắn điểm. Mô tả vị (cam chanh, đường nâu, chua sáng) là do nhà rang công bố; khi nào nếm mù xong Gu sẽ cập nhật."},
+      {q:"Có gói lớn hơn không?",a:"Có. Ngoài gói 250g (265.000₫) còn gói 500g (500.000₫) — quy ra 100g thì gói 500g rẻ hơn khoảng 30.000₫."}
+    ],
     link:"https://store.sonpacamara.com/products/goi-heirloom-tu-son-pacamara-specialty-coffee-viet-phu-hop-pour-over-aeropress-cold-brew-light-roast", anh:"assets/img/products/son-heirloom.jpg" },
 
   /* ===== 3 nhà Nam Ban — so sánh trung lập. Chưa nếm mù → tested:false. ===== */
