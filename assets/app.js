@@ -144,21 +144,46 @@ const INTENTS = [
 const TASTES = [
   { k:'sang',    label:'Chua sáng, trái cây', sub:'Floral, cam chanh, mọng nước' },
   { k:'canbang', label:'Cân bằng, dễ uống',   sub:'Không quá chua, không gắt' },
-  { k:'dam',     label:'Đậm, chocolate',       sub:'Thân dày, ít chua' }
+  { k:'dam',     label:'Đậm, chocolate',       sub:'Đậm đà, đầy miệng, ít chua' }
 ];
 const TLAB = {}; TASTES.forEach(t => TLAB[t.k] = t.label);
 const BLAB = {}; INTENTS.forEach(t => BLAB[t.k] = t.label.replace(/\s·.*/, ''));
 
-/* Điểm hợp = gu vị (dữ liệu chua/đậm) + cách pha + độ tin cậy (đã nếm) */
+/* Ước lượng gu vị từ thuộc tính KHÁCH QUAN (độ rang · giống · sơ chế) —
+   CHỈ dùng để XẾP HẠNG gợi ý, KHÔNG bao giờ hiển thị như điểm cảm quan.
+   Gói đã nếm mù có chua/đậm THẬT thì luôn ưu tiên số thật; gói chưa nếm thì
+   suy ra khuynh hướng vị để không gợi ý ngược gu (vd Robusta rang đậm cho
+   người thích 'chua sáng'). Đây là ước lượng để sắp xếp, không phải điểm chấm. */
+function estTaste(p) {
+  if (p.chua != null && p.dam != null) return { chua: p.chua, dam: p.dam };
+  let c = 3, d = 3;
+  const roast = (p.roast || '').toLowerCase();
+  const giong = (p.giong || '').toLowerCase();
+  const proc  = (p.process || '').toLowerCase();
+  if (/light|sáng/.test(roast))       { c += 1.2; d -= 0.6; }
+  else if (/dark|đậm/.test(roast))    { c -= 1.2; d += 1.2; }
+  else if (/medium/.test(roast))      { d += 0.3; }
+  if (/robusta/.test(giong))          { c -= 1.6; d += 1.6; }
+  else if (/arabica|bourbon|catimor|caturra|typica|heirloom|pacamara|cherry/.test(giong)) { c += 0.3; }
+  if (/natural/.test(proc))           { d += 0.5; c -= 0.2; }
+  else if (/washed/.test(proc))       { c += 0.4; }
+  const clamp = x => Math.max(1, Math.min(5, x));
+  return { chua: p.chua != null ? p.chua : clamp(c), dam: p.dam != null ? p.dam : clamp(d) };
+}
+const ec = p => estTaste(p).chua;
+const ed = p => estTaste(p).dam;
+
+/* Điểm hợp = gu vị (chua/đậm thật hoặc ước lượng khách quan) + cách pha + độ tin cậy.
+   Gu vị được ưu tiên hơn cách pha — không gợi ý gói ngược gu chỉ vì trùng cách pha. */
 function fit(p, taste, brew) {
-  const chua = p.chua || 3, dam = p.dam || 3;
+  const { chua, dam } = estTaste(p);
   let s = 0;
   if (taste === 'sang')    s += chua * 2 - dam * 0.6;
   if (taste === 'canbang') s += 6 - (Math.abs(chua - 3) + Math.abs(dam - 3));
   if (taste === 'dam')     s += dam * 2 - chua * 0.6;
   if (taste === 'moi')     s += (p.tested ? 4 : 0) + (6 - (Math.abs(chua - 3) + Math.abs(dam - 3))) + p.pha.length;
   const it = INTENTS.find(x => x.k === brew);
-  if (brew && it && it.match(p)) s += 4;
+  if (brew && it && it.match(p)) s += 2.5;
   s += p.tested ? 1.5 : 0;
   return s;
 }
@@ -170,9 +195,9 @@ const rank = (taste, brew) => SP
    Mỗi phản đối ("đắt quá", "muốn đậm hơn") chỉ hiện khi CÓ gói tốt hơn theo trục đó. ---- */
 const OBJ = [
   { k:'cheap',  label:'Đắt quá',      say:'rẻ hơn',              better:(p,c)=>per100(p) && per100(p) < per100(c), rk:(a,b)=>per100(a)-per100(b) },
-  { k:'bright', label:'Chua sáng hơn',say:'chua sáng, trái cây hơn', better:(p,c)=>(p.chua||3) > (c.chua||3),  rk:(a,b)=>(b.chua||3)-(a.chua||3) },
-  { k:'bold',   label:'Đậm hơn',      say:'đậm, dày thân hơn',   better:(p,c)=>(p.dam||3) > (c.dam||3),        rk:(a,b)=>(b.dam||3)-(a.dam||3) },
-  { k:'easy',   label:'Dễ uống hơn',  say:'nhẹ đô, dễ uống hơn', better:(p,c)=>(p.dam||3) < (c.dam||3),        rk:(a,b)=>(a.dam||3)-(b.dam||3) }
+  { k:'bright', label:'Chua sáng hơn',say:'chua sáng, trái cây hơn', better:(p,c)=>ec(p) > ec(c),  rk:(a,b)=>ec(b)-ec(a) },
+  { k:'bold',   label:'Đậm hơn',      say:'đậm đà, đầy miệng hơn',   better:(p,c)=>ed(p) > ed(c),  rk:(a,b)=>ed(b)-ed(a) },
+  { k:'easy',   label:'Dễ uống hơn',  say:'nhẹ đô, dễ uống hơn', better:(p,c)=>ed(p) < ed(c),  rk:(a,b)=>ed(a)-ed(b) }
 ];
 const availObj = cur => OBJ.filter(o => SP.some(p => p.id !== cur.id && o.better(p, cur)));
 function resolveObj(o, cur) {
@@ -210,7 +235,7 @@ function confLine(p, taste) {
   if (p.diem === top && t.length > 1) return `<b>Điểm cao nhất</b> trong ${t.length} gói chúng tôi đã nếm mù.`;
   // Điểm mạnh về vị: chỉ nói khi khớp gu vừa chọn
   if (taste === 'sang' && p.chua === maxChua && maxChua >= 4) return `Gói <b>chua sáng, thiên trái cây</b> rõ nhất trong nhóm đã nếm — đúng gu bạn.`;
-  if (taste === 'dam'  && p.dam  === maxDam  && maxDam  >= 4) return `Gói <b>đậm, dày thân</b> nhất trong nhóm đã nếm — đúng gu bạn.`;
+  if (taste === 'dam'  && p.dam  === maxDam  && maxDam  >= 4) return `Gói <b>đậm đà, đầy miệng</b> nhất trong nhóm đã nếm — đúng gu bạn.`;
   if (cheap && p.id === cheap.id)         return `<b>Rẻ nhất tính theo 100g</b> trong nhóm đã nếm — an toàn để bắt đầu.`;
   return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không điểm trừ đáng kể.`;
 }

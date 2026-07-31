@@ -89,9 +89,9 @@ const SP = [
     vungSlug:"nam-ban", xaHuyen:"Nam Ban, Lâm Hà",
     giong:"Fine Robusta", doCao:"", process:"Lên men muối (Natri Clorua)", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Top 14 Thế giới · CQI 2024", diem:null, chua:null, dam:null, hau:null,
-    flavor:"Đã mua và uống thật — thân dày, hậu ngọt, đúng chất Fine Robusta đấu giải. Đây là gói để lại ấn tượng mạnh nhất với chúng tôi. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
-    tags:["Thân dày","Hậu ngọt","Pha phin/máy"],
-    nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm, thân dày","Pha phin hoặc espresso"],
+    flavor:"Đã mua và uống thật — đậm, cảm giác đầy miệng, hậu ngọt, đúng chất Fine Robusta đấu giải. Đây là gói để lại ấn tượng mạnh nhất với chúng tôi. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
+    tags:["Đậm đầy miệng","Hậu ngọt","Pha phin/máy"],
+    nen:["Muốn thử đặc sản đạt giải quốc tế","Gu đậm đà","Pha phin hoặc espresso"],
     khong:["Ngân sách rất eo hẹp","Thích chua sáng nhẹ kiểu Arabica"],
     link:"https://buicoffeesupply.com/san-pham/fine-robusta-nam-ban-len-men-muoi/", anh:"assets/img/products/bui-fine-robusta.jpg" },
   { id:"nb-tamtrinh", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:true,community:false,khacBiet:true,hocThuat:true,benVung:true}, brand:"Tám Trình Coffee", ten:"Arabica Cầu Đất & Lạc Dương Blend (pha máy) 250g", nhom:"hat", gia:150000, gram:250,
@@ -183,10 +183,10 @@ const BAIVIET = [
     dek: "Cùng một hạt, hai cách sơ chế cho hai ly hoàn toàn khác. Chọn sai, bạn trách nhầm hạt.",
     than:
       "<p><b>Washed (sơ chế ướt)</b> tách sạch lớp thịt quả trước khi phơi hạt. Ly cà phê <b>sạch, sáng, rõ nét</b> — bạn cảm được đúng chất của giống và vùng đất, chua thanh như trái cây tươi. Đa số specialty rang sáng đi theo hướng này.</p>" +
-      "<p><b>Natural (sơ chế khô)</b> phơi nguyên cả quả, để hạt ngâm trong lớp thịt ngọt nhiều tuần. Kết quả: <b>ngọt đậm, thân dày, thiên trái cây chín</b> — dâu, mận, đôi khi hơi lên men như rượu vang. Bù lại, vị kém sạch và mỗi mẻ dễ lệch nhau hơn.</p>" +
+      "<p><b>Natural (sơ chế khô)</b> phơi nguyên cả quả, để hạt ngâm trong lớp thịt ngọt nhiều tuần. Kết quả: <b>ngọt đậm, đầy miệng, thiên trái cây chín</b> — dâu, mận, đôi khi hơi lên men như rượu vang. Bù lại, vị kém sạch và mỗi mẻ dễ lệch nhau hơn.</p>" +
       "<p><b>Chọn thế nào?</b> Thích trong trẻo, tinh tế → Washed. Thích ngọt bùng nổ, trái cây rõ → Natural. Trường <i>Sơ chế</i> ở mỗi sản phẩm cho bạn biết ngay mình sắp uống kiểu nào.</p>",
     faq: [
-      { q: "Natural khác Washed ở điểm nào?", a: "Washed tách sạch thịt quả trước khi phơi nên vị sạch, sáng, rõ nét. Natural phơi nguyên quả nên ngọt đậm, thân dày, thiên trái cây chín. Cùng một hạt, hai cách sơ chế cho hai ly khác hẳn." },
+      { q: "Natural khác Washed ở điểm nào?", a: "Washed tách sạch thịt quả trước khi phơi nên vị sạch, sáng, rõ nét. Natural phơi nguyên quả nên ngọt đậm, đầy miệng, thiên trái cây chín. Cùng một hạt, hai cách sơ chế cho hai ly khác hẳn." },
       { q: "Cà phê Natural có ngọt hơn Washed không?", a: "Thường là có. Vì phơi nguyên quả, hạt Natural ngấm nhiều đường từ lớp thịt hơn nên cảm giác ngọt đậm và thiên trái cây chín rõ hơn Washed." },
       { q: "Natural hợp pha gì?", a: "Natural body dày, ngọt đậm nên hợp cả phin lẫn pour over. Washed sạch và sáng thì tôn vị nhất khi pha V60 / pour over." }
     ],
@@ -204,7 +204,7 @@ const BAIVIET = [
     dek: "Độ rang quyết định ‘ngon hay dở’ nhiều hơn cả giống hạt. Quen phin mà mua nhầm rang sáng là dễ chê oan.",
     than:
       "<p><b>Rang sáng (Light)</b> giữ độ chua và hương hoa quả của hạt. Tuyệt vời với <b>V60 / pour over</b>, nhưng <b>pha phin dễ chua gắt</b> vì phin ngâm lâu, chiết ra nhiều axit.</p>" +
-      "<p><b>Rang đậm (Dark)</b> đốt bớt axit, đổi lại <b>thân dày, vị chocolate, đắng rõ</b>. Hợp phin truyền thống và espresso, uống với sữa vẫn ‘gồng’ được vị.</p>" +
+      "<p><b>Rang đậm (Dark)</b> đốt bớt axit, đổi lại <b>đậm đầy miệng, vị chocolate, đắng rõ</b>. Hợp phin truyền thống và espresso, uống với sữa vẫn ‘gồng’ được vị.</p>" +
       "<p><b>Quy tắc nhanh:</b> Phin → chọn Medium đến Dark. V60 / pour over → chọn Light đến Medium. Cột <i>Rang</i> và <i>Hợp</i> ở mỗi sản phẩm đã ghi sẵn để bạn khỏi đoán.</p>",
     faq: [
       { q: "Pha phin nên chọn rang sáng hay rang đậm?", a: "Chọn Medium đến Dark. Rang sáng ngâm lâu trong phin dễ chua gắt; rang đậm cho body dày, vị chocolate, hợp gu phin truyền thống hơn." },
@@ -589,11 +589,11 @@ const VUNG = [
       { q: "Cà phê Nam Ban hợp pha phin không?", a: "Rất hợp. Vì body dày và ít chua, Nam Ban là một trong những vùng hợp pha phin và espresso nhất trong nhóm — gần với gu cà phê truyền thống." },
       { q: "Nam Ban khác Cầu Đất thế nào?", a: "Cầu Đất cao hơn (1.400–1.650m), chua sáng, hương hoa, hợp pour over. Nam Ban thấp hơn (~800–1.000m), body dày, ít chua, hợp phin. Nói ngắn: Cầu Đất thanh và chua, Nam Ban đậm và dịu." }
     ],
-    vi: "Thân dày hơn, độ chua dịu hơn vùng cao; dễ uống với người quen gu đậm.",
-    diemNhan: ["Thuộc huyện Lâm Hà", "Độ cao thấp hơn Cầu Đất", "Thân dày, ít chua", "Nổi tiếng cà phê chồn & du lịch"],
+    vi: "Đậm và đầy miệng hơn, độ chua dịu hơn vùng cao; dễ uống với người quen gu đậm.",
+    diemNhan: ["Thuộc huyện Lâm Hà", "Độ cao thấp hơn Cầu Đất", "Đậm đà, ít chua", "Nổi tiếng cà phê chồn & du lịch"],
     than: [
       "<p><b>Nam Ban</b> là thị trấn thuộc huyện <b>Lâm Hà</b>, phía tây nam Đà Lạt. Tên ‘Lâm Hà’ ghép từ Lâm Đồng và Hà Nội — vùng kinh tế mới do người Hà Nội vào lập nghiệp từ cuối thập niên 1970.</p>",
-      "<p>So với Cầu Đất, Nam Ban ở <b>độ cao thấp hơn</b> nên khí hậu ấm hơn. Cà phê ở đây thường <b>thân dày hơn, độ chua dịu hơn</b>, dễ uống với người quen gu đậm. Vùng trồng cả Robusta lẫn Arabica.</p>",
+      "<p>So với Cầu Đất, Nam Ban ở <b>độ cao thấp hơn</b> nên khí hậu ấm hơn. Cà phê ở đây thường <b>đậm và đầy miệng hơn, độ chua dịu hơn</b>, dễ uống với người quen gu đậm. Vùng trồng cả Robusta lẫn Arabica.</p>",
       "<p>Nam Ban cũng được biết đến với các trại <b>cà phê chồn</b> và du lịch cà phê — nhưng đó là câu chuyện trải nghiệm nhiều hơn là thước đo chất lượng specialty. Với cà phê đặc sản, điều đáng quan tâm vẫn là giống, độ cao và cách sơ chế được ghi rõ.</p>"
     ]
   },
