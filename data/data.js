@@ -47,7 +47,7 @@ const SP = [
       {q:"Người mới nên bắt đầu với gói này?",a:"Hợp nếu bạn muốn làm quen vị Arabica chua sáng, sạch. Nếu quen gu phin đậm đắng thì nên chuyển dần."},
       {q:"Giá 270.000₫ có đáng không?",a:"Quy ra 108.000₫/100g — thuộc nhóm cao, nhưng đây là gói Gu chấm mù cao nhất tới nay (9,3/10). Với người thật sự để ý vị, đáng."}
     ],
-    link:"https://s.shopee.vn/8pkbckR0IT", anh:"assets/img/products/cherries-branch.jpg" },
+    link:"https://s.shopee.vn/8pkbckR0IT", anh:"assets/img/products/son-lang-biang.webp" },
 
   /* ===== Sơn Pacamara — 2 gói micro-lot khác (xác minh từ store chính thức). ===== */
   { id:"sp-pacamara", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31",
