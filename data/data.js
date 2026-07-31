@@ -47,7 +47,7 @@ const SP = [
       {q:"Người mới nên bắt đầu với gói này?",a:"Hợp nếu bạn muốn làm quen vị Arabica chua sáng, sạch. Nếu quen gu phin đậm đắng thì nên chuyển dần."},
       {q:"Giá 270.000₫ có đáng không?",a:"Quy ra 108.000₫/100g — thuộc nhóm cao, nhưng đây là gói Gu chấm mù cao nhất tới nay (9,3/10). Với người thật sự để ý vị, đáng."}
     ],
-    link:"https://s.shopee.vn/AUsMz3wGhY", anh:"assets/img/products/cherries-branch.jpg" },
+    link:"https://s.shopee.vn/8pkbckR0IT", anh:"assets/img/products/cherries-branch.jpg" },
 
   /* ===== Sơn Pacamara — 2 gói micro-lot khác (xác minh từ store chính thức). ===== */
   { id:"sp-pacamara", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31",
@@ -127,28 +127,40 @@ const SP = [
     ],
     link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-yellow-bourbon.jpg" },
   /* ===== 2 nhà mới (Thay đổi ③) — số liệu tra web thật 07/2026, giá THAM KHẢO, tested:false. ===== */
-  { id:"mb-yellowcherry", guPick:"collector", confidence:"editor_tasted", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:false}, brand:"The Married Beans", ten:"Yellow Cherry Natural Cầu Đất (nhân xanh) 500g", nhom:"hat", gia:450000, gram:500,
-    slug:"married-beans-yellow-cherry-cau-dat", pha:["v60","coldbrew"],
-    vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Xuân Trường, Đà Lạt",
-    giong:"Yellow Cherry (Arabica)", doCao:"1550 MASL", process:"Natural lên men sâu", roast:"", ngayRang:"",
-    tested:false, daUong:true, chungNhan:"Chứng nhận SGS · Cầu Đất 1.550m", diem:null, chua:null, dam:null, hau:null,
-    flavor:"Dành cho người tự rang. Nhân xanh (green bean, cần rang trước khi pha). Rang lên uống thử: trái cây nhiệt đới, rượu mận, ngọt thanh — hợp Cold Brew, Pour Over rang sáng. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
-    notes:["Trái cây nhiệt đới","Rượu mận","Ngọt thanh"],
-    tags:["Nhân xanh","Cần tự rang","Trái cây nhiệt đới"],
-    nen:["Người tự rang / có mối rang","Thích lô truy xuất rõ nguồn gốc"],
-    khong:["Muốn mua về pha uống ngay (đây là nhân xanh)","Chưa có thiết bị rang"],
-    link:"https://www.themarriedbeans.com/collections/ca-phe-dac-san-specialty-coffee", anh:"assets/img/products/green-beans-hand.jpg" },
-  { id:"lv-balanced", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:false,community:true,khacBiet:false,hocThuat:false,benVung:true}, brand:"Là Việt Coffee", ten:"Là Việt Balanced 100% Arabica (hạt rang) 250g", nhom:"hat", gia:160000, gram:250,
-    slug:"la-viet-balanced-arabica-da-lat", pha:["phin","espresso"],
+  { id:"mb-redbourbon", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:false}, brand:"The Married Beans", ten:"Red Bourbon rang sáng Cầu Đất 250g", nhom:"hat", gia:275000, gram:250,
+    slug:"married-beans-red-bourbon-cau-dat", pha:["v60","coldbrew"],
+    vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Lâm Đồng",
+    giong:"Red Bourbon (Arabica)", doCao:"", process:"Washed", roast:"Light", ngayRang:"",
+    tested:false, daUong:false, chungNhan:"Specialty · Lâm Đồng", diem:null, chua:null, dam:null, hau:null,
+    chot:"Red Bourbon washed rang sáng — chua sáng, cam chanh, caramel.",
+    flavor:"Lô Red Bourbon (Arabica 100%), sơ chế washed, rang sáng từ The Married Beans (Lâm Đồng). Nhà rang mô tả: chua tươi sáng kiểu cam chanh (citrus), ngọt caramel / đường cháy, vị sạch cân bằng, hương dịu nhẹ — hợp pour over (V60, Kalita, Chemex) và cold brew. Gu chưa nếm mù nên chưa gắn điểm; thông số và mô tả vị lấy từ nhà rang.",
+    notes:[],
+    tags:["Chua sáng","Cam chanh · caramel","Pour over/cold brew"],
+    nen:["Thích chua sáng, trái cây, caramel","Pha V60 / pour over hoặc cold brew","Muốn gói rang sẵn, pha ngay"],
+    khong:["Thích vị đậm, socola","Chủ yếu pha phin (rang sáng dễ chua gắt)"],
+    faq:[
+      {q:"Red Bourbon là gì?",a:"Là biến chủng Arabica cho quả chín màu đỏ, nổi tiếng vị ngọt cân bằng và chua trái cây thanh. Gói này 100% Red Bourbon, sơ chế washed, rang sáng."},
+      {q:"Gói này hợp pha gì?",a:"Rang sáng, sơ chế washed nên hợp pour over (V60, Kalita, Chemex) và cold brew để tôn hương cam chanh, caramel. Pha phin dễ bị chua gắt."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù nên chưa gắn điểm. Mô tả vị (cam chanh, caramel, chua sáng) là do nhà rang công bố; khi nào nếm mù xong Gu sẽ cập nhật."}
+    ],
+    link:"https://s.shopee.vn/6pzXG4v0W8", anh:"assets/img/products/beans-tin.jpg" },
+  { id:"lv-rich", guPick:"editor", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:false,benVung:true}, brand:"Là Việt Coffee", ten:"Là Việt RICH — 100% Arabica 250g", nhom:"hat", gia:125000, gram:250,
+    slug:"la-viet-rich-arabica-da-lat", pha:["espresso","phin"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt, Lâm Đồng",
-    giong:"Arabica (Catimor/Bourbon)", doCao:"~1500m", process:"Medium roast blend", roast:"Medium", ngayRang:"",
+    giong:"Arabica Catimor", doCao:"", process:"Wet process (washed)", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Asia Top 80 · Đà Lạt", diem:null, chua:null, dam:null, hau:null,
-    flavor:"Đã mua và uống thật — cân bằng chua-đắng, dịu, tinh tế; hợp phin, moka pot, máy pha, mua về pha ngay. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
-    notes:["Cân bằng","Dịu","Tinh tế"],
-    tags:["Cân bằng","Dễ uống","Pha phin/máy"],
-    nen:["Muốn Arabica Đà Lạt dễ uống","Pha phin/máy tại nhà","Thương hiệu uy tín Asia Top 80"],
-    khong:["Muốn single-origin lô rõ vùng","Thích vị mạnh gắt kiểu Robusta"],
-    link:"https://beacons.ai/laviet.coffee", anh:"assets/img/products/hand-beans.jpg" }
+    chot:"Là Việt RICH — Arabica rang đậm, socola đen, mạnh; giá mềm.",
+    flavor:"Đã mua và uống thật — đậm, mạnh, socola đắng rõ; ngon với người thích gu đậm. Nhà rang mô tả: vị socola đen, đậm, mạnh — 100% Arabica Catimor sơ chế ướt, rang medium. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
+    notes:[],
+    tags:["Đậm mạnh","Socola đắng","Pha phin/máy"],
+    nen:["Gu đậm, mạnh, socola đắng","Pha phin, moka pot, espresso, French press","Muốn gói ngon giá mềm (50k/100g)"],
+    khong:["Thích chua sáng, trái cây","Muốn gói rang sáng pha pour over"],
+    faq:[
+      {q:"Gói này hợp pha gì?",a:"Rang medium, vị đậm mạnh nên hợp phin, moka pot, máy espresso và French press. Không phải gói pour over rang sáng."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật, thấy ngon với gu đậm, nhưng chưa nếm mù nên chưa gắn điểm. Mô tả vị (socola đắng, đậm) theo nhà rang công bố."},
+      {q:"Giá 125.000₫ có đáng không?",a:"Quy ra 50.000₫/100g — thuộc nhóm mềm nhất ở đây mà vẫn 100% Arabica specialty. Đáng cho gu đậm uống hằng ngày."}
+    ],
+    link:"https://s.shopee.vn/6VMgqhk3FM", anh:"assets/img/products/hand-beans.jpg" }
 ];
 
 const CAP_SS = [];
@@ -742,7 +754,7 @@ const ROASTER = [
     vungChinh: "Cầu Đất", vungSlug: "cau-dat", web: "https://www.themarriedbeans.com",
     gioiThieu: "Nhà làm cà phê đặc sản nghiêm túc bậc nhất ở Cầu Đất, ghi rõ độ cao, giống, sơ chế và hương vị cho từng lô. Chúng tôi đã uống và thấy ngon — điểm chấm mù sẽ cập nhật sau.",
     lichSu: "<p>The Married Beans thành lập năm 2015 tại Đà Lạt (số ĐKKD do Sở KHĐT Lâm Đồng cấp 08/07/2015), cửa hàng ở 06 Nguyễn Văn Trỗi. Họ đồng hành với bà con nông dân các vùng <b>Cầu Đất, Đạ Sar, Lang Biang</b>, hiện liên kết hơn <b>60 nông hộ</b> canh tác khoảng <b>120 hecta</b> cà phê đặc sản.</p><p>Điểm khiến chúng tôi chú ý: mỗi lô cà phê của họ đều ghi minh bạch giống, độ cao, phương pháp sơ chế và tasting note — đúng kiểu dữ liệu mà Gu Cà Phê trân trọng. Họ đạt chứng nhận quốc tế <b>SGS</b> và có mảng xuất khẩu nhân xanh. Lưu ý: phần lớn hàng bán trên web của họ là nhân xanh (cà phê sống, cần rang trước khi pha), không phải hạt rang uống ngay.</p>",
-    sanPham: ["mb-yellowcherry"], diemTB: null, chungNhan: "Chứng nhận SGS · Cầu Đất",
+    sanPham: ["mb-redbourbon"], diemTB: null, chungNhan: "Chứng nhận SGS · Cầu Đất",
     theManh: "Micro-lot, truy xuất kỹ", hopAi: "Dân specialty thích micro-lot", doiTuong: "Specialty",
     nhuCau: "Thích micro-lot, truy xuất rõ",
     motCau: "The Married Beans là nhà làm cà phê đặc sản nghiêm túc ở Cầu Đất, ghi rõ giống, độ cao và sơ chế cho từng lô — mạnh về truy xuất và micro-lot.",
@@ -762,7 +774,7 @@ const ROASTER = [
     vungChinh: "Đà Lạt", vungSlug: "da-lat", web: "https://laviet.coffee",
     gioiThieu: "Roastery kiêm quán specialty biểu tượng của thành phố Đà Lạt, tự trồng, sơ chế, rang và pha. Chúng tôi đã uống và thấy ngon — điểm chấm mù sẽ cập nhật sau.",
     lichSu: "<p>Là Việt thành lập năm 2015 bởi Trần Nhật Quang, theo triết lý <b>“plant, process, roast and brew”</b> (trồng, sơ chế, rang và pha) — làm chủ toàn bộ chuỗi từ hạt tới ly. Không gian rang mở ngay trong quán để khách nhìn thấy cả quy trình.</p><p>Đây là một trong những cái tên specialty được biết đến nhiều nhất Đà Lạt, từng lọt danh sách <b>Asia’s Top 80</b> quán cà phê, cộng đồng theo dõi lớn trên mạng xã hội. Họ tập trung vào Arabica Đà Lạt vùng cao, có dòng hạt rang bán lẻ theo ba mức rang, đóng túi có van và ghi ngày rang — thuận tiện để mua về pha tại nhà. Nếu Sơn Pacamara đại diện cho farm thủ công thì Là Việt đại diện cho văn hóa và trải nghiệm cà phê đô thị.</p>",
-    sanPham: ["lv-balanced"], diemTB: null, chungNhan: "Asia Top 80 · Đà Lạt",
+    sanPham: ["lv-rich"], diemTB: null, chungNhan: "Asia Top 80 · Đà Lạt",
     theManh: "Specialty & trải nghiệm Đà Lạt", hopAi: "Yêu văn hoá cà phê Đà Lạt", doiTuong: "Home brewer",
     chuoi: ["Trồng", "Sơ chế", "Rang", "Pha"], chuoiNote: "Làm chủ toàn bộ chuỗi — từ hạt tới ly",
     nhuCau: "Trải nghiệm cà phê Đà Lạt",
@@ -787,6 +799,6 @@ const NHUCAU = [
   { label: "Đạt giải quốc tế", vi: "Fine Robusta Nam Ban — Top 14 Thế Giới 2024.", spId: "nb-bui" },
   { label: "Chua sáng · pha V60", vi: "Arabica vùng cao, gói điểm nếm mù cao nhất.", spId: "lb1" },
   { label: "Mở quán · mua sỉ", vi: "Nhà rang lớn, phù hợp mua số lượng.", spId: "nb-tamtrinh" },
-  { label: "Uống hằng ngày", vi: "Hạt rang pha ngay, cân bằng, dễ uống.", spId: "lv-balanced" },
-  { label: "Tự rang · lô đặc biệt", vi: "Nhân xanh Cầu Đất, sơ chế lên men sâu.", spId: "mb-yellowcherry" }
+  { label: "Uống hằng ngày", vi: "Là Việt RICH — đậm, socola, giá mềm, pha ngay.", spId: "lv-rich" },
+  { label: "Cold brew · pour over", vi: "Red Bourbon rang sáng — cam chanh, caramel, hợp pour over & cold brew.", spId: "mb-redbourbon" }
 ];
