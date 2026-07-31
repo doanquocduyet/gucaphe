@@ -67,7 +67,7 @@ const SP = [
       {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật — thấy cân bằng, dễ chịu — nhưng chưa nếm mù nên chưa gắn điểm của Gu. Nhà rang công bố 81–83 điểm SCA. Nếm mù xong Gu sẽ cập nhật điểm."},
       {q:"Hợp pha gì?",a:"Rang sáng, lên men anaerobic nên hợp pour over (V60, Chemex) để tôn hương trái cây và hoa; không hợp pha phin đậm."}
     ],
-    link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-lot.jpg" },
+    link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-microlot.webp" },
 
   { id:"sp-heirloom", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31",
     selectionCriteria:{signature:false,community:true,khacBiet:true,hocThuat:true,benVung:false},
@@ -114,7 +114,7 @@ const SP = [
       {q:"Có mấy cỡ gói?",a:"Có 250g và 500g, kèm combo 2 gói 500g; giá dao động 135.000₫–490.000₫ theo trọng lượng. Chọn Nguyên hạt hoặc Bột pha phin."},
       {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật, thấy dễ uống và cân bằng, nhưng chưa nếm mù nên chưa gắn điểm. Mô tả vị theo cảm nhận thật cộng công bố của nhà rang."}
     ],
-    link:"https://s.shopee.vn/9ANS2eMm0w", anh:"assets/img/products/tamtrinh-natural.jpg" },
+    link:"https://s.shopee.vn/9ANS2eMm0w", anh:"assets/img/products/golden-birds-sanh-dieu.webp" },
   { id:"nb-dehavi", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true}, brand:"Dehavi (Hân Vinh)", ten:"Yellow Bourbon Cầu Đất 250g", nhom:"hat", gia:175000, gram:250,
     slug:"dehavi-yellow-bourbon-cau-dat", pha:["phin","espresso"],
     vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Đà Lạt, Lâm Đồng",
@@ -149,7 +149,7 @@ const SP = [
       {q:"Gói này hợp pha gì?",a:"Rang sáng, sơ chế washed nên hợp pour over (V60, Kalita, Chemex) và cold brew để tôn hương cam chanh, caramel. Pha phin dễ bị chua gắt."},
       {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù nên chưa gắn điểm. Mô tả vị (cam chanh, caramel, chua sáng) là do nhà rang công bố; khi nào nếm mù xong Gu sẽ cập nhật."}
     ],
-    link:"https://s.shopee.vn/6pzXG4v0W8", anh:"assets/img/products/beans-tin.jpg" },
+    link:"https://s.shopee.vn/6pzXG4v0W8", anh:"assets/img/products/married-beans-red-bourbon.webp" },
   { id:"lv-rich", guPick:"editor", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:false,benVung:true}, brand:"Là Việt Coffee", ten:"Là Việt RICH — 100% Arabica 250g", nhom:"hat", gia:125000, gram:250,
     slug:"la-viet-rich-arabica-da-lat", pha:["espresso","phin"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt, Lâm Đồng",
@@ -166,7 +166,7 @@ const SP = [
       {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật, thấy ngon với gu đậm, nhưng chưa nếm mù nên chưa gắn điểm. Mô tả vị (socola đắng, đậm) theo nhà rang công bố."},
       {q:"Giá 125.000₫ có đáng không?",a:"Quy ra 50.000₫/100g — thuộc nhóm mềm nhất ở đây mà vẫn 100% Arabica specialty. Đáng cho gu đậm uống hằng ngày."}
     ],
-    link:"https://s.shopee.vn/6VMgqhk3FM", anh:"assets/img/products/hand-beans.jpg" }
+    link:"https://s.shopee.vn/6VMgqhk3FM", anh:"assets/img/products/la-viet-rich.webp" }
 ];
 
 const CAP_SS = [];
@@ -348,7 +348,7 @@ const BAIVIET = [
   },
   {
     id: "vong-tron-huong-vi",
-    anh: "assets/img/p4-taste.jpg",
+    anh: "assets/img/flavor-wheel-sca.jpg",
     tag: "Kiến thức",
     docPhut: 4, mucDo: "Người mới",
     tieuDe: "Vòng tròn hương vị cà phê: nó giúp gì cho bạn?",
@@ -372,6 +372,7 @@ const BAIVIET = [
       "• <b>Tầng giữa</b> — chi tiết hơn: trong 'trái cây' tách ra họ cam quýt, họ berry, trái cây khô…<br>" +
       "• <b>Tầng ngoài cùng</b> — cụ thể nhất: trong 'berry' lại có dâu, việt quất, mâm xôi…</p>" +
       "<p>Càng ra ngoài càng chi tiết. <b>Ví dụ:</b> bạn thấy có mùi trái cây → nhìn sang nhóm trái cây → rồi nhận ra nó giống mùi cam hơn là mùi dâu. Vậy là xong, bạn vừa gọi tên được một hương vị.</p>" +
+      "<figure><img src='/assets/img/flavor-wheel-tiers.jpg' alt='Vòng tròn hương vị đọc theo 3 bậc: vị chung, nhóm hương vị, mô tả cụ thể' loading='lazy'><figcaption>Đọc từ trong ra ngoài theo 3 bậc — <b>Bậc 1</b> vị chung → <b>Bậc 2</b> nhóm hương vị → <b>Bậc 3</b> mô tả cụ thể.</figcaption></figure>" +
 
       "<h3>Dùng thực tế: chỉ 3 câu hỏi</h3>" +
       "<p>Uống một ngụm, tự hỏi 3 câu, mỗi câu đi sâu một tầng:</p>" +

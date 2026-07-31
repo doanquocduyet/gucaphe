@@ -1178,6 +1178,11 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-art-body h3{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,22px);
   letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px}
 .kt-art-body i{color:var(--ink-soft)}
+/* Ảnh minh hoạ trong bài viết */
+.kt-art-body figure{margin:26px 0}
+.kt-art-body figure img{display:block;width:100%;height:auto;border-radius:12px;
+  border:1px solid var(--border,#EEE4D6);background:var(--bg-soft,#F8F3EC)}
+.kt-art-body figcaption{margin-top:10px;font-size:13px;line-height:1.55;color:var(--ink-soft,#7A6A5C);text-align:center}
 
 /* Hộp "hiểu lầm phổ biến" */
 .callout{background:var(--accent-soft,#F4ECE2);border-left:3px solid var(--accent,#C2632C);
