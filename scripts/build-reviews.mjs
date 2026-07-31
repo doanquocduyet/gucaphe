@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260806';
+const CSS_V = '20260807';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -263,7 +263,7 @@ function flavorPara(p) {
 
 /* ---- Nhãn nút mua theo nơi bán thật (Shopee vs trang chính hãng nhà rang) ---- */
 const isShopee = p => /shopee\./i.test(p.link || '');
-const buyLabel = p => isShopee(p) ? 'Mua trên Shopee' : 'Mua chính hãng';
+const buyLabel = p => 'Mua gói này';
 const buyChannel = p => isShopee(p) ? 'shopee' : 'brand';
 
 /* ---- Nút mua (affiliate) — rel="sponsored" đúng chuẩn Google ---- */

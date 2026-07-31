@@ -53,7 +53,7 @@ function aff(id, channel, pos) {
 
 /* ---- Nhãn nút mua theo nơi bán thật (Shopee vs trang chính hãng) ---- */
 const isShopee = p => /shopee\./i.test(p.link || '');
-const buyLabel = p => isShopee(p) ? 'Mua trên Shopee' : 'Mua chính hãng';
+const buyLabel = p => 'Mua gói này';
 
 /* ---- Nút mua: hiện giá ngay trên nút (neo giá) + kênh phụ nếu có link ---- */
 function buyCTA(p, pos, label) {
