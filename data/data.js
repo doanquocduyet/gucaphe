@@ -50,21 +50,21 @@ const SP = [
     link:"https://s.shopee.vn/AUsMz3wGhY", anh:"assets/img/products/cherries-branch.jpg" },
 
   /* ===== Sơn Pacamara — 2 gói micro-lot khác (xác minh từ store chính thức). ===== */
-  { id:"sp-pacamara", guPick:"signature", confidence:"editor_research", verificationDate:"2026-07-29",
+  { id:"sp-pacamara", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31",
     selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true},
-    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot", nhom:"hat", gia:205000, gram:100,
+    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot 100g", nhom:"hat", gia:205000, gram:100,
     slug:"son-pacamara-pacamara", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
     giong:"Pacamara", doCao:"", process:"Anaerobic washed", roast:"Light", ngayRang:"",
-    tested:false, daUong:false, chungNhan:"", diem:null, chua:null, dam:null, hau:null,
+    tested:false, daUong:true, chungNhan:"Nhà rang công bố 81–83 SCA", diem:null, chua:null, dam:null, hau:null,
     chot:"Giống Pacamara hiếm, lên men anaerobic — chính là nguồn cảm hứng đặt tên Sơn Pacamara.",
-    flavor:"Micro-lot Pacamara lên men anaerobic từ Sơn Farm. Nhà rang mô tả vị chua trái cây mọng nước, hương hoa trắng, ngọt dày và công bố 81–83 điểm SCA. Gu chưa nếm mù nên chưa gắn điểm.",
-    notes:[], tags:["Pacamara","Anaerobic","Pour over"],
+    flavor:"Đã mua và uống thật — cân bằng giữa độ chua sáng, thể chất (body) vừa và dư vị ngọt ngào. Micro-lot Pacamara lên men anaerobic từ Sơn Farm (bản New Crop 2026); nhà rang công bố 81–83 điểm SCA. Điểm chấm mù (blind) của Gu sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
+    notes:[], tags:["Chua sáng","Body vừa","Dư vị ngọt"],
     nen:["Muốn thử giống hiếm Pacamara","Pha V60 / pour over để tôn hương","Thích khám phá lô lên men"],
     khong:["Chủ yếu pha phin đậm sữa","Thích vị quen, an toàn"],
     faq:[
       {q:"Pacamara là giống gì?",a:"Là giống lai hạt to hiếm (Pacas × Maragogipe), cho tách cà phê phức hợp, thường thấy ở các cuộc thi đặc sản. Cũng là giống đặt tên cho thương hiệu Sơn Pacamara."},
-      {q:"Gói này bao nhiêu điểm?",a:"Nhà rang công bố 81–83 điểm SCA. Gu chưa nếm mù gói này nên chưa gắn điểm của Gu — nếm xong sẽ cập nhật."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật — thấy cân bằng, dễ chịu — nhưng chưa nếm mù nên chưa gắn điểm của Gu. Nhà rang công bố 81–83 điểm SCA. Nếm mù xong Gu sẽ cập nhật điểm."},
       {q:"Hợp pha gì?",a:"Rang sáng, lên men anaerobic nên hợp pour over (V60, Chemex) để tôn hương trái cây và hoa; không hợp pha phin đậm."}
     ],
     link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-lot.jpg" },
