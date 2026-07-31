@@ -52,10 +52,10 @@ const SP = [
   /* ===== Sơn Pacamara — 2 gói micro-lot khác (xác minh từ store chính thức). ===== */
   { id:"sp-pacamara", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31",
     selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true},
-    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot 100g", nhom:"hat", gia:205000, gram:100,
+    brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot 100g", nhom:"hat", gia:220000, gram:100,
     slug:"son-pacamara-pacamara", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
-    giong:"Pacamara", doCao:"", process:"Anaerobic washed", roast:"Light", ngayRang:"",
+    giong:"Pacamara", doCao:"", process:"Double anaerobic washed", roast:"Light", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Nhà rang công bố 81–83 SCA", diem:null, chua:null, dam:null, hau:null,
     chot:"Giống Pacamara hiếm, lên men anaerobic — chính là nguồn cảm hứng đặt tên Sơn Pacamara.",
     flavor:"Đã mua và uống thật — cân bằng giữa độ chua sáng, thể chất (body) vừa và dư vị ngọt ngào. Micro-lot Pacamara lên men anaerobic từ Sơn Farm (bản New Crop 2026); nhà rang công bố 81–83 điểm SCA. Điểm chấm mù (blind) của Gu sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -67,7 +67,7 @@ const SP = [
       {q:"Gói này bao nhiêu điểm?",a:"Gu đã mua và uống thật — thấy cân bằng, dễ chịu — nhưng chưa nếm mù nên chưa gắn điểm của Gu. Nhà rang công bố 81–83 điểm SCA. Nếm mù xong Gu sẽ cập nhật điểm."},
       {q:"Hợp pha gì?",a:"Rang sáng, lên men anaerobic nên hợp pour over (V60, Chemex) để tôn hương trái cây và hoa; không hợp pha phin đậm."}
     ],
-    link:"https://store.sonpacamara.com/products/goi-pacamara-tu-son-pacamara-micro-lot-specialty-coffee-viet-phu-hop-pour-over-light-roast", anh:"assets/img/products/son-pacamara-microlot.webp" },
+    link:"https://s.shopee.vn/60QQdAGwIl", anh:"assets/img/products/son-pacamara-bag.webp" },
 
   { id:"sp-heirloom", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31",
     selectionCriteria:{signature:false,community:true,khacBiet:true,hocThuat:true,benVung:false},
@@ -86,7 +86,7 @@ const SP = [
       {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù gói này nên chưa gắn điểm. Mô tả vị (cam chanh, đường nâu, chua sáng) là do nhà rang công bố; khi nào nếm mù xong Gu sẽ cập nhật."},
       {q:"Có gói lớn hơn không?",a:"Có. Ngoài gói 250g (265.000₫) còn gói 500g (500.000₫) — quy ra 100g thì gói 500g rẻ hơn khoảng 30.000₫."}
     ],
-    link:"https://store.sonpacamara.com/products/goi-heirloom-tu-son-pacamara-specialty-coffee-viet-phu-hop-pour-over-aeropress-cold-brew-light-roast", anh:"assets/img/products/son-heirloom.jpg" },
+    link:"https://s.shopee.vn/19DTxusCw", anh:"assets/img/products/son-heirloom-2026.webp" },
 
   /* ===== 3 nhà Nam Ban — so sánh trung lập. Chưa nếm mù → tested:false. ===== */
   { id:"nb-bui", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true}, brand:"Bui Coffee Supply", ten:"Fine Robusta Nam Ban (lên men muối) 250g", nhom:"hat", gia:179000, gram:250,
@@ -131,7 +131,39 @@ const SP = [
       {q:"Gói này hợp pha gì?",a:"Rang medium, sơ chế washed nên linh hoạt — hợp pha phin và pha máy, vẫn ổn với pour over."},
       {q:"Có hợp người mới không?",a:"Rất hợp. Vị ngọt, sạch, dễ uống, giá dễ tiếp cận — là điểm vào specialty dễ chịu."}
     ],
-    link:"https://shopee.vn/dehavicoffee_official", anh:"assets/img/products/dehavi-yellow-bourbon.jpg" },
+    link:"https://shopee.vn/product/508720326/12907322383", anh:"assets/img/products/dehavi-yellow-bourbon-bag.webp" },
+  { id:"dh-arabica", guPick:"signature", confidence:"editor_research", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:true,benVung:true}, brand:"Dehavi (Hân Vinh)", ten:"100% Arabica Cầu Đất Pha Máy (Dehavi) 250g", nhom:"hat", gia:105000, gram:250,
+    slug:"dehavi-arabica-pha-may", pha:["espresso","phin"],
+    vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Đà Lạt",
+    giong:"Arabica Catimor", doCao:"1.650–1.700m", process:"Washed / Honey", roast:"Medium", ngayRang:"",
+    tested:false, daUong:false, chungNhan:"Dehavi · Cầu Đất 1.650m", diem:null, chua:null, dam:null, hau:null,
+    chot:"100% Arabica Cầu Đất pha máy — chua thanh, thảo mộc, hậu ngọt.",
+    flavor:"100% Arabica Cầu Đất (giống Catimor, 1.650–1.700m), rang mộc, chế biến Washed hoặc Honey. Nhà rang mô tả: bản Washed hương thảo mộc, chua thanh, hậu ngọt; bản Honey cân bằng, hậu ngọt. Làm cho pha máy nhưng dùng phin cũng tốt. Gu chưa nếm mù nên chưa gắn điểm; thông số và mô tả vị lấy từ nhà rang.",
+    notes:[], tags:["Chua thanh","Pha máy/phin","Arabica Cầu Đất"],
+    nen:["Pha máy espresso, moka pot","Thích Arabica chua thanh, hậu ngọt","Muốn single-origin Cầu Đất giá mềm"],
+    khong:["Gu đậm đắng kiểu Robusta","Chủ yếu uống phin đậm sữa"],
+    faq:[
+      {q:"Washed và Honey khác gì?",a:"Washed cho vị sạch, chua thanh, hương thảo mộc; Honey ngọt và cân bằng hơn. Chọn theo gu."},
+      {q:"Gói này hợp pha gì?",a:"Làm cho pha máy (espresso, moka pot), pha phin / pour over vẫn tốt. Rang medium."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù nên chưa gắn điểm. Mô tả vị theo nhà rang công bố; nếm mù xong Gu sẽ cập nhật."}
+    ],
+    link:"https://s.shopee.vn/2qTOqpC9bY", anh:"assets/img/products/dehavi-arabica-pha-may.webp" },
+  { id:"dh-blend", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:true,benVung:true}, brand:"Dehavi (Hân Vinh)", ten:"Blend Robusta–Arabica Pha Máy (Dehavi) 250g", nhom:"hat", gia:80000, gram:250,
+    slug:"dehavi-blend-pha-may", pha:["espresso","phin"],
+    vungSlug:"nam-ban", xaHuyen:"Robusta Nam Ban + Arabica Cầu Đất",
+    giong:"Blend Robusta (Nam Ban) + Arabica (Cầu Đất)", doCao:"", process:"Natural / Honey", roast:"Medium", ngayRang:"",
+    tested:false, daUong:false, chungNhan:"Dehavi · rang mộc", diem:null, chua:null, dam:null, hau:null,
+    chot:"Blend pha máy Robusta Nam Ban + Arabica Cầu Đất — đậm đà vừa, ít gắt.",
+    flavor:"Blend cho pha máy của Dehavi: Robusta Nam Ban trộn Arabica Cầu Đất, rang mộc, chế biến Natural/Honey, tỉ lệ tuỳ chọn (5-5, 7-3, 9-1 — càng nhiều Robusta càng đậm và nhiều caffeine). Nhà rang mô tả: đậm đà vừa phải, ít gắt, dậy hương Robusta hoà quyện chua thanh, hậu ngọt của Arabica. Gu chưa nếm mù nên chưa gắn điểm; thông số và mô tả vị lấy từ nhà rang.",
+    notes:[], tags:["Đậm đà vừa","Pha máy/phin","Robusta–Arabica"],
+    nen:["Pha máy espresso, moka pot tại nhà","Gu đậm vừa, ít gắt","Muốn chọn tỉ lệ Robusta/Arabica"],
+    khong:["Thích chua sáng thuần Arabica rang nhạt","Tìm single-origin lô rõ vùng"],
+    faq:[
+      {q:"Tỉ lệ 5-5, 7-3, 9-1 khác gì nhau?",a:"Số đầu là % Robusta. 9-1 nhiều Robusta nhất → đậm và nhiều caffeine nhất; 5-5 cân bằng, dịu hơn. Giá dao động 80.000₫–195.000₫ theo cỡ gói (250g/500g)."},
+      {q:"Gói này hợp pha gì?",a:"Làm riêng cho pha máy (espresso, moka pot), pha phin vẫn tốt. Rang mộc, đậm đà vừa."},
+      {q:"Gói này bao nhiêu điểm?",a:"Gu chưa nếm mù nên chưa gắn điểm. Mô tả vị theo nhà rang công bố."}
+    ],
+    link:"https://s.shopee.vn/1BLArefshh", anh:"assets/img/products/dehavi-blend-pha-may.webp" },
   /* ===== 2 nhà mới (Thay đổi ③) — số liệu tra web thật 07/2026, giá THAM KHẢO, tested:false. ===== */
   { id:"mb-redbourbon", guPick:"collector", confidence:"editor_research", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:false}, brand:"The Married Beans", ten:"Red Bourbon rang sáng Cầu Đất 250g", nhom:"hat", gia:275000, gram:250,
     slug:"married-beans-red-bourbon-cau-dat", pha:["v60","coldbrew"],
@@ -698,7 +730,7 @@ const ROASTER = [
     vungChinh: "Nam Ban", vungSlug: "nam-ban", web: "https://dehavi.com",
     gioiThieu: "Nhà rang gốc Nam Ban, mạnh dòng Arabica rang mộc dễ uống. Dòng chủ lực Yellow Bourbon Cầu Đất hợp người mới bước vào cà phê đặc sản.",
     lichSu: "<p>Dehavi là thương hiệu rang xay của <b>Công ty TNHH Cà Phê Hân Vinh</b>, đặt tại thôn Đông Anh, xã Nam Ban, Lâm Hà — hơn <b>20 năm</b> làm nguyên liệu cà phê, đóng vai cầu nối giữa nông hộ với doanh nghiệp trong và ngoài nước.</p><p>Dehavi đạt chứng nhận <b>OCOP 4 sao</b>, ISO 22000, FDA, có nhà máy rang xay công suất lớn và vùng nguyên liệu trải nhiều tỉnh. Dòng đặc sản rang mộc nguyên chất của họ có giá tốt, hợp người uống phổ thông muốn thử hàng đặc sản mà không phải trả nhiều. Định vị của Dehavi là cà phê sạch, giá phải chăng, dễ tiếp cận.</p>",
-    sanPham: ["nb-dehavi"], diemTB: null, chungNhan: "OCOP 4 sao · ISO 22000",
+    sanPham: ["nb-dehavi", "dh-arabica", "dh-blend"], diemTB: null, chungNhan: "OCOP 4 sao · ISO 22000",
     theManh: "Yellow Bourbon dễ uống", hopAi: "Người mới specialty", doiTuong: "Người mới",
     nhuCau: "Mới uống specialty, Arabica dễ uống",
     motCau: "Dehavi là nhà rang giá mềm, dễ tiếp cận nhất trong nhóm Gu theo dõi, phù hợp người mới bắt đầu uống cà phê đặc sản.",
