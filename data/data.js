@@ -148,7 +148,7 @@ const SP = [
       {q:"Gói này hợp pha gì?",a:"Rang medium, sơ chế washed nên linh hoạt — hợp pha phin và pha máy, vẫn ổn với pour over."},
       {q:"Có hợp người mới không?",a:"Rất hợp. Vị ngọt, sạch, dễ uống, giá dễ tiếp cận — là điểm vào specialty dễ chịu."}
     ],
-    link:"https://shopee.vn/product/508720326/12907322383", anh:"assets/img/products/dehavi-yellow-bourbon-bag.webp" },
+    link:"https://s.shopee.vn/9V0IonuyQr", anh:"assets/img/products/dehavi-yellow-bourbon-bag.webp" },
   { id:"dh-arabica", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:true,benVung:true}, brand:"Dehavi (Hân Vinh)", ten:"100% Arabica Cầu Đất Pha Máy (Dehavi) 250g", nhom:"hat", gia:105000, gram:250,
     slug:"dehavi-arabica-pha-may", pha:["espresso","phin"],
     vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Đà Lạt",
