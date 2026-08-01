@@ -247,6 +247,99 @@ const FAQ = [
 /* ---- Kiến thức — bài viết ngắn, hiểu trước khi mua ---- */
 const BAIVIET = [
   {
+    id: "ca-phe-tu-goc-den-ly",
+    anh: "assets/img/coffee-cherry-sorting.jpg",
+    tag: "Kiến thức",
+    docPhut: 9, mucDo: "Toàn cảnh",
+    tieuDe: "Cà phê thực sự là gì? Từ cái cây ngoài vườn đến hạt cà phê Việt đi khắp thế giới",
+    dek: "Vì sao cùng gọi là cà phê mà giá chênh nhau 5–10 lần? Chất lượng một hạt cà phê được tạo ra từ đâu, và vì sao Việt Nam xuất khẩu thứ 2 thế giới? Một bài đủ để hiểu tường tận.",
+    than:
+      "<p>Mỗi sáng hàng triệu người Việt uống cà phê. Việt Nam cũng là một trong những nước sản xuất và xuất khẩu cà phê lớn nhất thế giới. Nhưng nếu đưa một người đang uống cà phê một quả cà phê vừa hái và hỏi “từ quả này làm sao thành ly anh đang uống?” — không phải ai cũng trả lời được.</p>" +
+      "<p>Càng ít người biết vì sao có ly cà phê vài chục nghìn, có loại vài trăm nghìn; vì sao cùng một giống trồng hai nơi lại khác vị; hay vì sao người ta ghi trên gói cà phê những thứ như độ cao, giống, vùng trồng, cách sơ chế. Muốn hiểu, nên quay về nơi đơn giản nhất: cái cây.</p>" +
+
+      "<h3>Vì sao gọi là “cà phê”? Có phải vì có caffeine?</h3>" +
+      "<p>Không — logic gần như ngược lại. Tên “coffee” có trước thuật ngữ hóa học “caffeine”. Từ này có lịch sử ngôn ngữ đi qua nhiều chặng, thường được truy về tiếng Ả Rập <i>qahwa</i>, qua tiếng Thổ <i>kahve</i>, tiếng Hà Lan <i>koffie</i>; tiếng Việt “cà phê” vay qua tiếng Pháp <i>café</i> thời người Pháp mang cây vào. Còn caffeine là tên một hợp chất tự nhiên trong hạt — tên caffeine bắt nguồn từ cách gọi cà phê trong các ngôn ngữ châu Âu, xuất hiện sau khi hợp chất này được phân lập và nghiên cứu từ cà phê.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> Không phải cây được gọi là cà phê vì nó chứa caffeine. Caffeine cũng không riêng gì cà phê — trà, cacao, guarana đều có. Và hạt cà phê không chỉ có caffeine: nó chứa cả carbohydrate, lipid, protein, acid hữu cơ và hàng trăm hợp chất khác tạo nên mùi vị.</div>" +
+
+      "<h3>Hạt cà phê thực chất là gì?</h3>" +
+      "<p>Cà phê là cây thuộc chi <i>Coffea</i>. Cây ra hoa, hoa thành quả — quả chín đỏ hoặc vàng, trông như quả anh đào nhỏ. Bên trong mỗi quả thường có hai hạt nằm úp vào nhau. Thứ ta gọi là “hạt cà phê” chính là hạt bên trong quả đó. Nói gọn cả hành trình: <b>Đất → cây → hoa → quả → thu hoạch → sơ chế → nhân xanh → rang → xay → pha → ly cà phê.</b></p>" +
+      "<p>Ly cà phê chỉ là đoạn cuối. Muốn hiểu chất lượng, phải đi ngược chuỗi này về mảnh đất.</p>" +
+
+      "<h3>Arabica và Robusta — và một hiểu lầm cần bỏ</h3>" +
+      "<p>Arabica gốc Ethiopia, nhiều giống, tiềm năng hương thơm và độ phức tạp cao, nhưng đòi hỏi điều kiện khắt khe. Robusta thích nghi rộng hơn, năng suất cao, nhiều caffeine — Việt Nam đặc biệt mạnh loại này.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> Arabica không mặc định là ngon, Robusta không mặc định là hàng thấp cấp. Giống chỉ là một biến số. Một cây tiềm năng tốt nhưng trồng sai chỗ, hái quả xanh, sơ chế lỗi, rang cháy vẫn cho ly dở. Ngược lại, Robusta được chọn giống và làm kỹ có thể cho chất lượng rất cao — đó chính là Fine Robusta.</div>" +
+
+      "<h3>Vì sao vùng trồng quyết định vị?</h3>" +
+      "<p>Cùng một giống, trồng hai nơi cho kết quả khác nhau — vì cây không sống trong phòng thí nghiệm, mà trong cả một hệ sinh thái: độ cao + nhiệt độ + mưa + ánh sáng + đất + nước + giống + cách người trồng chăm sóc. Rượu vang gọi đó là <i>terroir</i>; cà phê có logic tương tự.</p>" +
+      "<p>Độ cao đáng chú ý: nơi phù hợp, quả chín chậm hơn giúp hạt tích lũy hương và vị chua thanh khác đi. Nhưng không thể nói đơn giản “càng cao càng ngon” — mỗi giống có vùng thích nghi riêng. Đó là lý do cà phê Cầu Đất khác cà phê Nam Ban dù cách nhau không xa.</p>" +
+
+      "<h3>Đất ảnh hưởng thế nào? (không như bạn nghĩ)</h3>" +
+      "<p>Đất tác động qua nhiều yếu tố: khả năng giữ và thoát nước, độ sâu tầng đất, cấu trúc, độ pH, chất hữu cơ, dinh dưỡng, hệ vi sinh, khả năng bén rễ. Tây Nguyên nổi tiếng đất đỏ bazan, rất thuận cho cây lâu năm.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu lầm phổ biến:</b> “Đất đỏ bazan nên cà phê ngon” là nói quá đơn giản. Đất không bơm thẳng “vị chocolate” hay “vị trái cây” vào hạt. Đất tạo môi trường cho rễ hoạt động; cây dùng nước, khoáng, ánh sáng để tạo quả. Phải hỏi đủ: đất gì + độ cao nào + khí hậu ra sao + giống gì + trồng thế nào.</div>" +
+
+      "<h3>Người trồng quyết định chất lượng đến đâu?</h3>" +
+      "<p>Rất nhiều. Hai vườn cạnh nhau — cùng đất, cùng độ cao, cùng giống — nhưng một bên quản lý dinh dưỡng tốt, tỉa cành, kiểm soát sâu bệnh, hái đúng quả chín; bên kia hái lẫn quả xanh, quả khô. Hai lô cà phê sẽ không giống nhau. Quả cà phê như trái cây: độ chín quyết định thành phần bên trong. Và hái xong vẫn chưa xong — sơ chế sai thì lô rất tốt ngoài vườn vẫn hỏng.</p>" +
+      "<p>Thiên nhiên tạo tiềm năng. Người trồng và người làm cà phê quyết định giữ lại được bao nhiêu.</p>" +
+
+      "<h3>Sơ chế: nơi quả biến thành nguyên liệu cho nhà rang</h3>" +
+      "<p>Sau khi hái, phải tách hạt và làm khô. Ba cách chính: <b>Natural</b> (phơi cả quả còn thịt — thường có xu hướng vị trái cây đậm hơn), <b>Washed</b> (rửa sạch thịt trước khi phơi — thường cho vị trong trẻo hơn), <b>Honey</b> (giữ lại một phần lớp nhầy). Xu hướng chứ không phải quy luật — sơ chế không đảm bảo một profile cố định, còn tùy giống, vùng và tay nghề. Đây là lý do cùng nông trại, cùng giống, cùng vụ mà hai lô sơ chế khác nhau cho hai trải nghiệm hoàn toàn khác.</p>" +
+
+      "<h3>Đo chất lượng cà phê bằng cách nào?</h3>" +
+      "<p>Không có máy bỏ hạt vào rồi hiện “ngon”. Đo hai tầng. <b>Tầng vật lý:</b> độ ẩm, kích thước, khối lượng riêng, độ đồng đều, tỷ lệ hạt lỗi/đen/vỡ, tạp chất. Nhưng hạt đẹp chưa chắc uống ngon — nên còn <b>tầng hai: nếm.</b> Người ta rang mẫu rồi thử nếm trong điều kiện chuẩn (gọi là <i>cupping</i>), đánh giá hương, vị, độ chua, độ ngọt, cảm giác trong miệng, hậu vị.</p>" +
+
+      "<h3>Ai đặt ra chữ “Specialty Coffee” — và con số 80 từ đâu ra?</h3>" +
+      "<p>Muốn hiểu đúng Specialty Coffee, phải tách hai chuyện thường bị nhập làm một: người đặt ra thuật ngữ không phải người đặt ra mốc 80 điểm.</p>" +
+      "<p>Năm 1974 tại Mỹ, <b>Erna Knutsen</b> — một người kinh doanh cà phê nhân xanh ở San Francisco — dùng thuật ngữ “Specialty Coffee” để nói về những loại cà phê có hương vị đặc biệt, được tạo ra trong những điều kiện phù hợp, đặc biệt là vi khí hậu. Điều bà nhìn thấy đơn giản mà quan trọng: không phải mọi hạt cà phê đều giống nhau, và không nên bán tất cả như một loại hàng hóa vô danh. Bà không phải cơ quan quản lý, cũng không đặt ra mốc 80/100 — ảnh hưởng của bà là ở chỗ nhận ra, gọi tên và góp phần hình thành một phân khúc mới.</p>" +
+      "<p>Sau đó ngành lớn dần. Năm 1982, Hiệp hội Cà phê Đặc sản Hoa Kỳ (SCAA) ra đời để có diễn đàn chung và xây tiêu chuẩn chất lượng. Các phương pháp đánh giá ngày càng được chuẩn hóa; trong hệ thống chấm điểm dùng rộng rãi, cà phê được đánh giá trên thang 100, và 80/100 trở thành ngưỡng phân loại quen thuộc của specialty grade.</p>" +
+      "<div class='callout'><b>⚠️ Hiểu cho đúng con số 80:</b> Đó là 80 điểm trên thang 100, không phải “80 tiêu chí”. Nó không phải con số Erna Knutsen nghĩ ra, và cũng không phải một “định luật tự nhiên” khiến hạt 79,9 là cà phê thường còn hạt 80,0 bỗng thành đặc sản. Nó là một ngưỡng phân loại do ngành xây dựng để có ngôn ngữ chung khi đánh giá và giao dịch.</div>" +
+      "<p>Ngày nay Hiệp hội Cà phê Đặc sản (SCA) — hình thành năm 2017 từ việc hợp nhất SCAA của Mỹ và SCAE của châu Âu — tiếp tục phát triển cách đánh giá này, và không còn xem một điểm tổng duy nhất là toàn bộ câu chuyện. Có thể hiểu lịch sử chữ Specialty bằng ba bước: <b>1974</b> — nhận ra sự khác biệt (Erna Knutsen); <b>sau đó</b> — tìm cách đo và chuẩn hóa sự khác biệt (ngành specialty); <b>ngày nay</b> — hiểu giá trị của sự khác biệt rộng hơn một con số (SCA hiện đại). Không phải một con số làm hạt cà phê trở nên đặc biệt — con số chỉ là một trong những cách con người cố đo và nói về sự khác biệt của nó.</p>" +
+
+      "<h3>Specialty Coffee thực sự là gì?</h3>" +
+      "<p>Đây là một chữ rất hay bị hiểu sai. Specialty Coffee không đơn giản nghĩa là “cà phê ngon”, “cà phê đắt”, “Arabica”, hay “cứ đạt 80 điểm là xong”.</p>" +
+      "<p>Trong cách phân loại truyền thống, cà phê đạt từ 80/100 trở lên khi được chấm theo hệ thống chuyên môn thì được xem là specialty grade. Nhưng nếu chỉ nói “Specialty là cà phê trên 80 điểm” thì ngày nay chưa đủ. SCA hiện định nghĩa: Specialty Coffee là cà phê hoặc trải nghiệm cà phê được công nhận bởi những thuộc tính khác biệt, và chính những thuộc tính đó tạo ra giá trị gia tăng đáng kể trên thị trường.</p>" +
+      "<p>“Thuộc tính khác biệt” có thể nằm ngay trong hạt và trong ly — hương, vị, cảm giác trong miệng, đặc điểm vật lý của hạt. Nhưng cũng có thể gắn với thông tin phía sau nó — nguồn gốc, giống, người sản xuất, cách canh tác, cách sơ chế. Đây là điểm quan trọng nhất: nó không chỉ hỏi “cà phê này ngon không?”, mà hỏi “cà phê này có gì khác biệt, và điều khác biệt ấy có tạo ra giá trị không?”</p>" +
+      "<p>Một lô có hương vị đặc biệt, một giống hiếm, một vùng trồng thể hiện đặc tính riêng, một cách sơ chế tạo profile khác, một nông trại truy xuất rõ ràng — đều có thể là thuộc tính tạo nên giá trị. Vì vậy cũng cần phân biệt: có nguồn gốc rõ chưa chắc đã là specialty; Arabica chưa chắc là specialty; đắt tiền chưa chắc là specialty; một người thấy ngon cũng chưa đủ gọi là specialty. Và mốc 80/100, dù quan trọng trong lịch sử và vẫn dùng rộng rãi trong thương mại, không còn diễn tả toàn bộ cách ngành nhìn giá trị một hạt cà phê. Nói đơn giản nhất: cà phê hàng hóa được giao dịch vì nó là cà phê; Specialty Coffee được trả thêm giá trị vì người ta nhận ra điều đặc biệt của chính nó. Đó là lúc một hạt cà phê không còn vô danh — nó bắt đầu có một hộ chiếu.</p>" +
+
+      "<h3>Vì sao Việt Nam xuất khẩu cà phê hàng đầu thế giới?</h3>" +
+      "<p>Việt Nam xuất khẩu cà phê lớn thứ hai thế giới, chỉ sau Brazil, chiếm khoảng 17% sản lượng toàn cầu; riêng Robusta thì đứng số 1 thế giới. Năm 2024 xuất khẩu đạt kỷ lục khoảng 5,48 tỷ USD. Trung tâm là Tây Nguyên (Đắk Lắk, Lâm Đồng, Đắk Nông, Gia Lai, Kon Tum) — chiếm khoảng 90% sản lượng cả nước.</p>" +
+      "<p>Nhưng lợi thế không chỉ ở thiên nhiên. Nó nằm ở cả một hệ thống: vùng trồng quy mô lớn + kinh nghiệm nông dân hàng chục năm + năng suất cao + thu mua + chế biến + logistics + ngành xuất khẩu. Một nước không thể xuất hàng triệu tấn chỉ nhờ trồng được cây — phải có cả cỗ máy chuỗi cung ứng phía sau.</p>" +
+
+      "<h3>Nước ngoài nhập cà phê Việt về làm gì? Có phải chỉ để uống?</h3>" +
+      "<p>Nhiều người hình dung: Việt Nam trồng → đóng bao → nước ngoài mua → pha uống. Thực tế chuỗi dài hơn nhiều. Phần lớn xuất đi dưới dạng nhân xanh (hạt sống chưa rang), rồi mới vào chuỗi công nghiệp toàn cầu:</p>" +
+      "<ul>" +
+      "<li><b>Rang &amp; bán dưới thương hiệu của họ:</b> một gói cà phê mang nhãn châu Âu, Mỹ, Nhật có thể chứa hạt Việt mà người uống cuối không hề biết.</li>" +
+      "<li><b>Phối trộn (blend):</b> Robusta Việt được trộn vào để tăng body, caffeine, tạo lớp crema dày cho espresso.</li>" +
+      "<li><b>Cà phê hòa tan:</b> Robusta rang, xay, chiết xuất rồi sấy thành cà phê hòa tan — một mảng cực lớn.</li>" +
+      "<li><b>Chiết xuất &amp; hợp chất:</b> trong sản xuất cà phê decaf, caffeine được tách khỏi hạt rồi tinh sạch, có thể thành nguyên liệu cho ngành khác. Hạt xanh cũng chứa chlorogenic acid đang được nghiên cứu.</li>" +
+      "<li><b>Đồ uống &amp; thực phẩm:</b> cà phê hoặc chiết xuất đi vào nước đóng chai, kem, bánh, kẹo, chocolate.</li>" +
+      "</ul>" +
+      "<div class='callout'><b>⚠️ Nói cho đúng:</b> Không phải cứ rời cảng Việt Nam là hạt được đem rang pha ngay. Một hạt Robusta Tây Nguyên có thể qua vài quốc gia, một nhà rang, một nhà máy thực phẩm trước khi tới người dùng. Các ứng dụng như chiết caffeine là điều CÓ THỂ của cà phê nói chung — không có nghĩa nước ngoài nhập lượng lớn cà phê Việt để chiết caffeine; đầu ra chính vẫn là rang, blend và cà phê hòa tan. Cũng cần phân biệt: caffeine có mặt trong vài loại thuốc giảm đau phối hợp không có nghĩa thuốc đó “làm từ cà phê” — đó là hai chất khác nhau.</div>" +
+
+      "<h3>Nghịch lý — và chỗ đứng của cà phê đặc sản Việt</h3>" +
+      "<p>Việt Nam rất mạnh ở sản xuất nguyên liệu, nhưng phần giá trị cao thường nằm ở khâu sau: rang → thương hiệu → phân phối → trải nghiệm. Một container cà phê nhân và hàng triệu ly làm ra từ nó là hai thế giới giá trị khác hẳn. Đó là lý do cà phê đặc sản quan trọng: thay vì chỉ bán thật nhiều, nó giúp thế giới biết từng hạt đến từ đâu — nâng cà phê Việt từ “nhiều” lên “tinh”.</p>" +
+      "<p>Rượu vang không chỉ nói “rượu Pháp” mà nói Bordeaux, Burgundy. Cà phê cũng đang đi theo: quốc gia → vùng → nông trại → giống → lô → cách sơ chế. Càng truy về gần mảnh đất, hạt cà phê càng có danh tính rõ.</p>" +
+
+      "<h3>Muốn hiểu cà phê, hãy đi ngược từ chiếc ly về mảnh đất</h3>" +
+      "<p>Một ly cà phê mất vài phút để pha, nhưng phía sau là vài năm cây trưởng thành, nhiều tháng quả phát triển, hàng chục quyết định của người trồng, người sơ chế, người rang. Lần tới cầm một gói cà phê, thay vì chỉ hỏi “ngon không?”, thử hỏi thêm: Nó từ đâu? Giống gì? Ai trồng? Hái thế nào? Sơ chế ra sao? Đo chất lượng bằng cách nào? Khi bắt đầu hỏi những câu đó, ta không còn chỉ uống cà phê — ta bắt đầu hiểu một hạt cà phê.</p>" +
+      "<p><b>Gu khuyên:</b> Đây là lý do trong mỗi bài đánh giá, Gu luôn ghi rõ giống, vùng, độ cao, cách sơ chế — để mỗi gói có “hộ chiếu” của nó. <a href='/ca-phe'>Xem những gói Gu đã uống và đánh giá</a>, hoặc nếu mới bắt đầu, đọc <a href='/bat-dau/ca-phe-chua'>vì sao cà phê ngon lại chua</a>.</p>",
+    faq: [
+      { q: "Vì sao gọi là “cà phê”? Có phải vì có caffeine?", a: "Không. Từ “coffee” có lịch sử ngôn ngữ đi qua nhiều chặng, thường truy về tiếng Ả Rập qahwa, qua tiếng Thổ kahve, tiếng Hà Lan koffie; tiếng Việt vay qua tiếng Pháp café. Tên caffeine bắt nguồn từ cách gọi cà phê trong các ngôn ngữ châu Âu và xuất hiện sau khi hợp chất này được phân lập, nghiên cứu từ cà phê. Nhiều cây khác như trà, cacao cũng có caffeine." },
+      { q: "Specialty coffee nghĩa là cà phê đắt tiền?", a: "Không. Giá cao không tự biến cà phê thành specialty. Cốt lõi là những thuộc tính khác biệt tạo ra giá trị, và khả năng nhận biết, truy xuất chúng xuyên suốt chuỗi sản xuất. Mốc 80/100 điểm là cách hiểu phổ biến trong lịch sử, nhưng định nghĩa nay rộng hơn một con số." },
+      { q: "Việt Nam chủ yếu trồng Arabica hay Robusta?", a: "Robusta, chiếm phần áp đảo. Việt Nam vẫn trồng Arabica ở vùng phù hợp như Lâm Đồng, Sơn La, Điện Biên, Quảng Trị." },
+      { q: "Đất đỏ bazan có phải cứ trồng là ngon?", a: "Không. Đất bazan thuận lợi cho cây, nhưng chất lượng là kết quả của cả hệ thống: đất + độ cao + khí hậu + giống + cách trồng + độ chín khi hái + sơ chế. Vườn đất tốt mà làm ẩu vẫn cho hạt kém." },
+      { q: "Hai vườn cạnh nhau có thể cho chất lượng khác nhau không?", a: "Có. Cách quản lý cây, nước, dinh dưỡng, sâu bệnh, độ chín khi hái có thể khiến hai lô khác hẳn dù điều kiện tự nhiên gần giống nhau." },
+      { q: "Cà phê càng trồng cao càng ngon?", a: "Không phải lúc nào cũng vậy. Độ cao ảnh hưởng môi trường sinh trưởng, nhưng mỗi giống có vùng thích nghi riêng. Phải xét cùng nhiệt độ, đất, mưa, giống, cách canh tác." },
+      { q: "Làm sao biết cà phê tốt hay xấu?", a: "Kết hợp kiểm tra vật lý (độ ẩm, kích thước, hạt lỗi…) với thử nếm cảm quan. Không thể chỉ nhìn hạt hay chỉ nhìn giá." },
+      { q: "Vì sao Việt Nam xuất khẩu cà phê nhiều như vậy?", a: "Vì có vùng Robusta quy mô rất lớn ở Tây Nguyên, khí hậu phù hợp, năng suất cao, nông dân kinh nghiệm lâu năm, và cả hệ thống thu mua–chế biến–xuất khẩu quy mô công nghiệp. Riêng Robusta, Việt Nam đứng số 1 thế giới." },
+      { q: "Nước ngoài nhập cà phê Việt về chỉ để uống?", a: "Không hẳn. Phần lớn là nhân xanh, đi vào chuỗi công nghiệp: rang bán dưới thương hiệu khác, trộn blend, làm cà phê hòa tan, chế biến thành đồ uống và thực phẩm. Nhưng đầu ra cốt lõi vẫn là thực phẩm và đồ uống." },
+      { q: "Một hạt cà phê ngon được tạo ra ở nhà rang hay ngoài vườn?", a: "Cả chuỗi đều quan trọng, nhưng tiềm năng của hạt được tạo ra ngoài vườn — từ giống, vùng trồng, quá trình phát triển quả. Rang giỏi không cứu được hạt nguyên liệu tệ; pha giỏi không lấy lại được thứ đã mất ngoài vườn." }
+    ],
+    links: [
+      { label: "Xem các gói Gu đã đánh giá", href: "/ca-phe" },
+      { label: "Vì sao cà phê ngon lại chua", href: "/bat-dau/ca-phe-chua" }
+    ]
+  },
+  {
     id: "natural-washed",
     anh: "assets/img/art-natural-drying.jpg",
     tag: "Sơ chế",

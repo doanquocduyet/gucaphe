@@ -1184,6 +1184,9 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-art-body h3{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,22px);
   letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px}
 .kt-art-body i{color:var(--ink-soft)}
+.kt-art-body ul{margin:0 0 16px;padding-left:22px;color:var(--ink-soft)}
+.kt-art-body li{margin-bottom:8px;line-height:1.6}
+.kt-art-body li b{color:var(--ink)}
 /* Ảnh minh hoạ trong bài viết */
 .kt-art-body figure{margin:26px 0}
 .kt-art-body figure img{display:block;width:100%;height:auto;border-radius:12px;
