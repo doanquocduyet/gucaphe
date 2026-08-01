@@ -143,7 +143,7 @@ const HOME_EN = {
   "Gói hợp cách pha của bạn nhất — chúng tôi đã uống thật và thấy ngon; chưa chấm mù nên chưa gắn số.": "The best match for how you brew — we've drunk it for real and liked it; not cupped blind yet, so no score.",
   "Gói hợp cách pha của bạn nhất — chúng tôi chưa thử, nên ghi rõ để bạn cân nhắc.": "The best match for how you brew — we haven't tried it yet, so we flag it for you.",
   "Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.": "If this is your first specialty cup, it's almost impossible to go wrong with this one.",
-  "Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.": "Of every pack we've cupped blind, this is the hardest one to be disappointed by.",
+  "Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.": "Of everything we've tasted blind, this is one of the hardest coffees not to like.",
   "Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.": "Matches your taste and safe — very hard to regret starting here.",
   // Negotiation
   "Đắt quá": "Too pricey", "rẻ hơn": "cheaper",
@@ -237,7 +237,8 @@ function estTaste(p) {
   const roast = (p.roast || '').toLowerCase();
   const giong = (p.giong || '').toLowerCase();
   const proc  = (p.process || '').toLowerCase();
-  if (/light|sáng/.test(roast))       { c += 1.2; d -= 0.6; }
+  if (/medium[\s-]*light|light[\s-]*medium/.test(roast)) { c += 0.5; d -= 0.1; }
+  else if (/light|sáng/.test(roast))  { c += 1.2; d -= 0.6; }
   else if (/dark|đậm/.test(roast))    { c -= 1.2; d += 1.2; }
   else if (/medium/.test(roast))      { d += 0.3; }
   if (/robusta/.test(giong))          { c -= 1.6; d += 1.6; }
@@ -259,8 +260,10 @@ function fit(p, taste, brew) {
   if (taste === 'canbang') s += 6 - (Math.abs(chua - 3) + Math.abs(dam - 3));
   if (taste === 'dam')     s += dam * 2 - chua * 0.6;
   if (taste === 'moi')     s += (p.tested ? 4 : 0) + (6 - (Math.abs(chua - 3) + Math.abs(dam - 3))) + p.pha.length;
+  // Cách pha: thưởng nếu gói pha được kiểu này, PHẠT NẶNG nếu không —
+  // để không bao giờ gợi ý gói mà chính card của nó ghi "hợp cách pha khác".
   const it = INTENTS.find(x => x.k === brew);
-  if (brew && it && it.match(p)) s += 2.5;
+  if (brew && it) s += it.match(p) ? 2.5 : -4;
   s += p.tested ? 1.5 : 0;
   return s;
 }
