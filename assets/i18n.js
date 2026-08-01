@@ -52,7 +52,12 @@
     if (obs) obs.observe(document.body, { childList: true, subtree: true });
   }
 
-  window.guSetLang = function (lang) { try { localStorage.setItem(KEY, lang); } catch (e) {} translate(lang); };
+  window.guGetLang = getLang;
+  window.guSetLang = function (lang) {
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+    translate(lang);
+    try { document.dispatchEvent(new CustomEvent("guLangChanged", { detail: lang })); } catch (e) {}
+  };
   window.guApplyLang = function () { translate(getLang()); };
 
   function init() {

@@ -58,7 +58,7 @@ const buyLabel = p => 'Mua gói này';
 /* ---- Nút mua: hiện giá ngay trên nút (neo giá) + kênh phụ nếu có link ---- */
 function buyCTA(p, pos, label) {
   const ch = isShopee(p) ? 'shopee' : 'brand';
-  const main = `<button class="cta" onclick="aff('${p.id}','${ch}','${pos}')">${label || buyLabel(p)} · ${money(p.gia)}</button>`;
+  const main = `<button class="cta" onclick="aff('${p.id}','${ch}','${pos}')">${label || T(buyLabel(p))} · ${money(p.gia)}</button>`;
   const alts = [];
   if (p.lazada) alts.push(`<button class="cta-alt" onclick="aff('${p.id}','lazada','${pos}')">Lazada</button>`);
   if (p.tiki)   alts.push(`<button class="cta-alt" onclick="aff('${p.id}','tiki','${pos}')">Tiki</button>`);
@@ -101,6 +101,83 @@ function thumb(p, cls = '') {
   return `<div class="thumb thumb-gen ${cls}" style="background:${c}" aria-label="Độ rang ${p.roast || ''}">
     <span class="thumb-l">${p.roast || ''}</span></div>`;
 }
+
+/* ============ i18n cho trang chủ (nội dung render động) ============
+   T(vi) trả bản tiếng Anh khi đang ở chế độ EN, ngược lại giữ tiếng Việt.
+   Chuỗi chưa có trong HOME_EN → giữ nguyên tiếng Việt. */
+const HOME_EN = {
+  // Picker — khung
+  "Gợi ý riêng": "For you",
+  "Chọn giúp bạn": "Let us choose",
+  "Cho chúng tôi biết gu của bạn — chúng tôi chốt một gói hợp nhất.": "Tell us your taste — we'll pick the one pack for you.",
+  "Chọn lại từ đầu": "Start over",
+  "Bạn thích ly cà phê thế nào?": "How do you like your coffee?",
+  "Chưa rõ gu của mình — cứ chọn giúp tôi →": "Not sure yet — just pick for me →",
+  "Bạn pha bằng gì?": "How do you brew?",
+  "Lần trước bạn dừng ở": "Last time you stopped at",
+  "Lần trước bạn chọn": "Last time you chose",
+  "Vẫn vậy chứ?": "Still the same?",
+  "chưa rõ gu": "not sure yet",
+  // Taste labels
+  "Chua sáng, trái cây": "Bright & fruity", "Floral, cam chanh, mọng nước": "Floral, citrus, juicy",
+  "Cân bằng, dễ uống": "Balanced, easy", "Không quá chua, không gắt": "Not too sour, not harsh",
+  "Đậm, chocolate": "Bold, chocolate", "Đậm đà, đầy miệng, ít chua": "Rich, full-bodied, low acidity",
+  // Brew labels
+  "Phin": "Phin", "Pha phin truyền thống": "Traditional Vietnamese filter",
+  "V60 · Pour over": "V60 · Pour over", "Rót tay, giấy lọc": "Hand-poured, paper filter",
+  "Máy · Espresso": "Machine · Espresso", "Espresso, latte": "Espresso, latte",
+  "Cold brew": "Cold brew", "Ủ lạnh, uống mát": "Cold-steeped, served cool",
+  "Máy": "Machine",
+  // Picker result
+  "Gợi ý cho bạn": "Our pick for you",
+  "về gói gợi ý": "back to our pick",
+  "Bạn muốn": "You want", "vậy gói này": "then this one",
+  "pha": "brewed", "chúng tôi chọn": "we choose",
+  "Dành cho": "For", "Thích": "You like", "mọi vị": "any taste", "người mới bắt đầu": "beginners",
+  "Đã uống": "Tasted", "Chưa nếm": "Not tasted yet",
+  "Đọc review đầy đủ →": "Read full review →",
+  "Hợp nếu": "Good if", "Cân nhắc nếu": "Consider if",
+  "Vẫn chưa ưng?": "Still not it?", "Chưa đúng gu?": "Not your taste?", "Đổi nhanh:": "Switch fast:",
+  "Đây là gói khớp gu bạn nhất trong danh mục hiện tại.": "This is the best match for your taste in our current lineup.",
+  // verdict
+  "Gói hợp cách pha của bạn nhất — chúng tôi đã uống thật và thấy ngon; chưa chấm mù nên chưa gắn số.": "The best match for how you brew — we've drunk it for real and liked it; not cupped blind yet, so no score.",
+  "Gói hợp cách pha của bạn nhất — chúng tôi chưa thử, nên ghi rõ để bạn cân nhắc.": "The best match for how you brew — we haven't tried it yet, so we flag it for you.",
+  "Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.": "If this is your first specialty cup, it's almost impossible to go wrong with this one.",
+  "Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.": "Of every pack we've cupped blind, this is the hardest one to be disappointed by.",
+  "Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.": "Matches your taste and safe — very hard to regret starting here.",
+  // Negotiation
+  "Đắt quá": "Too pricey", "rẻ hơn": "cheaper",
+  "Chua sáng hơn": "Brighter", "chua sáng, trái cây hơn": "brighter and fruitier",
+  "Đậm hơn": "Bolder", "đậm đà, đầy miệng hơn": "bolder and fuller",
+  "Dễ uống hơn": "Easier", "nhẹ đô, dễ uống hơn": "lighter and easier",
+  // Buy button
+  "Mua gói này": "Buy this pack",
+  // Peak
+  "Độc lập biên tập": "Editorially independent",
+  "Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi": "No sponsored posts.<br>No score for anything we",
+  "chưa bỏ vào miệng": "haven't put in our mouths",
+  // Hubs
+  "Cà phê": "Coffee", "Nhà rang": "Roasters", "Vùng trồng": "Regions", "Kiến thức": "Learn",
+  "Khám phá": "Explore",
+  "Đi thẳng vào thứ bạn cần.": "Go straight to what you need.",
+  "Mọi thứ được sắp theo đúng nhu cầu.": "Everything arranged around what you need.",
+  "Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.": "Our specialty packs — tasted blind, scored, priced per 100g.",
+  "Đã nếm mù · đã uống thật": "Tasted blind · drunk for real",
+  "Xem tất cả →": "See all →",
+  "Hồ sơ các nhà rang Lâm Đồng chúng tôi chọn đồng hành, xếp theo vùng nguyên liệu.": "Profiles of the Lâm Đồng roasters we work with, grouped by sourcing region.",
+  "Chọn lọc · thực địa": "Curated · on the ground",
+  "Xem hồ sơ →": "See profiles →",
+  "Cầu Đất · Lạc Dương · Nam Ban — mỗi vùng một chất vị.": "Cầu Đất · Lạc Dương · Nam Ban — each region its own character.",
+  "Tiểu vùng Lâm Đồng": "Lâm Đồng sub-regions",
+  "Tìm hiểu →": "Learn more →",
+  "Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.": "Natural vs washed, roast levels, why specialty costs more — read before you buy.",
+  "Đọc trước khi mua": "Read before buying",
+  "Đọc →": "Read →",
+  // Tagline
+  "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.": "We buy it, taste it blind, and score it — so you don't have to guess."
+};
+function LANG() { return (window.guGetLang ? window.guGetLang() : 'vi'); }
+function T(vi) { return (LANG() === 'en' && HOME_EN[vi] != null) ? HOME_EN[vi] : vi; }
 
 /* ============ 1 · HERO — lời hứa, không phải quảng cáo ============ */
 function renderTop() {
@@ -209,14 +286,14 @@ function resolveObj(o, cur) {
 function verdict(p, taste) {
   if (!(p.tested && p.diem != null))
     return p.daUong
-      ? `Gói hợp cách pha của bạn nhất — chúng tôi đã uống thật và thấy ngon; chưa chấm mù nên chưa gắn số.`
-      : `Gói hợp cách pha của bạn nhất — chúng tôi chưa thử, nên ghi rõ để bạn cân nhắc.`;
+      ? T('Gói hợp cách pha của bạn nhất — chúng tôi đã uống thật và thấy ngon; chưa chấm mù nên chưa gắn số.')
+      : T('Gói hợp cách pha của bạn nhất — chúng tôi chưa thử, nên ghi rõ để bạn cân nhắc.');
   if (taste === 'moi')
-    return `Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.`;
+    return T('Nếu đây là ly specialty đầu tiên của bạn, gần như không thể chọn sai gói này.');
   const top = Math.max(...SP.filter(x => x.tested && x.diem != null).map(x => x.diem));
   if (p.diem === top)
-    return `Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.`;
-  return `Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.`;
+    return T('Trong tất cả gói chúng tôi đã nếm mù, đây là gói bạn khó thất vọng nhất.');
+  return T('Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.');
 }
 
 /* Dòng tin cậy — chỉ nói sự thật rút từ dữ liệu, KHÔNG khoe điểm mạnh
@@ -249,25 +326,25 @@ function renderPick() {
   $('#pick').innerHTML = `
     <div class="decide-panel">
       <div class="decide-head">
-        <div class="decide-kicker">Gợi ý riêng</div>
-        <h2 class="decide-title">Chọn giúp bạn</h2>
-        <p class="decide-lead">Cho chúng tôi biết gu của bạn — chúng tôi chốt một gói hợp nhất.</p>
-        ${back ? `<div class="decide-back">${memPick() ? `Lần trước bạn dừng ở <b>${memPick().brand} · ${memPick().ten}</b>. Vẫn vậy chứ?` : `Lần trước bạn chọn <b>${TLAB[TASTE] || 'chưa rõ gu'}</b>${BREW ? ` · <b>${BLAB[BREW]}</b>` : ''}. Vẫn vậy chứ?`}
-          <button class="decide-reset" onclick="deReset()">Chọn lại từ đầu</button></div>` : ''}
+        <div class="decide-kicker">${T('Gợi ý riêng')}</div>
+        <h2 class="decide-title">${T('Chọn giúp bạn')}</h2>
+        <p class="decide-lead">${T('Cho chúng tôi biết gu của bạn — chúng tôi chốt một gói hợp nhất.')}</p>
+        ${back ? `<div class="decide-back">${memPick() ? `${T('Lần trước bạn dừng ở')} <b>${memPick().brand} · ${memPick().ten}</b>. ${T('Vẫn vậy chứ?')}` : `${T('Lần trước bạn chọn')} <b>${TASTE === 'moi' ? T('người mới bắt đầu') : (T(TLAB[TASTE]) || T('chưa rõ gu'))}</b>${BREW ? ` · <b>${T(BLAB[BREW])}</b>` : ''}. ${T('Vẫn vậy chứ?')}`}
+          <button class="decide-reset" onclick="deReset()">${T('Chọn lại từ đầu')}</button></div>` : ''}
       </div>
 
       <div class="de-step">
-        <div class="de-q"><span class="de-n">1</span> Bạn thích ly cà phê thế nào?</div>
+        <div class="de-q"><span class="de-n">1</span> ${T('Bạn thích ly cà phê thế nào?')}</div>
         <div class="decide-chips de-taste">
-          ${TASTES.map(t => `<button class="dchip${t.k === TASTE ? ' on' : ''}" data-k="${t.k}" onclick="deTaste('${t.k}')"><b>${t.label}</b><span>${t.sub}</span></button>`).join('')}
+          ${TASTES.map(t => `<button class="dchip${t.k === TASTE ? ' on' : ''}" data-k="${t.k}" onclick="deTaste('${t.k}')"><b>${T(t.label)}</b><span>${T(t.sub)}</span></button>`).join('')}
         </div>
-        <button class="de-skip${TASTE === 'moi' ? ' on' : ''}" onclick="deTaste('moi')">Chưa rõ gu của mình — cứ chọn giúp tôi →</button>
+        <button class="de-skip${TASTE === 'moi' ? ' on' : ''}" onclick="deTaste('moi')">${T('Chưa rõ gu của mình — cứ chọn giúp tôi →')}</button>
       </div>
 
       <div class="de-step de-step2${TASTE ? ' show' : ''}">
-        <div class="de-q"><span class="de-n">2</span> Bạn pha bằng gì?</div>
+        <div class="de-q"><span class="de-n">2</span> ${T('Bạn pha bằng gì?')}</div>
         <div class="decide-chips de-brew">
-          ${INTENTS.map(it => `<button class="dchip${it.k === BREW ? ' on' : ''}" data-k="${it.k}" onclick="deBrew('${it.k}')"><b>${it.label}</b><span>${it.sub}</span></button>`).join('')}
+          ${INTENTS.map(it => `<button class="dchip${it.k === BREW ? ' on' : ''}" data-k="${it.k}" onclick="deBrew('${it.k}')"><b>${T(it.label)}</b><span>${T(it.sub)}</span></button>`).join('')}
         </div>
       </div>
 
@@ -318,24 +395,24 @@ function drawRec() {
     item_id: best.id, item_name: best.ten, taste: TASTE, brew: BREW || null,
     negotiated: CURID ? 1 : 0, tested: best.tested ? 1 : 0, score: best.diem
   });
-  const tlabel = TASTE === 'moi' ? 'người mới bắt đầu' : (TLAB[TASTE] || 'mọi vị');
+  const tlabel = T(TASTE === 'moi' ? 'người mới bắt đầu' : (TLAB[TASTE] || 'mọi vị'));
   const speak = NEGO
-    ? `Bạn muốn <b>${NEGO}</b> → vậy gói này`
-    : `${TASTE === 'moi' ? 'Dành cho' : 'Thích'} <b>${tlabel}</b>${BREW ? ` · pha <b>${BLAB[BREW]}</b>` : ''} → chúng tôi chọn`;
+    ? `${T('Bạn muốn')} <b>${T(NEGO)}</b> → ${T('vậy gói này')}`
+    : `${T(TASTE === 'moi' ? 'Dành cho' : 'Thích')} <b>${tlabel}</b>${BREW ? ` · ${T('pha')} <b>${T(BLAB[BREW])}</b>` : ''} → ${T('chúng tôi chọn')}`;
   const objs = availObj(best);
   const src = best.anh ? (/^https?:/.test(best.anh) ? best.anh : best.anh) : '';
   const badge = (best.tested && best.diem != null)
     ? `<span class="rec-badge rec-badge-score">${best.diem}<i>/10</i></span>`
-    : (best.daUong ? `<span class="rec-badge rec-badge-tasted">Đã uống</span>` : `<span class="rec-badge rec-badge-ut">Chưa nếm</span>`);
+    : (best.daUong ? `<span class="rec-badge rec-badge-tasted">${T('Đã uống')}</span>` : `<span class="rec-badge rec-badge-ut">${T('Chưa nếm')}</span>`);
   const media = src
     ? `<img src="${src}" alt="${best.brand} — ${best.ten}">`
     : `<div class="rec-photo-gen" style="background:${ROAST_BG[best.roast] || '#8A6A44'}"></div>`;
   out.innerHTML = `
     <div class="rec">
       <div class="rec-head">
-        <span class="rec-tag">Gợi ý cho bạn</span>
+        <span class="rec-tag">${T('Gợi ý cho bạn')}</span>
         <span class="rec-intent">${speak}</span>
-        ${CURID ? `<button class="rec-undo" onclick="deBase()">↺ về gói gợi ý</button>` : ''}
+        ${CURID ? `<button class="rec-undo" onclick="deBase()">↺ ${T('về gói gợi ý')}</button>` : ''}
       </div>
       <div class="rec-card">
         <a class="rec-photo" href="${reviewUrl(best)}">${media}${badge}</a>
@@ -349,19 +426,19 @@ function drawRec() {
           </div>
           <div class="rec-actions">
             ${buyCTA(best, 'rec')}
-            ${reviewUrl(best) ? `<a class="rec-review-link" href="${reviewUrl(best)}">Đọc review đầy đủ →</a>` : ''}
+            ${reviewUrl(best) ? `<a class="rec-review-link" href="${reviewUrl(best)}">${T('Đọc review đầy đủ →')}</a>` : ''}
           </div>
         </div>
       </div>
       <div class="rec-more">
-        <div class="rec-more-col rec-more-y"><h5>Hợp nếu</h5><ul>${best.nen.slice(0, 2).map(x => `<li>${x}</li>`).join('')}</ul></div>
-        ${best.khong && best.khong.length ? `<div class="rec-more-col rec-more-n"><h5>Cân nhắc nếu</h5><ul><li>${best.khong[0]}</li></ul></div>` : ''}
+        <div class="rec-more-col rec-more-y"><h5>${T('Hợp nếu')}</h5><ul>${best.nen.slice(0, 2).map(x => `<li>${x}</li>`).join('')}</ul></div>
+        ${best.khong && best.khong.length ? `<div class="rec-more-col rec-more-n"><h5>${T('Cân nhắc nếu')}</h5><ul><li>${best.khong[0]}</li></ul></div>` : ''}
       </div>
       ${objs.length ? `
       <div class="nego">
-        <span class="nego-l">${CURID ? 'Vẫn chưa ưng?' : 'Chưa đúng gu?'} Đổi nhanh:</span>
-        ${objs.map(o => `<button class="nego-chip" onclick="deObj('${o.k}')">${o.label}</button>`).join('')}
-      </div>` : `<div class="nego"><span class="nego-l">Đây là gói khớp gu bạn nhất trong danh mục hiện tại.</span></div>`}
+        <span class="nego-l">${T(CURID ? 'Vẫn chưa ưng?' : 'Chưa đúng gu?')} ${T('Đổi nhanh:')}</span>
+        ${objs.map(o => `<button class="nego-chip" onclick="deObj('${o.k}')">${T(o.label)}</button>`).join('')}
+      </div>` : `<div class="nego"><span class="nego-l">${T('Đây là gói khớp gu bạn nhất trong danh mục hiện tại.')}</span></div>`}
     </div>`;
   const rec = out.firstElementChild;
   if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
@@ -427,9 +504,9 @@ function renderPeak() {
     <img class="peak-bg" src="assets/img/band-life.jpg" alt="Pha pour over cà phê đặc sản" loading="lazy">
     <div class="peak-scrim"></div>
     <div class="peak-in">
-      <div class="peak-kicker">Độc lập biên tập</div>
-      <p class="peak-setup">Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi</p>
-      <p class="peak-punch">chưa bỏ vào miệng</p>
+      <div class="peak-kicker">${T('Độc lập biên tập')}</div>
+      <p class="peak-setup">${T('Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi')}</p>
+      <p class="peak-punch">${T('chưa bỏ vào miệng')}</p>
     </div>`;
 }
 
@@ -509,18 +586,18 @@ function renderHubs() {
     { href:'/kien-thuc', k:'Kiến thức',  img:'assets/img/products/beans-tin.jpg',     alt:'Ghi chú nếm thử cà phê', d:'Natural/Washed, độ rang, specialty đắt ở đâu — đọc trước khi mua.', m:'Đọc trước khi mua', go:'Đọc →' }
   ];
   el.innerHTML = `
-    <div class="eyebrow">Khám phá</div>
-    <h2>Đi thẳng vào thứ bạn cần.</h2>
-    <p class="lead">Mọi thứ được sắp theo đúng nhu cầu.</p>
+    <div class="eyebrow">${T('Khám phá')}</div>
+    <h2>${T('Đi thẳng vào thứ bạn cần.')}</h2>
+    <p class="lead">${T('Mọi thứ được sắp theo đúng nhu cầu.')}</p>
     <div class="home-hubs">
       ${hubs.map(h => `
       <a class="home-hub" href="${h.href}">
         <div class="home-hub-img"><img src="${h.img}" alt="${h.alt}" loading="lazy"></div>
         <div class="home-hub-body">
-          <div class="home-hub-k">${h.k}</div>
-          <div class="home-hub-d">${h.d}</div>
-          <div class="home-hub-meta">${h.m}</div>
-          <span class="home-hub-go">${h.go}</span>
+          <div class="home-hub-k">${T(h.k)}</div>
+          <div class="home-hub-d">${T(h.d)}</div>
+          <div class="home-hub-meta">${T(h.m)}</div>
+          <span class="home-hub-go">${T(h.go)}</span>
         </div>
       </a>`).join('')}
     </div>`;
@@ -610,11 +687,16 @@ function renderMethod() {
     </div>` : ''}`;
 }
 
+/* ---- Render toàn bộ trang chủ (gọi lại khi đổi ngôn ngữ) ---- */
+function renderHome() {
+  const tg = $('#tagline'); if (tg) tg.textContent = T(SITE.tagline);
+  renderTop(); renderPick(); renderHubs(); renderPeak(); renderAtmos();
+}
 /* ---- Boot ---- */
 document.addEventListener('DOMContentLoaded', () => {
   // Logo giờ là markup tĩnh (bean + wordmark) trong index.html — không ghi đè.
-  $('#tagline').textContent = SITE.tagline;
-  renderTop(); renderPick(); renderHubs(); renderPeak(); renderAtmos();
+  renderHome();
+  document.addEventListener('guLangChanged', renderHome);
 
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     a.onclick = e => {
