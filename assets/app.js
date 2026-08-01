@@ -174,7 +174,63 @@ const HOME_EN = {
   "Đọc trước khi mua": "Read before buying",
   "Đọc →": "Read →",
   // Tagline
-  "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.": "We buy it, taste it blind, and score it — so you don't have to guess."
+  "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.": "We buy it, taste it blind, and score it — so you don't have to guess.",
+
+  /* ---- Bullet "Hợp nếu / Cân nhắc nếu" của rec-card (chỉ hiện ở Home) ---- */
+  "Pha V60 hoặc pour over": "You brew V60 or pour over",
+  "Thích vị trái cây, chua sáng": "You like bright, fruity cups",
+  "Chấp nhận 108.000₫/100g cho hạt tốt": "You'll pay 108,000₫/100g for great beans",
+  "Chỉ có phin — rang sáng pha phin dễ chua gắt": "A phin is all you have — light roast can turn sharp in it",
+  "Quen gu đậm đắng": "You're used to dark, bitter coffee",
+  "Muốn cà phê uống hằng ngày giá mềm": "You want a cheap everyday cup",
+  "Muốn thử giống hiếm Pacamara": "You want to try the rare Pacamara variety",
+  "Pha V60 / pour over để tôn hương": "You brew V60 / pour over to lift the aromatics",
+  "Thích khám phá lô lên men": "You enjoy exploring fermented lots",
+  "Chủ yếu pha phin đậm sữa": "You mostly make strong phin with milk",
+  "Thích vị quen, an toàn": "You prefer familiar, safe flavours",
+  "Thích Arabica giống lâu năm": "You like old-variety Arabica",
+  "Thích vị chua sáng, cam chanh": "You like bright, citrusy cups",
+  "Thích vị đậm kiểu Robusta": "You like bold, Robusta-style coffee",
+  "Chủ yếu pha phin (rang sáng dễ chua gắt)": "You mostly brew phin (light roast can turn sharp)",
+  "Thích ngọt dày, trái cây nhiệt đới": "You like deep sweetness and tropical fruit",
+  "Muốn một gói pha kiểu gì cũng hợp": "You want one pack that works with any brew",
+  "Mê cold brew ngọt mát": "You love smooth, sweet cold brew",
+  "Thích chua sáng gắt thuần rang nhạt": "You want sharp, purely light-roast acidity",
+  "Tìm single-origin lô rõ vùng": "You're after a single-origin with a clear lot",
+  "Muốn thử đặc sản đạt giải quốc tế": "You want an internationally awarded specialty",
+  "Gu đậm đà": "You like it bold and full",
+  "Pha phin hoặc espresso": "You brew phin or espresso",
+  "Ngân sách rất eo hẹp": "You're on a very tight budget",
+  "Thích chua sáng nhẹ kiểu Arabica": "You prefer light, bright Arabica",
+  "Gu phin Việt truyền thống, dễ uống": "You like easy, traditional Vietnamese phin",
+  "Muốn blend Robusta-Arabica cân bằng": "You want a balanced Robusta–Arabica blend",
+  "Uống phin hằng ngày, giá mềm": "You drink phin daily and want it affordable",
+  "Thích chua sáng, trái cây kiểu Arabica rang sáng": "You like bright, fruity light-roast Arabica",
+  "Tìm single-origin rõ lô, rõ vùng": "You're after a single-origin with a clear lot and region",
+  "Chủ yếu pha pour over / V60": "You mostly brew pour over / V60",
+  "Mới uống đặc sản": "You're new to specialty coffee",
+  "Thích ngọt trái cây, chocolate sữa": "You like fruity sweetness and milk chocolate",
+  "Pha phin hoặc pha máy": "You brew phin or a machine",
+  "Muốn dòng đạt giải quốc tế": "You want an award-winning lot",
+  "Thích rang nhạt, chua sáng gắt": "You want sharp, bright light roasts",
+  "Pha máy espresso, moka pot": "You brew espresso or moka pot",
+  "Thích Arabica chua thanh, hậu ngọt": "You like clean-acidity Arabica with a sweet finish",
+  "Muốn single-origin Cầu Đất giá mềm": "You want an affordable Cầu Đất single-origin",
+  "Gu đậm đắng kiểu Robusta": "You like bold, bitter Robusta",
+  "Chủ yếu uống phin đậm sữa": "You mostly drink strong phin with milk",
+  "Pha máy espresso, moka pot tại nhà": "You brew espresso or moka pot at home",
+  "Gu đậm vừa, ít gắt": "You like it moderately bold and smooth",
+  "Muốn chọn tỉ lệ Robusta/Arabica": "You want to pick the Robusta/Arabica ratio",
+  "Thích chua sáng thuần Arabica rang nhạt": "You want bright, pure light-roast Arabica",
+  "Thích chua sáng, trái cây, caramel": "You like bright fruit and caramel",
+  "Pha V60 / pour over hoặc cold brew": "You brew V60 / pour over or cold brew",
+  "Muốn gói rang sẵn, pha ngay": "You want roasted beans ready to brew",
+  "Thích vị đậm, socola": "You like bold, chocolatey cups",
+  "Gu đậm, mạnh, socola đắng": "You like bold, strong, dark-chocolate coffee",
+  "Pha phin, moka pot, espresso, French press": "You brew phin, moka pot, espresso or French press",
+  "Muốn gói ngon giá mềm (50k/100g)": "You want a great pack that stays cheap (50k/100g)",
+  "Thích chua sáng, trái cây": "You like bright, fruity cups",
+  "Muốn gói rang sáng pha pour over": "You want a light roast for pour over"
 };
 function LANG() { return (window.guGetLang ? window.guGetLang() : 'vi'); }
 function T(vi) { return (LANG() === 'en' && HOME_EN[vi] != null) ? HOME_EN[vi] : vi; }
@@ -434,8 +490,8 @@ function drawRec() {
         </div>
       </div>
       <div class="rec-more">
-        <div class="rec-more-col rec-more-y"><h5>${T('Hợp nếu')}</h5><ul>${best.nen.slice(0, 2).map(x => `<li>${x}</li>`).join('')}</ul></div>
-        ${best.khong && best.khong.length ? `<div class="rec-more-col rec-more-n"><h5>${T('Cân nhắc nếu')}</h5><ul><li>${best.khong[0]}</li></ul></div>` : ''}
+        <div class="rec-more-col rec-more-y"><h5>${T('Hợp nếu')}</h5><ul>${best.nen.slice(0, 2).map(x => `<li>${T(x)}</li>`).join('')}</ul></div>
+        ${best.khong && best.khong.length ? `<div class="rec-more-col rec-more-n"><h5>${T('Cân nhắc nếu')}</h5><ul><li>${T(best.khong[0])}</li></ul></div>` : ''}
       </div>
       ${objs.length ? `
       <div class="nego">
