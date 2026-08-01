@@ -112,20 +112,20 @@ function renderTop() {
       </picture>
       <div class="hero-scrim"></div>
       <div class="hero-inner">
-        <div class="hero-eyebrow">Cà phê đặc sản · Lâm Đồng</div>
-        <h1>Chưa uống<br>thì không chấm</h1>
-        <div class="hero-sign">Mua thật · Nếm mù · Chấm điểm</div>
-        <p class="hero-note"><b>Nếm mù</b> = uống thử che nhãn, che giá — để chấm cho công bằng.</p>
+        <div class="hero-eyebrow" data-i18n="Cà phê đặc sản · Lâm Đồng">Cà phê đặc sản · Lâm Đồng</div>
+        <h1 data-i18n="Chưa uống thì không chấm">Chưa uống<br>thì không chấm</h1>
+        <div class="hero-sign" data-i18n="Mua thật · Nếm mù · Chấm điểm">Mua thật · Nếm mù · Chấm điểm</div>
+        <p class="hero-note" data-i18n="Nếm mù = uống thử che nhãn, che giá — để chấm cho công bằng."><b>Nếm mù</b> = uống thử che nhãn, che giá — để chấm cho công bằng.</p>
         <div class="hero-cta-row">
-          <button class="cta" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
-          <button class="cta-ghost" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
+          <button class="cta" data-i18n="Chọn đúng gu trong 15 giây" onclick="document.querySelector('#pick').scrollIntoView({behavior:'smooth'})">Chọn đúng gu trong 15 giây</button>
+          <button class="cta-ghost" data-i18n="Phương pháp đánh giá" onclick="location.href='/cach-test'">Phương pháp đánh giá</button>
         </div>
       </div>
     </div>
     <div class="hero-proof">
       <div class="wrap hero-proof-in">
-        <span class="hp-item">Không nhận bài tài trợ</span>
-        <a class="hp-newbie" href="/bat-dau">Mới uống cà phê? Bắt đầu →</a>
+        <span class="hp-item" data-i18n="Không nhận bài tài trợ">Không nhận bài tài trợ</span>
+        <a class="hp-newbie" href="/bat-dau" data-i18n="Mới uống cà phê? Bắt đầu →">Mới uống cà phê? Bắt đầu →</a>
       </div>
     </div>`;
 }

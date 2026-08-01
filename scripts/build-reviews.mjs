@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260809';
+const CSS_V = '20260810';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -94,14 +94,15 @@ function siteNav(active) {
       </svg>
       <span class="logo-txt"><b>GU</b> CÀ PHÊ</span>
     </a>
+    <button class="lang-toggle" data-lang-toggle type="button" aria-label="Language / Ngôn ngữ">EN</button>
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Mở menu">
     <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
     <ul class="nav-links">
       ${MENU.map(([h, l, k]) => {
         const cls = [k === 'method' ? 'learn' : '', k === active ? 'on' : ''].filter(Boolean).join(' ');
-        return `<li><a href="${h}"${cls ? ` class="${cls}"` : ''}>${l}</a></li>`;
+        return `<li><a href="${h}"${cls ? ` class="${cls}"` : ''} data-i18n="${l}">${l}</a></li>`;
       }).join('')}
-      <li class="nav-close-li"><label for="nav-toggle" class="nav-x" aria-label="Đóng menu">Đóng</label></li>
+      <li class="nav-close-li"><label for="nav-toggle" class="nav-x" aria-label="Đóng menu" data-i18n="Đóng">Đóng</label></li>
     </ul>
   </div>
 </nav>`;
@@ -109,16 +110,16 @@ function siteNav(active) {
 function siteFooter() {
   return `<footer>
   <div class="wrap">
-    <div id="tagline">${esc(SITE.tagline)}</div>
-    <a class="foot-newbie" href="/bat-dau">Người mới bắt đầu? →</a>
+    <div id="tagline" data-i18n="${esc(SITE.tagline)}">${esc(SITE.tagline)}</div>
+    <a class="foot-newbie" href="/bat-dau" data-i18n="Người mới bắt đầu? →">Người mới bắt đầu? →</a>
     <div>
-      <a href="/nha-rang">Nhà rang</a>
-      <a href="/ca-phe">Cà phê</a>
-      <a href="/vung-trong">Vùng trồng</a>
-      <a href="/kien-thuc">Kiến thức</a>
-      <a href="/cach-test">Cách test</a>
+      <a href="/nha-rang" data-i18n="Nhà rang">Nhà rang</a>
+      <a href="/ca-phe" data-i18n="Cà phê">Cà phê</a>
+      <a href="/vung-trong" data-i18n="Vùng trồng">Vùng trồng</a>
+      <a href="/kien-thuc" data-i18n="Kiến thức">Kiến thức</a>
+      <a href="/cach-test" data-i18n="Cách test">Cách test</a>
     </div>
-    <p class="foot-legal">Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá);
+    <p class="foot-legal" data-i18n="Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá); gói đã uống nhưng chưa chấm mù thì ghi rõ “Đã uống”, không gắn số. Link trên trang là link tiếp thị liên kết — bạn không trả thêm đồng nào, và link có ở cả sản phẩm chúng tôi khuyên cân nhắc.">Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá);
     gói đã uống nhưng chưa chấm mù thì ghi rõ “Đã uống”, không gắn số. Link trên trang là link tiếp thị liên kết —
     bạn không trả thêm đồng nào, và link có ở cả sản phẩm chúng tôi khuyên cân nhắc.</p>
   </div>
@@ -149,6 +150,7 @@ ${schema}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
 (function(){
   try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
@@ -272,7 +274,7 @@ function buyLink(p, label) {
   const alts = [];
   if (p.lazada) alts.push(`<a class="cta-alt" href="${esc(p.lazada)}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'lazada',position:'review_page',tested:${p.tested ? 1 : 0}})">Lazada</a>`);
   if (p.tiki)   alts.push(`<a class="cta-alt" href="${esc(p.tiki)}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'tiki',position:'review_page',tested:${p.tested ? 1 : 0}})">Tiki</a>`);
-  return `<a class="cta" href="${url}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_page',tested:${p.tested ? 1 : 0}})">${label || buyLabel(p)} · ${money(p.gia)}</a>`
+  return `<a class="cta" href="${url}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_page',tested:${p.tested ? 1 : 0}})">${label ? esc(label) : `<span data-i18n="Mua gói này">${buyLabel(p)}</span>`} · ${money(p.gia)}</a>`
     + (alts.length ? `<div class="cta-alts"><span>Hoặc:</span>${alts.join('')}</div>` : '');
 }
 
@@ -524,6 +526,7 @@ ${schema(p)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
 (function(){
   try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
@@ -550,7 +553,7 @@ ${siteNav('caphe')}
 <div class="buybar">
   <div class="wrap buybar-in">
     <div class="buybar-info"><b>${esc(p.brand)}</b> · ${money(p.gia)}${per100(p) ? ` <span>· ${money(per100(p))}/100g</span>` : ''}${tested ? ` <span>· ${p.diem}/10</span>` : ''}</div>
-    <a class="cta cta-sm" href="${esc(p.link || '#')}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_stickybar',tested:${tested ? 1 : 0}})">${buyLabel(p)} →</a>
+    <a class="cta cta-sm" href="${esc(p.link || '#')}" target="_blank" rel="sponsored nofollow noopener" onclick="guTrack('affiliate_click',{item_id:'${p.id}',price:${p.gia},channel:'${buyChannel(p)}',position:'review_stickybar',tested:${tested ? 1 : 0}})"><span data-i18n="Mua gói này">${buyLabel(p)}</span> →</a>
   </div>
 </div>
 
@@ -736,6 +739,7 @@ ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
 (function(){
   try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */
@@ -948,6 +952,7 @@ ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
+<script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
 (function(){
   try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){} /* bật :active trên iOS */

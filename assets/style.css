@@ -76,6 +76,12 @@ body>nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);
 .nav-links a{color:var(--ink-soft);text-decoration:none;padding-bottom:4px;border-bottom:1.5px solid transparent;transition:.15s}
 @media(hover:hover){.nav-links a:hover{color:var(--ink);border-color:var(--brown)}}
 .nav-links a.learn{color:var(--ink-dim)}
+/* Nút chuyển ngôn ngữ VI/EN */
+.lang-toggle{margin-left:auto;flex:none;background:transparent;border:1.5px solid var(--border);
+  color:var(--ink-soft);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11.5px;
+  letter-spacing:.1em;border-radius:999px;padding:6px 12px;cursor:pointer;line-height:1;transition:.15s}
+@media(hover:hover){.lang-toggle:hover{color:var(--ink);border-color:var(--brown)}}
+@media(max-width:860px){.lang-toggle{margin-right:14px;padding:8px 13px;font-size:12px}}
 /* Nút hamburger — ẩn trên desktop, hiện trên mobile */
 .nav-toggle{display:none}
 .nav-burger{display:none}
