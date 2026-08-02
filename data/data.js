@@ -340,6 +340,256 @@ const BAIVIET = [
     ]
   },
   {
+    id: "vong-tron-huong-vi-robusta-2025",
+    anh: "assets/img/robusta-wheel-en.png",
+    tag: "Kiến thức",
+    docPhut: 14, mucDo: "Chuyên sâu",
+    tieuDe: "Robusta có 103 cách để nói về hương vị: Vòng tròn hương vị Canephora 2025 và câu chuyện của Lâm Đồng",
+    dek: "Robusta lâu nay thường được nhớ bằng vài chữ: đắng, mạnh, nhiều caffeine. Nhưng năm 2025, một nghiên cứu khoa học đã xây dựng vòng tròn hương vị đầu tiên dành riêng cho Coffea canephora từ 67 mẫu ở 13 quốc gia, 49 chuyên gia thử nếm và 103 mô tả cảm quan. Đáng chú ý: Việt Nam có mặt trong nghiên cứu, với mẫu từ Gia Lai, Đắk Lắk và Lâm Đồng.",
+    than:
+      "<p>Nếu hỏi một người bình thường <b>“Robusta có vị gì?”</b>, câu trả lời thường rất ngắn: đắng, đậm, mạnh, nhiều caffeine. Còn nếu hỏi về cà phê có hương hoa, trái cây, caramel hay những tầng hương phức tạp, người ta thường nghĩ ngay đến Arabica.</p>" +
+      "<p>Cách nghĩ đó có nguyên nhân lịch sử. Một phần rất lớn Coffea canephora — loài cà phê thường được gọi là Robusta — từ lâu được sản xuất và giao dịch trong phân khúc commodity. Trong khi đó, thế giới specialty coffee phát triển mạnh quanh Arabica, từ cách chấm điểm đến bộ từ vựng cảm quan.</p>" +
+      "<p>Nhưng có một câu hỏi đáng đặt ra: <b>nếu chúng ta chưa có đủ từ để mô tả một loại cà phê, liệu có phải loại cà phê đó đơn giản — hay chỉ là ngôn ngữ của chúng ta chưa đủ?</b></p>" +
+      "<p>Năm 2025, một nhóm nhà khoa học đã đi khá sâu vào câu hỏi này. Kết quả là một <b>vòng tròn hương vị dành riêng cho Coffea canephora</b>, gồm 103 descriptor. Và với Việt Nam, câu chuyện đặc biệt thú vị: trong những hạt cà phê được dùng để xây dựng chính công cụ đó, <b>có cà phê từ Lâm Đồng</b>.</p>" +
+      "<figure><img src='/assets/img/robusta-wheel-en.png' alt='Vòng tròn hương vị Coffea canephora — 103 descriptor, ba tầng' loading='lazy'><figcaption>Vòng tròn hương vị Coffea canephora — 103 mô tả, ba tầng. Dựa trên Carvalho và cộng sự (2025); đồ hoạ: Gu Cà Phê.</figcaption></figure>" +
+
+      "<h3>Trước hết: Robusta và Coffea canephora có phải một?</h3>" +
+      "<p>Tên khoa học của loài là <b>Coffea canephora</b>. Trong đời sống và thương mại, chúng ta quen gọi nó là <b>Robusta</b>. Tuy nhiên nếu nói thật chính xác về thực vật học, “Canephora” và “Robusta” không hoàn toàn là hai từ đồng nghĩa.</p>" +
+      "<p>Nghiên cứu năm 2025 cũng lưu ý rằng Coffea canephora có các nhóm/kiểu trồng thương mại khác nhau, nổi bật là <b>Robusta và Conilon</b>, với những khác biệt nhất định về chất lượng ly. Vì vậy tên chính xác nhất của công cụ khoa học mới là <b>Coffea canephora flavour wheel</b>. Trong bài này Gu vẫn dùng “Vòng tròn hương vị Robusta” ở những chỗ cần dễ hiểu, vì đó là cách người Việt quen gọi.</p>" +
+
+      "<h3>Vòng tròn hương vị cà phê là gì?</h3>" +
+      "<p>Hãy tưởng tượng bạn uống một ly cà phê và cảm thấy “có mùi gì đó quen lắm...” nhưng không biết gọi tên. Vòng tròn hương vị — <i>flavor wheel</i> — giống như một <b>tấm bản đồ từ vựng cho mũi và miệng</b>.</p>" +
+      "<p>Người thử thường bắt đầu từ một nhóm rộng: <b>Fruity</b> — trái cây. Sau đó đi sâu hơn: <b>Citrus fruit</b> — trái cây họ cam chanh. Rồi cụ thể hơn nữa: <b>Lemon</b> — chanh.</p>" +
+      "<p>Nó không làm cho cà phê ngon hơn. Nó giúp con người <b>gọi tên thứ đang có trong ly một cách có hệ thống hơn</b>. Và khi người trồng, người sơ chế, trader, nhà rang, cupper và người mua cùng có một bộ từ tương đối thống nhất, họ có thể nói chuyện với nhau chính xác hơn về chất lượng.</p>" +
+
+      "<h3>Vấn đề: bộ từ vựng cũ chưa đại diện tốt cho Canephora chất lượng cao</h3>" +
+      "<p>Đây là phần cần hiểu thật chính xác. Không nên nói đơn giản “trước đây người ta lấy vòng Arabica để chấm Robusta nên Robusta bị chấm oan” — paper không chứng minh điều đó. Câu chuyện tinh tế hơn.</p>" +
+      "<p>Bộ <b>World Coffee Research Sensory Lexicon</b> đứng sau Coffee Taster’s Flavor Wheel hiện đại được phát triển từ nhiều loại mẫu cà phê. Trong đó có cả Robusta, nhưng những mẫu Robusta được sử dụng là <b>commercial Robusta</b>; còn những mẫu specialty trong bộ dữ liệu đó là Arabica.</p>" +
+      "<p>Các tác giả nghiên cứu 2025 chỉ ra một hệ quả quan trọng: <b>những thuộc tính aroma, taste và mouthfeel tích cực của Robusta chất lượng cao chưa được đại diện đầy đủ trong coffee lexicon và flavor wheel hiện hành</b>.</p>" +
+      "<p>Đây là khác biệt rất lớn. Không phải công cụ cũ “sai”. Không phải Arabica “áp bức” Robusta. Mà là: <b>dữ liệu dùng để xây công cụ cũ chưa bao phủ đủ thế giới cảm quan của Canephora chất lượng cao</b>. Vì vậy Canephora cần được nghiên cứu bằng chính Canephora.</p>" +
+
+      "<h3>Năm 2025: lần đầu có nghiên cứu xây flavor wheel riêng cho Coffea canephora</h3>" +
+      "<p>Ngày <b>13 tháng 5 năm 2025</b>, nghiên cứu <b>“Development of a flavour wheel for Coffea canephora using rate-all-that-apply”</b> được công bố trên <b>Scientific Reports</b>, thuộc Nature Portfolio.</p>" +
+      "<p>Nhóm tác giả gồm: <b>Fabiana M. Carvalho</b> (UNICAMP, Brazil); <b>Enrique A. Alves</b> (EMBRAPA); <b>Mateus M. Artêncio</b> (University of São Paulo); <b>Alvaro L. L. Cassago</b> (University of São Paulo); <b>Lucas L. Pereira</b> (Federal Institute of Espírito Santo). Fabiana M. Carvalho là corresponding author.</p>" +
+      "<p>Đây là chi tiết đáng nhấn mạnh vì trên mạng hiện có một số bài viết ghi sai tác giả hoặc gắn nghiên cứu với những tổ chức không phải nhóm tác giả của paper. Bản thân các tác giả cho biết đây là một <b>non-funded project</b> và cảm ơn nhiều cá nhân, doanh nghiệp, tổ chức trong cộng đồng specialty đã hỗ trợ mẫu và địa điểm cupping.</p>" +
+      "<p>Nói ngắn gọn: <b>đây là một nghiên cứu khoa học peer-reviewed, không phải flavor wheel do một thương hiệu cà phê tự nghĩ ra</b>.</p>" +
+
+      "<h3>Họ đã làm nghiên cứu như thế nào?</h3>" +
+      "<p>Đây là lý do Gu thấy nghiên cứu này đáng đọc hơn một tấm poster đẹp. Nhóm nghiên cứu sử dụng tổng cộng <b>67 mẫu Coffea canephora</b> từ <b>13 quốc gia</b>, với nhiều nguồn gốc, mức chất lượng và phương pháp sau thu hoạch khác nhau — có cả specialty coffee và low-grade/commercial coffee, có cả các phương pháp như natural, honey và washed.</p>" +
+      "<p>Tổng cộng <b>49 professional coffee graders</b> tham gia nghiên cứu, trong đó 40 người có chứng nhận <b>Q Grader và/hoặc R Grader</b>. Các chuyên gia thuộc cả phía nước xuất khẩu (Brazil) và nước nhập khẩu (cupping tại Switzerland).</p>" +
+      "<p>Đây là một điểm hay của thiết kế nghiên cứu: nó không chỉ hỏi Canephora có những descriptor nào, mà còn xem <b>những người ở hai phía khác nhau của chuỗi cà phê có mô tả và đánh giá chúng giống nhau hay không</b>.</p>" +
+
+      "<h3>RATA là gì?</h3>" +
+      "<p>Tên paper có cụm <b>Rate-All-That-Apply — RATA</b>. Hiểu đơn giản, người thử được cung cấp một danh sách các thuật ngữ cảm quan; khi nếm một mẫu, họ chọn những từ thực sự phù hợp với thứ mình cảm nhận và đánh giá cường độ bằng thang điểm.</p>" +
+      "<p>Nhưng danh sách đó không phải tự nhiên xuất hiện. Một nguồn dữ liệu rất lớn đứng phía sau nó đến từ <b>2.300 mẫu Coffea canephora Brazil được cupping từ năm 2019 đến 2023</b>. Từ dữ liệu có sẵn, tài liệu khoa học trước đó và những thuật ngữ phát sinh trong quá trình đánh giá, nhóm nghiên cứu xây dựng rồi tiếp tục làm sạch bộ từ vựng.</p>" +
+      "<p>Ban đầu các graders tạo/chọn tổng cộng <b>202 thuật ngữ</b>. Sau khi gộp những từ gần nghĩa, còn <b>170 descriptor</b>. Sau đó, các descriptor có average mean score dưới 0,5 không được đưa vào hình flavor wheel cuối cùng để bảo đảm khả năng đọc. Kết quả: <b>103 descriptor</b>. Đó là nguồn gốc của con số 103.</p>" +
+
+      "<h3>103 không có nghĩa một ly Robusta có 103 vị</h3>" +
+      "<p>Đây là hiểu lầm rất dễ xảy ra. <b>103 descriptor là bộ từ xuất hiện trên toàn bộ vòng tròn cuối cùng</b> — không phải một hạt có 103 hương vị, không phải mỗi Robusta đều phải có 103 vị, và càng không phải checklist để người uống cố tìm đủ.</p>" +
+      "<p>Hãy tưởng tượng flavor wheel giống bản đồ Việt Nam: bản đồ có Hà Nội, Huế, Đà Lạt, Cần Thơ... nhưng bạn đang đứng ở một nơi cụ thể. Một ly Robusta cũng vậy. Wheel cho bạn biết <b>những vùng ngôn ngữ có thể đi tới</b>; còn ly trước mặt thể hiện descriptor nào là chuyện của chính ly đó.</p>" +
+
+      "<h3>Cấu trúc của Vòng tròn Canephora</h3>" +
+      "<p>103 descriptor được tổ chức thành <b>ba tầng</b>. <b>Tier 1 — nhóm lớn</b> (vòng trong cùng), ví dụ: Roasted, Sweet, Fruity, Cocoa. <b>Tier 2 — nhóm nhỏ hơn</b>, ví dụ từ Fruity có thể đi vào một nhóm trái cây cụ thể hơn. <b>Tier 3 — descriptor cụ thể</b> (vòng ngoài cùng), ví dụ: lemon.</p>" +
+      "<p>Cách đọc vì vậy rất tự nhiên: <b>chung → hẹp hơn → cụ thể</b>. Người mới không cần nhìn vào 103 từ rồi hoảng; hãy bắt đầu từ câu đơn giản “nó làm mình liên tưởng đến nhóm gì?”.</p>" +
+
+      "<h3>Phát hiện đáng chú ý: Roasted → Sweet → Fruity → Cocoa</h3>" +
+      "<p>Khi tính average mean score cho các nhóm Tier 1, thứ tự đứng đầu là: <b>1. Roasted (Rang) · 2. Sweet (Ngọt) · 3. Fruity (Trái cây) · 4. Cocoa (Cacao)</b>. Ở đầu kia, <b>Salty (Mặn)</b> có average mean score thấp nhất.</p>" +
+      "<p>Đây là một kết quả rất đáng suy nghĩ. Bởi hình ảnh phổ biến của Robusta thường xoay quanh đắng — mạnh — gắt. Nhưng khi 67 mẫu Canephora đa dạng được đưa cho các professional graders và mô tả bằng một vocabulary rộng hơn, những nhóm nổi bật ngay sau Roasted lại là Sweet, Fruity, Cocoa.</p>" +
+      "<p>Điều này không có nghĩa mọi Robusta đều ngọt và trái cây, cũng không có nghĩa bitterness biến mất. Nhưng nó cho thấy một điều chắc chắn hơn: <b>thế giới cảm quan của Coffea canephora rộng hơn rất nhiều so với chữ “đắng”</b>.</p>" +
+
+      "<h3>Caramel là descriptor cụ thể nổi bật nhất</h3>" +
+      "<p>Trong các descriptor riêng lẻ được phân tích, <b>Caramel</b> đạt average mean score cao nhất: <b>21,4</b>. Điều này khá thú vị. Khi nói Robusta, chúng ta thường nói body, đắng, caffeine; nhưng dữ liệu cảm quan của nghiên cứu lại cho thấy caramel có vai trò rất nổi bật trong tập mẫu.</p>" +
+      "<p>Một lần nữa: đây là kết quả của <b>tập 67 mẫu nghiên cứu</b>, không phải tuyên bố rằng mọi Robusta trên thế giới đều có caramel. Flavor science luôn cần giữ ranh giới đó.</p>" +
+
+      "<h3>Canephora thực sự có những descriptor rất khác</h3>" +
+      "<p>Paper cho thấy có sự chồng lấn đáng kể giữa Canephora wheel và Arabica wheel — điều này hợp lý, vì cả hai đều là cà phê. Nhưng các tác giả cũng tìm thấy những khác biệt đáng chú ý, với đóng góp đáng kể từ những nhóm như <b>positive woody</b> (ví dụ oak barrel, cedar), <b>aromatic spices</b> (ví dụ cardamom, rosemary) và <b>fermented alcoholic</b> (ví dụ rum, liqueur). Những descriptor này không hiện diện theo cùng cách trong Arabica flavor wheel. Và đặc biệt có một nhóm rất thú vị: <b>Umami</b>.</p>" +
+
+      "<h3>Umami trong cà phê Robusta là gì?</h3>" +
+      "<p>Trong Canephora wheel, các tác giả xếp những descriptor như <b>tomato</b> (cà chua), <b>fermented soy sauce / shoyu</b> (nước tương lên men), <b>coconut water</b> (nước dừa) và <b>mushroom</b> (nấm) vào nhóm <b>Umami</b>. Paper cho rằng các descriptor này <b>dường như là những đặc tính riêng đáng chú ý của C. canephora so với Arabica wheel</b>, đồng thời nhấn mạnh rằng cần nghiên cứu thêm để hiểu nền tảng hóa học của sự khác biệt.</p>" +
+      "<p>Hai chữ cuối rất quan trọng: <b>cần nghiên cứu thêm</b>. Chúng ta không nên nhảy từ “người thử cảm nhận umami” sang “Robusta có nhiều glutamate nên tạo umami” nếu nghiên cứu này chưa chứng minh cơ chế đó. Flavor wheel mô tả <b>cái con người cảm nhận</b>; nó chưa tự động giải thích toàn bộ <b>tại sao về mặt hóa học</b>.</p>" +
+
+      "<h3>“Nước dừa” trong cà phê có nghĩa người ta cho nước dừa vào?</h3>" +
+      "<p>Không. Đây là nguyên tắc cơ bản của sensory. Khi một cupper nói “tôi cảm nhận coconut water”, họ đang mô tả một <b>liên tưởng cảm quan</b>. Tương tự khi một cà phê được mô tả lemon, chocolate, caramel, jasmine, cedar... không có nghĩa những thứ đó được bỏ vào cà phê.</p>" +
+      "<p>Hàng trăm hợp chất dễ bay hơi, các chất tạo vị và sự tương tác của chúng tạo ra tín hiệu cảm giác. Bộ não so sánh tín hiệu đó với “thư viện mùi vị” mà chúng ta đã tích lũy từ trước. Descriptor đơn giản là cách nói: <b>“cái này làm tôi nhớ đến cái gì?”</b></p>" +
+
+      "<h3>Còn mít và sầu riêng thì sao?</h3>" +
+      "<p>Đây là một chi tiết Gu muốn nói thật rõ, vì trên mạng đang có nhiều infographic và bài viết kể rằng wheel mới có mít, sầu riêng, thanh long... Paper gốc cho phép kiểm tra chuyện này.</p>" +
+      "<p><b>Jackfruit (mít)</b> thực sự xuất hiện trong danh sách 170 descriptor sau khi nhóm thuật ngữ. Nhưng average mean score của jackfruit chỉ là <b>0,20</b>, trong khi ngưỡng để descriptor được đưa lên wheel cuối cùng là <b>≥ 0,50</b>. Vì vậy: <b>mít KHÔNG nằm trong 103 descriptor của flavor wheel cuối cùng</b> — nó xuất hiện trong dữ liệu nghiên cứu, nhưng bị loại khỏi graphic cuối. Đây là hai chuyện khác nhau.</p>" +
+      "<p>Còn những claim như sầu riêng, thanh long thì không nên đưa vào danh sách chính thức của wheel nếu không chỉ ra được dữ liệu gốc tương ứng. Đây chính là lý do Gu ưu tiên paper hơn infographic: một chi tiết nhỏ sai có thể được copy hàng trăm lần và cuối cùng biến thành “sự thật trên Internet”.</p>" +
+
+      "<h3>Việt Nam không chỉ “có mặt” — Lâm Đồng thực sự có mẫu trong nghiên cứu</h3>" +
+      "<p>Đây là phần đặc biệt nhất với Gu. Bảng mẫu của paper ghi rõ:</p>" +
+      "<ul>" +
+      "<li><b>Cupping session 1 — Development.</b> Việt Nam: Gia Lai; Lâm Đồng — 3 mẫu, gồm 2 specialty natural và 1 low-grade.</li>" +
+      "<li><b>Cupping session 2 — Validation.</b> Việt Nam: Đắk Lắk; Lâm Đồng — 4 mẫu specialty, với các phương pháp natural, honey và washed.</li>" +
+      "</ul>" +
+      "<p>Vậy chúng ta có thể nói chắc chắn: <b>Lâm Đồng có mẫu Coffea canephora tham gia quá trình phát triển và xác nhận flavor wheel 2025</b>. Đây không phải suy đoán — nó nằm trong Table 2 của paper.</p>" +
+
+      "<h3>Nhưng điều đó KHÔNG có nghĩa 103 descriptor là “hương vị Robusta Lâm Đồng”</h3>" +
+      "<p>Đây là ranh giới Gu muốn giữ rất chặt. Nghiên cứu sử dụng 67 mẫu từ 13 quốc gia; wheel là kết quả tổng hợp của <b>toàn bộ tập mẫu</b>. Do đó không thể nhìn thấy “coconut water” rồi viết “Robusta Lâm Đồng có vị nước dừa”, cũng không thể nhìn thấy “star fruit” rồi kết luận “đây là vị khế đặc trưng của Việt Nam”. Muốn nói descriptor nào đặc trưng cho Lâm Đồng, cần phân tích dữ liệu ở cấp từng mẫu hoặc thực hiện nghiên cứu riêng. Paper hiện tại không cho phép Gu nhảy tới kết luận đó.</p>" +
+
+      "<h3>Và càng chưa thể nói Nam Ban có vị gì</h3>" +
+      "<p>Nam Ban thuộc vùng Lâm Hà, Lâm Đồng. Điều đó khiến nghiên cứu này rất gần Gu về địa lý. Nhưng paper ghi <b>Lâm Đồng</b>, không ghi <b>Nam Ban</b> hay <b>Lâm Hà</b>. Vì vậy câu đúng không phải “khoa học đã chứng minh Robusta Nam Ban có 103 hương vị”.</p>" +
+      "<div class='callout'>Câu đúng là: <b>một phần cà phê Canephora từ Lâm Đồng đã góp mặt trong nghiên cứu xây dựng flavor wheel; nhưng Robusta Nam Ban nằm ở đâu trên bản đồ 103 descriptor ấy thì chúng ta chưa biết.</b> Và chính chỗ “chưa biết” này mới thú vị.</div>" +
+
+      "<h3>Robusta Nam Ban nằm ở đâu trên bản đồ ấy?</h3>" +
+      "<p>Đây là câu Gu muốn theo đuổi — không phải bằng cách ngồi viết thêm, mà bằng cách đi ra ngoài. Lấy mẫu Robusta từ các farm, nhà sơ chế, nhà rang; các lot natural, washed, honey quanh Lâm Hà. Chuẩn hóa rang mẫu, chuẩn hóa nước, chuẩn hóa tỷ lệ. Blind cupping. Ghi descriptor. Lặp lại nhiều lần. So sánh mùa vụ, độ cao, giống, phương pháp sơ chế.</p>" +
+      "<p>Rồi từ dữ liệu thật đó, Gu có thể bắt đầu xây <b>bản đồ cảm quan Robusta Lâm Hà</b>. Khi đó chúng ta mới có quyền nói: “Robusta vùng này thường xuất hiện descriptor gì?”, “Natural khác washed thế nào?”, “Farm A khác farm B ở đâu?”, “Lot mùa 2027 khác mùa 2026 thế nào?”. Đó không còn là content — <b>đó là dữ liệu gốc của vùng</b>.</p>" +
+
+      "<h3>Người xuất khẩu và người nhập khẩu không hoàn toàn nếm giống nhau</h3>" +
+      "<p>Nghiên cứu còn so sánh professional graders phía xuất khẩu tại Brazil với nhóm phía nhập khẩu cupping tại Switzerland. Các tác giả tìm thấy khác biệt về cách sử dụng descriptor, cường độ/tần suất của một số nhóm aroma/flavour, và điểm chất lượng cuối cùng.</p>" +
+      "<p>Điều này không chứng minh nhóm nào “đúng” còn nhóm nào “sai”. Nó cho thấy sensory evaluation không hoàn toàn tách khỏi văn hóa, kinh nghiệm, reference quen thuộc, thị trường và quá trình đào tạo. Đây cũng là lý do việc xây một vocabulary có thể lặp lại rất quan trọng: hai người có thể cảm nhận tương tự nhau, nhưng nếu một người gọi nó bằng một từ khác, giao tiếp trong chuỗi giá trị lập tức khó hơn.</p>" +
+
+      "<h3>Vậy flavor wheel có phải công cụ chấm điểm?</h3>" +
+      "<p><b>Không.</b> Đây là một nhầm lẫn rất quan trọng. Flavor wheel chủ yếu trả lời “trong ly có những đặc tính cảm quan nào?”; còn chấm điểm chất lượng trả lời một câu hỏi khác: “chất lượng của ly này được đánh giá thế nào?”. Trong nghiên cứu, các graders vừa sử dụng RATA để mô tả, vừa sử dụng CQI/UCDA cupping protocol để đánh giá chất lượng. Hai việc có liên quan, nhưng không phải một. Một descriptor xuất hiện trên wheel cũng <b>không tự động là điểm cộng</b>. Wheel trước hết là <b>bản đồ mô tả</b>, không phải bảng xếp hạng ngon – dở.</p>" +
+
+      "<h3>Vòng tròn mới có “minh oan” cho Robusta không?</h3>" +
+      "<p>Gu không dùng chữ đó. Nó hấp dẫn về truyền thông nhưng khoa học không cần một phiên tòa. Nghiên cứu không chứng minh “Robusta trước đây bị cả thế giới đối xử bất công”. Nó chứng minh một điều cụ thể và giá trị hơn: <b>Coffea canephora thiếu một công cụ mô tả cảm quan được xây dựng từ tập mẫu Canephora đa dạng về nguồn gốc, processing và chất lượng</b>. Nghiên cứu 2025 bắt đầu lấp khoảng trống đó. Thay vì nói “Robusta được minh oan”, Gu thích nói: <b>Robusta cuối cùng có thêm một ngôn ngữ được xây từ chính Robusta</b>.</p>" +
+
+      "<h3>Fine Robusta có phải cà phê trên 80 điểm?</h3>" +
+      "<p>Cần cẩn thận với câu này giống như Specialty Coffee. Fine Canephora/Robusta là một hệ thống chất lượng phát triển quanh Canephora chất lượng cao, với lịch sử đánh giá riêng của Coffee Quality Institute và R Grader. Nhưng flavor wheel 2025 <b>không phải giấy chứng nhận Fine Robusta</b>, và cũng không biến một mẫu thành Fine Robusta chỉ vì người thử tìm thấy nhiều descriptor. Vai trò của nó là giúp <b>nhận diện, mô tả, hiểu và lập bản đồ đặc tính cảm quan Canephora một cách chuẩn hóa hơn</b> — một nền tảng rất hữu ích cho quality improvement và specialty Canephora. Nhưng <b>wheel ≠ chứng nhận chất lượng</b>.</p>" +
+
+      "<h3>Vòng tròn hương vị có làm Robusta ngon hơn không?</h3>" +
+      "<p>Không. Một tấm bản đồ không làm vùng đất đẹp hơn; nó chỉ giúp chúng ta hiểu vùng đất. Chất lượng ly vẫn bắt đầu từ: <b>genetics</b> (giống/cây), <b>environment</b> (đất, khí hậu, nước, độ cao), <b>farming</b> (dinh dưỡng, quản lý cây, sâu bệnh), <b>harvest</b> (độ chín và cách thu hoạch), <b>post-harvest</b> (natural, washed, honey, fermentation, drying), <b>storage</b> (bảo quản), <b>roasting</b> (rang) và <b>brewing</b> (pha).</p>" +
+      "<p>Nếu quả xanh bị thu hoạch lẫn nhiều, sơ chế lỗi, phơi sai, bảo quản ẩm rồi rang cháy, 103 descriptor không cứu được nó. <b>Flavor wheel không tạo ra chất lượng. Nó giúp chúng ta nhìn thấy và nói về chất lượng rõ hơn.</b></p>" +
+
+      "<h3>Tại sao chuyện này quan trọng với Việt Nam?</h3>" +
+      "<p>Bởi Việt Nam không phải khán giả trong câu chuyện Canephora — chúng ta là một trong những trung tâm Robusta lớn nhất thế giới. Trong nhiều thập kỷ, lợi thế của cà phê Việt Nam nằm rất mạnh ở sản lượng, năng suất, chuỗi cung ứng và khả năng cung cấp nguyên liệu quy mô lớn. Điều đó không xấu: commodity là một thị trường khổng lồ và có vai trò thật.</p>" +
+      "<p>Nhưng khi mọi thứ được bán chủ yếu dưới dạng “Vietnam Robusta” thì rất nhiều thông tin phía sau hạt biến mất: vùng nào? farm nào? giống gì? độ cao? mùa nào? quả chín bao nhiêu? processing gì? sensory profile ra sao? Khi bắt đầu trả lời được những câu đó, hạt cà phê dần thoát khỏi trạng thái vô danh. Và khi có vocabulary đủ tốt để mô tả nó, thị trường có thêm cơ sở để phân biệt <b>lot này với lot kia</b>. Đó mới là chỗ flavor wheel có giá trị kinh tế.</p>" +
+
+      "<h3>Với Lâm Đồng, câu chuyện còn gần hơn</h3>" +
+      "<p>Lâm Đồng không chỉ là cái tên Gu ghép vào bài để SEO — <b>Lâm Đồng thực sự xuất hiện trong sample set của nghiên cứu</b>. Nhưng Gu muốn đi thêm một bước mà paper quốc tế không thể làm thay: từ Canephora Lâm Đồng đi xuống Lâm Hà, rồi Nam Ban, rồi farm, rồi lot. Càng đi sâu, danh tính của hạt càng rõ.</p>" +
+      "<p>Một ngày nào đó, thay vì chỉ viết “đây là Robusta Việt Nam”, chúng ta có thể nói: <b>“đây là Robusta từ một vườn cụ thể ở Lâm Hà, mùa vụ này, độ cao này, sơ chế theo cách này, và qua nhiều lần cupping nó thường thể hiện những descriptor này.”</b> Đó mới là lúc terroir bắt đầu có dữ liệu đứng phía sau.</p>" +
+
+      "<h3>103 từ mới không phải điều quan trọng nhất</h3>" +
+      "<p>Điều quan trọng hơn là <b>cách chúng ta sử dụng chúng</b>. Một poster có thể treo lên tường; một infographic có thể được share vài nghìn lần. Nhưng nếu nó không quay ngược trở lại người trồng, quả chín, processing, lot, cupping, feedback, giá mua, thì nó vẫn chỉ là poster.</p>" +
+      "<p>Vòng tròn hương vị thực sự có giá trị khi người sản xuất có thể hỏi “tôi thay đổi cách làm này thì ly thay đổi thế nào?”; nhà sơ chế hỏi “natural và washed của cùng nguyên liệu khác nhau ở đâu?”; nhà rang hỏi “profile rang nào giữ được đặc tính của lot?”; người mua hỏi “tại sao lot này đáng giá hơn lot kia?”; và người uống cuối cùng hiểu “à, Robusta không chỉ có một vị.”</p>" +
+
+      "<h3>Robusta không cần trở thành Arabica</h3>" +
+      "<p>Có lẽ đây là điều hay nhất mà nghiên cứu này gợi ra. Trong nhiều năm, cách khen một Robusta đôi khi nghe giống “Robusta này thơm như Arabica”. Nhưng nếu Canephora có genetics khác, sinh hóa khác và một thế giới cảm quan riêng, tại sao tiêu chuẩn cao nhất của nó phải là giống một loài khác?</p>" +
+      "<p>Một Robusta tốt không cần xin lỗi vì body lớn, cocoa, roasted, spice, woody, fermented hay những nét umami riêng của nó. Câu hỏi đúng hơn không phải “Robusta này giống Arabica đến đâu?”, mà là <b>“Canephora này thể hiện tốt đến đâu những gì chính nó có thể trở thành?”</b> Đó là một thay đổi nhỏ trong câu chữ, nhưng là thay đổi rất lớn trong cách nhìn một hạt cà phê.</p>" +
+
+      "<div class='callout'><b>Bản dễ đọc:</b> nếu bạn mới bắt đầu và chỉ muốn hiểu ý chính một cách nhẹ nhàng, đọc bản viết lại đơn giản của bài này: <a href='/kien-thuc/robusta-khong-chi-vi-dang'>Robusta không chỉ có vị đắng: năm 2025, nó có vòng tròn hương vị của riêng mình</a>.</div>",
+    faq: [
+      { q: "Vòng tròn hương vị Robusta 2025 là gì?", a: "Là một flavor wheel được phát triển riêng cho Coffea canephora dựa trên nghiên cứu khoa học công bố năm 2025. Nó tổ chức 103 descriptor thành ba tầng để hỗ trợ việc nhận diện, mô tả và lập bản đồ các đặc tính aroma/flavour của Canephora." },
+      { q: "Ai phát triển vòng tròn này?", a: "Nghiên cứu do Fabiana M. Carvalho cùng Enrique A. Alves, Mateus M. Artêncio, Alvaro L. L. Cassago và Lucas L. Pereira thực hiện. Fabiana M. Carvalho là corresponding author." },
+      { q: "Nghiên cứu được công bố ở đâu?", a: "Trên tạp chí Scientific Reports, volume 15, article 16643, ngày 13/5/2025." },
+      { q: "Có phải đây là nghiên cứu của SCA, WCR hay CQI không?", a: "Không nên ghi như vậy. Paper có sử dụng CQI/UCDA cupping protocol và có những người tham gia là Q/R Grader, nhưng nhóm tác giả thuộc UNICAMP, EMBRAPA, University of São Paulo và IFES. Paper cũng nói đây là một non-funded project với sự hỗ trợ tự nguyện từ nhiều thành viên cộng đồng cà phê." },
+      { q: "Có bao nhiêu mẫu được nghiên cứu?", a: "67 mẫu Coffea canephora từ 13 quốc gia." },
+      { q: "Có bao nhiêu người thử nếm?", a: "49 professional coffee graders, trong đó 40 người là Q Grader và/hoặc R Grader." },
+      { q: "103 là gì?", a: "103 là số descriptor được đưa vào graphic cuối cùng của flavor wheel sau quá trình thu thập, gộp và lọc thuật ngữ." },
+      { q: "Có phải nghiên cứu chỉ tìm được 103 từ?", a: "Không. Các graders tạo/chọn 202 thuật ngữ; sau khi gộp còn 170. Những descriptor có average mean score từ 0,5 trở lên được đưa lên wheel cuối, còn 103." },
+      { q: "103 descriptor có nghĩa một ly Robusta có 103 vị?", a: "Không. Đây là vocabulary tổng hợp từ toàn bộ tập mẫu. Một ly cụ thể chỉ thể hiện một phần trong số đó." },
+      { q: "Nhóm hương vị nổi bật nhất là gì?", a: "Theo average mean score của Tier 1, thứ tự cao nhất là: Roasted → Sweet → Fruity → Cocoa." },
+      { q: "Descriptor riêng lẻ nào có average mean score cao nhất?", a: "Caramel, với average mean score 21,4 trong dữ liệu nghiên cứu." },
+      { q: "Có Umami trong Robusta không?", a: "Nghiên cứu có nhóm Umami và xếp tomato, fermented soy sauce/shoyu, coconut water và mushroom vào nhóm này. Các tác giả cho rằng chúng dường như là những descriptor đáng chú ý riêng của Canephora so với Arabica wheel, nhưng cũng nhấn mạnh cần nghiên cứu thêm về cơ sở của sự khác biệt." },
+      { q: "Có nước dừa thật trong cà phê không?", a: "Không. “Coconut water” là descriptor cảm quan — một sự liên tưởng về mùi/vị — không phải thành phần được thêm vào cà phê." },
+      { q: "Vòng tròn có “mít” không?", a: "Không trong bản 103 descriptor cuối cùng. Jackfruit xuất hiện trong danh sách 170 thuật ngữ nhưng average mean score chỉ 0,20, dưới ngưỡng 0,50 để xuất hiện trên graphic cuối." },
+      { q: "Có sầu riêng và thanh long không?", a: "Không nên khẳng định chúng thuộc wheel 103 nếu không có dữ liệu gốc chứng minh. Một số bài thứ cấp trên Internet đang trộn các thuật ngữ từng được đề xuất với các descriptor thực sự xuất hiện trên wheel cuối." },
+      { q: "Có hạt điều không?", a: "Cần đọc đúng dữ liệu. “Cashew (caju)” xuất hiện trong danh sách 170 nhưng có average mean score 0,10, nên riêng thuật ngữ đó không đạt ngưỡng đưa vào graphic cuối. Không nên nhìn một danh sách sơ bộ rồi gọi tất cả là “103 hương vị chính thức”." },
+      { q: "Có mẫu Việt Nam không?", a: "Có." },
+      { q: "Có mẫu Lâm Đồng không?", a: "Có. Paper ghi rõ mẫu Việt Nam từ Gia Lai và Lâm Đồng ở cupping session 1, và Đắk Lắk và Lâm Đồng ở session 2." },
+      { q: "Có mẫu Nam Ban hoặc Lâm Hà không?", a: "Paper không ghi cụ thể đến mức đó. Vì vậy chưa thể nói Nam Ban/Lâm Hà có mẫu trong nghiên cứu." },
+      { q: "Có thể nói Robusta Lâm Đồng có vị nước dừa hay umami vì Lâm Đồng có mẫu không?", a: "Không. Wheel được xây từ toàn bộ 67 mẫu của 13 quốc gia. Muốn gán descriptor cụ thể cho Lâm Đồng cần dữ liệu ở cấp mẫu tương ứng." },
+      { q: "Flavor wheel có phải bảng chấm điểm không?", a: "Không. Wheel chủ yếu dùng để mô tả aroma/flavour. Trong nghiên cứu, việc đánh giá chất lượng được thực hiện song song bằng CQI/UCDA cupping protocol." },
+      { q: "Một descriptor xuất hiện trên wheel có phải luôn là vị tốt?", a: "Không. Descriptive và hedonic/quality evaluation là hai việc khác nhau. Flavor wheel trước hết giúp gọi tên thứ được cảm nhận." },
+      { q: "Vòng tròn mới có chứng minh Robusta ngon hơn Arabica không?", a: "Không. Nghiên cứu không nhằm chứng minh loài nào ngon hơn. Nó xây một công cụ mô tả phù hợp hơn cho Canephora." },
+      { q: "Có đúng trước đây Robusta bị chấm oan bằng tiêu chuẩn Arabica không?", a: "Đó là cách nói quá mạnh. Điều paper thực sự chỉ ra là những positive sensory attributes của high-quality Canephora chưa được đại diện đầy đủ trong lexicon/flavor wheel trước đó, vì Robusta dùng để xây công cụ cũ là commercial Robusta." },
+      { q: "Fine Robusta là gì?", a: "Hiểu đơn giản là Canephora/Robusta chất lượng cao được sản xuất và đánh giá với mục tiêu chất lượng cảm quan cao hơn commodity Robusta. Tuy nhiên, flavor wheel 2025 không phải giấy chứng nhận Fine Robusta và 103 descriptor không phải thang điểm Fine Robusta." },
+      { q: "Natural, honey và washed có tạo ra hương vị cố định không?", a: "Không. Processing có thể ảnh hưởng mạnh đến profile nhưng không đảm bảo một hương vị cố định. Giống, nguyên liệu quả, môi trường, fermentation, drying, storage, roasting và brewing đều tham gia vào kết quả cuối." },
+      { q: "Người bình thường có sử dụng wheel được không?", a: "Có. Hãy bắt đầu từ nhóm rộng như Sweet, Fruity, Cocoa hoặc Roasted, sau đó mới đi ra những descriptor cụ thể. Không cần cố tìm thật nhiều vị." },
+      { q: "Nếu tôi không nếm được các descriptor đó thì sao?", a: "Hoàn toàn bình thường. Khả năng sensory phụ thuộc vào kinh nghiệm, reference đã từng ngửi/nếm, văn hóa và luyện tập. Ngay trong nghiên cứu, nhóm graders xuất khẩu và nhập khẩu cũng có những khác biệt về cách mô tả và đánh giá." },
+      { q: "Tại sao nghiên cứu này quan trọng với Việt Nam?", a: "Vì Việt Nam là một quốc gia sản xuất Canephora rất lớn và chính các mẫu Việt Nam — trong đó có Lâm Đồng — đã tham gia tập mẫu dùng để phát triển wheel. Quan trọng hơn, một vocabulary tốt hơn tạo điều kiện để Canephora được phân biệt theo chất lượng, origin, processing và sensory profile thay vì chỉ được nhìn như một nguyên liệu commodity đồng nhất." },
+      { q: "Nó có ý nghĩa gì với Nam Ban, Lâm Hà?", a: "Chưa phải câu trả lời về hương vị Nam Ban. Nó cho chúng ta một bộ câu hỏi và một công cụ để bắt đầu tìm câu trả lời. Việc đáng làm tiếp theo là lấy mẫu thật quanh Lâm Hà, cupping có kiểm soát và xây dữ liệu cảm quan theo từng farm, lot, processing và mùa vụ. Nếu làm đủ lâu, chúng ta có thể trả lời bằng dữ liệu: Robusta Nam Ban thực sự có những gì?" }
+    ],
+    links: [
+      { label: "Bản đơn giản: Robusta không chỉ có vị đắng", href: "/kien-thuc/robusta-khong-chi-vi-dang" },
+      { label: "Vòng tròn hương vị (SCA) là gì?", href: "/kien-thuc/vong-tron-huong-vi" }
+    ]
+  },
+  {
+    id: "robusta-khong-chi-vi-dang",
+    anh: "assets/img/robusta-wheel-vi.png",
+    tag: "Kiến thức",
+    docPhut: 7, mucDo: "Người mới",
+    tieuDe: "Robusta không chỉ có vị đắng: năm 2025, nó có vòng tròn hương vị của riêng mình",
+    dek: "Phần lớn chúng ta biết Robusta qua vị đắng, mạnh. Nhưng năm 2025, khoa học đã cho Coffea canephora một vòng tròn hương vị riêng — đây là bản viết lại đơn giản, ai đọc cũng hiểu.",
+    than:
+      "<p>Nếu trước giờ bạn nghĩ cà phê Robusta chỉ có vị đắng, mạnh và nhiều caffeine thì cũng bình thường. Phần lớn chúng ta biết Robusta theo cách đó. Arabica thường được nói là thơm, có vị hoa, trái cây, chua thanh và tinh tế; còn Robusta thì đậm, đắng, rẻ hơn và thường dùng để pha blend hoặc làm cà phê hòa tan.</p>" +
+      "<p>Nhưng Robusta thực ra có nhiều hương vị hơn thế. Vấn đề là trong một thời gian dài, thế giới cà phê chưa có một bộ từ đủ tốt để mô tả riêng những gì có trong Robusta chất lượng cao. Đến năm 2025, chuyện đó bắt đầu thay đổi.</p>" +
+
+      "<h3>Robusta có vòng tròn hương vị riêng</h3>" +
+      "<p>Tháng 5/2025, một nhóm nhà khoa học do Fabiana M. Carvalho và các cộng sự thực hiện đã công bố nghiên cứu trên tạp chí Scientific Reports. Họ xây dựng một <b>vòng tròn hương vị dành riêng cho Coffea canephora</b>, loài cà phê mà chúng ta thường gọi là Robusta.</p>" +
+      "<figure><img src='/assets/img/robusta-wheel-vi.png' alt='Vòng tròn hương vị Robusta — bản tiếng Việt' loading='lazy'><figcaption>Vòng tròn hương vị Robusta (bản tiếng Việt) — Gu Cà Phê.</figcaption></figure>" +
+      "<p>Vòng tròn hương vị nghe có vẻ chuyên môn, nhưng thật ra rất dễ hiểu. Khi uống cà phê, đôi khi bạn thấy nó có mùi giống cacao, caramel, trái cây hay một thứ gì đó rất quen nhưng không biết gọi tên. Vòng tròn hương vị giống như một <b>tấm bản đồ giúp chúng ta tìm từ để gọi tên những gì mình đang ngửi và nếm được</b>.</p>" +
+      "<p>Ví dụ bạn cảm thấy ly cà phê có gì đó giống trái cây. Bạn bắt đầu ở nhóm “trái cây”, rồi đi dần ra ngoài để tìm xem nó gần với loại trái cây nào hơn. Người mới uống cà phê dùng được, người rang cà phê dùng được, người thử nếm chuyên nghiệp cũng dùng được. Khác nhau chủ yếu ở mức độ luyện tập.</p>" +
+
+      "<h3>Tại sao Robusta lại cần một vòng tròn riêng?</h3>" +
+      "<p>Arabica và Robusta đều là cà phê nhưng không phải cùng một loài. Chúng khác nhau về di truyền, cây, điều kiện sinh trưởng, thành phần hóa học và cuối cùng là hương vị trong ly.</p>" +
+      "<p>Thế giới specialty coffee trước đây đã có một vòng tròn hương vị rất nổi tiếng. Nhưng dữ liệu dùng để xây những công cụ cảm quan trước đó <b>chưa thể hiện đầy đủ thế giới hương vị của Canephora chất lượng cao</b>. Hiểu đơn giản giống như chúng ta có một cuốn từ điển rất tốt, nhưng cuốn từ điển ấy thiếu một số từ cần thiết để kể hết câu chuyện của Robusta.</p>" +
+      "<p>Vì vậy nghiên cứu năm 2025 không nhằm chứng minh rằng “Robusta ngon hơn Arabica”, cũng không phải để nói trước đây Robusta “bị chấm oan”. Điều quan trọng hơn là: <b>Robusta bắt đầu có một bộ ngôn ngữ được xây từ chính Robusta để mô tả chính nó.</b></p>" +
+
+      "<h3>Các nhà khoa học đã làm thế nào?</h3>" +
+      "<p>Họ không ngồi nghĩ ra 103 mùi vị rồi vẽ thành một cái vòng. Nghiên cứu sử dụng <b>67 mẫu Coffea canephora đến từ 13 quốc gia</b>, có cả cà phê chất lượng cao lẫn cà phê thương mại và nhiều cách sơ chế khác nhau. Sau đó <b>49 chuyên gia thử nếm cà phê</b> tham gia đánh giá các mẫu.</p>" +
+      "<p>Từ hàng trăm từ mô tả ban đầu, nhóm nghiên cứu lọc và sắp xếp lại thành <b>103 mô tả hương vị</b> xuất hiện trên vòng tròn cuối cùng. Con số 103 cần hiểu cho đúng: nó không có nghĩa <b>một ly Robusta có 103 vị</b>. Nó giống như một tấm bản đồ có 103 địa điểm — một ly cà phê cụ thể chỉ nằm ở một vài nơi trên tấm bản đồ đó.</p>" +
+
+      "<h3>Điều thú vị nhất: Robusta không chỉ có “đắng”</h3>" +
+      "<p>Khi các nhà nghiên cứu tổng hợp kết quả, những nhóm hương vị nổi bật nhất lần lượt là: <b>Rang → Ngọt → Trái cây → Cacao</b>.</p>" +
+      "<p>Chỉ riêng kết quả này đã cho chúng ta một cách nhìn khác về Robusta. Người bình thường thường nghĩ tới Robusta bằng một chữ: <b>đắng</b>. Nhưng khi những mẫu Canephora khác nhau được thử nếm và mô tả kỹ hơn, người ta còn tìm thấy một thế giới gồm vị ngọt, trái cây, cacao, caramel, gia vị, gỗ và nhiều nhóm hương khác. Trong các mô tả riêng lẻ của nghiên cứu, <b>caramel là một descriptor nổi bật</b>.</p>" +
+      "<p>Nghiên cứu còn ghi nhận một nhóm khá lạ với người mới uống cà phê: <b>umami</b>, với những liên tưởng như cà chua, nước tương lên men, nước dừa và nấm. Đọc đến đây nhiều người sẽ hỏi ngay: “ủa, trong cà phê có nước dừa với nước tương thật à?” Không.</p>" +
+
+      "<h3>“Vị cacao”, “caramel” hay “nước dừa” nghĩa là gì?</h3>" +
+      "<p>Khi người ta nói một ly cà phê có hương cacao, không có nghĩa người rang bỏ cacao vào. Nói có hương caramel cũng không có nghĩa hạt được tẩm caramel. Đó là <b>liên tưởng của mùi và vị</b>.</p>" +
+      "<p>Ví dụ bạn ngửi một ly cà phê và mùi của nó làm não bạn nhớ đến caramel; người thử nếm sẽ dùng từ “caramel” để mô tả cảm giác đó. Cũng giống như khi chúng ta ngửi một loại nước hoa và nói “có mùi gỗ” hay “có mùi hoa” — trong chai nước hoa không nhất thiết có một miếng gỗ hay một bông hoa. Cà phê cũng vậy.</p>" +
+      "<p>Đây cũng là lý do người đã từng ăn, uống và ngửi nhiều thứ thường có vốn từ cảm quan rộng hơn: não của họ có một “thư viện mùi vị” lớn hơn để so sánh.</p>" +
+
+      "<h3>Vậy mít, sầu riêng có nằm trong vòng tròn Robusta không?</h3>" +
+      "<p>Có khá nhiều bài trên Internet nói vòng tròn mới có mít, sầu riêng, thanh long và nhiều loại trái cây nhiệt đới khác. Nhưng cần phân biệt giữa <b>những từ từng xuất hiện trong quá trình nghiên cứu</b> và <b>103 từ thực sự được chọn vào vòng tròn cuối cùng</b>.</p>" +
+      "<p>Ví dụ, <b>mít có xuất hiện trong danh sách từ ban đầu</b>, nhưng điểm của nó không đủ ngưỡng để được đưa vào vòng tròn 103 descriptor cuối cùng. Vì vậy nói “mít là một trong 103 hương vị trên vòng tròn Robusta 2025” là không chính xác. Gu chọn cách đơn giản: cái gì paper nói thì nói; cái gì paper chưa chứng minh thì không thêm cho bài nghe hấp dẫn hơn.</p>" +
+
+      "<h3>Việt Nam có mặt trong nghiên cứu này không?</h3>" +
+      "<p><b>Có. Và đây là phần rất đáng chú ý.</b> Trong giai đoạn đầu của nghiên cứu có các mẫu Việt Nam từ <b>Gia Lai và Lâm Đồng</b>. Ở giai đoạn tiếp theo lại có các mẫu từ <b>Đắk Lắk và Lâm Đồng</b>. Như vậy có thể nói chắc chắn rằng <b>cà phê Canephora từ Lâm Đồng đã tham gia vào tập mẫu dùng để phát triển và kiểm tra vòng tròn hương vị này</b>.</p>" +
+      "<p>Nhưng phải dừng đúng ở đó. Nghiên cứu ghi “Lâm Đồng”, không ghi Nam Ban hay Lâm Hà; vì vậy chúng ta chưa thể nói Robusta Nam Ban đã được đưa vào nghiên cứu. Cũng không thể thấy trên vòng tròn có “nước dừa” rồi kết luận Robusta Lâm Đồng có vị nước dừa — 103 mô tả được tổng hợp từ <b>67 mẫu của 13 quốc gia</b>, chứ không phải riêng Lâm Đồng.</p>" +
+
+      "<h3>Vậy Robusta Nam Ban có vị gì?</h3>" +
+      "<p>Câu trả lời hiện nay rất đơn giản: <b>chúng ta chưa biết đủ để nói</b>. Và với Gu, đây lại là phần thú vị nhất.</p>" +
+      "<p>Thay vì lấy một nghiên cứu quốc tế rồi cố gắn mọi hương vị trong đó vào Nam Ban, chúng ta có thể làm ngược lại: <b>đem Robusta Nam Ban ra nếm và tìm xem chính nó nằm ở đâu trên tấm bản đồ 103 hương vị này</b>. Lấy cà phê từ nhiều vườn quanh Nam Ban, Lâm Hà; lấy cả natural, honey, washed nếu có; rang mẫu theo cùng một cách, pha theo cùng một chuẩn rồi thử nếm nhiều lần; ghi lại từng mùi vị, từng vùng, từng mùa vụ.</p>" +
+      "<p>Làm đủ lâu, chúng ta có thể bắt đầu trả lời những câu rất cụ thể: Robusta Nam Ban thường có nhóm hương gì? Vườn này khác vườn kia thế nào? Natural khác washed ra sao? Mùa năm nay khác mùa năm trước ở đâu? Khi ấy chúng ta mới có một <b>bản đồ hương vị Robusta của chính Lâm Hà</b>, dựa trên cà phê thật của vùng chứ không phải suy đoán từ Internet.</p>" +
+
+      "<h3>Vòng tròn hương vị có làm cà phê ngon hơn không?</h3>" +
+      "<p>Không. Nó chỉ giúp chúng ta <b>nhìn rõ hơn thứ đang có trong hạt</b>. Muốn có cà phê ngon, mọi chuyện vẫn bắt đầu từ ngoài vườn: giống cây, đất, khí hậu, cách chăm sóc, quả được hái chín tới đâu, cách sơ chế, lên men, phơi và bảo quản. Sau đó mới tới rang và pha.</p>" +
+      "<p>Một quả cà phê hái xanh, sơ chế lỗi, phơi ẩm rồi rang cháy sẽ không trở thành cà phê ngon chỉ vì chúng ta có một vòng tròn 103 hương vị. Nói đơn giản: <b>flavor wheel không tạo ra chất lượng — nó giúp chúng ta gọi tên chất lượng.</b></p>" +
+
+      "<h3>Điều quan trọng nhất của nghiên cứu này là gì?</h3>" +
+      "<p>Không phải con số 103, cũng không phải tìm được một vài hương vị nghe lạ. Điều đáng chú ý nhất là cách chúng ta bắt đầu nhìn Robusta khác đi.</p>" +
+      "<p>Robusta không cần phải giống Arabica mới được xem là ngon. Nếu hai loài cà phê khác nhau về cây, di truyền, hóa học và hương vị, thì một Robusta tốt nên được đánh giá dựa trên <b>những gì một Robusta tốt có thể trở thành</b>, chứ không phải dựa vào việc nó giống Arabica đến mức nào.</p>" +
+      "<p>Năm 2025, khoa học cho Canephora một bộ từ rõ hơn để kể câu chuyện của chính nó. Còn với Gu, câu hỏi tiếp theo gần hơn nhiều: <b>trong 103 từ ấy, Robusta của Nam Ban sẽ chọn những từ nào?</b> Câu đó không thể tìm trên Google — phải uống mới biết.</p>" +
+
+      "<div class='callout'><b>Muốn đọc kỹ hơn?</b> Bản đầy đủ của bài này có tên nghiên cứu, số liệu và cách Gu kiểm chứng từng chi tiết: <a href='/kien-thuc/vong-tron-huong-vi-robusta-2025'>Robusta có 103 cách để nói về hương vị: Vòng tròn hương vị Canephora 2025</a>.</div>",
+    faq: [
+      { q: "Robusta có phải chỉ có vị đắng không?", a: "Không. Đắng là một phần dễ nhận thấy của Robusta, nhưng nghiên cứu 2025 cho thấy Canephora có phổ cảm quan rộng hơn nhiều. Những nhóm nổi bật trong tập mẫu nghiên cứu gồm rang, ngọt, trái cây và cacao." },
+      { q: "Vòng tròn hương vị Robusta là gì?", a: "Là một bản đồ giúp gọi tên những mùi và vị người ta cảm nhận được khi thử Coffea canephora. Vòng tròn công bố năm 2025 có 103 descriptor được sắp xếp thành các nhóm từ rộng đến cụ thể." },
+      { q: "103 hương vị có nghĩa một ly Robusta có 103 vị không?", a: "Không. 103 là tổng số descriptor trên vòng tròn. Một ly cà phê cụ thể chỉ có thể thể hiện một phần trong số đó." },
+      { q: "Ai làm vòng tròn hương vị Robusta 2025?", a: "Nó được phát triển từ nghiên cứu của Fabiana M. Carvalho và các cộng sự, công bố trên tạp chí khoa học Scientific Reports vào tháng 5/2025." },
+      { q: "Họ nghiên cứu bao nhiêu cà phê?", a: "67 mẫu Coffea canephora từ 13 quốc gia, được 49 chuyên gia thử nếm chuyên nghiệp đánh giá." },
+      { q: "Việt Nam có trong nghiên cứu không?", a: "Có. Nghiên cứu có các mẫu từ Việt Nam, trong đó bảng dữ liệu ghi Gia Lai, Đắk Lắk và Lâm Đồng ở các giai đoạn khác nhau." },
+      { q: "Lâm Đồng có mẫu trong nghiên cứu không?", a: "Có. Lâm Đồng xuất hiện ở cả giai đoạn phát triển và giai đoạn xác nhận của nghiên cứu." },
+      { q: "Nam Ban hoặc Lâm Hà có mẫu không?", a: "Chưa có bằng chứng trong paper. Nghiên cứu chỉ ghi Lâm Đồng, không ghi cụ thể Nam Ban hay Lâm Hà." },
+      { q: "Có thể nói Robusta Lâm Đồng có vị nước dừa không?", a: "Chưa thể. Nước dừa là một descriptor trong nghiên cứu, nhưng vòng tròn được tổng hợp từ nhiều mẫu của 13 quốc gia. Không thể lấy một descriptor trên vòng tròn rồi tự gán cho Lâm Đồng." },
+      { q: "Trong cà phê có thật sự có cacao, caramel hay nước dừa không?", a: "Thông thường không. Đó là những từ dùng để mô tả mùi và vị làm người uống liên tưởng đến cacao, caramel hay nước dừa." },
+      { q: "Mít có nằm trong 103 descriptor không?", a: "Không. Jackfruit xuất hiện trong danh sách thuật ngữ trong quá trình nghiên cứu nhưng không đạt ngưỡng để xuất hiện trên vòng tròn 103 descriptor cuối cùng." },
+      { q: "Vòng tròn này có dùng để chấm cà phê ngon hay dở không?", a: "Không trực tiếp. Nó chủ yếu giúp mô tả cà phê có mùi vị gì. Đánh giá chất lượng là một việc khác." },
+      { q: "Vòng tròn hương vị có làm Robusta thành Specialty hay Fine Robusta không?", a: "Không. Một flavor wheel là công cụ mô tả cảm quan, không phải giấy chứng nhận chất lượng." },
+      { q: "Robusta và Arabica loại nào ngon hơn?", a: "Không có câu trả lời chung. Chúng là hai loại cà phê khác nhau với đặc tính khác nhau. Một Robusta tốt không cần phải giống Arabica mới được xem là tốt." },
+      { q: "Người bình thường có dùng vòng tròn hương vị được không?", a: "Có. Không cần biết chuyên môn. Khi uống, chỉ cần bắt đầu bằng câu hỏi rất đơn giản: ngoài đắng ra, ly cà phê này còn làm mình nhớ đến mùi hay vị gì?" },
+      { q: "Vòng tròn này có ý nghĩa gì với Nam Ban?", a: "Nó chưa cho chúng ta biết Robusta Nam Ban có vị gì. Nhưng nó cho chúng ta một công cụ để bắt đầu tìm câu trả lời bằng cách lấy cà phê thật từ các vườn quanh Nam Ban, thử nếm có kiểm soát và ghi lại dữ liệu qua nhiều mùa vụ." }
+    ],
+    links: [
+      { label: "Bản đầy đủ có nguồn nghiên cứu", href: "/kien-thuc/vong-tron-huong-vi-robusta-2025" },
+      { label: "Vòng tròn hương vị (SCA) là gì?", href: "/kien-thuc/vong-tron-huong-vi" }
+    ]
+  },
+  {
     id: "natural-washed",
     anh: "assets/img/art-natural-drying.jpg",
     tag: "Sơ chế",
