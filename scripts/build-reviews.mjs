@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260816';
+const CSS_V = '20260817';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1467,6 +1467,23 @@ function articlePage(b) {
     body = body.split('{{GU_PICK}}').join(card);
   }
 
+  // Mục lục tự động — gán id cho từng <h3> và dựng danh sách nhảy (chỉ bài dài ≥5 mục)
+  const slugify = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'muc';
+  const heads = [];
+  const seenId = {};
+  body = body.replace(/<h3>([\s\S]*?)<\/h3>/g, (m, inner) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    let id = slugify(text);
+    if (seenId[id]) { seenId[id]++; id = `${id}-${seenId[id]}`; } else seenId[id] = 1;
+    heads.push({ id, text });
+    return `<h3 id="${id}">${inner}</h3>`;
+  });
+  const tocBlock = heads.length >= 5 ? `<nav class="kt-toc" aria-label="Mục lục">
+      <div class="kt-toc-h">Trong bài này</div>
+      <ol>${heads.map(h => `<li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('')}</ol>
+    </nav>` : '';
+
   // Đọc tiếp — bat-dau: bước kế trong lộ trình; kien-thuc: bài cùng nhóm
   let moreBlock = '';
   if (bd) {
@@ -1515,6 +1532,7 @@ function articlePage(b) {
     </header>
     ${src ? `<figure class="kta-hero"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" fetchpriority="high"></figure>` : ''}
     ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
+    ${tocBlock}
     <div class="kt-art-body kta-body">${body}</div>
     ${linksBlock}
   </article>
