@@ -888,8 +888,8 @@ const BAIVIET = [
       "<p>Gu <b>tự bỏ tiền mua</b> cà phê trên thị trường như một khách hàng bình thường, không nhận hàng tài trợ, không nhận mẫu thử miễn phí từ nhà bán. Vì sao? Nhận đồ miễn phí thì khó chấm thẳng tay.</p>" +
       "<h3>Nếm mù — không biết trước gói nào</h3>" +
       "<p>Khi chấm điểm, Gu <b>nếm mù</b>: che nhãn, không biết đang uống gói của nhà nào, đánh số 1-2-3 rồi mới chấm. Chấm xong mới lật nhãn ra. Làm vậy để cảm tình với thương hiệu không làm lệch điểm.</p>" +
-      "<h3>Chấm theo 6 tiêu chí</h3>" +
-      "<p>Mỗi gói được cho điểm trên 6 mặt: <b>hương thơm, vị chua, độ đậm đà, vị ngọt, hậu vị, và cảm nhận tổng thể</b>. Cộng lại lấy trung bình ra điểm cuối. Không phải một con số cảm tính.</p>" +
+      "<h3>Chấm theo 3 tiêu chí</h3>" +
+      "<p>Điểm số của Gu dựa trên <b>ba tiêu chí cảm quan cốt lõi: độ chua, độ đậm và hậu vị</b> — chấm trong cùng một điều kiện pha cho mọi gói. Trên trang từng gói, Gu còn ghi thêm hồ sơ hương vị chi tiết để bạn dễ hình dung, nhưng điểm cuối gói gọn ở ba tiêu chí này. Không phải một con số cảm tính.</p>" +
       "<div class='callout'><b>⚠️ Về chuyện hoa hồng:</b> Gu có nhận hoa hồng khi bạn mua qua link giới thiệu. Nhưng điểm số được chấm mù <b>trước</b> khi có bất kỳ thỏa thuận nào, và <b>không nhà nào trả tiền để được điểm cao</b>. Gói dở thì Gu nói dở, hoặc loại thẳng khỏi web.</div>" +
       "<p>Đó là lý do khi Gu nói một gói đáng mua, bạn có thể tin — vì Gu chấm nó như một người mua khó tính, không phải như một người đi bán.</p>" +
       "<p><b>Gu khuyên:</b> Giờ bạn đã hiểu và tin cách Gu chọn. Xem gói Gu khuyên cho ly cà phê đặc sản đầu tiên của bạn: <b><a href='/ca-phe'>Gói Gu khuyên cho người mới →</a></b></p>"

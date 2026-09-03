@@ -1368,7 +1368,7 @@ function diagFreshness() {
 }
 const DIAGRAMS = { 'natural-washed': diagNaturalWashed, 'rang-sang-dam': diagRoastScale, 'co-xay': diagGrind, 'cong-thuc-pha': diagBrewing, 'do-tuoi': diagFreshness };
 
-/* Giải thích 5 trục cảm quan Gu ghi nhận (dùng ở /cach-test) */
+/* Hồ sơ hương vị mô tả — 5 trục Gu ghi nhận để mô tả ly (khác 3 tiêu chí chấm điểm). Dùng ở /cach-test */
 function diagFlavorAxes() {
   const AX = [
     ['Độ chua', 'Vị chua sáng kiểu cam, chanh, trái cây — dấu hiệu Arabica vùng cao, không phải chua hỏng.'],
@@ -1659,7 +1659,8 @@ function hubCachTest() {
   <h2 class="method-h">Quy trình 5 bước</h2>
   <ol class="steps">${QUY_TRINH.map(x => `<li><span>${x}</span></li>`).join('')}</ol>
 
-  <h2 class="method-h">Gu ghi nhận những trục vị nào?</h2>
+  <h2 class="method-h">Hồ sơ hương vị Gu ghi nhận</h2>
+  <p class="lead">Điểm số gói gọn ở <b>ba tiêu chí cốt lõi: độ chua, độ đậm, hậu vị</b>. Ngoài ra, để mô tả mỗi ly cho bạn dễ hình dung, Gu ghi nhận thêm các trục hương vị dưới đây — hiển thị ở từng trang gói, không phải để cộng điểm.</p>
   ${diagFlavorAxes()}
 
   <div class="gallery">
