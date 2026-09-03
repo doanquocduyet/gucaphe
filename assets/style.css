@@ -1181,7 +1181,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-art-body{font-size:17px}
 .kt-art-body p{margin-bottom:16px;color:var(--ink-soft)}
 .kt-art-body b{color:var(--ink);font-weight:600}
-.kt-art-body h3{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,22px);
+.kt-art-body h2,.kt-art-body h3{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,22px);
   letter-spacing:-.02em;color:var(--ink);margin:32px 0 10px}
 .kt-art-body i{color:var(--ink-soft)}
 .kt-art-body ul{margin:0 0 16px;padding-left:22px;color:var(--ink-soft)}
@@ -1196,7 +1196,7 @@ footer a:hover{border-color:var(--gold-soft)}
 .kt-toc li{line-height:1.45}
 .kt-toc a{color:var(--ink-body,#2B2320);text-decoration:none;font-size:14.5px;border-bottom:1px solid transparent;transition:.15s}
 @media(hover:hover){.kt-toc a:hover{color:var(--accent,#C2632C);border-color:var(--accent,#C2632C)}}
-.kt-art-body h3{scroll-margin-top:84px}
+.kt-art-body h2,.kt-art-body h3{scroll-margin-top:84px}
 html{scroll-behavior:smooth}
 /* Ảnh minh hoạ trong bài viết */
 .kt-art-body figure{margin:26px 0}

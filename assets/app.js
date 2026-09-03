@@ -7,10 +7,9 @@
 try{window.addEventListener('touchstart',function(){},{passive:true});}catch(e){}
 
 const $ = s => document.querySelector(s);
-const money   = n => n.toLocaleString('vi-VN') + '₫';
+const money   = n => n == null ? '' : n.toLocaleString('vi-VN') + '₫';
 const per100  = p => p.gram ? Math.round(p.gia / p.gram * 100) : null;
 const get     = id => SP.find(x => x.id === id);
-const PHA_TEN = { phin:'Phin', v60:'V60 / Pour over', coldbrew:'Cold brew' };
 const reviewUrl = p => p && p.slug ? `/review/${p.slug}` : null;
 
 /* ============ ĐO LƯỜNG — FUNNEL QUYẾT ĐỊNH ============
@@ -65,11 +64,6 @@ function buyCTA(p, pos, label) {
   return main + (alts.length ? `<div class="cta-alts"><span>Hoặc:</span>${alts.join('')}</div>` : '');
 }
 
-/* ---- Nhãn minh bạch — không emoji, không bao giờ ghi sai ---- */
-const nhan = p => p.tested
-  ? '<span class="tag tag-t">Đã nếm mù</span>'
-  : (p.daUong ? '<span class="tag tag-tasted">Đã uống</span>' : '<span class="tag tag-u">Chưa nếm</span>');
-
 /* ---- Expert cues: vùng · giống · sơ chế · rang — tín hiệu chuyên môn ---- */
 const cues = p => {
   const bits = [p.xaHuyen, p.giong, p.process, p.roast ? 'Rang ' + p.roast.toLowerCase() : null]
@@ -77,30 +71,11 @@ const cues = p => {
   return bits.length ? `<div class="cues">${bits.join('<i>·</i>')}</div>` : '';
 };
 
-/* ---- Tasting notes (chỉ loại đã nếm) / mô tả nhà bán ---- */
-const flavorLine = p => (p.tested && p.notes && p.notes.length)
-  ? `<div class="notes-line">${p.notes.join(' · ')}.</div>`
-  : `<div class="flavor-txt">${p.flavor}</div>`;
-
-/* ---- Thanh số đo ---- */
-const bar = (label, v) => v == null ? '' : `
-  <div class="spec">
-    <div class="spec-l">${label}</div>
-    <div class="spec-v">${v}<span class="of">/5</span></div>
-    <div class="track"><i style="width:${v / 5 * 100}%"></i></div>
-  </div>`;
-
-/* ---- Ô sản phẩm: ảnh thật nếu có, không thì swatch màu rang (dữ liệu, không giả ảnh) ---- */
+/* ---- Màu swatch theo độ rang (dùng cho thẻ gợi ý khi không có ảnh) ---- */
 const ROAST_BG = {
   'Light':'#C9A876','Light-medium':'#B08D5B','Medium':'#8A6A44',
   'Medium-dark':'#5E4530','Dark':'#3B2A1C'
 };
-function thumb(p, cls = '') {
-  if (p.anh) return `<div class="thumb ${cls}"><img src="${p.anh}" alt="${p.brand} — ${p.ten}" loading="lazy"></div>`;
-  const c = ROAST_BG[p.roast] || '#8A6A44';
-  return `<div class="thumb thumb-gen ${cls}" style="background:${c}" aria-label="Độ rang ${p.roast || ''}">
-    <span class="thumb-l">${p.roast || ''}</span></div>`;
-}
 
 /* ============ i18n cho trang chủ (nội dung render động) ============
    T(vi) trả bản tiếng Anh khi đang ở chế độ EN, ngược lại giữ tiếng Việt.
@@ -355,27 +330,6 @@ function verdict(p, taste) {
   return T('Hợp gu bạn và an toàn — rất khó để hối tiếc khi bắt đầu bằng gói này.');
 }
 
-/* Dòng tin cậy — chỉ nói sự thật rút từ dữ liệu, KHÔNG khoe điểm mạnh
-   trái với gu người dùng vừa chọn (vd đừng khoe "đậm nhất" cho người thích chua sáng). */
-function confLine(p, taste) {
-  const t = SP.filter(x => x.tested && x.diem != null);
-  if (!(p.tested && p.diem != null))
-    return p.daUong
-      ? (p.chungNhan ? `<b>Đã uống thật</b> — ${p.chungNhan}. Chưa chấm mù nên chưa gắn số.` : `<b>Đã uống thật</b>, thấy ngon — chưa chấm mù nên chưa gắn số.`)
-      : `Chúng tôi <b>chưa thử</b> gói này — thông số từ nhà bán, trang ghi rõ.`;
-  const top = Math.max(...t.map(x => x.diem));
-  const maxChua = Math.max(...t.map(x => x.chua || 0));
-  const maxDam  = Math.max(...t.map(x => x.dam  || 0));
-  const cheap = t.slice().sort((a, b) => per100(a) - per100(b))[0];
-  // Điểm & giá là tín hiệu trung lập với gu — luôn được phép nói
-  if (p.diem === top && t.length > 1) return `<b>Điểm cao nhất</b> trong ${t.length} gói chúng tôi đã nếm mù.`;
-  // Điểm mạnh về vị: chỉ nói khi khớp gu vừa chọn
-  if (taste === 'sang' && p.chua === maxChua && maxChua >= 4) return `Gói <b>chua sáng, thiên trái cây</b> rõ nhất trong nhóm đã nếm — đúng gu bạn.`;
-  if (taste === 'dam'  && p.dam  === maxDam  && maxDam  >= 4) return `Gói <b>đậm đà, đầy miệng</b> nhất trong nhóm đã nếm — đúng gu bạn.`;
-  if (cheap && p.id === cheap.id)         return `<b>Rẻ nhất tính theo 100g</b> trong nhóm đã nếm — an toàn để bắt đầu.`;
-  return `Đã nếm mù, chấm <b>${p.diem}/10</b> — cân bằng, không điểm trừ đáng kể.`;
-}
-
 let TASTE = null, BREW = null, CURID = null, NEGO = null;
 try { TASTE = localStorage.getItem('gu_taste'); BREW = localStorage.getItem('gu_brew'); } catch (e) {}
 const memPick = () => { try { return get(localStorage.getItem('gu_pick')); } catch (e) { return null; } };
@@ -459,7 +413,7 @@ function drawRec() {
     ? `${T('Bạn muốn')} <b>${T(NEGO)}</b> → ${T('vậy gói này')}`
     : `${T(TASTE === 'moi' ? 'Dành cho' : 'Thích')} <b>${tlabel}</b>${BREW ? ` · ${T('pha')} <b>${T(BLAB[BREW])}</b>` : ''} → ${T('chúng tôi chọn')}`;
   const objs = availObj(best);
-  const src = best.anh ? (/^https?:/.test(best.anh) ? best.anh : best.anh) : '';
+  const src = best.anh ? (/^https?:/.test(best.anh) ? best.anh : '/' + best.anh) : '';
   const badge = (best.tested && best.diem != null)
     ? `<span class="rec-badge rec-badge-score">${best.diem}<i>/10</i></span>`
     : (best.daUong ? `<span class="rec-badge rec-badge-tasted">${T('Đã uống')}</span>` : `<span class="rec-badge rec-badge-ut">${T('Chưa nếm')}</span>`);
@@ -503,60 +457,6 @@ function drawRec() {
   if (rec) { rec.classList.remove('in'); void rec.offsetWidth; rec.classList.add('in'); }
 }
 
-/* ============ 3 · BẢNG TUYỂN CHỌN ============ */
-function renderMatrix() {
-  const rows = [...SP].sort((a, b) =>
-    (b.tested ? 1 : 0) - (a.tested ? 1 : 0) ||
-    (b.diem || 0) - (a.diem || 0) ||
-    (per100(a) || 9e9) - (per100(b) || 9e9));
-  const bestId  = (rows.find(p => p.tested) || {}).id;
-  const cheapId = ([...SP].filter(p => per100(p)).sort((a, b) => per100(a) - per100(b))[0] || {}).id;
-
-  const nem = SP.filter(p => p.tested).length, chua = SP.length - nem;
-
-  $('#matrix').innerHTML = `
-    <div class="mx-head">
-      <div>
-        <div class="eyebrow">Bảng tuyển chọn · ${SITE.capNhat}</div>
-        <h2>Chúng tôi đã lọc.<br>Bạn chỉ cần chọn.</h2>
-      </div>
-      <p class="lead" style="max-width:34ch;font-size:16.5px">Giá quy về 100g để so sòng phẳng
-      giữa các gói khác khối lượng. Gói nào chưa nếm thì không có điểm — không ngoại lệ.</p>
-    </div>
-    <div class="mx-filter">
-      <button class="active" data-f="all"  onclick="mxFilter('all',this)">Tất cả · ${SP.length}</button>
-      <button data-f="nem"  onclick="mxFilter('nem',this)">Đã nếm · ${nem}</button>
-      <button data-f="chua" onclick="mxFilter('chua',this)">Chưa nếm · ${chua}</button>
-    </div>
-    <div class="mx" data-f="all">
-      <div class="mx-cols"><span>Sản phẩm</span><span>Giá / 100g</span><span>Điểm</span><span></span></div>
-      ${rows.map(p => `
-      <div class="mx-row" data-tested="${p.tested ? 1 : 0}">
-        <div>
-          ${p.id === bestId ? '<div class="mx-pick-note">Lựa chọn của chúng tôi</div>' : ''}
-          ${p.id === cheapId ? '<div class="mx-pick-note">Rẻ nhất tính theo 100g</div>' : ''}
-          <div class="mx-name"><small>${p.brand}</small>${p.ten}</div>
-          ${cues(p)}
-          ${reviewUrl(p) ? `<a class="mx-review" href="${reviewUrl(p)}">Đọc review →</a>` : ''}
-        </div>
-        <div class="mx-per">${per100(p) ? money(per100(p)) : '—'}<small>${money(p.gia)} / ${p.gram}g</small></div>
-        <div class="mx-score">${p.diem != null ? p.diem : '<span class="ut">Chưa nếm</span>'}</div>
-        <div class="mx-act"><button class="cta" onclick="aff('${p.id}','shopee','matrix')">Mua →</button></div>
-      </div>`).join('')}
-    </div>
-    <p class="foot-note">Giá tham khảo tại thời điểm cập nhật · Link có ở cả sản phẩm chúng tôi khuyên cân nhắc — nên không có lý do để khen sai.</p>`;
-}
-
-function mxFilter(f, btn) {
-  const mx = $('.mx'); if (mx) mx.dataset.f = f;
-  document.querySelectorAll('.mx-filter button').forEach(b => b.classList.toggle('active', b === btn));
-}
-
-/* ============ KHUÔN HÌNH GIỮA TRANG ============ */
-function renderAtmos() {
-  const el = $('#atmos'); if (el) el.innerHTML = '';
-}
-
 /* ============ PEAK — tuyên ngôn trên ảnh, phá nhịp ============ */
 function renderPeak() {
   $('#peak').innerHTML = `
@@ -566,70 +466,6 @@ function renderPeak() {
       <div class="peak-kicker">${T('Độc lập biên tập')}</div>
       <p class="peak-setup">${T('Không có bài viết tài trợ.<br>Không có điểm số cho thứ chúng tôi')}</p>
       <p class="peak-punch">${T('chưa bỏ vào miệng')}</p>
-    </div>`;
-}
-
-/* ============ 4 · REVIEW CHI TIẾT ============ */
-function renderReviews() {
-  $('#reviews').innerHTML = `
-    <div class="eyebrow">Sổ nếm</div>
-    <h2>Chi tiết từng gói.</h2>
-    <div class="rv-list">
-    ${SP.map(p => `
-      <div class="rv">
-        <div class="rv-top">
-          ${thumb(p, 'thumb-rv')}
-          <div class="rv-head-txt">
-            <div class="rv-brand">${p.brand}</div>
-            <div class="rv-name">${p.ten} ${nhan(p)}</div>
-            ${flavorLine(p)}
-          </div>
-          <div class="rv-top-right">
-            ${p.diem != null ? `<div class="rv-score">${p.diem}</div>` : `<div class="rv-noscore">Chưa chấm điểm</div>`}
-            <div class="rv-price"><b>${money(p.gia)}</b>${per100(p) ? `${money(per100(p))}/100g` : ''}</div>
-            ${buyCTA(p, 'review')}
-            <button class="rv-toggle" type="button" onclick="this.closest('.rv').classList.toggle('open')"></button>
-          </div>
-        </div>
-        <div class="rv-detail">
-          <div class="specs">
-            ${bar('Độ chua', p.chua)}${bar('Độ đậm', p.dam)}${bar('Hậu vị', p.hau)}
-            ${per100(p) ? `<div class="spec"><div class="spec-l">Giá / 100g</div><div class="spec-v">${(per100(p)/1000).toFixed(0)}<span class="of">k</span></div><div class="track"><i style="width:${Math.min(per100(p)/1500*100,100)}%"></i></div></div>` : ''}
-          </div>
-          <div class="rv-meta">${cues(p)}
-            <div class="cues" style="margin-top:6px">Hợp: ${p.pha.map(x => PHA_TEN[x] || x).join('<i>·</i>')}</div>
-          </div>
-          <div class="who">
-            <div><h4>Nên mua nếu</h4><ul>${p.nen.map(x => `<li class="y">${x}</li>`).join('')}</ul></div>
-            <div><h4>Cân nhắc nếu</h4><ul>${p.khong.map(x => `<li class="n">${x}</li>`).join('')}</ul></div>
-          </div>
-          ${reviewUrl(p) ? `<a class="rv-full-link" href="${reviewUrl(p)}">Trang review đầy đủ của ${p.brand} · ${p.ten} →</a>` : ''}
-        </div>
-      </div>`).join('')}
-    </div>`;
-}
-
-/* ============ VÙNG TRỒNG — hub cà phê Lâm Đồng (Cầu Đất · Nam Ban) ============ */
-function regionUrl(v) { return `/vung-trong/${v.slug}`; }
-function renderVung() {
-  if (typeof VUNG === 'undefined' || !VUNG.length) return;
-  $('#vungtrong').innerHTML = `
-    <div class="eyebrow">Vùng trồng</div>
-    <h2>Cà phê Lâm Đồng.</h2>
-    <p class="lead">Gần như toàn bộ Arabica đặc sản Việt Nam đến từ cao nguyên này.
-    Mỗi tiểu vùng — <b>Cầu Đất</b>, <b>Nam Ban</b>, Lạc Dương — cho một chất vị riêng.
-    Hiểu vùng trồng để chọn đúng gu, không chọn theo bao bì.</p>
-    <div class="vg-grid">
-      ${VUNG.map(v => `
-      <a class="vg-card${v.hub ? ' vg-hub' : ''}" href="${regionUrl(v)}">
-        <div class="vg-card-top">
-          <div class="vg-card-name">${v.ten}</div>
-          ${v.hub ? '<span class="vg-badge">Tổng quan</span>' : ''}
-        </div>
-        <div class="vg-card-tag">${v.tagline}</div>
-        <div class="vg-card-meta">${[v.doCao, v.giong].filter(Boolean).join('<i>·</i>')}</div>
-        <span class="vg-card-go">Tìm hiểu →</span>
-      </a>`).join('')}
     </div>`;
 }
 
@@ -662,94 +498,10 @@ function renderHubs() {
     </div>`;
 }
 
-/* ============ NHÀ RANG — 6 nhà cà phê xịn nhất Lâm Đồng ============ */
-function roasterUrl(r) { return `/nha-rang/${r.slug}`; }
-function roasterAvg(r) {
-  const t = (r.sanPham || []).map(id => get(id)).filter(p => p && p.tested && p.diem != null);
-  if (!t.length) return null;
-  return Math.round(t.reduce((s, p) => s + p.diem, 0) / t.length * 10) / 10;
-}
-function renderRoaster() {
-  if (typeof ROASTER === 'undefined' || !ROASTER.length) return;
-  $('#nharang').innerHTML = `
-    <div class="eyebrow">Nhà rang</div>
-    <h2>6 nhà cà phê xịn nhất Lâm Đồng.</h2>
-    <p class="lead">Chúng tôi không dàn trải. Chọn ra 6 nhà đại diện cho các vùng nguyên liệu —
-    mỗi nhà một hồ sơ: vùng, sản phẩm đã nếm, điểm và link chính thức.</p>
-    <div class="vg-grid">
-      ${ROASTER.map(r => {
-        const avg = roasterAvg(r);
-        return `
-      <a class="vg-card" href="${roasterUrl(r)}">
-        <div class="vg-card-top">
-          <div class="vg-card-name">${r.ten}</div>
-          ${avg != null ? `<span class="vg-badge">${avg}/10</span>` : ''}
-        </div>
-        <div class="vg-card-tag">${r.gioiThieu}</div>
-        <div class="vg-card-meta">Vùng: ${r.vungChinh}</div>
-        <span class="vg-card-go">Xem hồ sơ →</span>
-      </a>`;
-      }).join('')}
-    </div>`;
-}
-
-/* ============ 5 · KIẾN THỨC ============ */
-function renderKienThuc() {
-  if (typeof BAIVIET === 'undefined' || !BAIVIET.length) return;
-  $('#kienthuc').innerHTML = `
-    <div class="eyebrow">Kiến thức</div>
-    <h2>Hiểu trước khi mua.</h2>
-    <div class="arts">
-      ${BAIVIET.map(b => `
-      <details class="art">
-        <summary>
-          <img class="art-img" src="${b.anh}" alt="${b.tieuDe}" loading="lazy">
-          <div class="art-copy">
-            <div class="art-tag">${b.tag}</div>
-            <div class="art-t">${b.tieuDe}</div>
-            <div class="art-dek">${b.dek}</div>
-            <div class="art-more"></div>
-          </div>
-        </summary>
-        <div class="art-full">${b.than}</div>
-      </details>`).join('')}
-    </div>`;
-}
-
-/* ============ 6 · CÁCH TEST — nền mực ============ */
-function renderMethod() {
-  $('#method').innerHTML = `
-    <div class="eyebrow">Minh bạch</div>
-    <h2>Cách chúng tôi test.</h2>
-    <p class="lead">Công bố trước khi mở gói hàng — khoá lại, không sửa.</p>
-    <ol class="steps">${QUY_TRINH.map(x => `<li><span>${x}</span></li>`).join('')}</ol>
-    <div class="gallery">
-      <figure><img src="assets/img/p1-farm.jpg" alt="Quả cà phê chín trên cành" loading="lazy"><figcaption>Vùng trồng — quả chín</figcaption></figure>
-      <figure><img src="assets/img/p2-grind.jpg" alt="Cà phê vừa xay" loading="lazy"><figcaption>Cùng cỡ xay</figcaption></figure>
-      <figure><img src="assets/img/p3-cup.jpg" alt="Dàn mẫu nếm mù" loading="lazy"><figcaption>Che nhãn</figcaption></figure>
-      <figure><img src="assets/img/p4-taste.jpg" alt="Chấm điểm bằng thìa cupping" loading="lazy"><figcaption>Chấm điểm</figcaption></figure>
-    </div>
-    <div class="method-notes">
-      <p><b>Vì sao điểm số đáng tin:</b> nó là hệ quả của một quy trình ai cũng kiểm chứng lại được —
-      cùng cỡ xay, cùng tỷ lệ, cùng nhiệt độ, nếm mù. Thẩm quyền đến từ phương pháp, không từ lời khen.</p>
-      <p><b>Về hoa hồng:</b> chúng tôi nhận hoa hồng tiếp thị liên kết nếu bạn mua qua link trên trang —
-      bạn không trả thêm đồng nào. Link có ở cả sản phẩm chúng tôi khuyên cân nhắc,
-      nên không có lý do gì để khen sai. Gói nào chưa nếm, trang ghi rõ <b>“Chưa nếm”</b>.</p>
-    </div>
-    ${typeof FAQ !== 'undefined' && FAQ.length ? `
-    <div class="faq">
-      ${FAQ.map((f, i) => `
-      <details class="faq-i"${i === 0 ? ' open' : ''}>
-        <summary>${f.q}</summary>
-        <p>${f.a}</p>
-      </details>`).join('')}
-    </div>` : ''}`;
-}
-
 /* ---- Render toàn bộ trang chủ (gọi lại khi đổi ngôn ngữ) ---- */
 function renderHome() {
   const tg = $('#tagline'); if (tg) tg.textContent = T(SITE.tagline);
-  renderTop(); renderPick(); renderHubs(); renderPeak(); renderAtmos();
+  renderTop(); renderPick(); renderHubs(); renderPeak();
 }
 /* ---- Boot ---- */
 document.addEventListener('DOMContentLoaded', () => {

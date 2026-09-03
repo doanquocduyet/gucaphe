@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260817';
+const CSS_V = '20260903';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -60,9 +60,6 @@ ROASTER.forEach(r => (r.sanPham || []).forEach(id => { ROASTER_BY_PID[id] = r; }
 /* ---- Helpers ---- */
 const money  = n => (n == null ? '' : Number(n).toLocaleString('vi-VN') + '₫');
 const per100 = p => (p.gram && p.gia != null) ? Math.round(p.gia / p.gram * 100) : null;
-/* 3 tầng trung thực: đã chấm mù (có điểm) · đã uống (chưa chấm mù) · chưa thử */
-const isScored = p => p.tested && p.diem != null;
-const statusTxt = p => isScored(p) ? `${p.diem}/10` : (p.daUong ? 'Đã uống' : 'Chưa nếm');
 const esc = s => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -241,28 +238,6 @@ function verdict(p) {
   return `Đã nếm mù, chấm <b>${p.diem}/10</b> — hợp gu, cân bằng, không có điểm trừ đáng kể.`;
 }
 
-/* ---- Đoạn mở đầu editorial (nội dung thật cho SEO) ---- */
-function intro(p) {
-  const c = cuesOf(p).join(', ');
-  if (p.tested && p.diem != null) {
-    return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b> là cà phê đặc sản Việt Nam${c ? ` (${esc(c)})` : ''}. `
-      + `Chúng tôi mua ẩn danh bằng tiền của mình, pha cùng một điều kiện với mọi gói khác — cỡ xay medium, tỷ lệ 1:15, nước 92°C — rồi <b>nếm mù</b> (che nhãn) trước khi chấm. `
-      + `Kết quả: <b>${p.diem}/10</b>.</p>`;
-  }
-  if (p.daUong)
-    return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b>${c ? ` (${esc(c)})` : ''} là gói chúng tôi đã <b>mua và uống thật</b>, thấy ngon. `
-      + `Nhưng chúng tôi <b>chưa chấm mù</b> (che nhãn, che giá) theo quy trình, nên trang này <b>chưa gắn điểm số</b> — chỉ nói đúng những gì đã trải nghiệm, không bịa số. Điểm mù sẽ cập nhật sau.</p>`;
-  return `<p><b>${esc(p.brand)} — ${esc(p.ten)}</b>${c ? ` (${esc(c)})` : ''} hiện <b>chưa được chúng tôi thử</b>, nên trang này <b>không chấm điểm</b>. `
-    + `Thông số bên dưới lấy từ mô tả của nhà bán. Chúng tôi liệt kê để bạn có đủ thông tin cân nhắc, và ghi rõ nhãn “Chưa nếm” — không giả vờ đã thử.</p>`;
-}
-
-function flavorPara(p) {
-  const notes = (p.tested && p.notes && p.notes.length)
-    ? `Ghi chú vị khi nếm mù: <b>${p.notes.map(esc).join(' · ')}</b>. `
-    : '';
-  return `<p>${notes}${esc(p.flavor || '')}</p>`;
-}
-
 /* ---- Nhãn nút mua theo nơi bán thật (Shopee vs trang chính hãng nhà rang) ---- */
 const isShopee = p => /shopee\./i.test(p.link || '');
 const buyLabel = p => 'Mua gói này';
@@ -295,10 +270,11 @@ function schema(p) {
     brand: { '@type': 'Brand', name: p.brand },
     category: 'Cà phê đặc sản',
     description: p.flavor || `${p.brand} ${p.ten}`,
+    ...(p.anh ? { image: /^https?:/.test(p.anh) ? p.anh : `${ORIGIN}/${p.anh}` } : {}),
     url,
     offers: {
       '@type': 'Offer',
-      price: p.gia,
+      price: String(p.gia),
       priceCurrency: 'VND',
       availability: 'https://schema.org/InStock',
       url
@@ -661,7 +637,7 @@ function regionCompareTable(current) {
     ['Hợp pha', r => esc(r.hopPha || '—')]
   ];
   return `<section class="rg-cmp">
-    <h2 class="rg-h">So sánh ba vùng</h2>
+    <h2 class="rg-h">So sánh các vùng</h2>
     <div class="rg-cmp-scroll">
       <table class="rg-cmp-tbl">
         <thead><tr><th></th>${regions.map(r => `<th class="${r.slug === current.slug ? 'is-cur' : ''}">${esc(r.ten)}</th>`).join('')}</tr></thead>
@@ -893,7 +869,7 @@ function roasterPage(r) {
   const a = roasterAvg(r);
   const vung = VUNG_BY_SLUG[r.vungSlug];
   const title = `${r.ten} — hồ sơ nhà rang, sản phẩm & điểm nếm mù | Gu Cà Phê`;
-  const desc = `${r.ten}: ${r.gioiThieu} Vùng nguyên liệu ${r.vungChinh}.${a ? ` Điểm ${a.avg}/10 (${a.n} gói đã nếm) trên Gu.` : ''}`;
+  const desc = `${r.ten}: ${r.gioiThieu} Vùng nguyên liệu ${r.vungChinh}.${a ? ` Điểm ${a.avg}/10 (${a.n} gói đã nếm mù) trên Gu.` : ''}`;
   const ga = (SITE.ga4 || '').trim();
 
   const org = {
@@ -1467,7 +1443,8 @@ function articlePage(b) {
     body = body.split('{{GU_PICK}}').join(card);
   }
 
-  // Mục lục tự động — gán id cho từng <h3> và dựng danh sách nhảy (chỉ bài dài ≥5 mục)
+  // Mục lục tự động — mỗi mục trong thân bài là một section nên nâng <h3> nguồn thành <h2>
+  // (giữ outline h1→h2 đúng chuẩn), gán id và dựng danh sách nhảy (chỉ bài dài ≥5 mục).
   const slugify = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'muc';
   const heads = [];
@@ -1477,7 +1454,7 @@ function articlePage(b) {
     let id = slugify(text);
     if (seenId[id]) { seenId[id]++; id = `${id}-${seenId[id]}`; } else seenId[id] = 1;
     heads.push({ id, text });
-    return `<h3 id="${id}">${inner}</h3>`;
+    return `<h2 class="kta-h2" id="${id}">${inner}</h2>`;
   });
   const tocBlock = heads.length >= 5 ? `<nav class="kt-toc" aria-label="Mục lục">
       <div class="kt-toc-h">Trong bài này</div>
@@ -1507,6 +1484,8 @@ function articlePage(b) {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: b.tieuDe, description: b.dek, inLanguage: 'vi-VN',
     ...(src ? { image: `${ORIGIN}${src}` } : {}),
+    author: { '@type': 'Organization', name: 'Gu Cà Phê', url: `${ORIGIN}/` },
+    datePublished: isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
     mainEntityOfPage: url, publisher: { '@type': 'Organization', name: 'Gu Cà Phê' }
   })}</script>`);
   schemas.push(`<script type="application/ld+json">${JSON.stringify({
@@ -1523,7 +1502,7 @@ function articlePage(b) {
   })}</script>`);
 
   const main = `<main class="rp wrap kta-wrap">
-  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><a href="${hubHref}">${hubName}</a><i>/</i><span>${esc(b.tag)}</span></nav>
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><a href="${hubHref}">${hubName}</a><i>/</i><span>${esc(b.tieuDe)}</span></nav>
   <article class="kta">
     <header class="kta-head">
       ${meta}
