@@ -340,6 +340,127 @@ const BAIVIET = [
     ]
   },
   {
+    id: "do-cao-khong-con-la-tat-ca",
+    anh: "assets/img/p1-farm.jpg",
+    tag: "Kiến thức",
+    docPhut: 13, mucDo: "Chuyên sâu",
+    tieuDe: "Khi “độ cao lý tưởng” không còn là câu trả lời duy nhất cho tương lai cây cà phê",
+    dek: "Trong nhiều thập kỷ, “cà phê ngon = trồng đủ cao” gần như là một chân lý. Nhưng biến đổi khí hậu đang làm lung lay chính công thức đó. Bài này đi qua bằng chứng khoa học mới nhất — từ nghiên cứu tái phân loại Liberica trên Nature Plants (2025) đến một vùng Arabica đặc sản ở độ cao thấp tại Vân Nam — để trả lời: nếu không phải độ cao, thì điều gì quyết định tương lai của hạt cà phê?",
+    than:
+      "<p>Nếu bạn từng nghe dân cà phê nói chuyện, gần như chắc chắn bạn đã nghe câu này: <b>“cà phê ngon phải trồng ở độ cao.”</b> Nó gần như là một luật bất thành văn — Arabica đặc sản thường gắn với những con số 1.500m, 1.800m, thậm chí 2.000m so với mực nước biển.</p>" +
+      "<p>Câu đó không sai. Nhưng nó cũng không phải toàn bộ sự thật. Và trong một thế giới đang nóng lên, bám vào <b>một</b> câu trả lời duy nhất có thể trở thành rủi ro. Bài này Gu muốn nói thẳng: <b>độ cao vẫn quan trọng, nhưng nó đang mất dần vị trí “tấm vé duy nhất” để tạo ra một hạt cà phê tốt và bền vững trước khí hậu.</b></p>" +
+
+      "<h3>Vì sao “trồng đủ cao” từng là một chân lý</h3>" +
+      "<p>Logic phía sau rất hợp lý. Càng lên cao, <b>nhiệt độ càng thấp</b>. Trời mát khiến quả cà phê <b>chín chậm hơn</b>. Chín chậm cho cây nhiều thời gian tích lũy đường và các tiền chất hương — kết quả thường là ly cà phê có <b>độ chua sáng, hương phức tạp, thân cân bằng và hậu vị sạch</b>. Đó là lý do các vùng Arabica danh tiếng thế giới phần lớn nằm ở cao nguyên.</p>" +
+      "<p>Ở Việt Nam, câu chuyện tương tự: <a href='/vung-trong/cau-dat'>Cầu Đất</a> (1.400–1.650m) được xem là cái nôi Arabica đặc sản, trong khi những vùng thấp và ấm hơn thường nghiêng về Robusta đậm, ít chua. Độ cao, nói ngắn gọn, là một cách <b>“mượn khí hậu mát” mà không cần đổi vĩ độ</b>.</p>" +
+
+      "<h3>Điều đang làm lung lay chân lý đó: khí hậu</h3>" +
+      "<p>Vấn đề là “độ cao lý tưởng” được định nghĩa dựa trên khí hậu của quá khứ. Khi khí hậu thay đổi, chính định nghĩa đó cũng trôi theo. Nhiệt độ tăng, mưa thất thường, hạn hán và sâu bệnh nhiều hơn đang <b>đẩy “vành đai độ cao phù hợp” lên cao dần</b> — nhưng núi thì có giới hạn, và không phải nơi nào cũng còn đất để leo lên.</p>" +
+      "<p>Hai loài thương mại chính chịu áp lực theo hai kiểu khác nhau:</p>" +
+      "<ul>" +
+      "<li><b>Arabica</b> nhạy với nhiệt. Vùng khí hậu đủ mát cho nó có xu hướng thu hẹp và dịch lên cao.</li>" +
+      "<li><b>Robusta</b> chịu nóng tốt hơn, nhưng vẫn chịu áp lực từ <b>hạn và thiếu nước</b> — chịu nóng không đồng nghĩa với chịu khô.</li>" +
+      "</ul>" +
+
+      "<h3>Đến năm 2050, bản đồ trồng cà phê có thể đổi thế nào?</h3>" +
+      "<p>Đây là phần Gu muốn nói thật cẩn thận, vì trên mạng có rất nhiều con số bị chép sai. Gu chỉ dùng những nghiên cứu gốc kiểm chứng được:</p>" +
+      "<ul>" +
+      "<li>Nghiên cứu kinh điển <b>Bunn và cộng sự (2015), “A bitter cup”, đăng trên <i>Climatic Change</i></b>, ước tính đến năm 2050, <b>khoảng một nửa</b> diện tích hiện phù hợp với Arabica có thể mất tính thích hợp; với Robusta, mức giảm dao động rất rộng — từ khoảng <b>36%</b> ở kịch bản nhẹ đến <b>~83%</b> ở kịch bản phát thải cao.</li>" +
+      "<li>Nghiên cứu <b>Grüter và cộng sự (2022) trên <i>PLOS ONE</i></b> so sánh cà phê, điều và bơ, và kết luận <b>cà phê là cây nhạy cảm với khí hậu nhất</b> trong ba loài; những vùng phù hợp nhất có thể giảm <b>hơn 50%</b> vào 2050, và mức suy giảm xuất hiện ở <b>tất cả</b> các nước sản xuất lớn — trong đó có Việt Nam.</li>" +
+      "</ul>" +
+      "<div class='callout'><b>Một lưu ý trung thực:</b> bạn có thể đã thấy con số kiểu “75% diện tích Arabica và 63% Robusta sẽ mất thích hợp”. Gu <b>không</b> tìm được nghiên cứu gốc cho đúng cặp số đó, nên không dùng. Con số đáng tin và trích dẫn được là “khoảng một nửa diện tích phù hợp có thể mất đi vào 2050, và lên tới ~80% ở những vùng nóng–khô nhất”.</div>" +
+      "<p>Dù dùng con số nào, hướng đi vẫn giống nhau: <b>không thể chỉ trông chờ vào việc leo lên cao hơn.</b> Đất cao có hạn, và “cao hơn” cũng đồng nghĩa với rừng, dốc, chi phí và ranh giới sinh thái. Vậy nếu độ cao không còn là câu trả lời duy nhất, chúng ta nhìn vào đâu?</p>" +
+
+      "<h3>Vân Nam: bằng chứng Arabica đặc sản có thể ra đời ở độ cao thấp</h3>" +
+      "<p>Một ví dụ đáng suy nghĩ đến từ <b>Lujiangba</b> (thung lũng Lộ Giang, thuộc Bảo Sơn, Vân Nam, Trung Quốc) — một <b>thung lũng khô–nóng</b> nổi tiếng là “nghịch cảnh” với Arabica: thấp, nóng và ít mưa hơn nhiều vùng cao truyền thống. Cà phê được đưa vào đây từ năm 1952 bởi Viện Khoa học Nông nghiệp Vân Nam.</p>" +
+      "<p>Điều đáng chú ý: qua chọn giống và kỹ thuật canh tác, vùng này vẫn tạo ra Arabica chất lượng. Một giống địa phương — <b>Yunka số 2 (云咖2号, Yunnan Coffee No. 2)</b>, do Viện Cây trồng Kinh tế Nhiệt đới &amp; Á nhiệt đới thuộc Viện KHNN Vân Nam lai tạo — được nhắc tới trong các báo cáo với điểm cupping ở mức <b>đặc sản (mid-80)</b>. Song song, nhiều <b>nghiên cứu bình duyệt thực hiện ngay tại Lujiangba</b> cho thấy <b>che bóng hợp lý kết hợp tưới đúng lúc</b> giúp cải thiện quang hợp, năng suất, hiệu quả dùng nước và một số chỉ tiêu chất lượng.</p>" +
+      "<div class='callout'><b>Ranh giới của ví dụ này:</b> các con số cụ thể hay được nhắc (độ cao ~750–800m, mưa ~755mm/năm, điểm cup 86,75) lan truyền trên truyền thông nhưng Gu <b>chưa truy được về một nguồn gốc duy nhất</b> — tài liệu chung về Arabica Bảo Sơn thường ghi 800–1.200m. Điều <b>chắc chắn</b> và quan trọng hơn là: Lujiangba là một vùng thấp, khô–nóng, và ở đó <b>giống phù hợp + che bóng + quản lý nước</b> đã cho ra Arabica tốt. Bài học không nằm ở một con số, mà ở nguyên lý.</div>" +
+      "<p>Nói cách khác: <b>độ cao không phải “vé” duy nhất để có cà phê chất lượng cao.</b> Khi thiếu cái mát của độ cao, người ta có thể bù bằng những đòn bẩy khác. Đó chính là ba hướng dưới đây.</p>" +
+
+      "<h3>Nếu không phải độ cao — thì là gì?</h3>" +
+      "<p>Câu trả lời của khoa học và thực hành hiện nay xoay quanh <b>ba đòn bẩy</b>, và chúng bổ sung cho nhau chứ không thay thế nhau: <b>(1) giống</b>, <b>(2) dữ liệu khí hậu</b>, và <b>(3) kỹ thuật canh tác</b>. Tương lai của một vùng cà phê không nằm ở một con số độ cao, mà ở việc phối hợp cả ba.</p>" +
+
+      "<h3>(1) Giống: đọc lại “kho gene” của họ Coffea</h3>" +
+      "<p>Nếu Arabica quá nhạy nhiệt và Robusta vẫn ngại khô hạn, thì đâu là nguồn gene để thích ứng? Một phần câu trả lời đến từ những họ hàng ít được chú ý của cây cà phê — và năm 2025–2026, khoa học vừa <b>vẽ lại bản đồ</b> nhóm này.</p>" +
+      "<figure class='kt-diag kt-libe' aria-label='Phức hợp Liberica được tách thành ba loài và một dòng lai'>" +
+        "<div class='kt-libe-old'>Phức hợp <b>Liberica</b> <span>(tên gọi cũ, gộp chung)</span></div>" +
+        "<div class='kt-libe-split'>Tách thành 3 loài riêng biệt — Nature Plants, 2025</div>" +
+        "<div class='kt-libe-row'>" +
+          "<div class='kt-libe-sp'><b>Coffea liberica</b><span class='kt-libe-common'>Liberica</span><em>Sinh trưởng tốt ở vùng trũng, độ cao thấp</em></div>" +
+          "<div class='kt-libe-sp'><b>Coffea dewevrei</b><span class='kt-libe-common'>Excelsa</span><em>Chịu nóng và khô hạn tốt; độ cao thấp</em></div>" +
+          "<div class='kt-libe-sp'><b>Coffea klainei</b><span class='kt-libe-common'>Loài hoang dã</span><em>Nguồn gene cho bảo tồn &amp; chọn giống</em></div>" +
+        "</div>" +
+        "<div class='kt-libe-hy'><b>Coffea × libex</b> — dòng lai Liberica × Excelsa, được đặt tên năm 2026 (Scientific Reports)</div>" +
+        "<figcaption>Dựa trên Davis và cộng sự, Nature Plants (2025) và Scientific Reports (2026). Đồ hoạ: Gu Cà Phê.</figcaption>" +
+      "</figure>" +
+      "<p>Tháng 8/2025, một nghiên cứu của nhóm <b>Aaron P. Davis và cộng sự (Royal Botanic Gardens, Kew)</b> đăng trên <b><i>Nature Plants</i></b> đã dùng dữ liệu bộ gene để <b>tách “phức hợp Liberica” thành ba loài riêng biệt</b>: <i>Coffea liberica</i>, <i>Coffea dewevrei</i> (chính là <b>Excelsa</b>) và <i>Coffea klainei</i>. Nhờ vậy, số loài cà phê được công nhận tăng từ 131 lên <b>133</b>.</p>" +
+      "<p>Đây không phải chuyện “đặt tên cho vui”. Khi Excelsa được xác định rõ là một loài (<i>C. dewevrei</i>) thay vì một biến thể mờ nhạt của Liberica, nó có thể được <b>nghiên cứu, chọn giống và phát triển đúng với đặc tính riêng</b>. Và <i>Coffea klainei</i> — một loài hoang dã ít người biết ở Trung–Tây Phi — có giá trị như một <b>nguồn gene cho bảo tồn và lai tạo</b>, chứ không phải một loại cà phê để trồng đại trà. Gu nói rõ điều này vì nhiều bài trên mạng dễ khiến người đọc tưởng klainei là “giống cà phê mới để canh tác”.</p>" +
+
+      "<h3>Coffea × libex: dòng lai được đặt tên năm 2026</h3>" +
+      "<p>Một điểm rất dễ bị nhầm: <b>dòng lai “Coffea × libex” KHÔNG thuộc bài báo Nature Plants 2025.</b> Nó đến từ một <b>nghiên cứu khác, trên <i>Scientific Reports</i> (2026)</b>, cũng do nhóm Aaron Davis (Kew) chủ trì. Nhóm này phân tích dữ liệu gene của hàng trăm mẫu và <b>chính thức đề xuất tên <i>Coffea × libex</i></b> cho các dòng lai giữa Liberica và Excelsa.</p>" +
+      "<p>Chi tiết thú vị: dòng lai này đã được nông dân ở Sarawak (Malaysia), một số nơi ở Đông Nam Á, Ấn Độ và Trung Mỹ trồng <b>từ lâu mà chưa có tên khoa học</b>. Nó mang các tính trạng trung gian: kích thước hạt gần Arabica hơn, lớp thịt/vỏ trấu mỏng hơn nên <b>dễ sơ chế hơn</b>, và cho <b>năng suất cao hơn Liberica</b>. Quan trọng với chủ đề bài này: các dòng như thế được kỳ vọng <b>mở rộng “vùng khí hậu có thể trồng”</b> và có thể mang thêm khả năng kháng bệnh.</p>" +
+
+      "<h3>Excelsa có phải “người thay thế Robusta”?</h3>" +
+      "<p>Excelsa (<i>C. dewevrei</i>) đúng là ứng viên hấp dẫn: rễ ăn sâu, lá dày như da, chịu nóng và khô hạn tốt, trồng được ở độ cao thấp, kháng nhiều sâu bệnh. Nhưng Gu sẽ không dùng chữ “thay thế Robusta”, vì như vậy là nói quá.</p>" +
+      "<p>Thực tế: Excelsa hiện chỉ chiếm <b>dưới 1%</b> sản lượng cà phê thế giới; chuỗi cung ứng còn manh mún, chất lượng ly chưa ổn định giữa các lô, và nghiên cứu nông học còn ít. Muốn trở thành lựa chọn thương mại thật sự, sản lượng phải tăng nhiều lần. Vì vậy cách nói đúng là: Excelsa là một hướng <b>tiềm năng và đang được quan tâm trở lại</b>, chứ chưa phải “người thay thế” đã được chứng minh. Một điểm gần gũi với Việt Nam: <b>Excelsa vốn đã được trồng ở Việt Nam</b> (ta quen gọi là cà phê mít), nên đây không phải thứ xa lạ cần nhập về từ đầu.</p>" +
+
+      "<h3>(2) Dữ liệu khí hậu: chọn giống, chọn vùng bằng số liệu</h3>" +
+      "<p>Đòn bẩy thứ hai ít “lãng mạn” hơn nhưng rất mạnh: <b>dùng dữ liệu khí hậu tương lai để ra quyết định</b>, thay vì dựa vào kinh nghiệm của khí hậu cũ. Hai công cụ đáng biết:</p>" +
+      "<ul>" +
+      "<li><b>ACLIMATAR</b> — công cụ lập kế hoạch thích ứng khí hậu cho ca cao, cà phê và chè, phát triển bởi <b>Alliance of Bioversity International &amp; CIAT</b>. Bạn chọn một địa điểm trên bản đồ, công cụ cho biết nhiệt độ và lượng mưa quá khứ–hiện tại–tương lai, các rủi ro theo cây trồng, bản đồ thay đổi mức độ phù hợp và một “không gian giải pháp” các biện pháp thích ứng được ưu tiên.</li>" +
+      "<li><b>CafeClima</b> — công cụ của <b>World Coffee Research</b> (phối hợp Alliance Bioversity &amp; CIAT), giúp <b>ghép giống với khí hậu tương lai</b>: nó kết hợp dữ liệu khảo nghiệm giống đa địa điểm (IMLVT) của WCR với các dự báo khí hậu của ACLIMATAR. Nói cách khác, CafeClima ngồi “bên trên” dữ liệu của ACLIMATAR.</li>" +
+      "</ul>" +
+      "<p>Gu nói rõ chỗ này vì hai công cụ hay bị gán nhầm chủ sở hữu: <b>ACLIMATAR chủ yếu là sản phẩm của Alliance Bioversity &amp; CIAT; còn CafeClima là công cụ của World Coffee Research dùng dữ liệu từ ACLIMATAR.</b> Ý nghĩa lớn hơn tên gọi: người trồng ngày nay có thể hỏi “vùng của tôi 20–30 năm nữa sẽ ra sao, và nên chọn giống gì?” — và nhận được câu trả lời dựa trên <b>dữ liệu</b>, không phải cảm tính.</p>" +
+
+      "<h3>(3) Kỹ thuật canh tác: che bóng và quản lý đất–nước</h3>" +
+      "<p>Đòn bẩy thứ ba nằm ngay trong tầm tay người trồng. Khi không thể đổi độ cao, ta có thể đổi <b>vi khí hậu</b> của chính khu vườn.</p>" +
+      "<ul>" +
+      "<li><b>Nông lâm kết hợp / che bóng:</b> cây che bóng có thể <b>giảm nhiệt độ tán lá khoảng 2–4°C</b>, tăng chất hữu cơ và khả năng giữ ẩm của đất, đệm lại các cực đoan thời tiết và tăng đa dạng sinh học. Chính Vân Nam là ví dụ: che bóng kết hợp tưới hợp lý cải thiện năng suất và chất lượng.</li>" +
+      "<li><b>Quản lý đất &amp; nước:</b> tưới bổ sung/tưới tiết kiệm đúng thời điểm nhạy cảm của cây, trữ nước mưa, phủ gốc (mulching) để giữ ẩm và giảm rủi ro hạn.</li>" +
+      "</ul>" +
+      "<p>Nhưng che bóng không phải “càng nhiều càng tốt”. Che quá dày làm <b>giảm năng suất</b> và tăng độ ẩm dẫn tới <b>rủi ro nấm bệnh</b>. Vì vậy điều quan trọng là <b>che bóng có quản lý</b> — đúng loại cây, đúng mật độ, đúng giai đoạn — chứ không phải trồng thật nhiều cây rồi để mặc.</p>" +
+
+      "<h3>Vậy điều này có ý nghĩa gì với cà phê Việt Nam?</h3>" +
+      "<p>Việt Nam là nước sản xuất <b>Robusta số 1 thế giới</b>, và chính vì vậy chúng ta nằm ngay tuyến đầu của áp lực khí hậu — nghiên cứu Grüter 2022 xếp Việt Nam vào nhóm các nước sản xuất lớn sẽ chịu suy giảm mức độ phù hợp. Áp lực là kép: <b>thiếu nước, nhiệt cực đoan và sức chống chịu suy giảm</b>. Giải pháp vì thế không thể chỉ là “tưới nhiều hơn”.</p>" +
+      "<p>Hướng đi hợp lý là <b>thiết kế lại</b> thay vì chỉ chống đỡ:</p>" +
+      "<ul>" +
+      "<li><b>Nông lâm kết hợp</b> để giảm stress nhiệt, giữ ẩm đất và tăng đa dạng sinh học — có quản lý, không che bừa.</li>" +
+      "<li><b>Đa dạng nguồn gene:</b> đánh giá lại Liberica/Excelsa (cà phê mít vốn đã có ở Việt Nam) và các giống có tiềm năng chịu nóng, khô.</li>" +
+      "<li><b>Quản lý đất &amp; nước</b> để tiết kiệm nước và giảm rủi ro hạn.</li>" +
+      "<li><b>Dùng dữ liệu khí hậu</b> (ACLIMATAR/CafeClima) để chọn giống và vùng phù hợp với khí hậu tương lai, thay vì khí hậu của 20 năm trước.</li>" +
+      "</ul>" +
+
+      "<h3>Ranh giới trung thực của bài này</h3>" +
+      "<p>Vì đây là chủ đề dễ bị “tam sao thất bản”, Gu tách rõ phần chắc chắn và phần cần dè dặt:</p>" +
+      "<ul>" +
+      "<li><b>Chắc chắn:</b> Nature Plants (2025) tách phức hợp Liberica thành 3 loài; Excelsa = <i>C. dewevrei</i>; số loài cà phê lên 133. Dòng lai <i>Coffea × libex</i> là một bài báo <b>khác</b> (Scientific Reports, 2026). ACLIMATAR và CafeClima đều có thật.</li>" +
+      "<li><b>Cần dè dặt:</b> cặp số “75%/63% đến 2050” — Gu không tìm được nguồn gốc, nên không dùng; các con số chi tiết của Lujiangba (750–800m, 755mm, 86,75 điểm) là số lan truyền, chưa truy được về nguồn gốc duy nhất; <i>C. klainei</i> là loài hoang dã/bảo tồn, không phải giống để canh tác; và Excelsa là hướng <b>tiềm năng</b>, chưa phải “người thay thế Robusta” đã được chứng minh.</li>" +
+      "</ul>" +
+      "<p>Gu ưu tiên nói đúng hơn nói nhiều. Một con số hấp dẫn nhưng sai, khi được chép lại hàng trăm lần, sẽ trở thành “sự thật trên Internet” — và điều đó không giúp ích gì cho người trồng thật.</p>" +
+
+      "<div class='callout'><b>Tóm lại:</b> độ cao vẫn là một lợi thế quý, nhưng nó không còn là câu trả lời duy nhất. Tương lai của cà phê — và của cà phê Việt Nam — không chỉ là <b>trồng cao hơn</b>, mà là <b>chọn giống thông minh hơn, đọc dữ liệu khí hậu kỹ hơn, và thiết kế lại hệ thống canh tác</b>. Không phải một tấm vé, mà là cả một bộ công cụ.</div>",
+    faq: [
+      { q: "“Độ cao lý tưởng” cho cà phê là bao nhiêu?", a: "Với Arabica đặc sản, người ta thường nhắc tới khoảng 1.200–2.000m tùy vĩ độ, vì càng cao càng mát và quả chín chậm hơn. Nhưng đây là ngưỡng dựa trên khí hậu quá khứ; khi khí hậu ấm lên, ngưỡng “phù hợp” cũng dịch chuyển. Độ cao là một lợi thế, không phải điều kiện duy nhất." },
+      { q: "Vì sao độ cao lại ảnh hưởng đến chất lượng cà phê?", a: "Càng lên cao càng mát, quả chín chậm hơn nên cây có thêm thời gian tích lũy đường và tiền chất hương — thường cho độ chua sáng, hương phức tạp và hậu vị sạch hơn. Đó là cơ chế, không phải phép màu của con số độ cao." },
+      { q: "Có thật là cà phê ngon chỉ trồng được ở vùng cao không?", a: "Không tuyệt đối. Độ cao giúp ích, nhưng ví dụ Lujiangba (Vân Nam) cho thấy vùng thấp, khô–nóng vẫn có thể tạo Arabica chất lượng khi kết hợp giống phù hợp, che bóng và quản lý nước. Độ cao là một lợi thế mạnh, không phải điều kiện bắt buộc duy nhất." },
+      { q: "Đến 2050 cà phê sẽ mất bao nhiêu diện tích phù hợp?", a: "Các nghiên cứu gốc (Bunn 2015; Grüter 2022) cho thấy khoảng một nửa diện tích hiện phù hợp có thể mất tính thích hợp vào 2050, và lên tới ~80% ở những vùng nóng–khô nhất; riêng Robusta mức giảm dao động từ ~36% đến ~83% tùy kịch bản phát thải." },
+      { q: "Con số “75% Arabica, 63% Robusta” có đúng không?", a: "Gu không tìm được nghiên cứu gốc cho đúng cặp số này, nên không dùng nó. Con số đáng tin và trích dẫn được là “khoảng một nửa diện tích phù hợp mất đi vào 2050, tới ~80% ở vùng nóng–khô nhất” (Bunn 2015; Grüter 2022)." },
+      { q: "Nghiên cứu tách Liberica thành 3 loài là của ai?", a: "Của nhóm Aaron P. Davis và cộng sự (Royal Botanic Gardens, Kew), đăng trên Nature Plants tháng 8/2025. Nghiên cứu tách phức hợp Liberica thành Coffea liberica, Coffea dewevrei (Excelsa) và Coffea klainei, nâng số loài cà phê được công nhận lên 133." },
+      { q: "Excelsa và Coffea dewevrei có phải một?", a: "Đúng. Nghiên cứu 2025 xác định Excelsa chính là loài Coffea dewevrei. Trước đó nó thường bị gọi là một biến thể của Liberica (Coffea liberica var. dewevrei)." },
+      { q: "Coffea × libex là gì, có phải trong bài Nature Plants 2025 không?", a: "Không. Coffea × libex là dòng lai giữa Liberica và Excelsa, được đặt tên trong một bài báo khác trên Scientific Reports (2026), cũng do nhóm Kew chủ trì. Nó mang tính trạng trung gian, dễ sơ chế hơn và năng suất cao hơn Liberica." },
+      { q: "Coffea klainei có phải giống cà phê mới để trồng không?", a: "Không. Klainei là một loài hoang dã ít người biết ở Trung–Tây Phi, có giá trị như nguồn gene cho bảo tồn và chọn giống, chứ không phải loại cà phê để canh tác hay uống đại trà." },
+      { q: "Excelsa có thay thế được Robusta không?", a: "Chưa nên nói như vậy. Excelsa chịu nóng và khô tốt, trồng ở độ cao thấp, nhưng hiện chỉ chiếm dưới 1% sản lượng thế giới, chuỗi cung ứng còn manh mún và nghiên cứu còn ít. Đây là hướng tiềm năng đang được quan tâm trở lại, không phải giải pháp đã được chứng minh." },
+      { q: "Việt Nam đã có Excelsa chưa?", a: "Có. Excelsa vốn đã được trồng ở Việt Nam — ta quen gọi là cà phê mít. Vì vậy đây không phải loài xa lạ cần nhập từ đầu, mà là nguồn gene có sẵn cần được đánh giá lại một cách nghiêm túc." },
+      { q: "ACLIMATAR và CafeClima là gì, do ai làm?", a: "ACLIMATAR là công cụ lập kế hoạch thích ứng khí hậu cho ca cao/cà phê/chè của Alliance of Bioversity International & CIAT. CafeClima là công cụ của World Coffee Research giúp ghép giống với khí hậu tương lai, sử dụng dữ liệu dự báo từ ACLIMATAR. Nói ngắn gọn: CafeClima dùng dữ liệu của ACLIMATAR." },
+      { q: "Che bóng giúp giảm nhiệt bao nhiêu?", a: "Cây che bóng có thể giảm nhiệt độ tán lá khoảng 2–4°C, đồng thời giữ ẩm đất và tăng đa dạng sinh học. Nhưng che quá dày sẽ giảm năng suất và tăng rủi ro nấm bệnh, nên cần che bóng có quản lý — đúng loại cây, mật độ và giai đoạn." },
+      { q: "Vậy người trồng nên làm gì trước tiên?", a: "Không có một hành động duy nhất. Hướng bền vững là phối hợp: chọn giống phù hợp (kể cả đánh giá lại Excelsa/Liberica), dùng dữ liệu khí hậu để chọn vùng và giống, quản lý đất–nước, và che bóng có kiểm soát. Độ cao chỉ là một biến trong hệ thống, không phải toàn bộ đáp án." }
+    ],
+    links: [
+      { label: "Arabica và Robusta khác nhau thế nào?", href: "/bat-dau/arabica-robusta" },
+      { label: "Robusta có 103 cách để nói về hương vị (Canephora 2025)", href: "/kien-thuc/vong-tron-huong-vi-robusta-2025" }
+    ]
+  },
+  {
     id: "vong-tron-huong-vi-robusta-2025",
     anh: "assets/img/robusta-wheel-en.png",
     tag: "Kiến thức",

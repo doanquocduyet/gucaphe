@@ -1466,11 +1466,29 @@ html{scroll-behavior:smooth}
 .kt-axis-scale span{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-dim)}
 .kt-axis-scale i{flex:1;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--line),var(--brown))}
 .kt-axis-d{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+/* Tái cấu trúc Liberica — sơ đồ tách loài */
+.kt-libe{max-width:70ch;text-align:center}
+.kt-libe-old{display:inline-block;padding:10px 22px;border:1px solid var(--line);border-radius:12px;
+  background:var(--paper-2);font-size:16px}
+.kt-libe-old b{color:var(--ink)}
+.kt-libe-old span{color:var(--ink-dim);font-size:13px}
+.kt-libe-split{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;
+  color:var(--ink-dim);text-transform:uppercase;margin:12px 0}
+.kt-libe-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left}
+.kt-libe-sp{padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2)}
+.kt-libe-sp b{display:block;font-style:italic;font-size:15.5px;color:var(--brown-deep)}
+.kt-libe-common{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin:3px 0 8px}
+.kt-libe-sp em{font-style:normal;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.kt-libe-hy{margin-top:14px;padding:12px 18px;border:1px dashed var(--brown);border-radius:12px;
+  background:rgba(176,122,42,.06);font-size:13.5px;color:var(--ink-soft)}
+.kt-libe-hy b{font-style:italic;color:var(--brown-deep)}
 @media(max-width:640px){
   .kt-fresh-bar{display:none}
   .kt-fresh-steps{grid-template-columns:1fr}
   .kt-axis{grid-template-columns:1fr;gap:8px}
   .kt-axis-scale{max-width:180px}
+  .kt-libe-row{grid-template-columns:1fr}
 }
 
 @media(max-width:720px){
