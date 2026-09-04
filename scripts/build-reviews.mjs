@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260903-2';
+const CSS_V = '20260903-3';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -44,13 +44,13 @@ const ogMeta = (img, alt) => `<meta property="og:image" content="${img}">
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI', 'TIN'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [] } = loadData(raw);
+const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [], TIN = [] } = loadData(raw);
 const SP_BY_ID = {}; SP.forEach(p => { SP_BY_ID[p.id] = p; });
 const VUNG_BY_SLUG = {}; VUNG.forEach(v => { VUNG_BY_SLUG[v.slug] = v; });
 // Nối ngược sản phẩm → nhà rang (product id có trong roaster.sanPham)
@@ -80,6 +80,7 @@ const MENU = [
   ['/ca-phe', 'Cà phê', 'caphe'],
   ['/vung-trong', 'Vùng trồng', 'vung'],
   ['/kien-thuc', 'Kiến thức', 'kienthuc'],
+  ['/tin-tuc', 'Tin tức', 'tintuc'],
   ['/cach-test', 'Cách test', 'method']
 ];
 function siteNav(active) {
@@ -114,6 +115,7 @@ function siteFooter() {
       <a href="/ca-phe" data-i18n="Cà phê">Cà phê</a>
       <a href="/vung-trong" data-i18n="Vùng trồng">Vùng trồng</a>
       <a href="/kien-thuc" data-i18n="Kiến thức">Kiến thức</a>
+      <a href="/tin-tuc" data-i18n="Tin tức">Tin tức</a>
       <a href="/cach-test" data-i18n="Cách test">Cách test</a>
     </div>
     <p class="foot-legal" data-i18n="Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá); gói đã uống nhưng chưa chấm mù thì ghi rõ “Đã uống”, không gắn số. Link trên trang là link tiếp thị liên kết — bạn không trả thêm đồng nào, và link có ở cả sản phẩm chúng tôi khuyên cân nhắc.">Chúng tôi mua mọi sản phẩm bằng tiền của mình. Điểm số chỉ đến từ nếm mù (che nhãn, che giá);
@@ -1603,6 +1605,34 @@ function hubKienThuc() {
   });
 }
 
+/* /tin-tuc — nhật ký tin cập nhật cà phê (Lâm Đồng, Nam Ban, specialty & mở rộng) */
+function hubTinTuc() {
+  const url = `${ORIGIN}/tin-tuc`;
+  const items = [...TIN].sort((a, b) => String(b.ngay || '').localeCompare(String(a.ngay || '')));
+  const dmy = s => (s && /^\d{4}-\d{2}-\d{2}$/.test(s)) ? s.split('-').reverse().join('/') : esc(s || '');
+  const list = items.length ? items.map(t => `<article class="tt-item">
+    <div class="tt-meta"><time datetime="${esc(t.ngay || '')}">${dmy(t.ngay)}</time>${t.nhan ? `<span class="tt-tag">${esc(t.nhan)}</span>` : ''}</div>
+    <h2 class="tt-t">${esc(t.tieuDe)}</h2>
+    <p class="tt-sum">${t.tomTat || ''}</p>
+    ${t.nguon ? `<a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>` : ''}
+  </article>`).join('') : `<p class="hub-intro">Chưa có tin cập nhật.</p>`;
+  const schema = items.length ? itemListSchema('Tin cập nhật cà phê — Gu Cà Phê',
+    items.map(t => ({ url: t.nguon || url, name: t.tieuDe }))) : '';
+  const main = `<main class="rp wrap">
+  <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Tin cập nhật</span></nav>
+  ${hubHero('/assets/img/band.jpg', 'Tin cập nhật', 'Chuyện cà phê đang diễn ra',
+    'Nhật ký tin tức về cà phê Lâm Đồng, Nam Ban, specialty Việt Nam và thế giới. Gu chỉ ghi lại những tin <b>có nguồn kiểm chứng được</b> — không tin đồn, không thổi phồng. Cập nhật vài ngày một lần.')}
+  <section class="tt-list">${list}</section>
+  <a class="rp-home" href="/">← Về trang chủ</a>
+  </main>`;
+  return pageShell({
+    title: 'Tin cập nhật cà phê — Lâm Đồng, Nam Ban & specialty | Gu Cà Phê',
+    desc: 'Nhật ký tin tức cà phê Lâm Đồng, Nam Ban và specialty Việt Nam — có nguồn kiểm chứng, cập nhật thường xuyên: cuộc thi, khoa học giống, thị trường và khí hậu.',
+    url, ogType: 'website', schema, active: 'tintuc', main,
+    ogImage: ogForSrc('band.jpg'), ogAlt: 'Tin cập nhật cà phê Gu Cà Phê'
+  });
+}
+
 /* /bat-dau — lộ trình 6 bước cho người mới, dạng đường đi có đánh số */
 function hubBatDau() {
   const url = `${ORIGIN}/bat-dau`;
@@ -1730,7 +1760,7 @@ for (const r of ROASTER) {
 /* ---- Ghi hub pages (trang danh mục / hub theo menu) ---- */
 const HUBS = [
   ['nha-rang', hubNhaRang], ['ca-phe', hubCaPhe], ['vung-trong', hubVung],
-  ['kien-thuc', hubKienThuc], ['cach-test', hubCachTest],
+  ['kien-thuc', hubKienThuc], ['tin-tuc', hubTinTuc], ['cach-test', hubCachTest],
   ...(batDauSteps().length ? [['bat-dau', hubBatDau]] : [])
 ];
 const hubUrls = [];

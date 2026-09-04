@@ -10,6 +10,7 @@
     "Cà phê": "Coffee",
     "Vùng trồng": "Regions",
     "Kiến thức": "Learn",
+    "Tin tức": "Updates",
     "Cách test": "How we test",
     "Đóng": "Close",
     "Người mới bắt đầu? →": "New to coffee? →",

@@ -1483,6 +1483,24 @@ html{scroll-behavior:smooth}
 .kt-libe-hy{margin-top:14px;padding:12px 18px;border:1px dashed var(--brown);border-radius:12px;
   background:rgba(176,122,42,.06);font-size:13.5px;color:var(--ink-soft)}
 .kt-libe-hy b{font-style:italic;color:var(--brown-deep)}
+/* Tin cập nhật — /tin-tuc */
+.tt-list{max-width:72ch;margin:8px 0 0}
+.tt-item{padding:24px 0;border-bottom:1px solid var(--line)}
+.tt-item:first-child{padding-top:6px}
+.tt-item:last-child{border-bottom:none}
+.tt-meta{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+.tt-meta time{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--ink-dim);letter-spacing:.03em}
+.tt-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--brown-deep);background:rgba(176,122,42,.10);border:1px solid rgba(176,122,42,.24);border-radius:999px;padding:3px 10px}
+.tt-t{font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-size:clamp(18px,2.3vw,21px);letter-spacing:-.01em;
+  color:var(--ink);line-height:1.32;margin:0 0 8px}
+.tt-sum{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0 0 12px}
+.tt-sum b{color:var(--ink);font-weight:600}
+.tt-sum a{color:var(--brown-deep);text-decoration:none;border-bottom:1px solid var(--line)}
+@media(hover:hover){.tt-sum a:hover{border-color:var(--brown-deep)}}
+.tt-src{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;
+  color:var(--ink-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+@media(hover:hover){.tt-src:hover{color:var(--brown-deep);border-color:var(--brown-deep)}}
 @media(max-width:640px){
   .kt-fresh-bar{display:none}
   .kt-fresh-steps{grid-template-columns:1fr}

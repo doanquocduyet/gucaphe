@@ -1036,6 +1036,27 @@ const MUA_GI = [
     label: "Xem Sơn Pacamara — Lang Biang", href: "/review/son-pacamara-lang-biang" }
 ];
 
+/* ---- TIN CẬP NHẬT — nhật ký tin tức cà phê (Lâm Đồng, Nam Ban, specialty & mở rộng).
+   Nguyên tắc: chỉ đăng tin CÓ THẬT, có nguồn (URL). Không bịa, không thổi phồng.
+   `ngay` = ngày Gu ghi nhận (YYYY-MM-DD, dùng để sắp xếp & hiển thị).
+   `nhan` = nhãn phân loại. `tomTat` cho phép HTML (in đậm, link nội bộ).
+   `nguon`/`nguonTen` = link và tên nguồn. Bài mới thêm lên ĐẦU mảng.
+   Tự động: một Routine định kỳ (3–7 ngày) tìm tin mới, kiểm chứng rồi thêm vào đây. ---- */
+const TIN = [
+  { ngay: "2026-09-03", nhan: "Cuộc thi",
+    tieuDe: "Vietnam Amazing Cup 2026: Lâm Đồng thắng lớn, Bui Coffee Supply có mẫu Robusta được ưa chuộng nhất",
+    tomTat: "Cuộc thi cà phê đặc sản Việt Nam 2026 (tổ chức tại Buôn Ma Thuột, Đắk Lắk) thu hút <b>182 mẫu từ 81 nhà sản xuất</b> ở 7 vùng, tổng khoảng <b>348 tấn</b> (86 tấn Arabica, 262 tấn Robusta). Lâm Đồng thắng đậm: hai giải Nhất đều thuộc về nhà sản xuất ở Lâm Đồng (nổi bật với sơ chế lên men kép), và mẫu <b>Robusta được ưa chuộng nhất thuộc về Bui Coffee Supply</b> (Lâm Đồng) — nhà rang Gu có theo dõi. Dấu hiệu rõ của việc specialty Việt Nam đang chuyển từ quy mô nhỏ sang sản lượng thương mại.",
+    nguon: "https://vovworld.vn/en-US/news/lam-dong-scores-big-at-vietnam-specialty-coffee-awards-2026-2430684.vov5", nguonTen: "VOV World" },
+  { ngay: "2026-09-03", nhan: "Khoa học",
+    tieuDe: "Bản đồ gene cây cà phê được vẽ lại: Liberica tách thành 3 loài, dòng lai Coffea × libex được đặt tên",
+    tomTat: "Nghiên cứu của nhóm Royal Botanic Gardens, Kew trên <i>Nature Plants</i> (2025) tách “phức hợp Liberica” thành ba loài riêng biệt (<i>C. liberica</i>, <i>C. dewevrei</i>/Excelsa, <i>C. klainei</i>), nâng số loài cà phê được công nhận lên 133. Một nghiên cứu khác trên <i>Scientific Reports</i> (2026) chính thức đặt tên dòng lai <b>Coffea × libex</b> (Liberica × Excelsa) — hướng mở rộng “kho gene” chịu nóng, khô cho cà phê. <a href='/kien-thuc/do-cao-khong-con-la-tat-ca'>Gu đã viết bài phân tích chi tiết →</a>",
+    nguon: "https://www.nature.com/articles/s41477-025-02073-y", nguonTen: "Nature Plants" },
+  { ngay: "2026-09-03", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Lâm Đồng neo cao trong năm 2026",
+    tomTat: "Theo báo Lâm Đồng, giữa tháng 7/2026 giá Robusta trên sàn London vượt <b>3.900 USD/tấn</b>; giá nhân nội địa tại Lâm Đồng (Bảo Lộc, Di Linh, Lâm Hà) dao động quanh <b>94–95 nghìn đồng/kg</b> vào cuối tháng 8/2026. Giá vẫn nhạy với thời tiết Tây Nguyên và tiến độ vụ 2025–2026. <i>(Số liệu thị trường thay đổi hằng ngày — đây là mốc ghi nhận tại thời điểm cập nhật.)</i>",
+    nguon: "https://baolamdong.vn/gia-ca-phe-hom-nay-16-7-2026-noi-dia-dong-loat-tang-1-200-dong-kg-robusta-vuot-3-900-usd-tan-453742.html", nguonTen: "Báo Lâm Đồng" }
+];
+
 /* ---- Vùng nguyên liệu — hub kiến thức cà phê Lâm Đồng.
    `diaDanh` để đối chiếu; sản phẩm nối vùng qua trường vungSlug của SP.
    Trường vi / than (mô tả CHỮ) là phần soạn nội dung riêng — để placeholder khi chưa có. ---- */
