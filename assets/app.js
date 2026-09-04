@@ -134,6 +134,11 @@ const HOME_EN = {
   // Hubs
   "Cà phê": "Coffee", "Nhà rang": "Roasters", "Vùng trồng": "Regions", "Kiến thức": "Learn",
   "Khám phá": "Explore",
+  // Tin cập nhật — teaser trang chủ
+  "Tin cập nhật": "Updates",
+  "Chuyện cà phê đang diễn ra.": "Coffee, as it happens.",
+  "Tin có nguồn về cà phê Lâm Đồng, specialty Việt Nam và thế giới — cập nhật thường xuyên.": "Sourced updates on Lâm Đồng coffee, Vietnamese specialty and the wider world — refreshed regularly.",
+  "Xem tất cả tin →": "See all updates →",
   "Đi thẳng vào thứ bạn cần.": "Go straight to what you need.",
   "Mọi thứ được sắp theo đúng nhu cầu.": "Everything arranged around what you need.",
   "Danh mục gói đặc sản — đã nếm mù, chấm điểm, quy giá về 100g.": "Our specialty packs — tasted blind, scored, priced per 100g.",
@@ -498,10 +503,29 @@ function renderHubs() {
     </div>`;
 }
 
+/* ============ TIN CẬP NHẬT — teaser 3 tin mới nhất, dẫn vào /tin-tuc ============ */
+function renderTin() {
+  const el = $('#tin'); if (!el) return;
+  if (typeof TIN === 'undefined' || !TIN.length) { el.innerHTML = ''; return; }
+  const dmy = s => (s && /^\d{4}-\d{2}-\d{2}$/.test(s)) ? s.split('-').reverse().join('/') : (s || '');
+  const items = [...TIN].sort((a, b) => String(b.ngay || '').localeCompare(String(a.ngay || ''))).slice(0, 3);
+  el.innerHTML = `
+    <div class="eyebrow">${T('Tin cập nhật')}</div>
+    <h2>${T('Chuyện cà phê đang diễn ra.')}</h2>
+    <p class="lead">${T('Tin có nguồn về cà phê Lâm Đồng, specialty Việt Nam và thế giới — cập nhật thường xuyên.')}</p>
+    <div class="home-tin">
+      ${items.map(t => `<a class="home-tin-item" href="/tin-tuc">
+        <div class="home-tin-meta"><time datetime="${t.ngay || ''}">${dmy(t.ngay)}</time>${t.nhan ? `<span class="home-tin-tag">${t.nhan}</span>` : ''}</div>
+        <div class="home-tin-t">${t.tieuDe}</div>
+      </a>`).join('')}
+    </div>
+    <a class="home-tin-all" href="/tin-tuc">${T('Xem tất cả tin →')}</a>`;
+}
+
 /* ---- Render toàn bộ trang chủ (gọi lại khi đổi ngôn ngữ) ---- */
 function renderHome() {
   const tg = $('#tagline'); if (tg) tg.textContent = T(SITE.tagline);
-  renderTop(); renderPick(); renderHubs(); renderPeak();
+  renderTop(); renderPick(); renderHubs(); renderTin(); renderPeak();
 }
 /* ---- Boot ---- */
 document.addEventListener('DOMContentLoaded', () => {

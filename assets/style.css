@@ -1543,6 +1543,29 @@ html{scroll-behavior:smooth}
   .home-hub-body{padding:22px 22px 24px}
 }
 
+/* Tin cập nhật — teaser trang chủ */
+.home-tin{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;
+  border-top:1px solid var(--line)}
+.home-tin-item{display:flex;flex-direction:column;gap:9px;padding:22px 24px 22px 0;
+  text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.home-tin-item + .home-tin-item{padding-left:24px;border-left:1px solid var(--line)}
+.home-tin-meta{display:flex;align-items:center;gap:10px}
+.home-tin-meta time{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  color:var(--ink-dim);letter-spacing:.03em}
+.home-tin-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--brown-deep);background:rgba(176,122,42,.10);
+  border:1px solid rgba(176,122,42,.24);border-radius:999px;padding:2px 9px}
+.home-tin-t{font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:16.5px;line-height:1.34;
+  letter-spacing:-.01em;color:var(--ink);transition:color .15s}
+@media(hover:hover){.home-tin-item:hover .home-tin-t{color:var(--brown-deep)}}
+.home-tin-all{display:inline-block;margin-top:20px;font-family:'Be Vietnam Pro',sans-serif;
+  font-weight:700;font-size:14px;color:var(--brown);text-decoration:none}
+@media(max-width:720px){
+  .home-tin{grid-template-columns:1fr;margin-top:22px}
+  .home-tin-item{padding:18px 0}
+  .home-tin-item + .home-tin-item{padding-left:0;border-left:none}
+}
+
 /* ============================================================
    /ca-phe — Mua cho ai (segments) + Bảng so sánh + Buy bar
    ============================================================ */
