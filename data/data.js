@@ -462,7 +462,7 @@ const BAIVIET = [
   },
   {
     id: "vong-tron-huong-vi-robusta-2025",
-    anh: "assets/img/robusta-wheel-en.png",
+    anh: "assets/img/robusta-wheel-en.webp",
     tag: "Kiến thức",
     docPhut: 14, mucDo: "Chuyên sâu",
     tieuDe: "Robusta có 103 cách để nói về hương vị: Vòng tròn hương vị Canephora 2025 và câu chuyện của Lâm Đồng",
@@ -472,7 +472,7 @@ const BAIVIET = [
       "<p>Cách nghĩ đó có nguyên nhân lịch sử. Một phần rất lớn Coffea canephora — loài cà phê thường được gọi là Robusta — từ lâu được sản xuất và giao dịch trong phân khúc commodity. Trong khi đó, thế giới specialty coffee phát triển mạnh quanh Arabica, từ cách chấm điểm đến bộ từ vựng cảm quan.</p>" +
       "<p>Nhưng có một câu hỏi đáng đặt ra: <b>nếu chúng ta chưa có đủ từ để mô tả một loại cà phê, liệu có phải loại cà phê đó đơn giản — hay chỉ là ngôn ngữ của chúng ta chưa đủ?</b></p>" +
       "<p>Năm 2025, một nhóm nhà khoa học đã đi khá sâu vào câu hỏi này. Kết quả là một <b>vòng tròn hương vị dành riêng cho Coffea canephora</b>, gồm 103 descriptor. Và với Việt Nam, câu chuyện đặc biệt thú vị: trong những hạt cà phê được dùng để xây dựng chính công cụ đó, <b>có cà phê từ Lâm Đồng</b>.</p>" +
-      "<figure><img src='/assets/img/robusta-wheel-en.png' alt='Vòng tròn hương vị Coffea canephora — 103 descriptor, ba tầng' loading='lazy'><figcaption>Vòng tròn hương vị Coffea canephora — 103 mô tả, ba tầng. Dựa trên Carvalho và cộng sự (2025); đồ hoạ: Gu Cà Phê.</figcaption></figure>" +
+      "<figure><img src='/assets/img/robusta-wheel-en.webp' alt='Vòng tròn hương vị Coffea canephora — 103 descriptor, ba tầng' loading='lazy'><figcaption>Vòng tròn hương vị Coffea canephora — 103 mô tả, ba tầng. Dựa trên Carvalho và cộng sự (2025); đồ hoạ: Gu Cà Phê.</figcaption></figure>" +
 
       "<h3>Trước hết: Robusta và Coffea canephora có phải một?</h3>" +
       "<p>Tên khoa học của loài là <b>Coffea canephora</b>. Trong đời sống và thương mại, chúng ta quen gọi nó là <b>Robusta</b>. Tuy nhiên nếu nói thật chính xác về thực vật học, “Canephora” và “Robusta” không hoàn toàn là hai từ đồng nghĩa.</p>" +
@@ -630,7 +630,7 @@ const BAIVIET = [
   },
   {
     id: "robusta-khong-chi-vi-dang",
-    anh: "assets/img/robusta-wheel-vi.png",
+    anh: "assets/img/robusta-wheel-vi.webp",
     tag: "Kiến thức",
     docPhut: 7, mucDo: "Người mới",
     tieuDe: "Robusta không chỉ có vị đắng: năm 2025, nó có vòng tròn hương vị của riêng mình",
@@ -641,7 +641,7 @@ const BAIVIET = [
 
       "<h3>Robusta có vòng tròn hương vị riêng</h3>" +
       "<p>Tháng 5/2025, một nhóm nhà khoa học do Fabiana M. Carvalho và các cộng sự thực hiện đã công bố nghiên cứu trên tạp chí Scientific Reports. Họ xây dựng một <b>vòng tròn hương vị dành riêng cho Coffea canephora</b>, loài cà phê mà chúng ta thường gọi là Robusta.</p>" +
-      "<figure><img src='/assets/img/robusta-wheel-vi.png' alt='Vòng tròn hương vị Robusta — bản tiếng Việt' loading='lazy'><figcaption>Vòng tròn hương vị Robusta (bản tiếng Việt) — Gu Cà Phê.</figcaption></figure>" +
+      "<figure><img src='/assets/img/robusta-wheel-vi.webp' alt='Vòng tròn hương vị Robusta — bản tiếng Việt' loading='lazy'><figcaption>Vòng tròn hương vị Robusta (bản tiếng Việt) — Gu Cà Phê.</figcaption></figure>" +
       "<p>Vòng tròn hương vị nghe có vẻ chuyên môn, nhưng thật ra rất dễ hiểu. Khi uống cà phê, đôi khi bạn thấy nó có mùi giống cacao, caramel, trái cây hay một thứ gì đó rất quen nhưng không biết gọi tên. Vòng tròn hương vị giống như một <b>tấm bản đồ giúp chúng ta tìm từ để gọi tên những gì mình đang ngửi và nếm được</b>.</p>" +
       "<p>Ví dụ bạn cảm thấy ly cà phê có gì đó giống trái cây. Bạn bắt đầu ở nhóm “trái cây”, rồi đi dần ra ngoài để tìm xem nó gần với loại trái cây nào hơn. Người mới uống cà phê dùng được, người rang cà phê dùng được, người thử nếm chuyên nghiệp cũng dùng được. Khác nhau chủ yếu ở mức độ luyện tập.</p>" +
 
