@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260903-4';
+const CSS_V = '20260903-5';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1782,22 +1782,38 @@ for (const b of BAIVIET) {
   console.log(`✓ ${base}/${b.id}.html`);
 }
 
-/* ---- Cập nhật sitemap.xml (trang chủ + hub + review + nhà rang + vùng trồng) ---- */
+/* ---- Cập nhật sitemap.xml (trang chủ + hub + review + nhà rang + vùng trồng)
+   Kèm image sitemap extension: liệt kê ảnh thật trên mỗi trang để Google Images
+   phát hiện & đánh chỉ mục nhanh. Ảnh lấy trực tiếp từ HTML vừa sinh (chính xác 100%). ---- */
 const lastmod = isoDate(SITE.capNhat);
-const entry = (u, pri) => `  <url>
-    <loc>${u}</loc>
+const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const absImg = s => /^https?:/.test(s) ? s : `${ORIGIN}/${s.replace(/^\//, '')}`;
+const urlToFile = u => { const p = u.replace(ORIGIN, '').replace(/^\//, ''); return p === '' ? 'index.html' : `${p}.html`; };
+function pageImages(u) {
+  let html; try { html = readFileSync(join(ROOT, urlToFile(u)), 'utf8'); } catch (e) { return []; }
+  const set = new Set();
+  const og = (html.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
+  // Ảnh og đặc thù (vùng…) thì giữ; ảnh mặc định chung chung thì bỏ (không đặc trưng cho trang)
+  if (og && /\.(jpe?g|png|webp)$/i.test(og) && !/\/og\/default\.jpg$/i.test(og)) set.add(og);
+  for (const m of html.matchAll(/<(?:img|source)\b[^>]*?(?:src|srcset)="([^"]+)"/g)) {
+    const s = m[1].split(/[ ,]/)[0].split('?')[0];
+    if (!s || s.startsWith('data:')) continue;
+    if (/\.(jpe?g|png|webp)$/i.test(s)) set.add(absImg(s));
+  }
+  return [...set].slice(0, 20);
+}
+const entry = (u, pri) => {
+  const imgs = pageImages(u).map(i => `    <image:image><image:loc>${xmlEsc(i)}</image:loc></image:image>`).join('\n');
+  return `  <url>
+    <loc>${xmlEsc(u)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${pri}</priority>
+    <priority>${pri}</priority>${imgs ? '\n' + imgs : ''}
   </url>`;
+};
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${ORIGIN}/</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entry(`${ORIGIN}/`, '1.0').replace('<changefreq>monthly', '<changefreq>weekly')}
 ${hubUrls.map(u => entry(u, '0.9')).join('\n')}
 ${urls.map(u => entry(u, '0.8')).join('\n')}
 ${articleUrls.map(u => entry(u, '0.7')).join('\n')}
@@ -1808,4 +1824,52 @@ ${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 const total = hubUrls.length + urls.length + articleUrls.length + roasterUrls.length + regionUrls.length + 1;
 console.log(`✓ sitemap.xml (${total} URL)`);
+
+/* ---- Chèn width/height nội tại cho mọi <img> (giảm CLS · tốt Core Web Vitals · SEO ảnh)
+   Đọc kích thước thật từ file ảnh; CSS đã đảm bảo co giãn giữ tỉ lệ (img{max-width:100%;height:auto}). ---- */
+function imgSize(rel) {
+  let b; try { b = readFileSync(join(ROOT, rel)); } catch (e) { return null; }
+  if (b.length > 24 && b[0] === 0x89 && b[1] === 0x50) return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) }; // PNG
+  if (b[0] === 0x47 && b[1] === 0x49 && b[2] === 0x46) return { w: b.readUInt16LE(6), h: b.readUInt16LE(8) };   // GIF
+  if (b.length > 30 && b.toString('ascii', 0, 4) === 'RIFF' && b.toString('ascii', 8, 12) === 'WEBP') {         // WebP
+    const f = b.toString('ascii', 12, 16);
+    if (f === 'VP8 ') return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+    if (f === 'VP8L') { const x = b.readUInt32LE(21); return { w: (x & 0x3fff) + 1, h: ((x >> 14) & 0x3fff) + 1 }; }
+    if (f === 'VP8X') return { w: (b[24] | (b[25] << 8) | (b[26] << 16)) + 1, h: (b[27] | (b[28] << 8) | (b[29] << 16)) + 1 };
+    return null;
+  }
+  if (b[0] === 0xFF && b[1] === 0xD8) { // JPEG
+    let i = 2;
+    while (i < b.length) {
+      if (b[i] !== 0xFF) { i++; continue; }
+      const m = b[i + 1];
+      if (m >= 0xC0 && m <= 0xCF && ![0xC4, 0xC8, 0xCC].includes(m)) return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+  }
+  return null;
+}
+const dimCache = {};
+function injectDims(html) {
+  return html.replace(/<img\b[^>]*>/g, tag => {
+    if (/\bwidth=|\bheight=/.test(tag)) return tag;
+    const src = (tag.match(/\bsrc=["']([^"']+)["']/) || [])[1];
+    if (!src || /^(https?:|data:)/.test(src)) return tag;
+    const rel = src.split('?')[0].replace(/^\//, '');
+    if (/\.svg$/i.test(rel)) return tag;
+    const d = dimCache[rel] ?? (dimCache[rel] = imgSize(rel));
+    if (!d || !d.w || !d.h) return tag;
+    return tag.replace(/^<img\b/, `<img width="${d.w}" height="${d.h}"`);
+  });
+}
+const dimTargets = ['index.html',
+  ...hubUrls.map(urlToFile), ...urls.map(urlToFile), ...articleUrls.map(urlToFile),
+  ...roasterUrls.map(urlToFile), ...regionUrls.map(urlToFile)];
+let dimCount = 0;
+for (const f of dimTargets) {
+  let html; try { html = readFileSync(join(ROOT, f), 'utf8'); } catch (e) { continue; }
+  const out = injectDims(html);
+  if (out !== html) { writeFileSync(join(ROOT, f), out, 'utf8'); dimCount++; }
+}
+console.log(`✓ width/height chèn cho ảnh ở ${dimCount} trang`);
 console.log(`\nXong. ${hubUrls.length} hub · ${urls.length} review · ${articleUrls.length} bài · ${roasterUrls.length} nhà rang · ${regionUrls.length} vùng trồng.`);

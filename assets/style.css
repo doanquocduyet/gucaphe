@@ -50,6 +50,9 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+/* Lưới an toàn ảnh: co giãn theo khung + giữ tỉ lệ (chống layout shift/CLS).
+   Ảnh trong khung cover có rule .class img riêng (đặc thù cao hơn) nên không bị ảnh hưởng. */
+img{max-width:100%;height:auto}
 body{
   background:var(--paper);color:var(--ink);
   font-family:'Be Vietnam Pro',sans-serif;
