@@ -16,7 +16,7 @@
    Chạy tay:  node scripts/build-reviews.mjs
    ============================================================ */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -34,6 +34,12 @@ const OG_SET = new Set(['cau-dat.jpg', 'nam-ban.jpg', 'lac-duong.jpg', 'da-lat.j
 const ogForSrc = src => {
   const b = src ? src.split('/').pop() : '';
   return b && OG_SET.has(b) ? `${ORIGIN}/assets/img/og/${b}` : OG_DEFAULT;
+};
+/* Ảnh OG card thương hiệu 1200×630 riêng cho từng trang (tạo sẵn bởi
+   scripts/gen-og-cards.mjs). Trả URL nếu file tồn tại, không thì null → rơi về ảnh khác. */
+const ogCard = key => {
+  if (!key) return null;
+  return existsSync(join(ROOT, `assets/img/og/cards/${key}.jpg`)) ? `${ORIGIN}/assets/img/og/cards/${key}.jpg` : null;
 };
 const ogMeta = (img, alt) => `<meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
@@ -495,7 +501,7 @@ function page(p) {
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:site_name" content="Gu Cà Phê">
-${ogMeta(ogForSrc(p.anh), `${p.brand} ${p.ten}`)}
+${ogMeta(ogCard(p.slug) || ogForSrc(p.anh), `${p.brand} ${p.ten}`)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -919,7 +925,7 @@ function roasterPage(r) {
 <meta property="og:url" content="${url}">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:site_name" content="Gu Cà Phê">
-${ogMeta(ogForSrc(prods[0] && prods[0].anh), r.ten)}
+${ogMeta(ogCard(r.slug) || ogForSrc(prods[0] && prods[0].anh), r.ten)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1524,7 +1530,7 @@ function articlePage(b) {
   return pageShell({
     title: `${b.tieuDe} | ${hubName} — Gu Cà Phê`,
     desc: b.dek, url, ogType: 'article', schema: schemas.join('\n'), active: bd ? 'batdau' : 'kienthuc', main,
-    ogImage: ogForSrc(b.anh), ogAlt: b.tieuDe
+    ogImage: ogCard(b.id) || ogForSrc(b.anh), ogAlt: b.tieuDe
   });
 }
 
