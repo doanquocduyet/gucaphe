@@ -1211,6 +1211,22 @@ html{scroll-behavior:smooth}
 .callout{background:var(--accent-soft,#F4ECE2);border-left:3px solid var(--accent,#C2632C);
   border-radius:8px;padding:14px 16px;margin:18px 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
 .callout b{color:var(--ink)}
+/* Câu trích / nhấn mạnh trong thân bài */
+.kt-art-body blockquote{margin:20px 0;padding:2px 0 2px 20px;border-left:3px solid var(--brown,#A15C2A);
+  font-size:clamp(17px,2.1vw,20px);line-height:1.5;font-weight:600;color:var(--ink);font-style:normal}
+.kt-art-body blockquote p{margin:0;color:var(--ink)}
+.kt-art-body .src{color:var(--ink-dim,#9A8B7C);font-size:.9em}
+/* Cầu nối sản phẩm cuối bài — "Gu đã uống giống này" */
+.kta-gutried{max-width:none;margin:34px 0 8px}
+.gt-in{max-width:72ch;background:var(--paper-2,#F4ECDF);border:1px solid var(--line,#E7DCCB);
+  border-radius:16px;padding:22px 24px}
+.gt-k{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brown,#A15C2A);margin-bottom:8px}
+.gt-in p{margin:0 0 14px;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+.gt-in p b{color:var(--ink)}
+.gt-cta{display:inline-block;font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:14px;
+  text-decoration:none;color:#fff;background:var(--brown,#A15C2A);padding:11px 20px;border-radius:10px;transition:.15s}
+@media(hover:hover){.gt-cta:hover{background:var(--brown-deep,#8A4A20)}}
 
 /* Khối ví dụ "trước → sau" */
 .flavor-eg{background:var(--bg-soft,#F8F3EC);border:1px solid var(--border,#EEE4D6);

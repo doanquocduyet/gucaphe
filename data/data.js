@@ -1014,6 +1014,569 @@ const BAIVIET = [
       "<div class='callout'><b>⚠️ Về chuyện hoa hồng:</b> Gu có nhận hoa hồng khi bạn mua qua link giới thiệu. Nhưng điểm số được chấm mù <b>trước</b> khi có bất kỳ thỏa thuận nào, và <b>không nhà nào trả tiền để được điểm cao</b>. Gói dở thì Gu nói dở, hoặc loại thẳng khỏi web.</div>" +
       "<p>Đó là lý do khi Gu nói một gói đáng mua, bạn có thể tin — vì Gu chấm nó như một người mua khó tính, không phải như một người đi bán.</p>" +
       "<p><b>Gu khuyên:</b> Giờ bạn đã hiểu và tin cách Gu chọn. Xem gói Gu khuyên cho ly cà phê đặc sản đầu tiên của bạn: <b><a href='/ca-phe'>Gói Gu khuyên cho người mới →</a></b></p>"
+  },
+
+  /* ===== CỤM "GIỐNG CÀ PHÊ" (19 bài) — kiến thức lấy nền từ WCR/WASI, Gu kể lại theo hướng người mới + Việt Nam/Lâm Đồng ===== */
+  {
+    id: "vi-sao-ca-phe-nhieu-giong",
+    anh: "assets/img/products/green-beans.jpg",
+    tag: "Kiến thức", docPhut: 10, mucDo: "Giống cà phê", thuTu: 1,
+    tieuDe: "Vì sao cà phê có nhiều giống đến vậy? Từ Typica, Bourbon đến Gesha",
+    dek: "Typica, Bourbon, Caturra, Gesha, SL28… vì sao cà phê có nhiều tên giống đến vậy, và giống có quyết định hương vị không? Bài mở đầu cụm kiến thức về giống cà phê của Gu.",
+    than:
+      "<p>Nếu bạn mới bắt đầu tìm hiểu cà phê, sẽ có lúc bạn thấy trên bao bì những cái tên rất lạ: <b>Typica, Bourbon, Caturra, Catimor, Gesha, SL28, Pacamara, THA-1…</b> Đều là cà phê. Vậy tại sao phải chia ra nhiều tên như vậy?</p>" +
+      "<p>Có phải giống khác nhau thì hương vị cũng khác nhau? Gesha có luôn ngon hơn Catimor? Và vì sao vài giống nổi tiếng tới mức một gói có thể đắt gấp nhiều lần cà phê thường?</p>" +
+      "<p>Muốn hiểu, trước hết cần một ý rất đơn giản: <b>cây cà phê cũng có giống — như xoài có xoài cát, xoài keo, xoài tượng.</b> Cùng là cây cà phê, nhưng mỗi giống khác nhau về hình dáng cây, kích thước hạt, năng suất, khả năng chống bệnh, khả năng thích nghi và tiềm năng chất lượng trong tách. Đó là lý do thế giới có rất nhiều tên giống.</p>" +
+      "<h3>“Giống cà phê” thực ra là gì?</h3>" +
+      "<p>Hiểu đơn giản, <b>giống là một nhóm cây có đặc điểm di truyền tương đối ổn định, được con người nhận biết, duy trì hoặc chọn lọc qua nhiều thế hệ.</b> Một số hình thành từ quần thể tự nhiên; một số là đột biến tự nhiên được phát hiện rồi nhân giống; một số được tạo ra bằng cách lai hai dòng; một số là kết quả của chương trình chọn giống có chủ đích.</p>" +
+      "<p>Vì vậy khi thấy chữ <b>Caturra</b>, <b>Pacas</b> hay <b>Gesha</b>, đó không phải tên một cách rang hay một phương pháp sơ chế — đó là <b>tên của một dòng/giống cà phê</b>. World Coffee Research phân loại các giống Arabica theo những nhóm di truyền lớn như Bourbon–Typica, landrace Ethiopia, nhóm liên quan Catimor, Sarchimor và F1 hybrid — cho thấy thế giới giống cà phê là một mạng lưới quan hệ di truyền, không phải một danh sách những cái tên rời rạc <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Nhưng giống có quyết định hương vị không?</h3>" +
+      "<p><b>Có ảnh hưởng, nhưng không quyết định một mình.</b> Bạn có thể trồng cùng một giống ở hai nơi khác nhau và thu được hai ly rất khác. Bởi cái ta uống là kết quả của cả một chuỗi: <b>giống → đất và khí hậu → độ cao → cách chăm sóc → độ chín khi thu hoạch → sơ chế → phơi → bảo quản → rang → pha.</b></p>" +
+      "<p>Giống là phần “di truyền”. Vùng trồng là môi trường sống. Canh tác và sơ chế là cách con người tác động. Rang và pha là cách đưa những đặc tính đó vào ly. Vì vậy đừng nói “Gesha ngon vì là Gesha”.</p>" +
+      "<blockquote><p>Gesha có tiềm năng tạo ra một số đặc tính cảm quan rất đặc biệt, nhưng ly cuối cùng còn phụ thuộc rất lớn vào nơi trồng và cách làm.</p></blockquote>" +
+      "<h3>Vì sao Typica và Bourbon quan trọng đến thế?</h3>" +
+      "<p>Nếu chọn hai cái tên để bắt đầu tìm hiểu lịch sử Arabica hiện đại, đó là <b>Typica và Bourbon</b> — không phải vì chúng luôn ngon nhất, mà vì vị trí của chúng trong lịch sử di truyền. Arabica có nguồn gốc từ Ethiopia rồi tới Yemen; từ Yemen, các quần thể đi theo những con đường khác nhau, một nhánh thành Typica, một nhánh thành Bourbon. Từ hai nhóm này, rất nhiều giống nổi tiếng về sau được hình thành <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Typica: một trong những “ông tổ” của Arabica</h3>" +
+      "<p>Typica phát triển qua Java rồi tới châu Âu và lan sang châu Mỹ. WCR mô tả Typica là một trong những cà phê <b>có tầm quan trọng văn hoá và di truyền lớn nhất</b> của <i>Coffea arabica</i>: cây thường cao, năng suất thấp, nhạy cảm với nhiều bệnh, nhưng có tiềm năng chất lượng tốt. Một bài học hay: một giống có thể không năng suất cao nhất nhưng vẫn quan trọng nhờ chất lượng và lịch sử di truyền.</p>" +
+      "<h3>Bourbon: một nhánh khác từ Yemen</h3>" +
+      "<p>Các nhà truyền giáo Pháp đưa cây cà phê từ Yemen tới đảo Bourbon (nay là Réunion) đầu thế kỷ 18 — tên Bourbon bắt nguồn từ đây. Sau đó Bourbon lan sang châu Phi và châu Mỹ. Từ Bourbon xuất hiện nhiều câu chuyện: <b>Caturra</b> là đột biến tự nhiên của Bourbon; <b>Pacas</b> cũng vậy. Khi những dòng này tiếp tục được lai tạo, chúng lại tạo ra giống mới — đó là lý do cây gia phả cà phê càng ngày càng nhiều nhánh.</p>" +
+      "<h3>Caturra, Mundo Novo, Pacamara: gia phả bắt đầu hiện ra</h3>" +
+      "<p><b>Caturra</b> là đột biến tự nhiên của Bourbon làm cây thấp gọn — nghe không liên quan hương vị, nhưng cây thấp cho phép trồng mật độ cao hơn, dễ quản lý hơn. <b>Mundo Novo</b> lại là lai tự nhiên giữa Bourbon và Typica. Và <b>Catuai = Mundo Novo × Caturra</b>. <b>Pacamara</b> là Pacas × Maragogipe — hạt rất lớn, tiềm năng chất lượng cao nhưng cây kém đồng đều và nhạy bệnh gỉ sắt <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<p>Chỉ nhìn vài cái tên bạn đã thấy một phần “gia phả” Arabica: Bourbon → Caturra; Typica + Bourbon → Mundo Novo; Mundo Novo + Caturra → Catuai.</p>" +
+      "<h3>Rồi xuất hiện Gesha</h3>" +
+      "<p>Gesha là cái tên khiến người uống specialty chú ý nhất nhiều năm qua. Nhưng Gesha không “sinh ra ở Panama” — nguồn gốc nằm ở Ethiopia, sau đó qua các chương trình nghiên cứu rồi tới Panama, nơi một số dòng thể hiện chất lượng đặc biệt và trở nên nổi tiếng. Từ đó tên Gesha gắn với hoa, trà, cam quýt, trái cây nhiệt đới. Nhưng một lần nữa: đừng hiểu cứ trồng Gesha là có một ly Gesha nổi tiếng — giống chỉ là một phần của phương trình.</p>" +
+      "<h3>SL28, SL34, Ombligon: không phải giống nào cũng ra đời cùng một cách</h3>" +
+      "<p><b>SL28 và SL34</b> được chọn lọc trong lịch sử chương trình nghiên cứu cà phê Kenya. <b>Ombligon</b> gắn với một quần thể địa phương ở Colombia. Có giống được lai tạo, có giống là đột biến, có giống chọn lọc từ quần thể tự nhiên, có giống do viện nghiên cứu phát triển. “Giống cà phê” không chỉ có một con đường hình thành — đó chính là chỗ thú vị.</p>" +
+      "<h3>Và Việt Nam đang bước vào câu chuyện này</h3>" +
+      "<p>Việt Nam không chỉ nhập giống rồi trồng. Ngành cà phê trong nước cũng có chương trình chọn tạo, chọn lọc và phát triển giống phù hợp điều kiện Việt Nam — ví dụ <b>THA-1</b> được WASI phát triển từ chương trình lai tạo và chọn lọc Arabica; ở Robusta cũng có nhiều dòng được chọn lọc hướng tới năng suất, kích thước hạt, thích nghi và chất lượng. Tương lai cà phê Việt không chỉ là “trồng được bao nhiêu tấn?”, mà ngày càng là <b>“chúng ta đang trồng giống gì, ở đâu, với mục tiêu chất lượng nào?”</b>.</p>" +
+      "<h3>Vậy giống nào ngon nhất?</h3>" +
+      "<p>Không có câu trả lời. Gesha có những lô cực nổi tiếng; Typica, Bourbon, Pacamara, SL28 đều có thể tạo ra cà phê rất tốt. Nhưng <b>tên giống không thay thế chất lượng của lô cụ thể</b>. Một Gesha trồng sai điều kiện, sơ chế kém vẫn có thể là một ly thất vọng; một giống ít nổi tiếng, nếu trồng đúng nơi và làm tốt, hoàn toàn có thể rất đáng nhớ.</p>" +
+      "<blockquote><p>Đừng mua một cái tên. Hãy tìm hiểu cả câu chuyện phía sau cái tên.</p></blockquote>" +
+      "<h3>Cách đọc một gói cà phê từ giờ trở đi</h3>" +
+      "<p>Lần tới cầm một gói, đừng chỉ hỏi “ngon không?”. Hãy nhìn 6 lớp:</p>" +
+      "<ul>" +
+      "<li><b>Loài gì?</b> Arabica, Canephora hay blend.</li>" +
+      "<li><b>Giống gì?</b> Typica, Bourbon, Caturra, Catimor, Gesha…</li>" +
+      "<li><b>Ở đâu?</b> Quốc gia, vùng, farm nếu có.</li>" +
+      "<li><b>Điều kiện trồng?</b> Độ cao, khí hậu, môi trường.</li>" +
+      "<li><b>Sơ chế gì?</b> Natural, Washed, Honey…</li>" +
+      "<li><b>Rang và pha thế nào?</b> Cùng một hạt, cách rang/pha khác cho trải nghiệm khác.</li>" +
+      "</ul>" +
+      "<p>Khi đọc được 6 lớp này, bạn chuyển từ “tôi uống cà phê” sang <b>“tôi hiểu mình đang uống cái gì”</b>. Một hạt cà phê không bắt đầu từ máy espresso — nó bắt đầu từ một cái cây, có giống, sống trong một vùng đất. Càng hiểu những cái tên như Typica, Bourbon, Gesha hay Catimor, bạn càng hiểu vì sao hai cây cùng là Arabica lại có thể tạo ra hai thế giới rất khác trong ly.</p>",
+    faq: [
+      { q: "Giống cà phê là gì?", a: "Là nhóm cây có đặc điểm di truyền tương đối ổn định, được duy trì hoặc chọn lọc qua nhiều thế hệ. Một số hình thành tự nhiên, một số từ đột biến, một số từ lai tạo." },
+      { q: "Giống có quyết định hương vị không?", a: "Có ảnh hưởng nhưng không quyết định hoàn toàn. Hương vị cuối cùng còn phụ thuộc giống, môi trường, canh tác, độ chín, sơ chế, bảo quản, rang và pha." },
+      { q: "Arabica có phải một giống không?", a: "Không. Arabica là loài (Coffea arabica). Bên trong loài này có rất nhiều nhóm và giống như Typica, Bourbon, Caturra, Gesha, SL28, Pacamara…" },
+      { q: "Caturra có phải Bourbon không?", a: "Caturra là một đột biến tự nhiên của Bourbon, với đặc điểm cây thấp/gọn hơn." },
+      { q: "Catuai là giống gì?", a: "Catuai được tạo ra từ phép lai Mundo Novo × Caturra tại Brazil — cây thấp, cho phép trồng mật độ cao." },
+      { q: "Gesha cứ trồng là ngon?", a: "Không. Giống có tiềm năng đặc biệt nhưng chất lượng thực tế còn phụ thuộc mạnh vào môi trường, canh tác, thu hái, sơ chế, rang và pha." },
+      { q: "Giống hiếm có đồng nghĩa với ngon không?", a: "Không. Độ hiếm và chất lượng là hai chuyện khác nhau." },
+      { q: "Robusta có giống không?", a: "Có. Robusta thường chỉ Coffea canephora, và bên trong Canephora cũng có các nhóm, quần thể và vật liệu di truyền khác nhau." },
+      { q: "Người mới có cần biết giống không?", a: "Không bắt buộc, nhưng biết giống giúp bạn hiểu thêm một lớp quan trọng về nguồn gốc của hạt và vì sao các loại cà phê khác nhau có đặc tính khác nhau." }
+    ],
+    links: [
+      { label: "Bài kế: F1 Hybrid là gì", href: "/kien-thuc/f1-hybrid-la-gi" },
+      { label: "Danh mục giống của World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/arabica/varieties" }
+    ]
+  },
+  {
+    id: "f1-hybrid-la-gi",
+    anh: "",
+    tag: "Kiến thức", docPhut: 8, mucDo: "Giống cà phê", thuTu: 2,
+    tieuDe: "F1 Hybrid trong cà phê là gì? Vì sao người ta phải lai hai giống với nhau?",
+    dek: "Centroamericano, Starmaya, Milenio… F1 hybrid là gì, vì sao phải lai, “ưu thế lai” là gì, và vì sao một cây F1 không thể gieo hạt lại y hệt cây mẹ?",
+    than:
+      "<p>Nếu đọc về cà phê specialty đủ lâu, bạn sẽ gặp một thuật ngữ khá lạ: <b>F1 Hybrid</b>. Centroamericano H1. Starmaya. Milenio. Mundo Maya. Casiopea. Những cái tên này không phải các giống Arabica cổ điển như Typica hay Bourbon — chúng thuộc một câu chuyện khác: <b>con người chủ động lai những vật liệu di truyền khác nhau để tạo ra thế hệ cây mới.</b></p>" +
+      "<p>Và điều thú vị là mục tiêu không đơn giản là “làm cà phê ngon hơn”. Người ta muốn một cây vừa thích nghi, vừa có năng suất, vừa có sức chống chịu, nhưng vẫn giữ được tiềm năng chất lượng trong tách.</p>" +
+      "<h3>F1 nghĩa là gì?</h3>" +
+      "<p>F1 là viết tắt của <b>First Filial Generation</b> — thế hệ con đầu tiên tạo ra từ hai bố mẹ có đặc điểm di truyền khác nhau. Hãy tưởng tượng cây A chống chịu tốt, cây B có tiềm năng chất lượng cao; nhà chọn giống lấy phấn cây này thụ phấn cho cây kia, những cây con đầu tiên là <b>F1</b>. Đây là lai bằng sinh sản thông thường, <b>không phải biến đổi gene</b> — WCR nêu rõ các F1 hybrid của họ được tạo bằng phương pháp lai truyền thống, không phải GMO <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Tại sao phải tạo F1?</h3>" +
+      "<p>Bởi cây cà phê luôn có những sự đánh đổi. Một giống có thể năng suất tốt nhưng chất lượng không nổi bật; một giống khác chất lượng rất tốt nhưng dễ bệnh hoặc năng suất thấp; một cây hợp môi trường này nhưng không hợp môi trường khác. Nhà chọn giống vì vậy không chỉ tìm “cây ngon nhất”, mà tìm cách <b>kết hợp những đặc điểm có giá trị</b>. Đó là lý do F1 trở nên quan trọng.</p>" +
+      "<h3>Centroamericano H1 là một ví dụ</h3>" +
+      "<p>Centroamericano — thường gọi là H1 — là một F1 hybrid nổi tiếng trong chương trình nghiên cứu cà phê Trung Mỹ, phát triển với mục tiêu kết hợp sinh trưởng, năng suất và khả năng chống chịu với tiềm năng chất lượng. WCR xếp Centroamericano cùng Starmaya, Mundo Maya, Milenio, Casiopea và Ruiru 11 trong nhóm F1 hybrid <span class='src'>(theo World Coffee Research)</span>. Điểm đáng chú ý: F1 không có nghĩa “giống mới = ngon hơn tất cả giống cũ”, mà là <b>kết quả của một phép lai có chủ đích nhằm tạo ra một tổ hợp đặc điểm mới</b>.</p>" +
+      "<h3>Vậy tại sao không cứ lấy hạt F1 trồng tiếp?</h3>" +
+      "<p>Đây là phần rất quan trọng. Một cây F1 tạo ra từ hai bố mẹ khác nhau có một tổ hợp gene cụ thể. Khi F1 tự thụ phấn hoặc giao phấn để tạo thế hệ sau, gene lại phân ly — cây con F2 có thể không đồng đều như F1. Đó là một trong những lý do sản xuất cây F1 thương mại thường gắn với quy trình nhân giống và kiểm soát nguồn vật liệu rất chặt.</p>" +
+      "<h3>F1 có phải tương lai của cà phê?</h3>" +
+      "<p>Có thể là một phần quan trọng của tương lai. Nhưng không nên hiểu F1 như một “chiếc đũa thần”. Một giống tốt vẫn cần môi trường phù hợp; cùng một giống có thể cho kết quả khác nhau giữa các vùng. Cuối cùng, chất lượng tách vẫn là kết quả của <b>genetics + môi trường + canh tác + thu hái + sơ chế + rang + pha</b>. Điều F1 làm tốt nhất không phải biến cà phê thành một thứ hoàn toàn mới — nó <b>mở rộng bộ công cụ di truyền</b> mà ngành cà phê có thể sử dụng.</p>",
+    faq: [
+      { q: "F1 có phải GMO không?", a: "Không. F1 hybrid được tạo bằng lai hữu tính truyền thống; WCR nêu rõ chương trình F1 của họ không dùng biến đổi gene." },
+      { q: "F1 có ngon hơn Arabica truyền thống không?", a: "Không thể kết luận như vậy. F1 có thể có tiềm năng chất lượng rất cao nhưng kết quả phụ thuộc giống, môi trường và quản lý." },
+      { q: "Centroamericano H1 có phải Robusta không?", a: "Không. Centroamericano là F1 hybrid thuộc Arabica." },
+      { q: "Starmaya là gì?", a: "Là một F1 hybrid trong danh mục giống Arabica của WCR, được mô tả có năng suất cao và thích nghi với độ cao trung bình." },
+      { q: "Vì sao không nên gieo lại hạt từ cây F1?", a: "Vì ở thế hệ sau, gene phân ly nên cây con có thể không đồng đều như F1. Sản xuất F1 thương mại thường cần nhân giống có kiểm soát." }
+    ],
+    links: [
+      { label: "Bài trước: Vì sao cà phê có nhiều giống", href: "/kien-thuc/vi-sao-ca-phe-nhieu-giong" },
+      { label: "Bài kế: Cà phê Sẻ là gì", href: "/kien-thuc/ca-phe-se" },
+      { label: "WCR — F1 Hybrids explainer", href: "https://worldcoffeeresearch.org/news/2019/f1-hybrids-explainer" }
+    ]
+  },
+  {
+    id: "ca-phe-se",
+    anh: "",
+    tag: "Kiến thức", docPhut: 4, mucDo: "Giống cà phê", thuTu: 3,
+    tieuDe: "Cà phê Sẻ là gì? Vì sao một giống Robusta nhỏ hạt lại được quan tâm?",
+    dek: "Sẻ là tên dân gian cho vật liệu cà phê hạt nhỏ đã thích nghi lâu năm ở Việt Nam — và vì sao hạt nhỏ không đồng nghĩa với chất lượng thấp.",
+    than:
+      "<p>Khi nói về cà phê Việt Nam, phần lớn người ta nghĩ ngay đến Robusta. Nhưng Robusta Việt Nam không phải một khối giống hoàn toàn đồng nhất — trong nhiều vùng trồng lâu năm tồn tại những quần thể và dòng cây khác nhau. Một cái tên đáng chú ý là <b>cà phê Sẻ</b>.</p>" +
+      "<p>Tên gọi này dễ khiến người mới tưởng đây là một giống tạo ra trong phòng thí nghiệm. Không hẳn. Điều đáng nói của Sẻ nằm ở chỗ nó gắn với <b>nguồn vật liệu cà phê đã thích nghi lâu năm tại Việt Nam</b>.</p>" +
+      "<h3>Vì sao gọi là “Sẻ”?</h3>" +
+      "<p>Tên dân gian này xuất phát từ đặc điểm hạt tương đối nhỏ. So với những dòng Robusta được chọn lọc mạnh về kích thước hạt, Sẻ gây chú ý bởi hạt nhỏ và hình dáng khác biệt. Nhưng <b>nhỏ không đồng nghĩa với kém</b> — trong cà phê, kích thước hạt là một đặc tính nông học và thương mại quan trọng, nhưng không phải thước đo duy nhất của chất lượng trong tách.</p>" +
+      "<h3>Sẻ có phải specialty không?</h3>" +
+      "<p>Không thể nhìn tên “Sẻ” rồi kết luận ngay. Một giống hay quần thể có tiềm năng không có nghĩa mọi lô từ đó đều đạt specialty. Muốn đánh giá một lô Sẻ cụ thể vẫn phải xem: <b>vật liệu, vùng trồng, độ chín, thu hái, sơ chế, độ sạch, rang và cupping.</b></p>" +
+      "<blockquote><p>Sẻ là tên gọi dân gian cho những vật liệu cà phê hạt tương đối nhỏ đã tồn tại lâu năm ở Việt Nam. Hạt nhỏ không đồng nghĩa với chất lượng thấp; chất lượng một lô vẫn phải đánh giá qua nguyên liệu, thu hái, sơ chế, bảo quản, rang và pha.</p></blockquote>",
+    faq: [
+      { q: "Cà phê Sẻ có phải Robusta không?", a: "Trong bối cảnh Việt Nam, Sẻ thường được nhắc như một vật liệu/quần thể thuộc cà phê vối. Tuy nhiên cần phân biệt tên dân gian với tên giống được chuẩn hoá." },
+      { q: "Hạt Sẻ nhỏ có nghĩa chất lượng thấp không?", a: "Không. Kích thước hạt không tự động quyết định chất lượng cảm quan." },
+      { q: "Cà phê Sẻ có thể làm Fine Robusta không?", a: "Có thể nghiên cứu và đánh giá, nhưng không thể khẳng định mọi cà phê Sẻ đều là Fine Robusta." }
+    ],
+    links: [
+      { label: "Bài trước: F1 Hybrid là gì", href: "/kien-thuc/f1-hybrid-la-gi" },
+      { label: "Bài kế: Bourbon và Typica khác nhau ở đâu", href: "/kien-thuc/bourbon-va-typica" }
+    ]
+  },
+  {
+    id: "bourbon-va-typica",
+    anh: "",
+    tag: "Kiến thức", docPhut: 7, mucDo: "Giống cà phê", thuTu: 4,
+    tieuDe: "Bourbon và Typica khác nhau ở đâu? Hai “ông tổ” của Arabica hiện đại",
+    dek: "Nếu chỉ nhớ hai cái tên khi bước vào thế giới Arabica, hãy nhớ Typica và Bourbon — không phải vì luôn ngon nhất, mà vì vị trí đặc biệt trong lịch sử di truyền.",
+    than:
+      "<p>Nếu bước vào thế giới Arabica mà chỉ nhớ hai cái tên, hãy nhớ: <b>Typica. Bourbon.</b> Không phải vì hai giống này luôn ngon nhất, mà bởi chúng nằm ở vị trí đặc biệt trong lịch sử di truyền của Arabica — rất nhiều câu chuyện về giống hiện đại bắt đầu từ đây.</p>" +
+      "<h3>Typica là gì?</h3>" +
+      "<p>Typica thuộc nhóm Bourbon–Typica và là một trong những dòng Arabica có ảnh hưởng lớn nhất. WCR mô tả Typica là một trong những cà phê có tầm quan trọng văn hoá và di truyền lớn nhất của <i>C. arabica</i>: cây cao, hạt tương đối lớn, tiềm năng chất lượng tốt, nhưng nhạy cảm với nhiều bệnh, đặc biệt gỉ sắt <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Bourbon là gì?</h3>" +
+      "<p>Bourbon cũng thuộc nhóm di truyền nền tảng của Arabica, có nguồn gốc sâu xa từ vật liệu Arabica được đưa từ Yemen tới đảo Bourbon (nay là Réunion), rồi lan sang nhiều khu vực khác. WCR mô tả Bourbon là cây cao, năng suất tương đối thấp nhưng có tiềm năng chất lượng tách rất tốt, đặc biệt ở độ cao phù hợp <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Vậy Bourbon ngon hơn Typica?</h3>" +
+      "<p>Không — đây là câu hỏi sai cách. Hai giống có đặc điểm di truyền và lịch sử khác nhau, nhưng chất lượng một ly không thể quyết định chỉ bằng tên giống. Một Typica được trồng, thu hái và sơ chế tốt có thể rất xuất sắc; một Bourbon ở điều kiện không phù hợp có thể không đặc biệt.</p>" +
+      "<h3>Điểm khác biệt lớn nhất nằm ở cây</h3>" +
+      "<p>Typica cao, Bourbon cũng cao; cả hai đều có hạn chế về năng suất và khả năng chống bệnh so với nhiều giống hiện đại. Vì vậy ngành cà phê bắt đầu tìm cách <b>giữ những đặc tính tốt, đồng thời cải thiện năng suất, hình dáng cây hoặc khả năng chống bệnh</b> — và đó là lúc những cái tên như Caturra, Pacas, Villa Sarchi, Mundo Novo, Catuai xuất hiện. Caturra là đột biến tự nhiên của Bourbon; Pacas cũng vậy; Mundo Novo hình thành từ lai tự nhiên giữa Bourbon và Typica <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<blockquote><p>Typica và Bourbon không chỉ là hai giống để uống. Chúng là hai chương lớn trong “gia phả” Arabica.</p></blockquote>",
+    faq: [
+      { q: "Typica và Bourbon có phải hai loài khác nhau?", a: "Không. Cả hai đều thuộc Coffea arabica." },
+      { q: "Bourbon có phải cà phê Pháp không?", a: "Tên Bourbon gắn với đảo Bourbon, nay là Réunion. Dòng này có nguồn gốc sâu xa từ Yemen." },
+      { q: "Caturra có liên quan Bourbon không?", a: "Có. Caturra là đột biến tự nhiên của Bourbon." },
+      { q: "Giống nào ngon hơn?", a: "Không có câu trả lời tuyệt đối. Chất lượng một ly phụ thuộc cả chuỗi từ giống tới pha." }
+    ],
+    links: [
+      { label: "Bài trước: Cà phê Sẻ là gì", href: "/kien-thuc/ca-phe-se" },
+      { label: "Bài kế: Caturra là gì", href: "/kien-thuc/caturra-la-gi" }
+    ],
+    guTried: { giong: "Bourbon (Red Bourbon)", tenGoi: "The Married Beans — Red Bourbon Cầu Đất", href: "/review/married-beans-red-bourbon-cau-dat" }
+  },
+  {
+    id: "caturra-la-gi",
+    anh: "",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 5,
+    tieuDe: "Caturra là gì? Một đột biến nhỏ với ảnh hưởng lớn",
+    dek: "Không phải phép lai phức tạp, cũng không tạo ra trong phòng thí nghiệm — Caturra là một đột biến tự nhiên của Bourbon, và nó thay đổi cách người ta trồng cà phê.",
+    than:
+      "<p>Có những thay đổi lớn bắt đầu từ một thay đổi rất nhỏ. Caturra là một ví dụ. Không phải một phép lai phức tạp, không phải một giống tạo ra trong phòng thí nghiệm — mà là <b>một đột biến tự nhiên của Bourbon</b>.</p>" +
+      "<h3>Cây thấp hơn — nhưng chuyện lớn hơn</h3>" +
+      "<p>Caturra được phát hiện tại Minas Gerais, Brazil, khoảng năm 1915–1918. Điểm nổi bật là một đột biến làm cây thấp và gọn hơn. WCR ghi nhận chính đặc điểm này tạo lợi thế quan trọng: cây có thể trồng gần nhau hơn và có nhiều cành thứ cấp trong cùng không gian <span class='src'>(theo World Coffee Research)</span>. Nghe đơn giản, nhưng với nông nghiệp đó là thay đổi cực kỳ quan trọng: nếu mỗi hecta bố trí được nhiều cây hơn, việc quản lý, chăm sóc và thu hoạch cũng thay đổi.</p>" +
+      "<h3>Caturra không phải chỉ để uống</h3>" +
+      "<p>Đây là điều người uống thường bỏ qua. Nhà chọn giống không chỉ nhìn hương vị, họ nhìn cả chiều cao cây, năng suất, mật độ trồng, khả năng chống bệnh, thích nghi, kích thước hạt và chất lượng. Caturra trở nên quan trọng vì nó giải được một bài toán sản xuất.</p>" +
+      "<h3>Caturra trở thành “cha mẹ” của nhiều giống</h3>" +
+      "<p>Một hậu duệ nổi tiếng nhất là <b>Catuai</b>, tạo ra từ Mundo Novo × Caturra <span class='src'>(theo World Coffee Research)</span>. Caturra cũng là vật liệu quan trọng trong nhiều chương trình lai tạo liên quan tới Catimor và các giống chống gỉ sắt. Vì vậy khi thấy Caturra trên một gói cà phê, bạn đang nhìn vào một giống có lịch sử rất dài.</p>" +
+      "<h3>Caturra có ngon không?</h3>" +
+      "<p>Có tiềm năng chất lượng tốt. Nhưng đừng biến tên giống thành lời quảng cáo: một giống có tiềm năng cao chỉ là điểm bắt đầu. Cùng một Caturra nhưng khác độ cao, đất, khí hậu, độ chín, sơ chế, rang thì ly cuối cùng có thể khác rất xa.</p>",
+    faq: [
+      { q: "Caturra có phải Bourbon không?", a: "Caturra là đột biến tự nhiên của Bourbon." },
+      { q: "Tại sao Caturra thấp?", a: "Do một đột biến gene liên quan đến đặc tính lùn/gọn (compact)." },
+      { q: "Caturra có năng suất cao hơn Bourbon không?", a: "Đặc điểm cây thấp cho phép trồng mật độ cao hơn, tạo lợi thế về năng suất trên diện tích." },
+      { q: "Caturra có phổ biến ở Lâm Đồng không?", a: "Caturra và các hậu duệ của nó có vai trò quan trọng trong lịch sử Arabica Lâm Đồng; con số diện tích cụ thể cần dựa trên thống kê địa phương cập nhật." }
+    ],
+    links: [
+      { label: "Bài trước: Bourbon và Typica", href: "/kien-thuc/bourbon-va-typica" },
+      { label: "Bài kế: Mundo Novo", href: "/kien-thuc/mundo-novo" }
+    ]
+  },
+  {
+    id: "mundo-novo",
+    anh: "",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 6,
+    tieuDe: "Mundo Novo: khi hai giống cà phê tự nhiên “gặp nhau”",
+    dek: "Đôi khi con người không tạo ra giống mới — tự nhiên làm trước. Mundo Novo là lai tự nhiên của Bourbon và Typica, và trở thành cha mẹ của Catuai.",
+    than:
+      "<p>Một trong những điều thú vị nhất của di truyền cà phê là đôi khi con người không tạo ra giống mới — <b>tự nhiên làm trước</b>. Mundo Novo là một ví dụ.</p>" +
+      "<h3>Mundo Novo là gì?</h3>" +
+      "<p>Mundo Novo là kết quả của một phép lai tự nhiên giữa <b>Bourbon và Typica</b> tại Brazil. WCR ghi nhận cây được phát hiện năm 1943, sau đó được chọn lọc và phát triển tại Brazil, thuộc nhóm Bourbon–Typica <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Vì sao Mundo Novo quan trọng?</h3>" +
+      "<p>Mundo Novo có cây cao, sinh trưởng mạnh và năng suất tốt so với một giống truyền thống; chất lượng tách tốt nhưng nhạy cảm với các bệnh quan trọng. Điểm đặc biệt hơn: Mundo Novo trở thành <b>một vật liệu lai tạo quan trọng</b>. Ví dụ nổi tiếng nhất: <b>Mundo Novo × Caturra = Catuai</b> <span class='src'>(theo World Coffee Research)</span>. Như vậy chỉ từ một phép lai tự nhiên giữa Bourbon và Typica, ngành cà phê có thêm nguồn vật liệu cho những giống về sau.</p>" +
+      "<h3>Một cây cao có phải bất lợi?</h3>" +
+      "<p>Không nhất thiết. Cây cao có thể mạnh và sinh trưởng tốt nhưng gây khó cho thu hoạch và quản lý. Đó là lý do các chương trình chọn giống thường tìm cách kết hợp ưu điểm của cây khỏe với đặc điểm cây thấp — Catuai là một ví dụ rõ ràng.</p>" +
+      "<blockquote><p>Khi nói về “giống ngon”, đừng chỉ nhìn vào tách. Một giống có thể quan trọng vì nó là cha mẹ của giống khác.</p></blockquote>",
+    faq: [
+      { q: "Mundo Novo có phải giống lai không?", a: "Có. Nó hình thành từ lai tự nhiên giữa Bourbon và Typica." },
+      { q: "Mundo Novo do ai tạo ra?", a: "Không phải phép lai nhân tạo ban đầu — nó được phát hiện từ một phép lai tự nhiên tại Brazil, sau đó được chọn lọc và phát triển bởi IAC." },
+      { q: "Mundo Novo liên quan Catuai thế nào?", a: "Catuai được tạo từ Mundo Novo × Caturra." }
+    ],
+    links: [
+      { label: "Bài trước: Caturra là gì", href: "/kien-thuc/caturra-la-gi" },
+      { label: "Bài kế: Vì sao Cầu Đất trồng được Arabica", href: "/kien-thuc/cau-dat-trong-arabica" }
+    ]
+  },
+  {
+    id: "cau-dat-trong-arabica",
+    anh: "assets/img/regions/cau-dat.jpg",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 7,
+    tieuDe: "Vì sao Cầu Đất trồng được Arabica còn nhiều vùng Việt Nam thì không?",
+    dek: "Arabica không chỉ là câu chuyện về giống, mà là câu chuyện về môi trường sống. Cầu Đất là nơi ở Việt Nam cho thấy điều đó rõ nhất.",
+    than:
+      "<p>Có một hiểu lầm rất phổ biến: <b>“Arabica ngon nên đem đi đâu trồng cũng được.”</b> Không. Arabica không chỉ là câu chuyện về giống — nó là câu chuyện về <b>môi trường sống</b>. Và Cầu Đất là một trong những nơi ở Việt Nam cho thấy điều đó rõ nhất.</p>" +
+      "<h3>Arabica thích điều kiện khác Robusta</h3>" +
+      "<p>Arabica thường phù hợp hơn với những vùng có điều kiện mát và độ cao tương đối lớn. Điều đó không có nghĩa cứ càng cao càng ngon — mà nghĩa là giống cần được đặt trong <b>một tổ hợp khí hậu phù hợp</b>: nhiệt độ, lượng mưa, mùa khô, đất, ánh sáng và độ cao cùng tác động lên cây.</p>" +
+      "<h3>Cầu Đất có gì đặc biệt?</h3>" +
+      "<p>Cầu Đất nằm ở khu vực Đà Lạt, Lâm Đồng và từ lâu gắn với lịch sử Arabica Việt Nam. Theo tư liệu địa phương, Arabica đã được trồng ở Lâm Đồng từ thời Pháp và Cầu Đất là một vùng Arabica quan trọng, trong đó từng tồn tại các vật liệu như Typica và Bourbon <span class='src'>(theo tư liệu địa phương)</span>. Điều đáng chú ý: <b>không phải toàn bộ Lâm Đồng có điều kiện giống nhau</b> — Cầu Đất khác Bảo Lộc, Bảo Lộc khác Lâm Hà, Lâm Hà lại khác Lạc Dương.</p>" +
+      "<blockquote><p>Không thể nói “Lâm Đồng trồng Arabica được”. Câu đúng hơn là: một số vùng sinh thái của Lâm Đồng có điều kiện phù hợp cho Arabica.</p></blockquote>" +
+      "<h3>Vậy tại sao Cầu Đất nổi tiếng?</h3>" +
+      "<p>Không chỉ vì độ cao. Lịch sử canh tác lâu năm, khí hậu, giống, đất, kỹ thuật và hệ sinh thái sản xuất cùng tạo nên danh tiếng. Đây cũng là lý do khi đánh giá một vùng cà phê, không nên chỉ lấy một con số độ cao rồi kết luận.</p>" +
+      "<h3>Bài học quan trọng</h3>" +
+      "<p>Một giống cà phê là <b>tiềm năng</b>. Một terroir phù hợp biến tiềm năng đó thành <b>khả năng thực tế</b>. Còn chất lượng cuối cùng lại phụ thuộc thêm vào con người.</p>",
+    faq: [
+      { q: "Có phải Arabica chỉ trồng được ở Cầu Đất?", a: "Không. Arabica được trồng ở nhiều vùng cao khác của Việt Nam phù hợp điều kiện." },
+      { q: "Lâm Hà có trồng Arabica không?", a: "Có những vùng và mô hình sản xuất Arabica, nhưng điều kiện từng tiểu vùng cần được đánh giá riêng." },
+      { q: "Độ cao có quyết định chất lượng không?", a: "Không. Độ cao chỉ là một biến số trong hệ sinh thái trồng cà phê." },
+      { q: "Cầu Đất có phải toàn bộ là Typica/Bourbon?", a: "Không. Cầu Đất hiện có nhiều vật liệu Arabica khác nhau." }
+    ],
+    links: [
+      { label: "Bài trước: Mundo Novo", href: "/kien-thuc/mundo-novo" },
+      { label: "Bài kế: Fine Robusta là gì", href: "/kien-thuc/fine-robusta-la-gi" },
+      { label: "Vùng cà phê Cầu Đất", href: "/vung-trong/cau-dat" }
+    ],
+    guTried: { giong: "Arabica Cầu Đất", tenGoi: "Dehavi — 100% Arabica Cầu Đất Pha Máy", href: "/review/dehavi-arabica-pha-may" }
+  },
+  {
+    id: "fine-robusta-la-gi",
+    anh: "assets/img/products/bui-fine-robusta.jpg",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 8,
+    tieuDe: "Fine Robusta là gì? Khi Robusta không còn được bán chỉ bằng giá",
+    dek: "Fine Robusta không phải một giống — đó là phân khúc chất lượng cao của Canephora. Giống tốt chỉ là điểm bắt đầu; cả một chuỗi sản xuất mới tạo nên nó.",
+    than:
+      "<p>Robusta từng bị gắn với một hình ảnh rất đơn giản: <b>đắng, mạnh, nhiều caffeine, giá thấp.</b> Nhưng câu chuyện đang thay đổi. Ngày càng nhiều người hỏi: Robusta có thể ngon đến đâu nếu được làm đúng? Đó là nơi khái niệm <b>Fine Robusta</b> xuất hiện.</p>" +
+      "<h3>Fine Robusta không phải một giống</h3>" +
+      "<p>Đây là điều phải nói trước. Fine Robusta không phải tên giống — nó là cách nói về <b>phân khúc chất lượng cao của cà phê Canephora/Robusta</b>. Một lô Robusta muốn được đánh giá cao không thể chỉ dựa vào giống; nó cần một chuỗi sản xuất tốt.</p>" +
+      "<h3>Giống tốt chỉ là điểm bắt đầu</h3>" +
+      "<p>Việt Nam đã có nhiều dòng Robusta được WASI chọn tạo và đưa vào sản xuất như TR4, TR5, TR6, TR7, TR8, TR9, TR11, TR12, TR13, TRS1… theo những mục tiêu như năng suất, kích thước hạt, thích nghi và khả năng chống chịu <span class='src'>(theo WASI)</span>. Nhưng <b>TR4 không tự động = Fine Robusta</b>; TR9 cũng vậy; Xanh Lùn cũng vậy. Giống chỉ tạo ra <b>nền nguyên liệu</b>.</p>" +
+      "<h3>Vậy Fine Robusta cần gì?</h3>" +
+      "<p>Một lô chất lượng cao thường phải kiểm soát tốt: quả chín, thu hái, phân loại, sơ chế, lên men (nếu có), phơi, bảo quản, rang và pha. Nếu quả xanh, quả khô, quả lỗi lẫn quá nhiều, ngay cả giống tốt cũng khó cứu.</p>" +
+      "<h3>Đây là cơ hội lớn của Việt Nam</h3>" +
+      "<p>Việt Nam là cường quốc Robusta. Vấn đề không còn chỉ là “làm sao sản xuất nhiều hơn?”, mà là <b>“làm sao tạo ra nhiều giá trị hơn từ mỗi kilogram?”</b>. Nếu một lô Robusta chứng minh được chất lượng bằng dữ liệu cảm quan, nguồn gốc, giống, quy trình và chất lượng vật lý, nó có thể bước ra khỏi cuộc chơi chỉ dựa trên giá hàng hoá.</p>",
+    faq: [
+      { q: "Fine Robusta có phải giống mới không?", a: "Không. Đó là cách nói về phân khúc chất lượng cao của Robusta, không phải tên giống." },
+      { q: "Robusta có thể có hương trái cây không?", a: "Có. Hương vị phụ thuộc vào giống, môi trường, sơ chế, rang và pha." },
+      { q: "TR4 có phải Fine Robusta không?", a: "Không tự động. TR4 là một giống/vật liệu Robusta; Fine Robusta là đánh giá về chất lượng của lô cà phê." },
+      { q: "Việt Nam có lợi thế gì?", a: "Việt Nam có nền sản xuất Robusta rất lớn, hệ thống giống chọn lọc và kinh nghiệm canh tác lâu năm. WASI hiện có nhiều giống Robusta đã đưa vào sản xuất." }
+    ],
+    links: [
+      { label: "Bài trước: Vì sao Cầu Đất trồng được Arabica", href: "/kien-thuc/cau-dat-trong-arabica" },
+      { label: "Bài kế: Pacamara là gì", href: "/kien-thuc/pacamara-la-gi" },
+      { label: "Robusta không chỉ có vị đắng (Canephora 2025)", href: "/kien-thuc/vong-tron-huong-vi-robusta-2025" }
+    ],
+    guTried: { giong: "Fine Robusta", tenGoi: "Bui Coffee Supply — Fine Robusta Nam Ban", href: "/review/bui-fine-robusta-nam-ban" }
+  },
+  {
+    id: "pacamara-la-gi",
+    anh: "assets/img/products/son-pacamara-microlot.webp",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 9,
+    tieuDe: "Pacamara là gì? Vì sao một giống cà phê hạt rất lớn lại nổi tiếng trong specialty?",
+    dek: "Pacas × Maragogipe = Pacamara. Hạt rất lớn, tiềm năng chất lượng cao — nhưng hạt to không có nghĩa ngon hơn.",
+    than:
+      "<p>Có những giống nhìn vào hạt đã thấy khác thường. Pacamara là một trong số đó. Tên Pacamara nghe như một cái tên riêng, nhưng thực ra nó kể luôn câu chuyện di truyền: <b>Pacas + Maragogipe = Pacamara.</b></p>" +
+      "<h3>Pacas là gì?</h3>" +
+      "<p>Pacas là một đột biến tự nhiên của Bourbon, đáng chú ý ở đặc điểm cây thấp hơn Bourbon. WCR ghi nhận Pacas được phát hiện ở El Salvador năm 1949 và sau đó được chọn lọc <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Maragogipe thì sao?</h3>" +
+      "<p>Maragogipe nổi tiếng với <b>kích thước hạt rất lớn</b>. Khi hai nguồn vật liệu này kết hợp, Pacamara ra đời. WCR xác nhận Pacamara có nguồn gốc từ phép lai Pacas × Maragogipe và được phát triển tại El Salvador <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Vì sao Pacamara được chú ý?</h3>" +
+      "<p>Một phần vì kích thước hạt. Nhưng điều khiến specialty quan tâm hơn là <b>tiềm năng chất lượng trong tách</b>. WCR ghi nhận Pacamara có khả năng tạo ra chất lượng tách đặc biệt, đồng thời cảnh báo nó có tính không đồng nhất và dễ bị bệnh gỉ sắt <span class='src'>(theo World Coffee Research)</span>. Đây là một ví dụ rất hay về trade-off: một giống có thể rất thú vị về chất lượng nhưng đồng thời khó trồng hơn.</p>" +
+      "<h3>Hạt to có ngon hơn không?</h3>" +
+      "<p>Không. Đây là một trong những hiểu lầm phổ biến nhất. Kích thước hạt chỉ là một đặc điểm vật lý; không có quy luật “hạt càng to → càng ngon”. Pacamara đáng chú ý không chỉ vì hạt lớn, mà vì toàn bộ câu chuyện di truyền và tiềm năng cảm quan của nó.</p>",
+    faq: [
+      { q: "Pacamara là lai của gì?", a: "Pacas × Maragogipe." },
+      { q: "Pacas là gì?", a: "Một đột biến tự nhiên của Bourbon, cây thấp hơn Bourbon." },
+      { q: "Pacamara có phải specialty không?", a: "Tên giống không quyết định specialty. Một lô Pacamara cụ thể cần được đánh giá chất lượng." },
+      { q: "Hạt Pacamara có lớn không?", a: "Có, đây là một trong những đặc điểm nổi bật của giống." }
+    ],
+    links: [
+      { label: "Bài trước: Fine Robusta là gì", href: "/kien-thuc/fine-robusta-la-gi" },
+      { label: "Bài kế: Xanh Lùn, TR4, TR9", href: "/kien-thuc/xanh-lun-tr4-tr9" }
+    ],
+    guTried: { giong: "Pacamara", tenGoi: "Sơn Pacamara — Micro-lot (Pacamara)", href: "/review/son-pacamara-pacamara" }
+  },
+  {
+    id: "xanh-lun-tr4-tr9",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 10,
+    tieuDe: "Xanh Lùn, TR4, TR9 là gì? Vì sao Việt Nam phải chọn lại giống Robusta?",
+    dek: "Ba cái tên rất dễ gặp ở Tây Nguyên — nhưng chúng không cùng một nhóm, và “Xanh Lùn” trên bao bì không tự động là nguồn giống được xác thực.",
+    than:
+      "<p>Nếu bạn đi qua vùng cà phê Tây Nguyên, ba cái tên rất dễ gặp là <b>TR4, TR9 và Xanh Lùn</b>. Nhưng chúng không phải một nhóm giống hoàn toàn giống nhau. Và càng không nên gom tất cả thành “Robusta ngon”.</p>" +
+      "<h3>TR4 là gì?</h3>" +
+      "<p>TR4 là một dòng Robusta được WASI chọn lọc và đưa vào sản xuất. WASI ghi nhận TR4 thuộc nhóm các giống Robusta được công nhận chính thức, nổi bật về năng suất, kích thước hạt và khả năng thích nghi <span class='src'>(theo WASI)</span>. Nó trở nên phổ biến vì phù hợp với nhu cầu tái canh và sản xuất quy mô lớn.</p>" +
+      "<h3>TR9 thì sao?</h3>" +
+      "<p>TR9 cũng là giống Robusta được WASI chọn lọc. WASI xếp TR9 cùng TR11 và TR12 trong nhóm có thời gian chín trung bình đến hơi muộn, năng suất cao trong điều kiện khảo nghiệm <span class='src'>(theo WASI)</span>. Điều này quan trọng trong sản xuất: không phải lúc nào người trồng cũng muốn tất cả cây chín cùng một thời điểm. Có các giống khác nhau về thời gian chín giúp tổ chức mùa vụ linh hoạt hơn.</p>" +
+      "<h3>Còn Xanh Lùn?</h3>" +
+      "<p>Xanh Lùn là một câu chuyện khác. Tên này được dùng cho vật liệu Robusta có đặc điểm cây thấp, tán gọn. Nhưng đây cũng là nơi người mua giống phải cẩn thận: WASI từng cảnh báo rằng họ không bán giống Xanh Lùn, và từng có tình trạng thị trường dùng tên WASI gây hiểu nhầm <span class='src'>(theo Báo Đắk Lắk)</span>.</p>" +
+      "<blockquote>“Xanh Lùn” trên bao bì không tự động đồng nghĩa với nguồn giống được xác thực.</blockquote>" +
+      "<h3>Vì sao Việt Nam phải chọn giống?</h3>" +
+      "<p>Cây cà phê sống nhiều năm. Nếu chọn sai giống, người trồng không thể dễ dàng sửa sai sau một vụ. Giống ảnh hưởng đến:</p>" +
+      "<ul><li>năng suất;</li><li>kích thước hạt;</li><li>thời gian chín;</li><li>khả năng chống bệnh;</li><li>khả năng thích nghi;</li><li>chi phí chăm sóc;</li><li>và cuối cùng là hiệu quả kinh tế.</li></ul>" +
+      "<p>WASI hiện công bố một hệ thống lớn các giống Robusta được chọn tạo và chuyển giao sản xuất <span class='src'>(theo Cục Thông tin, Thống kê KH&amp;CN)</span>.</p>",
+    faq: [
+      { q: "TR4 và TR9 có phải giống nhau?", a: "Không. Đây là hai dòng Robusta khác nhau, khác cả về thời gian chín." },
+      { q: "TR4 có phải giống tốt nhất?", a: "Không có “tốt nhất” cho mọi vùng. Giống phù hợp phụ thuộc điều kiện cụ thể." },
+      { q: "Xanh Lùn có phải giống của WASI?", a: "Tên Xanh Lùn xuất hiện trong hệ thống giống Robusta Việt Nam, nhưng nguồn gốc và tình trạng công nhận của từng vật liệu cần được kiểm tra cụ thể; không nên dựa chỉ vào nhãn thương mại." },
+      { q: "Giống có ảnh hưởng đến chất lượng cà phê không?", a: "Có, nhưng chất lượng cuối cùng còn phụ thuộc toàn bộ hệ thống sản xuất." }
+    ],
+    links: [
+      { label: "Bài trước: Pacamara là gì", href: "/kien-thuc/pacamara-la-gi" },
+      { label: "Bài kế: Typica là gì", href: "/kien-thuc/typica-la-gi" },
+      { label: "Kết quả nghiên cứu & chuyển giao giống của WASI", href: "https://wasi.org.vn/mot-so-ket-qua-nghien-cuu-khoa-hoc-va-chuyen-giao-cong-nghe-noi-bat-phuc-vu-phat-trien-nong-nghiep-tai-tay-nguyen-cua-vien-khoa-hoc-ky-thuat-nong-lam-nghiep-tay-nguyen/" }
+    ]
+  },
+  {
+    id: "typica-la-gi",
+    anh: "assets/img/regions/cau-dat.jpg",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 11,
+    tieuDe: "Typica là gì? Giống cà phê đã đi vòng quanh thế giới như thế nào?",
+    dek: "Có giống nổi tiếng vì giá. Typica nổi tiếng vì lịch sử — và vì nó là một trong những “ông tổ” di truyền của Arabica hiện đại.",
+    than:
+      "<p>Có những giống cà phê nổi tiếng vì giá. Typica nổi tiếng vì <b>lịch sử</b>. Nếu muốn hiểu vì sao Arabica ngày nay có hàng chục cái tên khác nhau, Typica là một trong những điểm bắt đầu tốt nhất.</p>" +
+      "<h3>Typica đi từ đâu?</h3>" +
+      "<p>Câu chuyện của Typica gắn với lịch sử lan truyền Arabica từ Yemen sang nhiều khu vực trồng cà phê trên thế giới. Từ các trung tâm cà phê ban đầu, vật liệu Typica theo các tuyến thương mại và thuộc địa tới châu Á, rồi sang châu Mỹ. Qua hàng trăm năm, nó trở thành một trong những dòng Arabica có ảnh hưởng lớn nhất. WCR xếp Typica trong nhóm Bourbon–Typica và mô tả nó là một trong những Arabica quan trọng nhất về mặt văn hóa và di truyền <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Vì sao Typica vẫn tồn tại?</h3>" +
+      "<p>Bởi nó có chất lượng. Nhưng đồng thời nó có nhược điểm: <b>cây cao và nhạy cảm với bệnh</b>. Trong nông nghiệp thương mại, đây là vấn đề lớn — năng suất không phải lúc nào cũng cao, thu hoạch khó hơn, rủi ro bệnh cao hơn. Vì vậy ngành cà phê dần phát triển nhiều giống mới.</p>" +
+      "<h3>Nhưng Typica chưa bao giờ biến mất</h3>" +
+      "<p>Bởi nó vẫn là một nguồn gene quan trọng. Một giống có thể không chiếm diện tích lớn nhưng vẫn cực kỳ quan trọng đối với lịch sử cà phê. Đó là trường hợp của Typica.</p>" +
+      "<h3>Typica và Cầu Đất</h3>" +
+      "<p>Ở Việt Nam, Typica gắn với lịch sử Arabica ở Cầu Đất và Lâm Đồng. Một phần giá trị của những cây Typica lâu năm không chỉ nằm ở số kilogram cà phê chúng tạo ra — nó còn nằm ở <b>di sản di truyền và lịch sử canh tác</b>. Đó là lý do những vườn Arabica cũ đôi khi đáng được nhìn như một tài sản di truyền chứ không chỉ là một khu đất sản xuất.</p>",
+    faq: [
+      { q: "Typica có phải loài cà phê không?", a: "Không. Typica là một giống/nhóm giống trong loài Coffea arabica." },
+      { q: "Typica có ngon không?", a: "Có tiềm năng chất lượng cao, nhưng không phải mọi lô Typica đều ngon." },
+      { q: "Typica có năng suất cao không?", a: "Thông thường năng suất không phải lợi thế chính của Typica." },
+      { q: "Typica có còn quan trọng không?", a: "Rất quan trọng về lịch sử và di truyền. WCR xếp nó vào nhóm Arabica có ý nghĩa văn hóa và di truyền lớn." }
+    ],
+    links: [
+      { label: "Bài trước: Xanh Lùn, TR4, TR9", href: "/kien-thuc/xanh-lun-tr4-tr9" },
+      { label: "Bài kế: SL28 là gì", href: "/kien-thuc/sl28-la-gi" },
+      { label: "Typica trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/typica" }
+    ],
+    guTried: { giong: "Typica", tenGoi: "Fruit Mood — Special Blend (có Typica)", href: "/review/son-pacamara-fruit-mood" }
+  },
+  {
+    id: "sl28-la-gi",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 12,
+    tieuDe: "SL28 là gì? Vì sao một giống cà phê có thể tạo nên danh tiếng cho Kenya?",
+    dek: "SL28 không phải giống “tự nhiên” mà là kết quả chọn lọc — năng suất thấp nhưng tiềm năng chất lượng tách rất cao.",
+    than:
+      "<p>Có những cái tên khi nhắc tới là người uống specialty lập tức nghĩ tới một quốc gia. <b>SL28 → Kenya.</b> Tất nhiên Kenya không chỉ có SL28, nhưng SL28 đã trở thành một phần rất quan trọng của hình ảnh cà phê Kenya.</p>" +
+      "<h3>SL28 không phải giống “tự nhiên”</h3>" +
+      "<p>SL28 là kết quả của quá trình chọn lọc. WCR ghi nhận nó được chọn tại Scott Agricultural Laboratories ở Kenya trong những năm 1930; một cây từ quần thể được gọi là Tanganyika Drought Resistant đã được chọn năm 1935 <span class='src'>(theo World Coffee Research)</span>. Mục tiêu ban đầu không đơn giản là “tạo ra cà phê thơm” — người ta quan tâm tới năng suất, chất lượng, khả năng chịu hạn và khả năng chống bệnh.</p>" +
+      "<h3>Điều đặc biệt của SL28</h3>" +
+      "<p>SL28 là cây cao, hạt lớn, năng suất không phải điểm mạnh. Nhưng WCR đánh giá nó có <b>tiềm năng chất lượng tách rất tốt</b> và khả năng chịu hạn đáng chú ý <span class='src'>(theo World Coffee Research)</span>. Đây là một trade-off rất rõ: năng suất không cao nhưng chất lượng có thể rất tốt.</p>" +
+      "<h3>Tại sao SL28 nổi tiếng?</h3>" +
+      "<p>Không chỉ vì gene, mà vì gene đó gặp một môi trường phù hợp. Kenya có những vùng cao, khí hậu và hệ thống sản xuất tạo điều kiện cho các giống như SL28 thể hiện đặc tính cảm quan. Và từ đó hình thành một “ngôn ngữ hương vị” mà người uống trên thế giới liên tưởng đến cà phê Kenya.</p>",
+    faq: [
+      { q: "SL28 có phải giống Ethiopia không?", a: "Không. Nó được chọn lọc tại Kenya." },
+      { q: "SL28 có phải cây năng suất cao không?", a: "Không. WCR xếp tiềm năng năng suất của SL28 ở mức thấp." },
+      { q: "SL28 có chất lượng cao không?", a: "Có tiềm năng chất lượng tách rất tốt trong điều kiện phù hợp." },
+      { q: "SL28 có thể trồng ở Việt Nam không?", a: "Có thể có các thử nghiệm và mô hình trồng, nhưng không nên mặc định rằng môi trường Việt Nam sẽ tạo ra profile giống Kenya." }
+    ],
+    links: [
+      { label: "Bài trước: Typica là gì", href: "/kien-thuc/typica-la-gi" },
+      { label: "Bài kế: SL28 và SL34 khác nhau ở đâu", href: "/kien-thuc/sl28-va-sl34" },
+      { label: "SL28 trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/sl28" }
+    ]
+  },
+  {
+    id: "sl28-va-sl34",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 13,
+    tieuDe: "SL28 và SL34: Hai giống Kenya khác nhau ở đâu?",
+    dek: "Hay được nhắc cùng nhau, nhưng đây là hai giống có nền di truyền khác nhau — không phải một dòng chia đôi.",
+    than:
+      "<p>SL28 và SL34 thường được nhắc cùng nhau. Nhưng chúng không phải một giống. Tên “SL” đến từ <b>Scott Agricultural Laboratories</b>, nơi nhiều cây cà phê được chọn lọc trong chương trình nghiên cứu Kenya.</p>" +
+      "<h3>SL28</h3>" +
+      "<p>SL28 được chọn năm 1935 từ một cây thuộc quần thể Tanganyika Drought Resistant. WCR ghi nhận nó có nguồn gốc Bourbon-related và có tiềm năng chất lượng tách rất tốt <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>SL34</h3>" +
+      "<p>SL34 cũng được chọn tại Scott Agricultural Laboratories trong giai đoạn cuối những năm 1930. WCR xếp SL34 vào nhóm Bourbon–Typica nhưng có nền di truyền Typica-related, và ghi nhận nó nổi bật về tiềm năng chất lượng tách <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Vậy tại sao hai cái tên này hay đi cùng?</h3>" +
+      "<p>Bởi cả hai đều trở thành những giống Arabica quan trọng của Kenya. Nhưng chúng không có cùng lịch sử di truyền: SL28 gắn với lựa chọn từ Tanganyika Drought Resistant, còn SL34 có nền Typica-like.</p>" +
+      "<h3>Người uống có cần phân biệt?</h3>" +
+      "<p>Nếu chỉ uống cà phê hàng ngày: không cần. Nhưng nếu muốn hiểu specialty, đây là một bài học rất hay. Một quốc gia có thể xây dựng danh tiếng không chỉ bằng một “vùng trồng”, mà bằng <b>giống + khí hậu + canh tác + sơ chế + hệ thống đấu giá + văn hóa chất lượng</b>. Kenya là một ví dụ điển hình.</p>",
+    faq: [
+      { q: "SL28 và SL34 có phải cùng giống?", a: "Không. Đây là hai giống riêng." },
+      { q: "SL34 có phải hậu duệ trực tiếp của SL28?", a: "Không nên mô tả đơn giản như vậy. WCR ghi nhận hai giống có nền di truyền khác nhau." },
+      { q: "Giống nào ngon hơn?", a: "Không thể kết luận tuyệt đối; còn phụ thuộc vùng trồng và cách sản xuất." }
+    ],
+    links: [
+      { label: "Bài trước: SL28 là gì", href: "/kien-thuc/sl28-la-gi" },
+      { label: "Bài kế: Gesha là gì", href: "/kien-thuc/gesha-la-gi" },
+      { label: "SL34 trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/sl34" }
+    ]
+  },
+  {
+    id: "gesha-la-gi",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 14,
+    tieuDe: "Gesha là gì? Vì sao một giống cà phê Ethiopia lại trở thành biểu tượng của Panama?",
+    dek: "Nguồn gốc ở Ethiopia, danh tiếng nổ ra ở Panama — nhưng một giống nổi tiếng không biến mọi lô thành cà phê xuất sắc.",
+    than:
+      "<p>Có lẽ không cái tên nào trong specialty coffee tạo ra nhiều tò mò như <b>Gesha</b>. Giá cao. Hương hoa. Nhài. Đào. Những cuộc đấu giá hàng chục, thậm chí hàng trăm USD/kg. Nhưng câu chuyện thật sự thú vị hơn giá.</p>" +
+      "<h3>Gesha không sinh ra ở Panama</h3>" +
+      "<p>Nguồn gốc của vật liệu Gesha nằm ở Ethiopia. Sau đó nó được đưa qua các chương trình nghiên cứu và cuối cùng tới Panama. WCR ghi nhận dòng Geisha Panama nổi tiếng có nguồn gốc từ T2722 và có sự khác biệt di truyền rõ ràng so với nhiều vật liệu khác cũng được gọi là Geisha/Gesha <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Tại sao Panama làm Gesha nổi tiếng?</h3>" +
+      "<p>Bởi một số cây Gesha tại Panama thể hiện chất lượng tách cực kỳ nổi bật khi được quản lý tốt ở độ cao phù hợp. Năm 2005, gia đình Peterson tại Boquete đưa Gesha vào cuộc thi Best of Panama và đấu giá; nó nhận điểm rất cao và phá kỷ lục giá cà phê xanh thời điểm đó <span class='src'>(theo World Coffee Research)</span>. Từ đó: <b>Gesha + Panama = một biểu tượng specialty.</b></p>" +
+      "<h3>Nhưng đây là điểm quan trọng</h3>" +
+      "<p>Không phải mọi cây mang tên Gesha đều giống nhau. WCR cảnh báo có sự nhầm lẫn đáng kể quanh tên Geisha/Gesha vì nhiều vật liệu khác nhau đã được gọi bằng tên này. Đây là lý do <b>truy xuất nguồn gốc vật liệu giống</b> rất quan trọng.</p>" +
+      "<h3>Gesha có phải giống ngon nhất thế giới?</h3>" +
+      "<p>Không. Nó là một giống có khả năng tạo ra những lô rất đặc biệt. Đó là hai chuyện khác nhau — một giống nổi tiếng không biến mọi lô thành cà phê xuất sắc.</p>",
+    faq: [
+      { q: "Gesha hay Geisha?", a: "Cả hai cách viết đều được sử dụng. WCR ghi nhận “Geisha” xuất hiện lâu trong hồ sơ giống, trong khi nhiều người trong ngành thích “Gesha” vì liên hệ với vùng Gesha ở Ethiopia." },
+      { q: "Gesha có nguồn gốc Panama không?", a: "Không. Nguồn gốc sâu xa nằm ở Ethiopia." },
+      { q: "Tại sao Gesha Panama đắt?", a: "Một phần vì chất lượng cảm quan đặc biệt của các lô tốt, độ hiếm, danh tiếng và thị trường đấu giá." },
+      { q: "Gesha có hương hoa không?", a: "Các dòng Gesha Panama chất lượng cao thường được mô tả với đặc tính hoa, nhài và trái cây như đào." }
+    ],
+    links: [
+      { label: "Bài trước: SL28 và SL34", href: "/kien-thuc/sl28-va-sl34" },
+      { label: "Bài kế: Ombligon là gì", href: "/kien-thuc/ombligon-la-gi" },
+      { label: "Geisha (Panama) trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/geisha-panama" }
+    ]
+  },
+  {
+    id: "ombligon-la-gi",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 15,
+    tieuDe: "Ombligon là gì? Vì sao một giống cà phê địa phương ở Colombia được chú ý?",
+    dek: "Không phải giống nổi tiếng nào cũng có hàng trăm năm hồ sơ. Ombligon nổi lên từ cộng đồng sản xuất — và là ví dụ cho xu hướng specialty coi trọng nguồn gốc.",
+    than:
+      "<p>Không phải giống cà phê nổi tiếng nào cũng có lịch sử hàng trăm năm được các viện nghiên cứu ghi chép đầy đủ. Có những cái tên nổi lên từ chính cộng đồng sản xuất địa phương. <b>Ombligon</b> là một trường hợp thú vị.</p>" +
+      "<h3>Cái tên nghe rất lạ</h3>" +
+      "<p>“Ombligo” trong tiếng Tây Ban Nha nghĩa là <b>rốn</b>. Tên Ombligon gắn với hình dạng đặc trưng của quả/hạt được người trồng địa phương nhận biết. Nó được biết đến tại vùng Huila, Colombia.</p>" +
+      "<h3>Vì sao specialty quan tâm?</h3>" +
+      "<p>Bởi một số lô Ombligon cho thấy profile cảm quan rất khác biệt và nổi bật. Đây là kiểu câu chuyện specialty rất thích: một vật liệu địa phương → được người sản xuất chăm sóc đặc biệt → tạo ra một profile khác thường → thị trường bắt đầu chú ý. Nhưng cần rất cẩn thận: không nên biến nó thành “giống ngon nhất Colombia”, cũng không nên nói mọi cây Ombligon đều có một profile cố định.</p>" +
+      "<h3>Điều quan trọng nhất là nguồn gốc</h3>" +
+      "<p>Một trong những điều làm specialty hiện đại thay đổi là người mua ngày càng quan tâm đến <b>identity của vật liệu</b>. Trước đây chỉ cần “Colombia”. Bây giờ người mua có thể muốn biết vùng nào, farm nào, giống nào, độ cao nào, sơ chế nào, và đôi khi là dòng di truyền nào. Ombligon là ví dụ cho xu hướng đó.</p>" +
+      "<h3>Bài học cho Việt Nam</h3>" +
+      "<p>Việt Nam cũng có những vật liệu địa phương có thể đáng được nghiên cứu: Sẻ, những dòng Robusta bản địa, các quần thể Arabica cũ, các dòng được chọn lọc tại địa phương. Không phải tất cả đều trở thành “Gesha thứ hai”. Nhưng có thể có những câu chuyện riêng. Và specialty đang ngày càng trả tiền cho <b>sự khác biệt có thể chứng minh</b>.</p>",
+    faq: [
+      { q: "Ombligon là gì?", a: "Một vật liệu/giống Arabica được biết đến tại Huila, Colombia." },
+      { q: "Tên Ombligon nghĩa là gì?", a: "Gắn với “ombligo”, nghĩa là rốn — theo hình dạng đặc trưng của quả/hạt." },
+      { q: "Ombligon có phải giống lai F1 không?", a: "Không nên mặc định như vậy. Đây là một vật liệu địa phương có lịch sử và phân loại phức tạp hơn." }
+    ],
+    links: [
+      { label: "Bài trước: Gesha là gì", href: "/kien-thuc/gesha-la-gi" },
+      { label: "Bài kế: Centroamericano H1 là gì", href: "/kien-thuc/centroamericano-h1" },
+      { label: "Danh mục giống Arabica — World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/arabica/varieties" }
+    ]
+  },
+  {
+    id: "centroamericano-h1",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 16,
+    tieuDe: "Centroamericano H1 là gì? Một giống cà phê có thể vừa khỏe vừa ngon không?",
+    dek: "F1 hybrid ra đời để giải bài toán khó nhất của chọn giống: một cây vừa khỏe, vừa năng suất, vừa có tiềm năng chất lượng.",
+    than:
+      "<p>Trong chọn giống cà phê có một bài toán rất khó: <b>làm sao có một cây vừa khỏe vừa cho cà phê ngon?</b> Nếu chỉ cần năng suất, việc chọn giống có thể đơn giản hơn. Nếu chỉ cần chất lượng tách, cũng có thể chọn những dòng nổi tiếng. Nhưng nông dân cần một cây sống được, sản xuất được và vẫn tạo ra sản phẩm có giá trị. Đó là lý do F1 hybrid trở nên hấp dẫn.</p>" +
+      "<h3>Centroamericano H1</h3>" +
+      "<p>Centroamericano, thường gọi là H1, là một F1 hybrid thuộc Arabica, nằm trong nhóm F1 được phát triển thông qua các chương trình hợp tác nghiên cứu cà phê Trung Mỹ. WCR liệt kê Centroamericano cùng Starmaya, Milenio, Mundo Maya, Casiopea và Ruiru 11 trong nhóm F1 hybrid <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Tại sao H1 được chú ý?</h3>" +
+      "<p>Bởi nó hướng tới việc kết hợp nhiều đặc điểm mà nông dân cần: sức sinh trưởng, năng suất, khả năng chống chịu, và tiềm năng chất lượng. WCR từng ghi nhận các F1 hybrid đạt thành tích rất tốt tại các cuộc thi Cup of Excellence, cho thấy F1 không đồng nghĩa với “giống công nghiệp chất lượng thấp” <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Nhưng F1 không phải phép màu</h3>" +
+      "<p>Nếu trồng ở nơi không phù hợp, giống tốt vẫn có thể thất bại. Nếu dinh dưỡng không phù hợp, cây vẫn kém. Nếu sơ chế kém, chất lượng tách vẫn thấp. Vì vậy câu hỏi đúng không phải “H1 có ngon không?” mà là <b>“H1 hoạt động thế nào trong điều kiện cụ thể này?”</b> Đó mới là tư duy chọn giống hiện đại.</p>",
+    faq: [
+      { q: "Centroamericano H1 là Arabica hay Robusta?", a: "Arabica. Nó là một F1 hybrid trong loài Arabica." },
+      { q: "H1 có phải GMO?", a: "Không. F1 được tạo bằng lai truyền thống, không phải biến đổi gene." },
+      { q: "F1 có luôn ngon hơn giống truyền thống?", a: "Không. Kết quả còn phụ thuộc điều kiện trồng và cách sản xuất." },
+      { q: "Tại sao F1 quan trọng?", a: "Vì nó mở ra khả năng kết hợp nhiều đặc tính có giá trị trong cùng một vật liệu." }
+    ],
+    links: [
+      { label: "Bài trước: Ombligon là gì", href: "/kien-thuc/ombligon-la-gi" },
+      { label: "Bài kế: Red Bourbon là gì", href: "/kien-thuc/red-bourbon-la-gi" },
+      { label: "Centroamericano trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/centroamericano" }
+    ]
+  },
+  {
+    id: "red-bourbon-la-gi",
+    anh: "assets/img/products/married-beans-red-bourbon.webp",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 17,
+    tieuDe: "Red Bourbon là gì? Vì sao một giống cà phê từ Réunion lại có mặt ở Lạc Dương?",
+    dek: "Bourbon đi từ Yemen qua đảo Réunion rồi lan khắp thế giới. Red Bourbon là dòng quả đỏ phổ biến — nhưng màu quả không phải toàn bộ câu chuyện di truyền.",
+    than:
+      "<p>Có những giống cà phê đã đi qua nửa vòng trái đất. Bourbon là một trong số đó. Và <b>Red Bourbon</b> là một trong những cái tên phổ biến nhất khi nói về Arabica chất lượng cao.</p>" +
+      "<h3>Bourbon bắt đầu từ đâu?</h3>" +
+      "<p>Bourbon có nguồn gốc sâu xa từ Yemen, sau đó được đưa tới đảo Bourbon (nay là Réunion), rồi từ đây lan sang châu Phi và châu Mỹ. WCR ghi nhận Bourbon là một trong những giống Arabica có ý nghĩa văn hóa và di truyền lớn, có tiềm năng chất lượng rất tốt ở độ cao phù hợp <span class='src'>(theo World Coffee Research)</span>.</p>" +
+      "<h3>Red Bourbon là gì?</h3>" +
+      "<p>Tên Bourbon không chỉ có một màu quả. Trong ngành cà phê có những dòng Bourbon khác nhau, trong đó Red Bourbon là một tên thương mại/vật liệu rất phổ biến để chỉ Bourbon có quả chín màu đỏ. Nhưng phải cẩn thận: <b>màu quả không phải toàn bộ câu chuyện di truyền.</b></p>" +
+      "<h3>Tại sao Bourbon có mặt ở Việt Nam?</h3>" +
+      "<p>Việt Nam có lịch sử Arabica lâu đời, đặc biệt ở Lâm Đồng. Những vùng có khí hậu phù hợp cho Arabica từng tiếp nhận nhiều vật liệu giống khác nhau. Ngày nay Bourbon và các hậu duệ Bourbon vẫn được quan tâm trong các mô hình specialty.</p>" +
+      "<h3>Lạc Dương có gì đáng chú ý?</h3>" +
+      "<p>Lạc Dương nằm trong vùng sinh thái Arabica quan trọng của Lâm Đồng. Nhưng không nên nói “Bourbon Lạc Dương chắc chắn ngon hơn Bourbon nơi khác”. Một giống chỉ tạo ra <b>tiềm năng</b>; terroir và cách sản xuất mới quyết định nó được thể hiện tới đâu.</p>",
+    faq: [
+      { q: "Red Bourbon có phải giống hoàn toàn khác Bourbon?", a: "Tên Red Bourbon thường dùng để phân biệt dòng Bourbon có quả đỏ với các dạng màu quả khác; không nên coi “red” là một loài hay một nhóm di truyền độc lập." },
+      { q: "Bourbon có nguồn gốc Việt Nam không?", a: "Không. Lịch sử Bourbon gắn với Yemen và đảo Bourbon/Réunion." },
+      { q: "Bourbon có ngon không?", a: "Có tiềm năng chất lượng cao, nhưng không phải mọi lô đều giống nhau." }
+    ],
+    links: [
+      { label: "Bài trước: Centroamericano H1", href: "/kien-thuc/centroamericano-h1" },
+      { label: "Bài kế: THA-1 là gì", href: "/kien-thuc/tha-1-la-gi" },
+      { label: "Bourbon trên World Coffee Research", href: "https://varieties.worldcoffeeresearch.org/varieties/bourbon" }
+    ],
+    guTried: { giong: "Red Bourbon", tenGoi: "The Married Beans — Red Bourbon rang sáng Cầu Đất", href: "/review/married-beans-red-bourbon-cau-dat" }
+  },
+  {
+    id: "tha-1-la-gi",
+    tag: "Kiến thức", docPhut: 5, mucDo: "Giống cà phê", thuTu: 18,
+    tieuDe: "THA-1 là gì? Việt Nam đã tự chọn tạo giống Arabica như thế nào?",
+    dek: "Việt Nam không chỉ nhập Arabica về trồng — WASI đã có chương trình chọn tạo giống Arabica riêng cho điều kiện trong nước.",
+    than:
+      "<p>Khi nói về giống cà phê Việt Nam, người ta thường nhắc đến những cái tên Robusta như TR4, TR9, TRS1. Nhưng Việt Nam cũng có câu chuyện riêng về <b>chọn tạo Arabica</b>. Một trong những cái tên đáng chú ý là <b>THA-1</b>.</p>" +
+      "<h3>THA-1 đến từ đâu?</h3>" +
+      "<p>THA-1 là một giống Arabica được WASI chọn tạo và đưa vào hệ thống giống Arabica Việt Nam. WASI hiện liệt kê THA1 cùng TN1, TN2, TN6, TN7 và TN9 trong nhóm các giống cà phê chè đã được giới thiệu và đưa vào sản xuất <span class='src'>(theo Cục Thông tin, Thống kê KH&amp;CN)</span>. Điều này rất đáng chú ý: Việt Nam không chỉ là nơi nhập Arabica rồi trồng, mà đã có <b>chương trình chọn tạo giống phù hợp với điều kiện trong nước</b>.</p>" +
+      "<h3>Tại sao phải chọn giống Arabica riêng cho Việt Nam?</h3>" +
+      "<p>Bởi Arabica ở Việt Nam có những bài toán riêng: bệnh gỉ sắt, khí hậu, độ cao, năng suất, chất lượng, và khả năng thích nghi. Một giống tốt ở Colombia chưa chắc là giống tốt nhất ở Lâm Đồng. Một giống tốt ở Ethiopia chưa chắc phù hợp với Sơn La. Chọn giống luôn phải đặt trong bối cảnh môi trường.</p>" +
+      "<h3>THA-1 có phải “Gesha Việt Nam”?</h3>" +
+      "<p>Không. Không nên dùng cách gọi như vậy. THA-1 có câu chuyện di truyền và mục tiêu chọn tạo riêng. Giá trị của nó nằm ở việc Việt Nam có thể chủ động hơn trong việc phát triển vật liệu Arabica phù hợp với điều kiện sản xuất trong nước.</p>" +
+      "<h3>Đây mới là điều đáng nói</h3>" +
+      "<p>Tương lai Arabica Việt Nam không nhất thiết phải là “trồng Gesha”. Nó có thể là <b>chọn giống phù hợp + terroir phù hợp + kỹ thuật tốt + sơ chế tốt</b>. Nếu làm được điều đó, Việt Nam có thể tạo ra những profile riêng thay vì chỉ cố bắt chước các vùng nổi tiếng khác.</p>",
+    faq: [
+      { q: "THA-1 là Arabica hay Robusta?", a: "Arabica (cà phê chè)." },
+      { q: "Ai phát triển THA-1?", a: "WASI là đơn vị nghiên cứu/chọn tạo và đưa THA1 vào hệ thống giống Arabica Việt Nam." },
+      { q: "THA-1 có phải giống specialty không?", a: "Không thể kết luận chỉ bằng tên giống. Một lô cụ thể cần được đánh giá chất lượng." },
+      { q: "THA-1 có liên quan Lâm Đồng không?", a: "THA1 nằm trong hệ thống giống Arabica được WASI phát triển cho Việt Nam; việc một lô cụ thể có phù hợp hay đạt chất lượng cao tại Lâm Đồng vẫn phải xét điều kiện sản xuất cụ thể." }
+    ],
+    links: [
+      { label: "Bài trước: Red Bourbon là gì", href: "/kien-thuc/red-bourbon-la-gi" },
+      { label: "Bài kế: Catimor Đà Lạt là gì", href: "/kien-thuc/catimor-da-lat" },
+      { label: "20 giống cà phê của WASI đã chuyển giao sản xuất", href: "https://vista.gov.vn/vi/news/print/cac-linh-vuc-khoa-hoc-va-cong-nghe/20-giong-ca-phe-cua-vien-khoa-hoc-ky-thuat-nong-lam-nghiep-tay-nguyen-da-duoc-chuyen-giao-san-xuat-9705.html" }
+    ]
+  },
+  {
+    id: "catimor-da-lat",
+    anh: "assets/img/regions/da-lat.jpg",
+    tag: "Kiến thức", docPhut: 6, mucDo: "Giống cà phê", thuTu: 19,
+    tieuDe: "Catimor Đà Lạt là gì? Vì sao giống này quan trọng với Arabica Lâm Đồng?",
+    dek: "Không hào nhoáng như Gesha, nhưng về vai trò sản xuất, Catimor cực kỳ quan trọng với Arabica Lâm Đồng — và không nên bị kết luận “không ngon” chỉ vì cái tên.",
+    than:
+      "<p>Nếu Robusta là câu chuyện lớn của Tây Nguyên, thì với Arabica Lâm Đồng, có một cái tên gần như không thể bỏ qua: <b>Catimor</b>. Nó không nổi tiếng theo cách Gesha nổi tiếng, không có mức giá đấu giá như Gesha. Nhưng xét về <b>vai trò sản xuất</b>, Catimor cực kỳ quan trọng.</p>" +
+      "<h3>Catimor là gì?</h3>" +
+      "<p>Catimor không phải một giống đơn lẻ theo cách đơn giản như người mới thường nghĩ. Tên này gắn với nhóm vật liệu Arabica có nền di truyền liên quan đến <b>Caturra và Timor Hybrid</b>. Điểm quan trọng của nhóm này là khả năng mang gene chống chịu bệnh gỉ sắt từ Timor Hybrid trong khi vẫn giữ nhiều đặc điểm sản xuất hữu ích của Arabica.</p>" +
+      "<h3>Tại sao người trồng cần gene chống gỉ sắt?</h3>" +
+      "<p>Bệnh gỉ sắt là một trong những vấn đề nghiêm trọng nhất của Arabica. Một giống có chất lượng tốt nhưng cực kỳ nhạy bệnh sẽ gặp khó khăn khi trồng thương mại. Đây chính là bài toán mà các chương trình chọn giống phải giải: <b>làm sao không hy sinh toàn bộ chất lượng nhưng vẫn giúp cây sống và sản xuất được?</b> Catimor là một trong những câu trả lời lịch sử cho bài toán đó.</p>" +
+      "<h3>Vì sao Catimor quan trọng ở Lâm Đồng?</h3>" +
+      "<p>Arabica Lâm Đồng đã trải qua nhiều giai đoạn phát triển giống. Các nguồn tư liệu địa phương ghi nhận Catimor hiện diện rộng trong sản xuất Arabica Lâm Đồng và có lợi thế về khả năng chống chịu cũng như năng suất <span class='src'>(theo Bảo tàng tỉnh Lâm Đồng)</span>. Điều này giải thích một nghịch lý: một số người uống specialty nghe “Catimor” rồi lập tức nghĩ “giống thương mại, không ngon”. Nhưng điều đó quá đơn giản.</p>" +
+      "<h3>Catimor có thể ngon không?</h3>" +
+      "<p>Có. Một giống không thể bị kết luận là “ngon” hay “dở” chỉ bằng tên. Điều kiện trồng, độ cao, dinh dưỡng, mức độ chín, sơ chế và rang có thể tạo ra khác biệt rất lớn. Một Catimor được chăm sóc tốt ở môi trường phù hợp hoàn toàn có thể tạo ra một lô cà phê chất lượng đáng chú ý.</p>" +
+      "<h3>Đây mới là điều Gu muốn giữ lại</h3>" +
+      "<p>Catimor có thể không phải cái tên hào nhoáng nhất trong specialty. Nhưng nó đại diện cho một điều rất quan trọng: <b>cà phê ngon không chỉ là cuộc chơi của những giống đắt tiền.</b> Nó còn là câu chuyện của <b>giống phù hợp + nơi phù hợp + người làm đúng</b>.</p>",
+    faq: [
+      { q: "Catimor có phải Arabica không?", a: "Có. Catimor thuộc nhóm vật liệu Arabica có liên quan đến Timor Hybrid và Caturra." },
+      { q: "Catimor có phải giống kém chất lượng không?", a: "Không thể kết luận như vậy chỉ bằng tên giống." },
+      { q: "Tại sao Catimor phổ biến?", a: "Một lý do quan trọng là khả năng chống chịu bệnh gỉ sắt kết hợp với đặc điểm sản xuất phù hợp." },
+      { q: "Catimor có thể làm specialty không?", a: "Có thể có những lô chất lượng cao, nhưng phải đánh giá từng lô chứ không dựa vào tên giống." },
+      { q: "Catimor có quan trọng ở Lâm Đồng không?", a: "Có. Các nguồn tư liệu địa phương ghi nhận Catimor là vật liệu rất phổ biến trong Arabica Lâm Đồng." }
+    ],
+    links: [
+      { label: "Bài trước: THA-1 là gì", href: "/kien-thuc/tha-1-la-gi" },
+      { label: "Về đầu cụm: Vì sao cà phê có nhiều giống", href: "/kien-thuc/vi-sao-ca-phe-nhieu-giong" },
+      { label: "Cây cà phê Arabica tại Lâm Đồng — Bảo tàng tỉnh Lâm Đồng", href: "https://baotanglamdong.com.vn/research/cay-ca-phe-arabica-tai-lam-dong" }
+    ],
+    guTried: { giong: "Catimor", tenGoi: "Là Việt — RICH 100% Arabica Đà Lạt", href: "/review/la-viet-rich-arabica-da-lat" }
   }
 ];
 

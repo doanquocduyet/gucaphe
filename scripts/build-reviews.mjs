@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260903-5';
+const CSS_V = '20260911-1';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1397,7 +1397,9 @@ const KT_GROUPS = [
   { key: 'Thực hành', kick: 'Pha & bảo quản', title: 'Ra ly ngon từ gói bạn đã có',
     sub: 'Công thức nền theo từng cách pha và cách đọc ngày rang để uống đúng “tuần vàng”.' },
   { key: 'Chọn mua', kick: 'So sánh', title: 'Chọn đúng gói để mua',
-    sub: 'So sánh thẳng giữa các nhà, nối tới gói thật đã mua và uống.' }
+    sub: 'So sánh thẳng giữa các nhà, nối tới gói thật đã mua và uống.' },
+  { key: 'Giống cà phê', kick: 'Chuyên đề', title: 'Giống cà phê — từ Typica tới Catimor',
+    sub: 'Một cụm bài về giống cà phê: nguồn gốc, đặc điểm cây, mục tiêu chọn giống, và ý nghĩa với Việt Nam – Lâm Đồng. Đọc theo thứ tự hoặc chọn giống bạn quan tâm.' }
 ];
 
 const ktImg = b => b.anh ? (/^https?:/.test(b.anh) ? b.anh : '/' + b.anh) : '';
@@ -1442,6 +1444,13 @@ function articlePage(b) {
   </section>` : '';
   const linksBlock = (b.links && b.links.length)
     ? `<div class="kt-art-links">${b.links.map(l => `<a href="${l.href}">${esc(l.label)} →</a>`).join('')}</div>` : '';
+  // Cầu nối sản phẩm — chỉ hiện khi Gu thực sự có gói đúng giống (đặt sau FAQ)
+  const g = b.guTried;
+  const guTriedBlock = (g && g.href && g.tenGoi) ? `<section class="kta-gutried"><div class="gt-in">
+    <div class="gt-k">Gu đã uống giống này</div>
+    <p>Đọc về ${g.giong ? `<b>${esc(g.giong)}</b> ` : 'giống này '}là một chuyện — uống thử lại là chuyện khác. Gu đã mua và thử <b>${esc(g.tenGoi)}</b>. Nếu muốn tự cảm nhận giống này trong tách, xem gói tại Gu.</p>
+    <a class="gt-cta" href="${g.href}">Xem ${esc(g.tenGoi)} →</a>
+  </div></section>` : '';
 
   // Thân bài — chèn thẻ gói Gu khuyên vào marker {{GU_PICK}} (bài 4 lộ trình người mới)
   let body = b.than;
@@ -1524,6 +1533,7 @@ function articlePage(b) {
     ${linksBlock}
   </article>
   ${faqBlock}
+  ${guTriedBlock}
   ${moreBlock}
   <a class="rp-home" href="${hubHref}">← ${bd ? 'Lộ trình người mới' : 'Tất cả bài kiến thức'}</a>
   </main>`;
