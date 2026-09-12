@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <meta name="google-site-verification" content="zPCCL4Fc2KYsmrJiwTWMu5Nh8EG83qS5C4kOvN3lORE" />
 
@@ -15,6 +16,7 @@
 <title>Gu Cà Phê — Review & so sánh cà phê đặc sản Việt Nam | Mua gì, giá bao nhiêu?</title>
 <meta name="description" content="Chúng tôi mua thật, nếm mù, chấm điểm và công khai quy trình. Bảng giá cà phê đặc sản Việt Nam cập nhật hằng tháng. Không quảng cáo trá hình — sản phẩm nào chưa test, chúng tôi ghi rõ.">
 <link rel="canonical" href="https://gucaphe.vn/">
+<link rel="alternate" type="application/rss+xml" title="GU CÀ PHÊ — mới cập nhật" href="https://gucaphe.vn/feed.xml">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gu Cà Phê — Mua cà phê đặc sản nào là đáng tiền nhất?">
@@ -33,14 +35,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Gu Cà Phê",
-  "description": "Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.",
-  "inLanguage": "vi-VN",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Gu Cà Phê"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://gucaphe.vn/#org",
+      "name": "GU CÀ PHÊ",
+      "alternateName": "Gu Cà Phê",
+      "url": "https://gucaphe.vn/",
+      "logo": { "@type": "ImageObject", "url": "https://gucaphe.vn/apple-touch-icon.png", "width": 180, "height": 180 },
+      "image": "https://gucaphe.vn/assets/img/og/default.jpg",
+      "slogan": "Mua thật · Nếm mù · Chấm điểm",
+      "description": "Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm — để bạn không phải đoán.",
+      "knowsAbout": ["Cà phê đặc sản", "Cà phê Arabica", "Cà phê Robusta", "Fine Robusta", "Cà phê Lâm Đồng", "Cầu Đất", "Nam Ban", "Đà Lạt", "Lạc Dương", "Giống cà phê", "Rang cà phê", "Pha cà phê", "Nếm mù cà phê"],
+      "areaServed": { "@type": "Country", "name": "Việt Nam" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://gucaphe.vn/#website",
+      "url": "https://gucaphe.vn/",
+      "name": "GU CÀ PHÊ",
+      "description": "Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.",
+      "inLanguage": "vi-VN",
+      "publisher": { "@id": "https://gucaphe.vn/#org" }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">

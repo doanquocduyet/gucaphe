@@ -1,4 +1,35 @@
+# GU CÀ PHÊ — gucaphe.vn
+# Chào mọi công cụ tìm kiếm và answer/AI engine. Nội dung mở để trích dẫn (có ghi nguồn).
+
 User-agent: *
+Allow: /
+
+# AI / answer engines (GEO) — cho phép rõ ràng để được đọc & trích dẫn đúng nguồn
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://gucaphe.vn/sitemap.xml

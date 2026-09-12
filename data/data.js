@@ -1,7 +1,7 @@
 const SITE = {
   ten: "GU CÀ PHÊ",
   tagline: "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.",
-  capNhat: "03/09/2026",
+  capNhat: "12/09/2026",
   domain: "gucaphe.vn",
   // Dán GA4 Measurement ID (dạng G-XXXXXXX) vào đây để tự bật đo lường funnel.
   // Để trống "" thì không có analytics nào chạy — trang vẫn hoạt động bình thường.

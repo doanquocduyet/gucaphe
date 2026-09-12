@@ -35,6 +35,34 @@ const ogForSrc = src => {
   const b = src ? src.split('/').pop() : '';
   return b && OG_SET.has(b) ? `${ORIGIN}/assets/img/og/${b}` : OG_DEFAULT;
 };
+
+/* ---- Thực thể dùng chung cho toàn site (entity graph) — giúp Google Knowledge
+   Graph và các answer/generative engine (GEO/AEO) hợp nhất "GU CÀ PHÊ" thành MỘT
+   thực thể ổn định, có @id, thay vì nhiều Organization rời rạc. Nhúng ở mọi trang;
+   schema từng trang chỉ tham chiếu bằng @id (ORG_REF) cho nhất quán. ---- */
+const ORG_ID = `${ORIGIN}/#org`;
+const WEBSITE_ID = `${ORIGIN}/#website`;
+const ORG_REF = { '@id': ORG_ID };
+const ORG_NODE = {
+  '@type': 'Organization', '@id': ORG_ID,
+  name: 'GU CÀ PHÊ', alternateName: 'Gu Cà Phê',
+  url: `${ORIGIN}/`,
+  logo: { '@type': 'ImageObject', url: `${ORIGIN}/apple-touch-icon.png`, width: 180, height: 180 },
+  image: OG_DEFAULT,
+  slogan: 'Mua thật · Nếm mù · Chấm điểm',
+  description: 'Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm — để bạn không phải đoán.',
+  knowsAbout: ['Cà phê đặc sản', 'Cà phê Arabica', 'Cà phê Robusta', 'Fine Robusta',
+    'Cà phê Lâm Đồng', 'Cầu Đất', 'Nam Ban', 'Đà Lạt', 'Lạc Dương',
+    'Giống cà phê', 'Rang cà phê', 'Pha cà phê', 'Nếm mù cà phê'],
+  areaServed: { '@type': 'Country', name: 'Việt Nam' }
+};
+const WEBSITE_NODE = {
+  '@type': 'WebSite', '@id': WEBSITE_ID,
+  url: `${ORIGIN}/`, name: 'GU CÀ PHÊ',
+  description: 'Review và so sánh trung lập cà phê đặc sản Việt Nam.',
+  inLanguage: 'vi-VN', publisher: ORG_REF
+};
+const BASE_GRAPH = `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [ORG_NODE, WEBSITE_NODE] })}</script>`;
 /* Ảnh OG card thương hiệu 1200×630 riêng cho từng trang (tạo sẵn bởi
    scripts/gen-og-cards.mjs). Trả URL nếu file tồn tại, không thì null → rơi về ảnh khác. */
 const ogCard = key => {
@@ -137,9 +165,11 @@ function pageHead({ title, desc, url, ogType = 'article', schema = '', ogImage =
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
+<link rel="alternate" type="application/rss+xml" title="GU CÀ PHÊ — mới cập nhật" href="${ORIGIN}/feed.xml">
 <meta property="og:type" content="${ogType}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
@@ -150,6 +180,7 @@ ${ogMeta(ogImage, ogAlt)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${BASE_GRAPH}
 ${schema}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -293,7 +324,7 @@ function schema(p) {
     product.review = {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: p.diem, bestRating: 10, worstRating: 0 },
-      author: { '@type': 'Organization', name: 'Gu Cà Phê' },
+      author: ORG_REF,
       reviewBody: p.flavor || (p.notes && p.notes.length ? p.notes.join(', ') + '.' : '')
     };
   }
@@ -492,9 +523,11 @@ function page(p) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
+<link rel="alternate" type="application/rss+xml" title="GU CÀ PHÊ — mới cập nhật" href="${ORIGIN}/feed.xml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
@@ -505,6 +538,7 @@ ${ogMeta(ogCard(p.slug) || ogForSrc(p.anh), `${p.brand} ${p.ten}`)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${BASE_GRAPH}
 ${schema(p)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -674,9 +708,10 @@ function regionPage(v) {
     headline: `Cà phê ${v.ten} — đặc điểm & hương vị`,
     description: desc.slice(0, 200),
     inLanguage: 'vi-VN',
-    author: { '@type': 'Organization', name: 'Gu Cà Phê' },
-    publisher: { '@type': 'Organization', name: 'Gu Cà Phê' },
+    author: ORG_REF,
+    publisher: ORG_REF,
     datePublished: isoDate(SITE.capNhat),
+    dateModified: isoDate(SITE.capNhat),
     mainEntityOfPage: url
   };
   const crumb = {
@@ -703,9 +738,11 @@ function regionPage(v) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
+<link rel="alternate" type="application/rss+xml" title="GU CÀ PHÊ — mới cập nhật" href="${ORIGIN}/feed.xml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
@@ -716,6 +753,7 @@ ${ogMeta(ogForSrc(v.anh), `Cà phê ${v.ten}`)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${BASE_GRAPH}
 <script type="application/ld+json">${JSON.stringify(article)}</script>
 <script type="application/ld+json">${JSON.stringify(crumb)}</script>
 ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
@@ -916,9 +954,11 @@ function roasterPage(r) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
+<link rel="alternate" type="application/rss+xml" title="GU CÀ PHÊ — mới cập nhật" href="${ORIGIN}/feed.xml">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
@@ -929,6 +969,7 @@ ${ogMeta(ogCard(r.slug) || ogForSrc(prods[0] && prods[0].anh), r.ten)}
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${BASE_GRAPH}
 <script type="application/ld+json">${JSON.stringify(org)}</script>
 <script type="application/ld+json">${JSON.stringify(crumb)}</script>
 ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
@@ -1501,9 +1542,11 @@ function articlePage(b) {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: b.tieuDe, description: b.dek, inLanguage: 'vi-VN',
     ...(src ? { image: `${ORIGIN}${src}` } : {}),
-    author: { '@type': 'Organization', name: 'Gu Cà Phê', url: `${ORIGIN}/` },
+    author: ORG_REF,
     datePublished: isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
-    mainEntityOfPage: url, publisher: { '@type': 'Organization', name: 'Gu Cà Phê' }
+    mainEntityOfPage: url, publisher: ORG_REF,
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.kta-dek'] },
+    articleSection: b.mucDo || b.tag || 'Kiến thức'
   })}</script>`);
   schemas.push(`<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
@@ -1838,6 +1881,71 @@ ${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 </urlset>
 `;
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
+
+/* ---- RSS feed (freshness signal cho Google & answer/AI engine) ---- */
+const rfc822 = dmy => new Date(`${isoDate(dmy)}T08:00:00+07:00`).toUTCString();
+const feedItem = (u, title, desc) => `  <item>
+    <title>${xmlEsc(title)}</title>
+    <link>${xmlEsc(u)}</link>
+    <guid isPermaLink="true">${xmlEsc(u)}</guid>
+    <pubDate>${rfc822(SITE.capNhat)}</pubDate>
+    <description>${xmlEsc(desc || '')}</description>
+  </item>`;
+const feedItems = [
+  ...BAIVIET.filter(b => b.id).map(b => feedItem(`${ORIGIN}/${artBase(b)}/${b.id}`, b.tieuDe, b.dek || '')),
+  ...SP.filter(p => p.slug).map(p => feedItem(`${ORIGIN}/review/${p.slug}`,
+    `${p.brand} ${p.ten}${p.tested && p.diem != null ? ` — ${p.diem}/10` : ''}`,
+    p.tested && p.diem != null ? `Nếm mù chấm ${p.diem}/10. ${p.giong || ''}`.trim() : `${p.daUong ? 'Đã uống' : 'Chưa nếm'}. ${p.giong || ''}`.trim()))
+].slice(0, 40);
+const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>GU CÀ PHÊ — cà phê đặc sản Việt Nam</title>
+  <link>${ORIGIN}/</link>
+  <atom:link href="${ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.</description>
+  <language>vi-VN</language>
+  <lastBuildDate>${rfc822(SITE.capNhat)}</lastBuildDate>
+${feedItems.join('\n')}
+</channel>
+</rss>
+`;
+writeFileSync(join(ROOT, 'feed.xml'), feed, 'utf8');
+console.log(`✓ feed.xml (${feedItems.length} item)`);
+
+/* ---- llms.txt — bản đồ nội dung dạng Markdown cho LLM / AI agent (chuẩn GEO/B2A).
+   Giúp answer engine hiểu "start here" và trích đúng nguồn thay vì đoán. ---- */
+const llmsLine = (t, u, s) => `- [${t}](${ORIGIN}${u})${s ? `: ${s}` : ''}`;
+const gietGiong = BAIVIET.filter(b => b.id && b.mucDo === 'Giống cà phê');
+const khacKienThuc = BAIVIET.filter(b => b.id && b.mucDo !== 'Giống cà phê');
+const llms = `# GU CÀ PHÊ
+
+> Review và so sánh trung lập cà phê đặc sản Việt Nam, tập trung Lâm Đồng (Cầu Đất, Nam Ban, Đà Lạt, Lạc Dương). Nguyên tắc: mua thật bằng tiền của mình, nếm mù (che nhãn & giá), chấm điểm trên thang /10; gói chưa nếm mù thì ghi rõ trạng thái "Đã uống" hoặc "Chưa nếm", không gắn số. Link mua là tiếp thị liên kết — người đọc không trả thêm tiền. Đúng hơn đầy đủ: thà thiếu còn hơn sai.
+
+## Review sản phẩm (đã mua, có gói nếm mù)
+${SP.filter(p => p.slug).map(p => llmsLine(`${p.brand} — ${p.ten}`, `/review/${p.slug}`,
+  `${p.tested && p.diem != null ? `nếm mù ${p.diem}/10` : (p.daUong ? 'đã uống, chưa chấm mù' : 'chưa nếm')}${p.giong ? ` · giống ${p.giong}` : ''}${p.gia ? ` · ${money(p.gia)}` : ''}`)).join('\n')}
+
+## Kiến thức — Giống cà phê (cụm chuyên đề)
+${gietGiong.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, b.dek)).join('\n')}
+
+## Kiến thức — Bắt đầu, pha chế, sơ chế
+${khacKienThuc.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, b.dek)).join('\n')}
+
+## Vùng trồng
+${VUNG.filter(v => v.slug).map(v => llmsLine(`Cà phê ${v.ten}`, `/vung-trong/${v.slug}`, v.viNgan || '')).join('\n')}
+
+## Nhà rang
+${ROASTER.filter(r => r.slug).map(r => llmsLine(r.ten, `/nha-rang/${r.slug}`, r.theManh || r.gioiThieu || '')).join('\n')}
+
+## Trang chính
+${llmsLine('Trang chủ', '/')}
+${llmsLine('Cách Gu test & chấm điểm', '/cach-test')}
+${llmsLine('Tin tức cà phê Lâm Đồng & specialty', '/tin-tuc')}
+`;
+writeFileSync(join(ROOT, 'llms.txt'), llms, 'utf8');
+console.log(`✓ llms.txt (${SP.length} review · ${BAIVIET.length} bài)`);
+
 const total = hubUrls.length + urls.length + articleUrls.length + roasterUrls.length + regionUrls.length + 1;
 console.log(`✓ sitemap.xml (${total} URL)`);
 
