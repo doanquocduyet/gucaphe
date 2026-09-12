@@ -1244,6 +1244,28 @@ function hubCaPhe() {
   const nCham = SP.filter(p => p.tested && p.diem != null).length;
   const nUong = SP.filter(p => (p.tested && p.diem != null) || p.daUong).length;
   const nNC = SP.filter(p => p.confidence === 'editor_research').length;
+  /* Dataset: bảng giá + điểm nếm mù là dữ liệu có cấu trúc, số liệu THẬT (giá cập
+     nhật từ nguồn bán, điểm từ nếm mù). Khai báo Dataset giúp Google Dataset Search
+     và answer/AI engine hiểu đây là nguồn dữ liệu tra cứu, không phải trang bán hàng. */
+  const datasetSchema = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Dataset',
+    name: 'Bảng giá & điểm nếm mù cà phê đặc sản Lâm Đồng — Gu Cà Phê',
+    description: `Dữ liệu ${nGoi} gói cà phê đặc sản từ ${nRang} nhà rang ở Lâm Đồng: giá bán, giá quy về 100g, giống, vùng trồng và điểm nếm mù trên thang /10 (${nCham} gói đã chấm mù). Giá lấy từ nguồn bán thật; gói chưa nếm mù ghi rõ trạng thái, không gắn điểm.`,
+    url,
+    inLanguage: 'vi-VN',
+    isAccessibleForFree: true,
+    creator: ORG_REF, publisher: ORG_REF,
+    dateModified: isoDate(SITE.capNhat), temporalCoverage: isoDate(SITE.capNhat),
+    measurementTechnique: 'Nếm mù — che nhãn và giá (blind cupping)',
+    variableMeasured: [
+      { '@type': 'PropertyValue', name: 'Giá bán', unitText: 'VND' },
+      { '@type': 'PropertyValue', name: 'Giá quy đổi trên 100g', unitText: 'VND' },
+      { '@type': 'PropertyValue', name: 'Điểm nếm mù', minValue: 0, maxValue: 10 },
+      { '@type': 'PropertyValue', name: 'Giống cà phê' },
+      { '@type': 'PropertyValue', name: 'Vùng trồng' }
+    ],
+    keywords: ['cà phê đặc sản', 'giá cà phê Lâm Đồng', 'nếm mù', 'Arabica', 'Robusta', 'Cầu Đất', 'Nam Ban', 'Đà Lạt']
+  })}</script>`;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
@@ -1306,7 +1328,7 @@ function hubCaPhe() {
   return pageShell({
     title: 'Cà phê đặc sản Lâm Đồng — đã nếm mù, chấm điểm, giá/100g | Gu Cà Phê',
     desc: 'Cà phê đặc sản Lâm Đồng: điểm nếm mù, giá, giá/100g, mua ở đâu. Gợi ý gói theo nhu cầu — mới uống, gu đậm, mở quán, tự rang.',
-    url, ogType: 'website', schema, active: 'caphe', main,
+    url, ogType: 'website', schema: schema + '\n' + datasetSchema, active: 'caphe', main,
     ogImage: ogForSrc('cup-espresso.jpg'), ogAlt: 'Cà phê đặc sản Lâm Đồng'
   });
 }
