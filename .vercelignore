@@ -1,2 +1,9 @@
 # Ảnh nguồn / tư liệu — giữ trong repo nhưng KHÔNG deploy lên gucaphe.vn
 _nguon/
+
+# Tài liệu/code nội bộ (bàn giao GreenSpace 25/9). data/data.js web ĐANG DÙNG — không chặn.
+DEPLOY.md
+HUONG-DAN.md
+docs/
+scripts/
+.github/
