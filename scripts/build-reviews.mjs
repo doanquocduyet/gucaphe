@@ -1266,12 +1266,34 @@ function hubCaPhe() {
     ],
     keywords: ['cà phê đặc sản', 'giá cà phê Lâm Đồng', 'nếm mù', 'Arabica', 'Robusta', 'Cầu Đất', 'Nam Ban', 'Đà Lạt']
   })}</script>`;
+  /* FAQ nhắm thẳng truy vấn "cà phê đặc sản Lâm Đồng" — câu trả lời trọn vẹn
+     (semantic completeness) để đủ điều kiện featured snippet + AI Overview.
+     Số liệu lấy từ data thật, không phóng đại. */
+  const giaList = SP.map(p => p.gia).filter(g => g > 0);
+  const minGia = giaList.length ? Math.min(...giaList) : 0;
+  const maxGia = giaList.length ? Math.max(...giaList) : 0;
+  const faqCaPhe = [
+    { q: 'Cà phê đặc sản Lâm Đồng là gì, khác cà phê thường thế nào?',
+      a: `Là cà phê trồng ở Lâm Đồng theo hướng chất lượng cao: Arabica vùng cao Cầu Đất, Đà Lạt, Lạc Dương (khoảng 1.400–1.650m) và Fine Robusta vùng thấp hơn như Nam Ban, được thu hái chín chọn lọc, sơ chế kỹ và truy xuất được nguồn gốc. Theo chuẩn quốc tế, "đặc sản" (specialty) thường chỉ cà phê đạt từ 80/100 điểm SCA trở lên — khác cà phê đại trà ở độ minh bạch và chất lượng ổn định.` },
+    { q: 'Nên mua cà phê đặc sản Lâm Đồng loại nào?',
+      a: `Tùy gu: thích chua sáng, hương hoa và trái cây thì chọn Arabica Cầu Đất hoặc Đà Lạt; thích đậm, vị chocolate, ít chua thì chọn Fine Robusta hoặc blend vùng Nam Ban. Gu đã mua và uống thật ${nUong} gói${nCham ? `, trong đó ${nCham} gói đã chấm mù` : ''}; xem gợi ý theo nhu cầu ngay trên trang này.` },
+    { q: 'Giá cà phê đặc sản Lâm Đồng khoảng bao nhiêu?',
+      a: `Trong các gói Gu đang theo dõi, giá dao động khoảng ${money(minGia)}–${money(maxGia)} mỗi gói. Nên so bằng giá quy về 100g để biết gói nào đáng tiền. Giá cập nhật từ nguồn bán thật nên có thể thay đổi.` },
+    { q: 'Mua cà phê đặc sản Lâm Đồng ở đâu cho yên tâm?',
+      a: `Nên mua thẳng từ nhà rang tại Lâm Đồng để biết rõ giống, vùng và cách sơ chế. Gu liên kết tới gian hàng của ${nRang} nhà rang này; link là tiếp thị liên kết — bạn không trả thêm đồng nào.` },
+    { q: 'Cà phê đặc sản Lâm Đồng vùng nào ngon nhất?',
+      a: `Không có "ngon nhất" tuyệt đối — mỗi vùng một chất: Cầu Đất chua sáng thanh, Đà Lạt cân bằng, Lạc Dương cao và sạch, Nam Ban đậm chocolate ít chua. Chọn theo vị bạn thích thay vì theo danh tiếng vùng.` }
+  ];
+  const faqCaPheSchema = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqCaPhe.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  })}</script>`;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Cà phê</span></nav>
   ${hubHero('/assets/img/products/hand-beans.jpg', 'Cà phê', 'Cà phê đặc sản Lâm Đồng',
     'Bộ sưu tập tuyển chọn — mỗi gói đại diện cho một phần bức tranh cà phê đặc sản. Gói nào Gu đã <b>chấm mù</b> thì có điểm; gói mới nghiên cứu từ nguồn chính thức được ghi rõ <b>“Mới nghiên cứu”</b>. Không phải bảng xếp hạng.')}
 
-  <p class="hub-intro">Gu Cà Phê đã <b>mua và uống thật ${nUong} gói</b> từ <b>${nRang} nhà rang</b> ở Lâm Đồng${nCham ? `, trong đó <b>${nCham} gói đã chấm mù</b>` : ''}${nNC ? `; thêm <b>${nNC} gói đang nghiên cứu</b> từ nguồn chính thức (ghi rõ nhãn “Mới nghiên cứu”, chưa gắn điểm)` : ''}. Mỗi gói được chọn vì bổ sung một góc khác của bản đồ cà phê đặc sản.</p>
+  <p class="hub-intro"><b>Cà phê đặc sản Lâm Đồng</b> là Arabica vùng cao (Cầu Đất, Đà Lạt, Lạc Dương) và Fine Robusta vùng thấp hơn (Nam Ban), thu hái chọn lọc và sơ chế kỹ — theo chuẩn quốc tế thường tính từ 80/100 điểm SCA trở lên. Gu Cà Phê đã <b>mua và uống thật ${nUong} gói</b> từ <b>${nRang} nhà rang</b> ở Lâm Đồng${nCham ? `, trong đó <b>${nCham} gói đã chấm mù</b>` : ''}${nNC ? `; thêm <b>${nNC} gói đang nghiên cứu</b> từ nguồn chính thức (ghi rõ nhãn “Mới nghiên cứu”, chưa gắn điểm)` : ''}, kèm giá và giá/100g để bạn so đáng tiền.</p>
 
   ${NHUCAU.length ? `<section class="seg-wrap">
     <div class="hub-sec-head">
@@ -1308,6 +1330,14 @@ function hubCaPhe() {
     <div class="pc-grid">${rank.map(p => pcard(p, 'ca_phe_card')).join('')}</div>
   </section>
 
+  <section class="hub-faq">
+    <div class="hub-sec-head">
+      <div class="eyebrow">③ Câu hỏi thường gặp</div>
+      <h2 class="hub-sec-t">Cà phê đặc sản Lâm Đồng — hỏi &amp; đáp</h2>
+    </div>
+    <div class="faq">${faqCaPhe.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>
+  </section>
+
   <a class="hub-cta" href="/kien-thuc">
     <span class="hub-cta-k">Mới uống specialty?</span>
     <span class="hub-cta-t">Đọc nền tảng trước — chỉ 5 phút</span>
@@ -1328,7 +1358,7 @@ function hubCaPhe() {
   return pageShell({
     title: 'Cà phê đặc sản Lâm Đồng — đã nếm mù, chấm điểm, giá/100g | Gu Cà Phê',
     desc: 'Cà phê đặc sản Lâm Đồng: điểm nếm mù, giá, giá/100g, mua ở đâu. Gợi ý gói theo nhu cầu — mới uống, gu đậm, mở quán, tự rang.',
-    url, ogType: 'website', schema: schema + '\n' + datasetSchema, active: 'caphe', main,
+    url, ogType: 'website', schema: schema + '\n' + datasetSchema + '\n' + faqCaPheSchema, active: 'caphe', main,
     ogImage: ogForSrc('cup-espresso.jpg'), ogAlt: 'Cà phê đặc sản Lâm Đồng'
   });
 }
