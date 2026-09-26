@@ -1370,22 +1370,46 @@ function hubVung() {
   const schema = itemListSchema('Vùng trồng cà phê Lâm Đồng',
     VUNG.map(v => ({ url: `${ORIGIN}/vung-trong/${v.slug}`, name: `Cà phê ${v.ten}` })));
   const taste = tasteSelector('Bạn thích vị nào?');
+  /* FAQ nhắm "vùng trồng cà phê Lâm Đồng" + "cà phê specialty" — trả lời trọn vẹn,
+     số liệu độ cao/vị lấy từ dữ liệu VUNG thật. */
+  const faqVung = [
+    { q: 'Lâm Đồng có những vùng trồng cà phê đặc sản nào?',
+      a: 'Bốn tiểu vùng chính: Cầu Đất (~1.400–1.650m), Đà Lạt (~1.400–1.600m) và Lạc Dương (~1.400–1.500m) trồng Arabica vùng cao; Nam Ban (~800–1.000m) nổi bật ở Fine Robusta. Mỗi vùng cho một chất vị riêng do khác nhau về độ cao, giống và cách sơ chế.' },
+    { q: 'Vùng nào ở Lâm Đồng trồng Arabica, vùng nào trồng Robusta?',
+      a: 'Arabica tập trung ở vùng cao Cầu Đất, Đà Lạt, Lạc Dương (trên ~1.400m). Fine Robusta — Robusta làm theo hướng chất lượng cao — gắn với vùng thấp hơn như Nam Ban (~800–1.000m). Độ cao là yếu tố quyết định chính.' },
+    { q: 'Cà phê Cầu Đất và Nam Ban khác nhau thế nào?',
+      a: 'Cầu Đất ở ~1.400–1.650m cho Arabica chua sáng như cam chanh, hương hoa. Nam Ban thấp hơn (~800–1.000m) cho body dày, vị chocolate rõ, ít chua. Thích thanh và chua sáng thì chọn Cầu Đất; thích đậm, ngọt chocolate thì chọn Nam Ban.' },
+    { q: 'Độ cao ảnh hưởng hương vị cà phê thế nào?',
+      a: 'Càng lên cao nhiệt độ càng thấp, quả chín chậm và tích lũy đường, axit nhiều hơn — cho vị chua sáng, hương phức, thân nhẹ. Vùng thấp hơn thường cho body dày, đậm, ít chua. Đó là lý do cùng ở Lâm Đồng nhưng Cầu Đất và Nam Ban lại rất khác nhau.' }
+  ];
+  const faqVungSchema = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqVung.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+  })}</script>`;
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Vùng trồng</span></nav>
   ${hubHero('/assets/img/regions/da-lat.jpg', 'Vùng trồng', 'Chọn vùng, chọn đúng gu',
     'Bạn thích cà phê chua sáng hương hoa, hay đậm đà chocolate? Mỗi vùng ở Lâm Đồng cho một chất vị riêng — chọn đúng vùng là bước đầu để chọn đúng gói.')}
+  <p class="hub-intro"><b>Lâm Đồng</b> là thủ phủ cà phê đặc sản (specialty) của Việt Nam. Các <b>vùng trồng</b> chính: Cầu Đất, Đà Lạt, Lạc Dương — Arabica vùng cao ~1.400–1.650m; và Nam Ban — Fine Robusta vùng thấp hơn ~800–1.000m. Mỗi vùng một chất vị riêng, nên chọn đúng vùng là bước đầu để chọn đúng gói.</p>
   ${taste}
   ${hub ? `<section class="hub-group"><div class="vg-grid">${regionCardHTML(hub)}</div></section>` : ''}
   <section class="hub-group">
     <div class="vg-grid">${subs.map(regionCardHTML).join('')}</div>
   </section>
   ${regionCompareTable({ slug: '' })}
+  <section class="hub-faq">
+    <div class="hub-sec-head">
+      <div class="eyebrow">Câu hỏi thường gặp</div>
+      <h2 class="hub-sec-t">Vùng trồng cà phê Lâm Đồng — hỏi &amp; đáp</h2>
+    </div>
+    <div class="faq">${faqVung.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>
+  </section>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
     title: 'Vùng trồng cà phê Lâm Đồng — Cầu Đất, Lạc Dương, Nam Ban | Gu Cà Phê',
     desc: 'Ba tiểu vùng cà phê đặc sản Lâm Đồng: Cầu Đất, Lạc Dương, Nam Ban — độ cao, giống, hương vị đặc trưng và gói đáng mua từng vùng.',
-    url, ogType: 'website', schema, active: 'vung', main,
+    url, ogType: 'website', schema: schema + '\n' + faqVungSchema, active: 'vung', main,
     ogImage: ogForSrc('regions/da-lat.jpg'), ogAlt: 'Vùng trồng cà phê Lâm Đồng'
   });
 }
