@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260911-1';
+const CSS_V = '20260930-1';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -78,13 +78,13 @@ const ogMeta = (img, alt) => `<meta property="og:image" content="${img}">
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI', 'TIN'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI', 'TIN', 'TRA_LOI_NHANH'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [], TIN = [] } = loadData(raw);
+const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [], TIN = [], TRA_LOI_NHANH = {} } = loadData(raw);
 const SP_BY_ID = {}; SP.forEach(p => { SP_BY_ID[p.id] = p; });
 const VUNG_BY_SLUG = {}; VUNG.forEach(v => { VUNG_BY_SLUG[v.slug] = v; });
 // Nối ngược sản phẩm → nhà rang (product id có trong roaster.sanPham)
@@ -1613,6 +1613,8 @@ function articlePage(b) {
     </section>` : '';
   }
 
+  const tln = b.traLoiNhanh || TRA_LOI_NHANH[b.id] || '';
+  const tlnBlock = tln ? `<aside class="kta-tln" aria-label="Trả lời nhanh"><div class="kta-tln-k">Trả lời nhanh</div><p>${esc(tln)}</p></aside>` : '';
   const schemas = [];
   schemas.push(`<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'Article',
@@ -1621,7 +1623,8 @@ function articlePage(b) {
     author: ORG_REF,
     datePublished: isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
     mainEntityOfPage: url, publisher: ORG_REF,
-    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.kta-dek'] },
+    ...(tln ? { abstract: tln } : {}),
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: tln ? ['h1', '.kta-tln p'] : ['h1', '.kta-dek'] },
     articleSection: b.mucDo || b.tag || 'Kiến thức'
   })}</script>`);
   schemas.push(`<script type="application/ld+json">${JSON.stringify({
@@ -1645,6 +1648,7 @@ function articlePage(b) {
       <h1 class="kta-t">${b.tieuDe}</h1>
       <p class="kta-dek">${b.dek}</p>
     </header>
+    ${tlnBlock}
     ${src ? `<figure class="kta-hero"><img src="${esc(src)}" alt="${esc(b.tieuDe)}" fetchpriority="high"></figure>` : ''}
     ${DIAGRAMS[b.id] ? DIAGRAMS[b.id]() : ''}
     ${tocBlock}
@@ -2003,10 +2007,10 @@ ${SP.filter(p => p.slug).map(p => llmsLine(`${p.brand} — ${p.ten}`, `/review/$
   `${p.tested && p.diem != null ? `nếm mù ${p.diem}/10` : (p.daUong ? 'đã uống, chưa chấm mù' : 'chưa nếm')}${p.giong ? ` · giống ${p.giong}` : ''}${p.gia ? ` · ${money(p.gia)}` : ''}`)).join('\n')}
 
 ## Kiến thức — Giống cà phê (cụm chuyên đề)
-${gietGiong.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, b.dek)).join('\n')}
+${gietGiong.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, TRA_LOI_NHANH[b.id] || b.dek)).join('\n')}
 
 ## Kiến thức — Bắt đầu, pha chế, sơ chế
-${khacKienThuc.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, b.dek)).join('\n')}
+${khacKienThuc.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, TRA_LOI_NHANH[b.id] || b.dek)).join('\n')}
 
 ## Vùng trồng
 ${VUNG.filter(v => v.slug).map(v => llmsLine(`Cà phê ${v.ten}`, `/vung-trong/${v.slug}`, v.viNgan || '')).join('\n')}

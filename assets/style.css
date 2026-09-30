@@ -1765,3 +1765,10 @@ body:has(.buybar){padding-bottom:50px}
 
 @media(max-width:900px){.pc-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
 @media(max-width:560px){.pc-grid{grid-template-columns:1fr}}
+
+/* "Trả lời nhanh" — đoạn trả lời thẳng đầu bài (featured snippet / AI Overview) */
+.kta-tln{max-width:72ch;margin:22px 0 28px;padding:16px 20px 16px 18px;
+  background:var(--paper-2,#F4ECDF);border-left:3px solid var(--brown,#A15C2A);border-radius:0 12px 12px 0}
+.kta-tln-k{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brown,#A15C2A);margin-bottom:6px}
+.kta-tln p{margin:0;font-size:16.5px;line-height:1.62;color:var(--ink)}
