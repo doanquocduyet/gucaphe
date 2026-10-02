@@ -137,7 +137,7 @@ const HOME_EN = {
   // Tin cập nhật — teaser trang chủ
   "Tin cập nhật": "Updates",
   "Chuyện cà phê đang diễn ra.": "Coffee, as it happens.",
-  "Tin có nguồn về cà phê Lâm Đồng, specialty Việt Nam và thế giới — cập nhật thường xuyên.": "Sourced updates on Lâm Đồng coffee, Vietnamese specialty and the wider world — refreshed regularly.",
+  "Tin cà phê đặc sản Việt Nam và thế giới, có nguồn kiểm chứng — cập nhật hằng tuần.": "Specialty coffee news from Vietnam and the world, with verified sources — updated weekly.",
   "Xem tất cả tin →": "See all updates →",
   "Đi thẳng vào thứ bạn cần.": "Go straight to what you need.",
   "Mọi thứ được sắp theo đúng nhu cầu.": "Everything arranged around what you need.",
@@ -512,9 +512,9 @@ function renderTin() {
   el.innerHTML = `
     <div class="eyebrow">${T('Tin cập nhật')}</div>
     <h2>${T('Chuyện cà phê đang diễn ra.')}</h2>
-    <p class="lead">${T('Tin có nguồn về cà phê Lâm Đồng, specialty Việt Nam và thế giới — cập nhật thường xuyên.')}</p>
+    <p class="lead">${T('Tin cà phê đặc sản Việt Nam và thế giới, có nguồn kiểm chứng — cập nhật hằng tuần.')}</p>
     <div class="home-tin">
-      ${items.map(t => `<a class="home-tin-item" href="/tin-tuc">
+      ${items.map(t => `<a class="home-tin-item" href="/tin-tuc${t.id ? `#${t.id}` : ''}">
         <div class="home-tin-meta"><time datetime="${t.ngay || ''}">${dmy(t.ngay)}</time>${t.nhan ? `<span class="home-tin-tag">${t.nhan}</span>` : ''}</div>
         <div class="home-tin-t">${t.tieuDe}</div>
       </a>`).join('')}

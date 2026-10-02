@@ -1772,3 +1772,12 @@ body:has(.buybar){padding-bottom:50px}
 .kta-tln-k{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--brown,#A15C2A);margin-bottom:6px}
 .kta-tln p{margin:0;font-size:16.5px;line-height:1.62;color:var(--ink)}
+
+/* Tin cập nhật — tiêu đề có neo riêng, nhãn phạm vi, câu "vì sao đáng để ý" */
+.tt-t a{color:inherit;text-decoration:none}
+@media(hover:hover){.tt-t a:hover{color:var(--brown-deep,#8A4A20)}}
+.tt-item{scroll-margin-top:84px}
+.tt-item:target{background:var(--paper-2,#F4ECDF);margin:0 -14px;padding-left:14px;padding-right:14px;border-radius:12px}
+.tt-tag.tt-pham{background:transparent;border:1px solid var(--line,#E7DCCB)}
+.tt-why{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0 0 12px;padding-left:12px;border-left:2px solid var(--brown,#A15C2A)}
+.tt-why b{font-weight:700}

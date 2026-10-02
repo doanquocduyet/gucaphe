@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20260930-1';
+const CSS_V = '20261002-1';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1745,28 +1745,57 @@ function hubKienThuc() {
 }
 
 /* /tin-tuc — nhật ký tin cập nhật cà phê (Lâm Đồng, Nam Ban, specialty & mở rộng) */
+/* Tin cập nhật: mỗi tin có địa chỉ riêng (/tin-tuc#id) để Google/AI trích dẫn đúng
+   từng tin; schema là ItemList các NewsArticle trỏ về CHÍNH trang này (isBasedOn = nguồn gốc). */
+const tinSlug = t => t.id || String(t.tieuDe || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70);
+const tinSorted = () => [...TIN].sort((a, b) => String(b.ngay || '').localeCompare(String(a.ngay || '')));
+const stripHtml = s => String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 function hubTinTuc() {
   const url = `${ORIGIN}/tin-tuc`;
-  const items = [...TIN].sort((a, b) => String(b.ngay || '').localeCompare(String(a.ngay || '')));
+  const items = tinSorted();
   const dmy = s => (s && /^\d{4}-\d{2}-\d{2}$/.test(s)) ? s.split('-').reverse().join('/') : esc(s || '');
-  const list = items.length ? items.map(t => `<article class="tt-item">
-    <div class="tt-meta"><time datetime="${esc(t.ngay || '')}">${dmy(t.ngay)}</time>${t.nhan ? `<span class="tt-tag">${esc(t.nhan)}</span>` : ''}</div>
-    <h2 class="tt-t">${esc(t.tieuDe)}</h2>
+  const list = items.length ? items.map(t => {
+    const id = tinSlug(t);
+    return `<article class="tt-item" id="${id}">
+    <div class="tt-meta"><time datetime="${esc(t.ngay || '')}">${dmy(t.ngay)}</time>${t.pham ? `<span class="tt-tag tt-pham">${esc(t.pham)}</span>` : ''}${t.nhan ? `<span class="tt-tag">${esc(t.nhan)}</span>` : ''}</div>
+    <h2 class="tt-t"><a href="#${id}">${esc(t.tieuDe)}</a></h2>
     <p class="tt-sum">${t.tomTat || ''}</p>
+    ${t.yNghia ? `<p class="tt-why"><b>Vì sao đáng để ý:</b> ${esc(t.yNghia)}</p>` : ''}
     ${t.nguon ? `<a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>` : ''}
-  </article>`).join('') : `<p class="hub-intro">Chưa có tin cập nhật.</p>`;
-  const schema = items.length ? itemListSchema('Tin cập nhật cà phê — Gu Cà Phê',
-    items.map(t => ({ url: t.nguon || url, name: t.tieuDe }))) : '';
+  </article>`;
+  }).join('') : `<p class="hub-intro">Chưa có tin cập nhật.</p>`;
+  const newest = items.length ? items[0].ngay : isoDate(SITE.capNhat);
+  const schema = items.length ? `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    name: 'Tin cập nhật cà phê đặc sản Việt Nam & thế giới — Gu Cà Phê',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: items.length,
+    itemListElement: items.map((t, i) => ({
+      '@type': 'ListItem', position: i + 1,
+      item: {
+        '@type': 'NewsArticle', '@id': `${url}#${tinSlug(t)}`, url: `${url}#${tinSlug(t)}`,
+        headline: t.tieuDe, description: stripHtml(t.tomTat).slice(0, 300),
+        ...(t.yNghia ? { abstract: t.yNghia } : {}),
+        datePublished: t.ngay, dateModified: t.ngay, inLanguage: 'vi-VN',
+        ...(t.nhan ? { articleSection: t.nhan } : {}),
+        ...(t.pham ? { contentLocation: { '@type': 'Place', name: t.pham } } : {}),
+        ...(t.nguon ? { isBasedOn: t.nguon } : {}),
+        author: ORG_REF, publisher: ORG_REF
+      }
+    }))
+  })}</script>` : '';
   const main = `<main class="rp wrap">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Tin cập nhật</span></nav>
   ${hubHero('/assets/img/band.jpg', 'Tin cập nhật', 'Chuyện cà phê đang diễn ra',
-    'Nhật ký tin tức về cà phê Lâm Đồng, Nam Ban, specialty Việt Nam và thế giới. Gu chỉ ghi lại những tin <b>có nguồn kiểm chứng được</b> — không tin đồn, không thổi phồng. Cập nhật vài ngày một lần.')}
+    'Tin cà phê đặc sản <b>Việt Nam và thế giới</b> — Lâm Đồng, Nam Ban, Fine Robusta, thị trường, khoa học, khí hậu — viết lại ngắn gọn, dễ hiểu. Gu chỉ ghi lại tin <b>có nguồn kiểm chứng được</b>, kèm một câu “vì sao đáng để ý”. Cập nhật hằng tuần.')}
+  <p class="hub-intro">Cập nhật gần nhất: <time datetime="${esc(newest)}">${dmy(newest)}</time> · ${items.length} tin.</p>
   <section class="tt-list">${list}</section>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>`;
   return pageShell({
-    title: 'Tin cập nhật cà phê — Lâm Đồng, Nam Ban & specialty | Gu Cà Phê',
-    desc: 'Nhật ký tin tức cà phê Lâm Đồng, Nam Ban và specialty Việt Nam — có nguồn kiểm chứng, cập nhật thường xuyên: cuộc thi, khoa học giống, thị trường và khí hậu.',
+    title: 'Tin cà phê đặc sản Việt Nam & thế giới — cập nhật hằng tuần | Gu Cà Phê',
+    desc: 'Tin cà phê đặc sản Việt Nam và thế giới, viết lại ngắn gọn dễ hiểu, có nguồn kiểm chứng: Lâm Đồng, Nam Ban, Fine Robusta, thị trường, khoa học, khí hậu. Cập nhật hằng tuần.',
     url, ogType: 'website', schema, active: 'tintuc', main,
     ogImage: ogForSrc('band.jpg'), ogAlt: 'Tin cập nhật cà phê Gu Cà Phê'
   });
@@ -1953,7 +1982,7 @@ const entry = (u, pri) => {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${entry(`${ORIGIN}/`, '1.0').replace('<changefreq>monthly', '<changefreq>weekly')}
-${hubUrls.map(u => entry(u, '0.9')).join('\n')}
+${hubUrls.map(u => u.endsWith('/tin-tuc') && TIN.length ? entry(u, '0.9').replace(`<lastmod>${lastmod}</lastmod>`, `<lastmod>${[lastmod, tinSorted()[0].ngay].sort().pop()}</lastmod>`).replace('<changefreq>monthly', '<changefreq>weekly') : entry(u, '0.9')).join('\n')}
 ${urls.map(u => entry(u, '0.8')).join('\n')}
 ${articleUrls.map(u => entry(u, '0.7')).join('\n')}
 ${roasterUrls.map(u => entry(u, '0.7')).join('\n')}
@@ -1972,11 +2001,12 @@ const feedItem = (u, title, desc) => `  <item>
     <description>${xmlEsc(desc || '')}</description>
   </item>`;
 const feedItems = [
+  ...tinSorted().slice(0, 10).map(t => feedItem(`${ORIGIN}/tin-tuc#${tinSlug(t)}`, `[Tin] ${t.tieuDe}`, (t.yNghia ? t.yNghia + ' ' : '') + stripHtml(t.tomTat)).replace(`<pubDate>${rfc822(SITE.capNhat)}</pubDate>`, `<pubDate>${new Date(`${t.ngay}T08:00:00+07:00`).toUTCString()}</pubDate>`)),
   ...BAIVIET.filter(b => b.id).map(b => feedItem(`${ORIGIN}/${artBase(b)}/${b.id}`, b.tieuDe, b.dek || '')),
   ...SP.filter(p => p.slug).map(p => feedItem(`${ORIGIN}/review/${p.slug}`,
     `${p.brand} ${p.ten}${p.tested && p.diem != null ? ` — ${p.diem}/10` : ''}`,
     p.tested && p.diem != null ? `Nếm mù chấm ${p.diem}/10. ${p.giong || ''}`.trim() : `${p.daUong ? 'Đã uống' : 'Chưa nếm'}. ${p.giong || ''}`.trim()))
-].slice(0, 40);
+].slice(0, 50);
 const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
@@ -1985,7 +2015,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
   <atom:link href="${ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.</description>
   <language>vi-VN</language>
-  <lastBuildDate>${rfc822(SITE.capNhat)}</lastBuildDate>
+  <lastBuildDate>${new Date(`${[isoDate(SITE.capNhat), ...(TIN.length ? [tinSorted()[0].ngay] : [])].sort().pop()}T08:00:00+07:00`).toUTCString()}</lastBuildDate>
 ${feedItems.join('\n')}
 </channel>
 </rss>
@@ -2011,6 +2041,9 @@ ${gietGiong.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, TRA_LOI_NHANH[
 
 ## Kiến thức — Bắt đầu, pha chế, sơ chế
 ${khacKienThuc.map(b => llmsLine(b.tieuDe, `/${artBase(b)}/${b.id}`, TRA_LOI_NHANH[b.id] || b.dek)).join('\n')}
+
+## Tin cập nhật mới nhất (cà phê đặc sản Việt Nam & thế giới)
+${tinSorted().slice(0, 8).map(t => llmsLine(`${t.ngay} — ${t.tieuDe}`, `/tin-tuc#${tinSlug(t)}`, t.yNghia || stripHtml(t.tomTat).slice(0, 200))).join('\n')}
 
 ## Vùng trồng
 ${VUNG.filter(v => v.slug).map(v => llmsLine(`Cà phê ${v.ten}`, `/vung-trong/${v.slug}`, v.viNgan || '')).join('\n')}

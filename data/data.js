@@ -1644,25 +1644,52 @@ const MUA_GI = [
     label: "Xem Sơn Pacamara — Lang Biang", href: "/review/son-pacamara-lang-biang" }
 ];
 
-/* ---- TIN CẬP NHẬT — nhật ký tin tức cà phê (Lâm Đồng, Nam Ban, specialty & mở rộng).
-   Nguyên tắc: chỉ đăng tin CÓ THẬT, có nguồn (URL). Không bịa, không thổi phồng.
-   `ngay` = ngày Gu ghi nhận (YYYY-MM-DD, dùng để sắp xếp & hiển thị).
-   `nhan` = nhãn phân loại. `tomTat` cho phép HTML (in đậm, link nội bộ).
-   `nguon`/`nguonTen` = link và tên nguồn. Bài mới thêm lên ĐẦU mảng.
-   Tự động: một Routine định kỳ (3–7 ngày) tìm tin mới, kiểm chứng rồi thêm vào đây. ---- */
+/* ---- TIN CẬP NHẬT — nhật ký tin tức cà phê đặc sản Việt Nam & thế giới.
+   Nguyên tắc: chỉ đăng tin CÓ THẬT, có nguồn (URL), đã mở nguồn kiểm ngày + số liệu.
+   Không bịa, không thổi phồng, không đăng lại tin cũ như tin mới.
+   `id`    = địa chỉ riêng của tin (/tin-tuc#id) — chữ thường, không dấu, gạch nối, KHÔNG đổi sau khi đăng.
+   `ngay`  = ngày nguồn công bố tin (YYYY-MM-DD) — dùng sắp xếp, hiển thị, schema, feed.
+   `pham`  = "Việt Nam" | "Thế giới".   `nhan` = Cuộc thi | Khoa học | Thị trường | Khí hậu | Sự kiện | Chính sách.
+   `tieuDe` = câu ngắn, nói thẳng chuyện gì.   `tomTat` = 2–3 câu đơn giản (cho phép <b>, <i>, link nội bộ).
+   `yNghia` = 1 câu "vì sao đáng để ý" với người uống/người làm cà phê Việt Nam — văn thường, không HTML.
+   `nguon`/`nguonTen` = link và tên nguồn. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
+   Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
-  { ngay: "2026-09-03", nhan: "Cuộc thi",
+  { id: "ico-nen-tang-du-lieu-ca-phe", ngay: "2026-09-30", pham: "Thế giới", nhan: "Thị trường",
+    tieuDe: "ICO mở nền tảng dữ liệu cà phê thế giới, xem miễn phí",
+    tomTat: "Ngày 30/9/2026, Tổ chức Cà phê Quốc tế (ICO) ra mắt <b>Coffee Market Intelligence Platform</b> (data.ico.org) tại phiên họp thứ 142 của Hội đồng Cà phê Quốc tế ở Geneva. Nền tảng gom về một chỗ: giá (chỉ số tổng hợp ICO, Arabica New York, Robusta London), xuất nhập khẩu theo từng nước, sản lượng, tiêu thụ và tồn kho. Dữ liệu <b>năm gần nhất xem miễn phí</b>; số liệu lịch sử dành cho thành viên và người đăng ký.",
+    yNghia: "Nhà vườn, nhà rang nhỏ ở Việt Nam giờ tra được số liệu cà phê thế giới từ nguồn chính thức, thay vì nghe đồn.",
+    nguon: "https://dailycoffeenews.com/2026/09/30/ico-puts-global-coffee-market-data-in-one-interactive-place/", nguonTen: "Daily Coffee News" },
+  { id: "gia-ca-phe-tay-nguyen-30-9-2026", ngay: "2026-09-30", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Tây Nguyên cuối tháng 9 về sát 94.000 đồng/kg",
+    tomTat: "Ngày 30/9/2026, giá cà phê nhân xô ở Tây Nguyên tăng 200 đồng/kg, dao động <b>93.200–94.000 đồng/kg</b>; Lâm Đồng ở mức thấp nhất vùng, 93.200 đồng/kg. Trên sàn, Robusta London kỳ hạn tháng 11/2026 đạt 3.412 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 lên 288,75 cent/lb. Người mua và người bán vẫn thận trọng khi vụ thu hoạch mới đến gần.",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận ngày 30/9.",
+    nguon: "https://baolaocai.vn/gia-ca-phe-hom-nay-309-robusta-arabica-cung-bat-tang-manh-post910701.html", nguonTen: "Báo Lào Cai" },
+  { id: "my-ky-luc-uong-ca-phe-dac-san-2026", ngay: "2026-09-17", pham: "Thế giới", nhan: "Thị trường",
+    tieuDe: "Mỹ: tỷ lệ người uống cà phê đặc sản lập kỷ lục mới",
+    tomTat: "Báo cáo National Coffee Data Trends mùa thu 2026 của Hiệp hội Cà phê Quốc gia Mỹ (NCA) cho thấy <b>48% người trưởng thành ở Mỹ</b> đã uống cà phê đặc sản trong ngày hôm trước — mức cao nhất từng ghi nhận. Đồ uống espresso cũng lập kỷ lục: 47% đã uống trong tuần qua, tăng 17,5% so với năm 2022. Khảo sát thực hiện tháng 6/2026.",
+    yNghia: "Nhu cầu cà phê đặc sản ở một trong những thị trường lớn nhất thế giới vẫn tăng — đầu ra rộng hơn cho cà phê đặc sản xuất khẩu, trong đó có Việt Nam.",
+    nguon: "https://www.convenience.org/stay-current/news/2026/september/17/nca-specialty-coffee-consumption-hits-record-high", nguonTen: "NACS (theo NCA)" },
+  { id: "kew-robusta-chiu-nong-khong-chiu-han", ngay: "2026-08-28", pham: "Thế giới", nhan: "Khí hậu",
+    tieuDe: "Nghiên cứu Kew: Robusta chịu nóng nhưng không chịu hạn — Việt Nam được nêu tên",
+    tomTat: "Nghiên cứu của nhóm Aaron Davis (Vườn Thực vật Hoàng gia Kew, Anh) đăng trên tạp chí <i>Sustainable Development</i> cho rằng quan niệm “Robusta chống chịu biến đổi khí hậu tốt hơn Arabica” là một “huyền thoại trên mạng”. Robusta chịu nóng tốt hơn Arabica nhưng <b>không chịu được hạn</b>; các nước trồng lớn như Brazil, <b>Việt Nam</b> và Ấn Độ phải dựa vào tưới nước để giữ năng suất. <a href='/kien-thuc/do-cao-khong-con-la-tat-ca'>Gu đã viết về khí hậu và tương lai cây cà phê →</a>",
+    yNghia: "Robusta không phải “lá chắn khí hậu” tự nhiên: với các vùng Robusta như Tây Nguyên, nước tưới mùa khô là điểm yếu cần tính tới.",
+    nguon: "https://kfgo.com/2026/08/28/robusta-coffee-climate-resilience-an-internet-myth-author-of-new-study-says/", nguonTen: "KFGO" },
+  { id: "vietnam-amazing-cup-2026", ngay: "2026-09-03", pham: "Việt Nam", nhan: "Cuộc thi",
     tieuDe: "Vietnam Amazing Cup 2026: Lâm Đồng thắng lớn, Bui Coffee Supply có mẫu Robusta được ưa chuộng nhất",
     tomTat: "Cuộc thi cà phê đặc sản Việt Nam 2026 (tổ chức tại Buôn Ma Thuột, Đắk Lắk) thu hút <b>182 mẫu từ 81 nhà sản xuất</b> ở 7 vùng, tổng khoảng <b>348 tấn</b> (86 tấn Arabica, 262 tấn Robusta). Lâm Đồng thắng đậm: hai giải Nhất đều thuộc về nhà sản xuất ở Lâm Đồng (nổi bật với sơ chế lên men kép), và mẫu <b>Robusta được ưa chuộng nhất thuộc về Bui Coffee Supply</b> (Lâm Đồng) — nhà rang Gu có theo dõi. Dấu hiệu rõ của việc specialty Việt Nam đang chuyển từ quy mô nhỏ sang sản lượng thương mại.",
-    nguon: "https://vovworld.vn/en-US/news/lam-dong-scores-big-at-vietnam-specialty-coffee-awards-2026-2430684.vov5", nguonTen: "VOV World" },
-  { ngay: "2026-09-03", nhan: "Khoa học",
+    nguon: "https://vovworld.vn/en-US/news/lam-dong-scores-big-at-vietnam-specialty-coffee-awards-2026-2430684.vov5", nguonTen: "VOV World",
+    yNghia: "Hai giải Nhất về Lâm Đồng và 348 tấn đăng ký dự thi — tín hiệu cà phê đặc sản Việt Nam đã có sản lượng để bán thương mại, không còn là vài bao nhỏ lẻ." },
+  { id: "ban-do-gene-liberica-3-loai", ngay: "2026-09-03", pham: "Thế giới", nhan: "Khoa học",
     tieuDe: "Bản đồ gene cây cà phê được vẽ lại: Liberica tách thành 3 loài, dòng lai Coffea × libex được đặt tên",
     tomTat: "Nghiên cứu của nhóm Royal Botanic Gardens, Kew trên <i>Nature Plants</i> (2025) tách “phức hợp Liberica” thành ba loài riêng biệt (<i>C. liberica</i>, <i>C. dewevrei</i>/Excelsa, <i>C. klainei</i>), nâng số loài cà phê được công nhận lên 133. Một nghiên cứu khác trên <i>Scientific Reports</i> (2026) chính thức đặt tên dòng lai <b>Coffea × libex</b> (Liberica × Excelsa) — hướng mở rộng “kho gene” chịu nóng, khô cho cà phê. <a href='/kien-thuc/do-cao-khong-con-la-tat-ca'>Gu đã viết bài phân tích chi tiết →</a>",
-    nguon: "https://www.nature.com/articles/s41477-025-02073-y", nguonTen: "Nature Plants" },
-  { ngay: "2026-09-03", nhan: "Thị trường",
+    nguon: "https://www.nature.com/articles/s41477-025-02073-y", nguonTen: "Nature Plants",
+    yNghia: "Thêm loài và dòng lai mới là thêm “kho gene” chịu nóng, chịu khô — nguồn giống dự phòng khi khí hậu ép Arabica và Robusta." },
+  { id: "gia-ca-phe-lam-dong-giua-2026", ngay: "2026-09-03", pham: "Việt Nam", nhan: "Thị trường",
     tieuDe: "Giá cà phê Lâm Đồng neo cao trong năm 2026",
     tomTat: "Theo báo Lâm Đồng, giữa tháng 7/2026 giá Robusta trên sàn London vượt <b>3.900 USD/tấn</b>; giá nhân nội địa tại Lâm Đồng (Bảo Lộc, Di Linh, Lâm Hà) dao động quanh <b>94–95 nghìn đồng/kg</b> vào cuối tháng 8/2026. Giá vẫn nhạy với thời tiết Tây Nguyên và tiến độ vụ 2025–2026. <i>(Số liệu thị trường thay đổi hằng ngày — đây là mốc ghi nhận tại thời điểm cập nhật.)</i>",
-    nguon: "https://baolamdong.vn/gia-ca-phe-hom-nay-16-7-2026-noi-dia-dong-loat-tang-1-200-dong-kg-robusta-vuot-3-900-usd-tan-453742.html", nguonTen: "Báo Lâm Đồng" }
+    nguon: "https://baolamdong.vn/gia-ca-phe-hom-nay-16-7-2026-noi-dia-dong-loat-tang-1-200-dong-kg-robusta-vuot-3-900-usd-tan-453742.html", nguonTen: "Báo Lâm Đồng",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày." }
 ];
 
 /* ---- Vùng nguyên liệu — hub kiến thức cà phê Lâm Đồng.
