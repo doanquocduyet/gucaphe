@@ -1781,3 +1781,4 @@ body:has(.buybar){padding-bottom:50px}
 .tt-tag.tt-pham{background:transparent;border:1px solid var(--line,#E7DCCB)}
 .tt-why{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0 0 12px;padding-left:12px;border-left:2px solid var(--brown,#A15C2A)}
 .tt-why b{font-weight:700}
+.tt-srcs{display:flex;flex-wrap:wrap;gap:6px 16px}

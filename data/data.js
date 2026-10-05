@@ -1652,14 +1652,16 @@ const MUA_GI = [
    `pham`  = "Việt Nam" | "Thế giới".   `nhan` = Cuộc thi | Khoa học | Thị trường | Khí hậu | Sự kiện | Chính sách.
    `tieuDe` = câu ngắn, nói thẳng chuyện gì.   `tomTat` = 2–3 câu đơn giản (cho phép <b>, <i>, link nội bộ).
    `yNghia` = 1 câu "vì sao đáng để ý" với người uống/người làm cà phê Việt Nam — văn thường, không HTML.
-   `nguon`/`nguonTen` = link và tên nguồn. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
+   `nguon`/`nguonTen` = link và tên nguồn. MỌI chi tiết trong tin phải đọc được ở nguồn đã dẫn;
+   ghép thông tin từ nguồn thứ hai thì thêm `nguon2`/`nguonTen2`. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
   { id: "ngay-ca-phe-quoc-te-lhq-lan-dau-2026", ngay: "2026-10-01", pham: "Thế giới", nhan: "Sự kiện",
     tieuDe: "1/10/2026: lần đầu Ngày Cà phê Quốc tế được Liên Hợp Quốc chính thức công nhận",
     tomTat: "Ngày 1/10 đã được Tổ chức Cà phê Quốc tế (ICO) chọn làm Ngày Cà phê Quốc tế từ năm 2015, nhưng đến 10/3/2026 Đại hội đồng Liên Hợp Quốc mới thông qua nghị quyết công nhận chính thức, với <b>150 phiếu thuận, 1 phiếu chống (Mỹ), 1 phiếu trắng (Canada)</b>. Nghị quyết do Brazil và nhóm nòng cốt 18 nước đề xuất, <b>trong đó có Việt Nam</b>. Năm 2026 là lần đầu ngày này diễn ra với tư cách ngày quốc tế của Liên Hợp Quốc.",
     yNghia: "Việt Nam đứng trong nhóm đề xuất nên có thêm một dịp chính thức mỗi năm để giới thiệu cà phê Việt ra thế giới, nhất là phân khúc chất lượng cao.",
-    nguon: "https://dailycoffeenews.com/2026/10/01/today-is-the-first-official-un-international-coffee-day-guess-which-one-country-voted-against-it/", nguonTen: "Daily Coffee News" },
+    nguon: "https://dailycoffeenews.com/2026/10/01/today-is-the-first-official-un-international-coffee-day-guess-which-one-country-voted-against-it/", nguonTen: "Daily Coffee News",
+    nguon2: "https://baochinhphu.vn/dai-hoi-dong-lhq-thong-qua-nghi-quyet-ve-ngay-quoc-te-ca-phe-do-viet-nam-dong-de-xuat-102260311142027593.htm", nguonTen2: "Báo Chính phủ" },
   { id: "best-of-panama-2026-dau-gia", ngay: "2026-09-24", pham: "Thế giới", nhan: "Cuộc thi",
     tieuDe: "Đấu giá Best of Panama 2026: lô Gesha đắt nhất bán 18.004 USD/kg",
     tomTat: "Phiên đấu giá Best of Panama ngày 24/9/2026 bán <b>50 lô</b> (mỗi lô 15 kg), nhận <b>24.544 lượt trả giá</b>, tổng thu khoảng <b>3,04 triệu USD</b>. Lô cao nhất là Elida Geisha Torre của gia đình Lamastus: 15 kg bán được 270.060 USD, tức <b>18.004 USD/kg</b>. Lô này sơ chế ướt, ủ lên men ở 14–17°C và phơi trong buồng lạnh. <a href='/kien-thuc/gesha-la-gi'>Gesha là gì và vì sao đắt →</a>",

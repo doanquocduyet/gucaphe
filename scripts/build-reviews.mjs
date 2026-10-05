@@ -22,7 +22,7 @@ import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://gucaphe.vn';
-const CSS_V = '20261002-1';
+const CSS_V = '20261005-1';
 
 /* ---- Ảnh OG (1200×630, không chèn chữ). Mỗi trang dùng ảnh riêng nếu đủ nét,
    còn lại rơi về ảnh mặc định sang trọng (pour-over). Ảnh cắt sẵn ở assets/img/og/. ---- */
@@ -1762,7 +1762,7 @@ function hubTinTuc() {
     <h2 class="tt-t"><a href="#${id}">${esc(t.tieuDe)}</a></h2>
     <p class="tt-sum">${t.tomTat || ''}</p>
     ${t.yNghia ? `<p class="tt-why"><b>Vì sao đáng để ý:</b> ${esc(t.yNghia)}</p>` : ''}
-    ${t.nguon ? `<a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>` : ''}
+    ${t.nguon ? `<div class="tt-srcs"><a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>${t.nguon2 ? `<a class="tt-src" href="${esc(t.nguon2)}" target="_blank" rel="noopener nofollow">${esc(t.nguonTen2 || 'link')} ↗</a>` : ''}</div>` : ''}
   </article>`;
   }).join('') : `<p class="hub-intro">Chưa có tin cập nhật.</p>`;
   const newest = items.length ? items[0].ngay : isoDate(SITE.capNhat);
@@ -1780,7 +1780,7 @@ function hubTinTuc() {
         datePublished: t.ngay, dateModified: t.ngay, inLanguage: 'vi-VN',
         ...(t.nhan ? { articleSection: t.nhan } : {}),
         ...(t.pham ? { contentLocation: { '@type': 'Place', name: t.pham } } : {}),
-        ...(t.nguon ? { isBasedOn: t.nguon } : {}),
+        ...(t.nguon ? { isBasedOn: t.nguon2 ? [t.nguon, t.nguon2] : t.nguon } : {}),
         author: ORG_REF, publisher: ORG_REF
       }
     }))
