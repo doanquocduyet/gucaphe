@@ -1655,6 +1655,16 @@ const MUA_GI = [
    `nguon`/`nguonTen` = link và tên nguồn. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
+  { id: "ngay-ca-phe-quoc-te-lhq-lan-dau-2026", ngay: "2026-10-01", pham: "Thế giới", nhan: "Sự kiện",
+    tieuDe: "1/10/2026: lần đầu Ngày Cà phê Quốc tế được Liên Hợp Quốc chính thức công nhận",
+    tomTat: "Ngày 1/10 đã được Tổ chức Cà phê Quốc tế (ICO) chọn làm Ngày Cà phê Quốc tế từ năm 2015, nhưng đến 10/3/2026 Đại hội đồng Liên Hợp Quốc mới thông qua nghị quyết công nhận chính thức, với <b>150 phiếu thuận, 1 phiếu chống (Mỹ), 1 phiếu trắng (Canada)</b>. Nghị quyết do Brazil và nhóm nòng cốt 18 nước đề xuất, <b>trong đó có Việt Nam</b>. Năm 2026 là lần đầu ngày này diễn ra với tư cách ngày quốc tế của Liên Hợp Quốc.",
+    yNghia: "Việt Nam đứng trong nhóm đề xuất nên có thêm một dịp chính thức mỗi năm để giới thiệu cà phê Việt ra thế giới, nhất là phân khúc chất lượng cao.",
+    nguon: "https://dailycoffeenews.com/2026/10/01/today-is-the-first-official-un-international-coffee-day-guess-which-one-country-voted-against-it/", nguonTen: "Daily Coffee News" },
+  { id: "best-of-panama-2026-dau-gia", ngay: "2026-09-24", pham: "Thế giới", nhan: "Cuộc thi",
+    tieuDe: "Đấu giá Best of Panama 2026: lô Gesha đắt nhất bán 18.004 USD/kg",
+    tomTat: "Phiên đấu giá Best of Panama ngày 24/9/2026 bán <b>50 lô</b> (mỗi lô 15 kg), nhận <b>24.544 lượt trả giá</b>, tổng thu khoảng <b>3,04 triệu USD</b>. Lô cao nhất là Elida Geisha Torre của gia đình Lamastus: 15 kg bán được 270.060 USD, tức <b>18.004 USD/kg</b>. Lô này sơ chế ướt, ủ lên men ở 14–17°C và phơi trong buồng lạnh. <a href='/kien-thuc/gesha-la-gi'>Gesha là gì và vì sao đắt →</a>",
+    yNghia: "Mức giá này cho thấy thị trường trả tiền cho giống tốt cộng sơ chế kỹ, không chỉ cho cái tên Gesha — bài học cho các lô Arabica vùng cao Lâm Đồng.",
+    nguon: "https://newsroompanama.com/2026/09/24/18000-per-kilo-generating-more-than-3-million-in-sales-at-the-best-of-panama-auction-not-gold-or-silver-it-is-panamanian-coffee/", nguonTen: "Newsroom Panama" },
   { id: "ico-nen-tang-du-lieu-ca-phe", ngay: "2026-09-30", pham: "Thế giới", nhan: "Thị trường",
     tieuDe: "ICO mở nền tảng dữ liệu cà phê thế giới, xem miễn phí",
     tomTat: "Ngày 30/9/2026, Tổ chức Cà phê Quốc tế (ICO) ra mắt <b>Coffee Market Intelligence Platform</b> (data.ico.org) tại phiên họp thứ 142 của Hội đồng Cà phê Quốc tế ở Geneva. Nền tảng gom về một chỗ: giá (chỉ số tổng hợp ICO, Arabica New York, Robusta London), xuất nhập khẩu theo từng nước, sản lượng, tiêu thụ và tồn kho. Dữ liệu <b>năm gần nhất xem miễn phí</b>; số liệu lịch sử dành cho thành viên và người đăng ký.",
