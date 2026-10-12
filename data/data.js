@@ -1656,6 +1656,22 @@ const MUA_GI = [
    ghép thông tin từ nguồn thứ hai thì thêm `nguon2`/`nguonTen2`. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
+  { id: "robusta-toan-cau-2026-9-mau-viet-nam-top-20", ngay: "2026-10-09", pham: "Việt Nam", nhan: "Cuộc thi",
+    tieuDe: "9 mẫu Robusta Việt Nam vào top 20 Cuộc thi Cà phê Robusta Toàn cầu lần 3",
+    tomTat: "Theo VTV, Việt Nam có <b>9 mẫu</b> lọt top 20 Cuộc thi Cà phê Robusta Toàn cầu lần thứ 3, trong đó <b>6 mẫu</b> của các thành viên Hiệp hội Cà phê Buôn Ma Thuột. Mẫu dự thi lấy từ niên vụ 2025–2026, phải hái chín bằng tay, sơ chế phù hợp, nhân xanh đồng đều, không lỗi; sau vòng đánh giá cộng đồng, mẫu được chấm theo thang 100 điểm. Đây mới là vòng top 20, kết quả cuối chưa công bố. <a href='/kien-thuc/fine-robusta-la-gi'>Fine Robusta là gì →</a>",
+    yNghia: "Robusta Việt muốn được chấm điểm như hàng đặc sản thì phải hái chín và sơ chế kỹ — đúng những tiêu chí mà các mẫu lọt top 20 phải đạt.",
+    nguon: "https://vtv.vn/9-mau-ca-phe-robusta-viet-nam-lot-top-20-toan-cau-100261009074556805.htm", nguonTen: "VTV" },
+  { id: "iisd-eudr-nong-ho-nho-2026", ngay: "2026-10-07", pham: "Thế giới", nhan: "Chính sách",
+    tieuDe: "Báo cáo IISD: nông hộ nhỏ vẫn khó đáp ứng luật chống phá rừng của EU",
+    tomTat: "Viện Quốc tế về Phát triển Bền vững (IISD, Canada) khảo sát <b>333 nông dân và tổ chức sản xuất ở 16 nước</b>, trong đó có người trồng cà phê. Rào cản lớn nhất là giấy tờ đất, chi phí tuân thủ, truy xuất nguồn gốc và năng lực kỹ thuật; <b>79% người trả lời trồng cà phê</b> cho rằng yêu cầu khắt khe hơn có thể đẩy nông dân sang các thị trường ít quy định hơn. Luật EUDR áp dụng với doanh nghiệp lớn và vừa từ <b>30/12/2026</b>, với phần lớn doanh nghiệp siêu nhỏ và nhỏ từ 30/6/2027. Nhóm tác giả lưu ý mẫu khảo sát không đồng đều, không đại diện về thống kê.",
+    yNghia: "Chưa đầy ba tháng nữa EUDR áp dụng: nhà vườn Việt Nam muốn bán sang châu Âu cần sớm có bản đồ vườn và hồ sơ truy xuất.",
+    nguon: "https://dailycoffeenews.com/2026/10/07/eudr-compliance-gaps-persist-for-smallholders-new-report-finds/", nguonTen: "Daily Coffee News" },
+  { id: "gia-ca-phe-tay-nguyen-10-10-2026", ngay: "2026-10-10", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Tây Nguyên giảm về khoảng 92.000 đồng/kg khi vụ mới bắt đầu",
+    tomTat: "Ngày 10/10/2026, giá cà phê nhân xô ở Tây Nguyên giảm 1.000 đồng/kg, còn <b>91.200–92.000 đồng/kg</b>; Lâm Đồng thấp nhất, 91.200 đồng/kg. Trên sàn, Robusta London kỳ hạn tháng 11/2026 giảm 62 USD xuống 3.423 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 còn 289,05 cent/lb. Theo Báo Lâm Đồng (8/10), phần lớn cà phê trong tỉnh còn đang nuôi trái nhưng một số vườn phía Tây đã bắt đầu thu hoạch, hái lựa quả chín trước.",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận ngày 10/10.",
+    nguon: "https://baolaocai.vn/gia-ca-phe-hom-nay-10102026-gia-trong-nuoc-giam-sau-post911537.html", nguonTen: "Báo Lào Cai",
+    nguon2: "https://baolamdong.vn/nong-dan-phia-tay-lam-dong-hao-huc-vao-vu-thu-hoach-ca-phe-468285.html", nguonTen2: "Báo Lâm Đồng" },
   { id: "ngay-ca-phe-quoc-te-lhq-lan-dau-2026", ngay: "2026-10-01", pham: "Thế giới", nhan: "Sự kiện",
     tieuDe: "1/10/2026: lần đầu Ngày Cà phê Quốc tế được Liên Hợp Quốc chính thức công nhận",
     tomTat: "Ngày 1/10 đã được Tổ chức Cà phê Quốc tế (ICO) chọn làm Ngày Cà phê Quốc tế từ năm 2015, nhưng đến 10/3/2026 Đại hội đồng Liên Hợp Quốc mới thông qua nghị quyết công nhận chính thức, với <b>150 phiếu thuận, 1 phiếu chống (Mỹ), 1 phiếu trắng (Canada)</b>. Nghị quyết do Brazil và nhóm nòng cốt 18 nước đề xuất, <b>trong đó có Việt Nam</b>. Năm 2026 là lần đầu ngày này diễn ra với tư cách ngày quốc tế của Liên Hợp Quốc.",

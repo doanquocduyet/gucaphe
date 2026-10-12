@@ -6,7 +6,28 @@
   <atom:link href="https://gucaphe.vn/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.</description>
   <language>vi-VN</language>
-  <lastBuildDate>Thu, 01 Oct 2026 01:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 10 Oct 2026 01:00:00 GMT</lastBuildDate>
+  <item>
+    <title>[Tin] Giá cà phê Tây Nguyên giảm về khoảng 92.000 đồng/kg khi vụ mới bắt đầu</title>
+    <link>https://gucaphe.vn/tin-tuc#gia-ca-phe-tay-nguyen-10-10-2026</link>
+    <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#gia-ca-phe-tay-nguyen-10-10-2026</guid>
+    <pubDate>Sat, 10 Oct 2026 01:00:00 GMT</pubDate>
+    <description>Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận ngày 10/10. Ngày 10/10/2026, giá cà phê nhân xô ở Tây Nguyên giảm 1.000 đồng/kg, còn 91.200–92.000 đồng/kg; Lâm Đồng thấp nhất, 91.200 đồng/kg. Trên sàn, Robusta London kỳ hạn tháng 11/2026 giảm 62 USD xuống 3.423 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 còn 289,05 cent/lb. Theo Báo Lâm Đồng (8/10), phần lớn cà phê trong tỉnh còn đang nuôi trái nhưng một số vườn phía Tây đã bắt đầu thu hoạch, hái lựa quả chín trước.</description>
+  </item>
+  <item>
+    <title>[Tin] 9 mẫu Robusta Việt Nam vào top 20 Cuộc thi Cà phê Robusta Toàn cầu lần 3</title>
+    <link>https://gucaphe.vn/tin-tuc#robusta-toan-cau-2026-9-mau-viet-nam-top-20</link>
+    <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#robusta-toan-cau-2026-9-mau-viet-nam-top-20</guid>
+    <pubDate>Fri, 09 Oct 2026 01:00:00 GMT</pubDate>
+    <description>Robusta Việt muốn được chấm điểm như hàng đặc sản thì phải hái chín và sơ chế kỹ — đúng những tiêu chí mà các mẫu lọt top 20 phải đạt. Theo VTV, Việt Nam có 9 mẫu lọt top 20 Cuộc thi Cà phê Robusta Toàn cầu lần thứ 3, trong đó 6 mẫu của các thành viên Hiệp hội Cà phê Buôn Ma Thuột. Mẫu dự thi lấy từ niên vụ 2025–2026, phải hái chín bằng tay, sơ chế phù hợp, nhân xanh đồng đều, không lỗi; sau vòng đánh giá cộng đồng, mẫu được chấm theo thang 100 điểm. Đây mới là vòng top 20, kết quả cuối chưa công bố. Fine Robusta là gì →</description>
+  </item>
+  <item>
+    <title>[Tin] Báo cáo IISD: nông hộ nhỏ vẫn khó đáp ứng luật chống phá rừng của EU</title>
+    <link>https://gucaphe.vn/tin-tuc#iisd-eudr-nong-ho-nho-2026</link>
+    <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#iisd-eudr-nong-ho-nho-2026</guid>
+    <pubDate>Wed, 07 Oct 2026 01:00:00 GMT</pubDate>
+    <description>Chưa đầy ba tháng nữa EUDR áp dụng: nhà vườn Việt Nam muốn bán sang châu Âu cần sớm có bản đồ vườn và hồ sơ truy xuất. Viện Quốc tế về Phát triển Bền vững (IISD, Canada) khảo sát 333 nông dân và tổ chức sản xuất ở 16 nước, trong đó có người trồng cà phê. Rào cản lớn nhất là giấy tờ đất, chi phí tuân thủ, truy xuất nguồn gốc và năng lực kỹ thuật; 79% người trả lời trồng cà phê cho rằng yêu cầu khắt khe hơn có thể đẩy nông dân sang các thị trường ít quy định hơn. Luật EUDR áp dụng với doanh nghiệp lớn và vừa từ 30/12/2026, với phần lớn doanh nghiệp siêu nhỏ và nhỏ từ 30/6/2027. Nhóm tác giả lưu ý mẫu khảo sát không đồng đều, không đại diện về thống kê.</description>
+  </item>
   <item>
     <title>[Tin] 1/10/2026: lần đầu Ngày Cà phê Quốc tế được Liên Hợp Quốc chính thức công nhận</title>
     <link>https://gucaphe.vn/tin-tuc#ngay-ca-phe-quoc-te-lhq-lan-dau-2026</link>
@@ -55,20 +76,6 @@
     <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#ban-do-gene-liberica-3-loai</guid>
     <pubDate>Thu, 03 Sep 2026 01:00:00 GMT</pubDate>
     <description>Thêm loài và dòng lai mới là thêm “kho gene” chịu nóng, chịu khô — nguồn giống dự phòng khi khí hậu ép Arabica và Robusta. Nghiên cứu của nhóm Royal Botanic Gardens, Kew trên Nature Plants (2025) tách “phức hợp Liberica” thành ba loài riêng biệt (C. liberica, C. dewevrei/Excelsa, C. klainei), nâng số loài cà phê được công nhận lên 133. Một nghiên cứu khác trên Scientific Reports (2026) chính thức đặt tên dòng lai Coffea × libex (Liberica × Excelsa) — hướng mở rộng “kho gene” chịu nóng, khô cho cà phê. Gu đã viết bài phân tích chi tiết →</description>
-  </item>
-  <item>
-    <title>[Tin] Giá cà phê Lâm Đồng neo cao trong năm 2026</title>
-    <link>https://gucaphe.vn/tin-tuc#gia-ca-phe-lam-dong-giua-2026</link>
-    <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#gia-ca-phe-lam-dong-giua-2026</guid>
-    <pubDate>Thu, 03 Sep 2026 01:00:00 GMT</pubDate>
-    <description>Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày. Theo báo Lâm Đồng, giữa tháng 7/2026 giá Robusta trên sàn London vượt 3.900 USD/tấn; giá nhân nội địa tại Lâm Đồng (Bảo Lộc, Di Linh, Lâm Hà) dao động quanh 94–95 nghìn đồng/kg vào cuối tháng 8/2026. Giá vẫn nhạy với thời tiết Tây Nguyên và tiến độ vụ 2025–2026. (Số liệu thị trường thay đổi hằng ngày — đây là mốc ghi nhận tại thời điểm cập nhật.)</description>
-  </item>
-  <item>
-    <title>[Tin] Nghiên cứu Kew: Robusta chịu nóng nhưng không chịu hạn — Việt Nam được nêu tên</title>
-    <link>https://gucaphe.vn/tin-tuc#kew-robusta-chiu-nong-khong-chiu-han</link>
-    <guid isPermaLink="true">https://gucaphe.vn/tin-tuc#kew-robusta-chiu-nong-khong-chiu-han</guid>
-    <pubDate>Fri, 28 Aug 2026 01:00:00 GMT</pubDate>
-    <description>Robusta không phải “lá chắn khí hậu” tự nhiên: với các vùng Robusta như Tây Nguyên, nước tưới mùa khô là điểm yếu cần tính tới. Nghiên cứu của nhóm Aaron Davis (Vườn Thực vật Hoàng gia Kew, Anh) đăng trên tạp chí Sustainable Development cho rằng quan niệm “Robusta chống chịu biến đổi khí hậu tốt hơn Arabica” là một “huyền thoại trên mạng”. Robusta chịu nóng tốt hơn Arabica nhưng không chịu được hạn; các nước trồng lớn như Brazil, Việt Nam và Ấn Độ phải dựa vào tưới nước để giữ năng suất. Gu đã viết về khí hậu và tương lai cây cà phê →</description>
   </item>
   <item>
     <title>Cà phê thực sự là gì? Từ cái cây ngoài vườn đến hạt cà phê Việt đi khắp thế giới</title>
@@ -349,13 +356,6 @@
     <guid isPermaLink="true">https://gucaphe.vn/review/son-pacamara-heirloom</guid>
     <pubDate>Sat, 12 Sep 2026 01:00:00 GMT</pubDate>
     <description>Đã uống. Heirloom (Arabica lâu năm)</description>
-  </item>
-  <item>
-    <title>Sơn Pacamara Fruit Mood — Special Blend 250g</title>
-    <link>https://gucaphe.vn/review/son-pacamara-fruit-mood</link>
-    <guid isPermaLink="true">https://gucaphe.vn/review/son-pacamara-fruit-mood</guid>
-    <pubDate>Sat, 12 Sep 2026 01:00:00 GMT</pubDate>
-    <description>Đã uống. Blend Arabica (Typica, Heirloom)</description>
   </item>
 </channel>
 </rss>
