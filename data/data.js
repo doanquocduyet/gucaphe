@@ -1658,7 +1658,7 @@ const MUA_GI = [
 const TIN = [
   { id: "robusta-toan-cau-2026-9-mau-viet-nam-top-20", ngay: "2026-10-09", pham: "Việt Nam", nhan: "Cuộc thi",
     tieuDe: "9 mẫu Robusta Việt Nam vào top 20 Cuộc thi Cà phê Robusta Toàn cầu lần 3",
-    tomTat: "Theo VTV, Việt Nam có <b>9 mẫu</b> lọt top 20 Cuộc thi Cà phê Robusta Toàn cầu lần thứ 3, trong đó <b>6 mẫu</b> của các thành viên Hiệp hội Cà phê Buôn Ma Thuột. Mẫu dự thi lấy từ niên vụ 2025–2026, phải hái chín bằng tay, sơ chế phù hợp, nhân xanh đồng đều, không lỗi; sau vòng đánh giá cộng đồng, mẫu được chấm theo thang 100 điểm. Đây mới là vòng top 20, kết quả cuối chưa công bố. <a href='/kien-thuc/fine-robusta-la-gi'>Fine Robusta là gì →</a>",
+    tomTat: "Theo VTV, Việt Nam có <b>9 mẫu</b> lọt top 20 Cuộc thi Cà phê Robusta Toàn cầu lần thứ 3, trong đó <b>6 mẫu</b> của các thành viên Hiệp hội Cà phê Buôn Ma Thuột. Mẫu dự thi lấy từ niên vụ 2025–2026, phải hái chín bằng tay, sơ chế phù hợp, nhân xanh đồng đều, không lỗi; sau vòng đánh giá cộng đồng, mẫu được chấm theo thang 100 điểm. Bài báo chưa nêu thứ hạng cụ thể của từng mẫu. <a href='/kien-thuc/fine-robusta-la-gi'>Fine Robusta là gì →</a>",
     yNghia: "Robusta Việt muốn được chấm điểm như hàng đặc sản thì phải hái chín và sơ chế kỹ — đúng những tiêu chí mà các mẫu lọt top 20 phải đạt.",
     nguon: "https://vtv.vn/9-mau-ca-phe-robusta-viet-nam-lot-top-20-toan-cau-100261009074556805.htm", nguonTen: "VTV" },
   { id: "iisd-eudr-nong-ho-nho-2026", ngay: "2026-10-07", pham: "Thế giới", nhan: "Chính sách",
