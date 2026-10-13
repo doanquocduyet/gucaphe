@@ -78,13 +78,13 @@ const ogMeta = (img, alt) => `<meta property="og:image" content="${img}">
 
 /* ---- Đọc data.js trong sandbox nhỏ (chỉ để LẤY dữ liệu) ---- */
 function loadData(src) {
-  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI', 'TIN', 'TRA_LOI_NHANH'];
+  const names = ['SITE', 'QUY_TRINH', 'SP', 'CAP_SS', 'TU_DIEN', 'FAQ', 'BAIVIET', 'VUNG', 'ROASTER', 'NHUCAU', 'MUA_GI', 'TIN', 'TRA_LOI_NHANH', 'XUAT_BAN'];
   const re = new RegExp('\\bconst\\s+(' + names.join('|') + ')\\b', 'g');
   const fn = new Function('ctx', src.replace(re, 'ctx.$1') + '\nreturn ctx;');
   return fn({});
 }
 const raw = readFileSync(join(ROOT, 'data/data.js'), 'utf8');
-const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [], TIN = [], TRA_LOI_NHANH = {} } = loadData(raw);
+const { SITE, SP, VUNG = [], ROASTER = [], QUY_TRINH = [], FAQ = [], TU_DIEN = [], BAIVIET = [], NHUCAU = [], MUA_GI = [], TIN = [], TRA_LOI_NHANH = {}, XUAT_BAN = {} } = loadData(raw);
 const SP_BY_ID = {}; SP.forEach(p => { SP_BY_ID[p.id] = p; });
 const VUNG_BY_SLUG = {}; VUNG.forEach(v => { VUNG_BY_SLUG[v.slug] = v; });
 // Nối ngược sản phẩm → nhà rang (product id có trong roaster.sanPham)
@@ -325,6 +325,7 @@ function schema(p) {
       '@type': 'Review',
       reviewRating: { '@type': 'Rating', ratingValue: p.diem, bestRating: 10, worstRating: 0 },
       author: ORG_REF,
+      datePublished: XUAT_BAN['review/' + p.slug] || isoDate(SITE.capNhat),
       reviewBody: p.flavor || (p.notes && p.notes.length ? p.notes.join(', ') + '.' : '')
     };
   }
@@ -426,6 +427,7 @@ function productReviewBody(p, tested) {
   const specRows = [
     ['Nhà rang', r ? `<a href="/nha-rang/${r.slug}">${esc(p.brand)}</a>` : esc(p.brand)],
     ['Vùng', v ? `<a href="/vung-trong/${v.slug}">${esc(v.ten)}</a>` : esc(p.xaHuyen || '')],
+    ['Độ cao', esc(p.doCao || '')],
     ['Giống', esc(p.giong || '')],
     ['Sơ chế', esc(p.process || '')],
     ['Rang', esc(p.roast || '')],
@@ -1553,8 +1555,10 @@ function articlePage(b) {
   const src = ktImg(b);
   const steps = bd ? batDauSteps() : [];
   const stepChip = bd && b.thuTu ? `Bước ${b.thuTu}/${steps.length}` : '';
+  const xb = XUAT_BAN[b.id] || '';
+  const dateChip = xb ? `<span><time datetime="${xb}">Đăng ${xb.split('-').reverse().join('/')}</time></span>` : '';
   const meta = `<div class="kt-meta">${[b.tag, stepChip, b.docPhut ? `Đọc ${b.docPhut} phút` : '', b.mucDo]
-    .filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}</div>`;
+    .filter(Boolean).map(x => `<span>${esc(x)}</span>`).join('')}${dateChip}</div>`;
   const faqBlock = (b.faq && b.faq.length) ? `<section class="kta-faq">
     <h2 class="kta-faq-h">Câu hỏi thường gặp</h2>
     ${b.faq.map((f, i) => `<details class="faq-i"${i === 0 ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}
@@ -1621,7 +1625,7 @@ function articlePage(b) {
     headline: b.tieuDe, description: b.dek, inLanguage: 'vi-VN',
     ...(src ? { image: `${ORIGIN}${src}` } : {}),
     author: ORG_REF,
-    datePublished: isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
+    datePublished: XUAT_BAN[b.id] || isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
     mainEntityOfPage: url, publisher: ORG_REF,
     ...(tln ? { abstract: tln } : {}),
     speakable: { '@type': 'SpeakableSpecification', cssSelector: tln ? ['h1', '.kta-tln p'] : ['h1', '.kta-dek'] },
@@ -1993,19 +1997,19 @@ writeFileSync(join(ROOT, 'sitemap.xml'), sitemap, 'utf8');
 
 /* ---- RSS feed (freshness signal cho Google & answer/AI engine) ---- */
 const rfc822 = dmy => new Date(`${isoDate(dmy)}T08:00:00+07:00`).toUTCString();
-const feedItem = (u, title, desc) => `  <item>
+const feedItem = (u, title, desc, iso) => `  <item>
     <title>${xmlEsc(title)}</title>
     <link>${xmlEsc(u)}</link>
     <guid isPermaLink="true">${xmlEsc(u)}</guid>
-    <pubDate>${rfc822(SITE.capNhat)}</pubDate>
+    <pubDate>${iso ? new Date(`${iso}T08:00:00+07:00`).toUTCString() : rfc822(SITE.capNhat)}</pubDate>
     <description>${xmlEsc(desc || '')}</description>
   </item>`;
 const feedItems = [
   ...tinSorted().slice(0, 10).map(t => feedItem(`${ORIGIN}/tin-tuc#${tinSlug(t)}`, `[Tin] ${t.tieuDe}`, (t.yNghia ? t.yNghia + ' ' : '') + stripHtml(t.tomTat)).replace(`<pubDate>${rfc822(SITE.capNhat)}</pubDate>`, `<pubDate>${new Date(`${t.ngay}T08:00:00+07:00`).toUTCString()}</pubDate>`)),
-  ...BAIVIET.filter(b => b.id).map(b => feedItem(`${ORIGIN}/${artBase(b)}/${b.id}`, b.tieuDe, b.dek || '')),
+  ...BAIVIET.filter(b => b.id).map(b => feedItem(`${ORIGIN}/${artBase(b)}/${b.id}`, b.tieuDe, TRA_LOI_NHANH[b.id] || b.dek || '', XUAT_BAN[b.id])),
   ...SP.filter(p => p.slug).map(p => feedItem(`${ORIGIN}/review/${p.slug}`,
     `${p.brand} ${p.ten}${p.tested && p.diem != null ? ` — ${p.diem}/10` : ''}`,
-    p.tested && p.diem != null ? `Nếm mù chấm ${p.diem}/10. ${p.giong || ''}`.trim() : `${p.daUong ? 'Đã uống' : 'Chưa nếm'}. ${p.giong || ''}`.trim()))
+    p.tested && p.diem != null ? `Nếm mù chấm ${p.diem}/10. ${p.giong || ''}`.trim() : `${p.daUong ? 'Đã uống' : 'Chưa nếm'}. ${p.giong || ''}`.trim(), XUAT_BAN['review/' + p.slug]))
 ].slice(0, 50);
 const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

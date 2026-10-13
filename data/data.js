@@ -1,7 +1,7 @@
 const SITE = {
   ten: "GU CÀ PHÊ",
   tagline: "Chúng tôi mua, nếm mù, chấm điểm — để bạn không phải đoán.",
-  capNhat: "12/09/2026",
+  capNhat: "13/10/2026",
   domain: "gucaphe.vn",
   // Dán GA4 Measurement ID (dạng G-XXXXXXX) vào đây để tự bật đo lường funnel.
   // Để trống "" thì không có analytics nào chạy — trang vẫn hoạt động bình thường.
@@ -33,7 +33,7 @@ const SP = [
   { id:"lb1", guPick:"editor", confidence:"blind_tested", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true}, brand:"Sơn Pacamara", ten:"Lang Biang Specialty 250g", nhom:"hat", gia:270000, gram:250,
     slug:"son-pacamara-lang-biang", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Lạc Dương, Lâm Đồng",
-    giong:"Catimor, Caturra", doCao:"", process:"Natural", roast:"Light", ngayRang:"",
+    giong:"Catimor, Caturra", doCao:"~1.400–1.500m (vùng Lạc Dương)", process:"Natural", roast:"Light", ngayRang:"",
     tested:true, daUong:true, chungNhan:"Farm minh bạch · Lạc Dương", diem:9.3, chua:4, dam:3, hau:5, ngot:4, sach:5,
     chot:"Một trong những Arabica cân bằng, sạch nhất Gu từng thử.",
     nhanXet:"Gói Arabica cân bằng và sạch, rất hợp người bắt đầu với V60. Chua sáng vừa phải kiểu cam chanh, hương hoa rõ, hậu vị ngọt kéo dài — không quá ‘đấu giải’, rất dễ thích. Giá 108k/100g là hợp lý cho chất lượng này.",
@@ -55,7 +55,7 @@ const SP = [
     brand:"Sơn Pacamara", ten:"Pacamara Sơn Farm — Micro-lot 100g", nhom:"hat", gia:220000, gram:100,
     slug:"son-pacamara-pacamara", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
-    giong:"Pacamara", doCao:"", process:"Double anaerobic washed", roast:"Light", ngayRang:"",
+    giong:"Pacamara", doCao:"~1.400–1.600m (vùng Đà Lạt)", process:"Double anaerobic washed", roast:"Light", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Nhà rang công bố 81–83 SCA", diem:null, chua:null, dam:null, hau:null,
     chot:"Giống Pacamara hiếm, lên men anaerobic — chính là nguồn cảm hứng đặt tên Sơn Pacamara.",
     flavor:"Đã mua và uống thật — cân bằng giữa độ chua sáng, thể chất (body) vừa và dư vị ngọt ngào. Micro-lot Pacamara lên men anaerobic từ Sơn Farm (bản New Crop 2026); nhà rang công bố 81–83 điểm SCA. Điểm chấm mù (blind) của Gu sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -74,7 +74,7 @@ const SP = [
     brand:"Sơn Pacamara", ten:"Heirloom Sơn Farm — 100% Arabica 250g", nhom:"hat", gia:265000, gram:250,
     slug:"son-pacamara-heirloom", pha:["v60"],
     vungSlug:"lac-duong", xaHuyen:"Sơn Farm, Đà Lạt",
-    giong:"Heirloom (Arabica lâu năm)", doCao:"", process:"Double washed", roast:"Light", ngayRang:"",
+    giong:"Heirloom (Arabica lâu năm)", doCao:"~1.400–1.600m (vùng Đà Lạt)", process:"Double washed", roast:"Light", ngayRang:"",
     tested:false, daUong:true, chungNhan:"", diem:null, chua:null, dam:null, hau:null,
     chot:"Heirloom Sơn Farm — Arabica lâu năm, double washed rang sáng; chua sáng, cam chanh.",
     flavor:"Đã mua và uống thật — chua sáng kiểu cam chanh, ngọt nhẹ như đường nâu, hậu sạch; hợp pour over (V60, Chemex). Lô Heirloom (Arabica lâu năm, Sơn Farm, Đà Lạt), double washed, rang sáng. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -91,7 +91,7 @@ const SP = [
   { id:"sp-fruitmood", guPick:"signature", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true}, brand:"Sơn Pacamara", ten:"Fruit Mood — Special Blend 250g", nhom:"hat", gia:255000, gram:250,
     slug:"son-pacamara-fruit-mood", pha:["v60","coldbrew","phin","espresso"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt + Lang Biang, Lâm Đồng",
-    giong:"Blend Arabica (Typica, Heirloom)", doCao:"", process:"Washed", roast:"Medium-light", ngayRang:"",
+    giong:"Blend Arabica (Typica, Heirloom)", doCao:"~1.400–1.600m (Đà Lạt, Lang Biang)", process:"Washed", roast:"Medium-light", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Sơn Pacamara · Special Blend", diem:null, chua:null, dam:null, hau:null,
     chot:"Fruit Mood — blend Đà Lạt + Lang Biang, ngọt dày, đậm vị, trái cây nhiệt đới.",
     flavor:"Đã mua và uống thật — ngọt dày, đậm vị nhưng vẫn tươi tắn trái cây nhiệt đới (xoài, caramel). Blend Special của Sơn Pacamara: hạt Đà Lạt (rang vừa) trộn Lang Biang (rang sáng), 100% Arabica specialty — hợp mọi cách pha, từ pour over, phin, espresso đến cold brew. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -109,7 +109,7 @@ const SP = [
   { id:"nb-bui", guPick:"editor", confidence:"editor_tasted", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:true}, brand:"Bui Coffee Supply", ten:"Fine Robusta Nam Ban (lên men muối) 250g", nhom:"hat", gia:179000, gram:250,
     slug:"bui-fine-robusta-nam-ban", pha:["phin","espresso"],
     vungSlug:"nam-ban", xaHuyen:"Nam Ban, Lâm Hà",
-    giong:"Fine Robusta", doCao:"", process:"Lên men muối (Natri Clorua)", roast:"Medium", ngayRang:"",
+    giong:"Fine Robusta", doCao:"~800–1.000m (vùng Nam Ban)", process:"Lên men muối (Natri Clorua)", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Top 14 Thế giới · CQI 2024", diem:null, chua:null, dam:null, hau:null,
     flavor:"Đã mua và uống thật — đậm, cảm giác đầy miệng, hậu ngọt, đúng chất Fine Robusta đấu giải. Đây là gói để lại ấn tượng mạnh nhất với chúng tôi. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
     tags:["Đậm đầy miệng","Hậu ngọt","Pha phin/máy"],
@@ -119,7 +119,7 @@ const SP = [
   { id:"tt-sanhdieu", guPick:"editor", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:false,khacBiet:true,hocThuat:true,benVung:true}, brand:"Tám Trình Coffee", ten:"Golden Birds Sành Điệu — 70% Robusta / 30% Arabica 250g", nhom:"hat", gia:135000, gram:250,
     slug:"tam-trinh-golden-birds-sanh-dieu", pha:["phin"],
     vungSlug:"nam-ban", xaHuyen:"Lâm Hà (Robusta) + Lạc Dương (Arabica)",
-    giong:"Blend 70% Robusta + 30% Arabica", doCao:"", process:"", roast:"Medium", ngayRang:"",
+    giong:"Blend 70% Robusta + 30% Arabica", doCao:"Robusta ~800–1.000m (Lâm Hà) + Arabica ~1.400–1.500m (Lạc Dương)", process:"", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Tám Trình · từ 1995 · tem truy xuất nguồn gốc", diem:null, chua:null, dam:null, hau:null,
     chot:"Golden Birds Sành Điệu — blend Robusta-Arabica rang mộc, dễ uống, hợp phin.",
     flavor:"Đã mua và uống thật — dễ uống, cân bằng, không kén gu; đắng dịu, hậu ngọt, hợp pha phin hằng ngày. Dòng Golden Birds ‘Sành Điệu’ của Tám Trình: 70% Robusta (Lâm Hà) trộn 30% Arabica (Lạc Dương), rang mộc không tẩm ướp. Nhà rang mô tả: đắng dịu hơn dòng truyền thống, thơm tự nhiên, thanh ngọt hậu. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.", notes:[],
@@ -168,7 +168,7 @@ const SP = [
   { id:"dh-blend", guPick:"collector", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:true,benVung:true}, brand:"Dehavi (Hân Vinh)", ten:"Blend Robusta–Arabica Pha Máy 250g", nhom:"hat", gia:80000, gram:250,
     slug:"dehavi-blend-pha-may", pha:["espresso","phin"],
     vungSlug:"nam-ban", xaHuyen:"Robusta Nam Ban + Arabica Cầu Đất",
-    giong:"Blend Robusta (Nam Ban) + Arabica (Cầu Đất)", doCao:"", process:"Natural / Honey", roast:"Medium", ngayRang:"",
+    giong:"Blend Robusta (Nam Ban) + Arabica (Cầu Đất)", doCao:"Robusta ~800–1.000m (Nam Ban) + Arabica ~1.400–1.650m (Cầu Đất)", process:"Natural / Honey", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Dehavi · rang mộc", diem:null, chua:null, dam:null, hau:null,
     chot:"Blend pha máy Robusta Nam Ban + Arabica Cầu Đất — đậm đà vừa, ít gắt.",
     flavor:"Đã mua và uống thật — đậm đà vừa phải, ít gắt, dậy hương Robusta hoà quyện chua thanh và hậu ngọt của Arabica. Blend pha máy của Dehavi: Robusta Nam Ban + Arabica Cầu Đất, rang mộc, Natural/Honey, tỉ lệ tuỳ chọn (5-5, 7-3, 9-1 — càng nhiều Robusta càng đậm và nhiều caffeine). Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -185,7 +185,7 @@ const SP = [
   { id:"mb-redbourbon", guPick:"collector", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:true,hocThuat:true,benVung:false}, brand:"The Married Beans", ten:"Red Bourbon rang sáng Cầu Đất 250g", nhom:"hat", gia:275000, gram:250,
     slug:"married-beans-red-bourbon-cau-dat", pha:["v60","coldbrew"],
     vungSlug:"cau-dat", xaHuyen:"Cầu Đất, Lâm Đồng",
-    giong:"Red Bourbon (Arabica)", doCao:"", process:"Washed", roast:"Light", ngayRang:"",
+    giong:"Red Bourbon (Arabica)", doCao:"~1.400–1.650m (vùng Cầu Đất)", process:"Washed", roast:"Light", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Specialty · Lâm Đồng", diem:null, chua:null, dam:null, hau:null,
     chot:"Red Bourbon washed rang sáng — chua sáng, cam chanh, caramel.",
     flavor:"Đã mua và uống thật — chua tươi sáng kiểu cam chanh (citrus), ngọt caramel/đường cháy, vị sạch cân bằng, hương dịu nhẹ; hợp pour over (V60, Kalita, Chemex) và cold brew. Lô Red Bourbon 100% Arabica, washed, rang sáng từ The Married Beans (Lâm Đồng). Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa nếm mù.",
@@ -202,7 +202,7 @@ const SP = [
   { id:"lv-rich", guPick:"editor", confidence:"editor_tasted", verificationDate:"2026-07-31", selectionCriteria:{signature:true,community:true,khacBiet:false,hocThuat:false,benVung:true}, brand:"Là Việt Coffee", ten:"RICH — 100% Arabica 250g", nhom:"hat", gia:125000, gram:250,
     slug:"la-viet-rich-arabica-da-lat", pha:["espresso","phin"],
     vungSlug:"da-lat", xaHuyen:"Đà Lạt, Lâm Đồng",
-    giong:"Arabica Catimor", doCao:"", process:"Wet process (washed)", roast:"Medium", ngayRang:"",
+    giong:"Arabica Catimor", doCao:"~1.400–1.600m (vùng Đà Lạt)", process:"Wet process (washed)", roast:"Medium", ngayRang:"",
     tested:false, daUong:true, chungNhan:"Asia Top 80 · Đà Lạt", diem:null, chua:null, dam:null, hau:null,
     chot:"RICH — Arabica đậm vị, chocolate đen, mạnh; giá mềm.",
     flavor:"Đã mua và uống thật — đậm, mạnh, chocolate đắng rõ; ngon với người thích gu đậm. Nhà rang mô tả: vị chocolate đen, đậm, mạnh — 100% Arabica Catimor sơ chế ướt, rang medium. Điểm chấm mù (blind) sẽ cập nhật sau — chúng tôi không gắn số khi chưa chấm mù.",
@@ -229,7 +229,37 @@ const TU_DIEN = [
   { t:"Rang đậm (Dark)", d:"Body dày, vị chocolate, đắng rõ — hợp phin, espresso, ít chua." },
   { t:"V60 / Pour over", d:"Pha giấy lọc rót tay — tôn hương thơm và vị chua sáng, cần cỡ xay đều." },
   { t:"Cold brew", d:"Ủ cà phê với nước lạnh 12–18 giờ — ít chua, ngọt dịu, uống mát." },
-  { t:"Giá /100g", d:"Quy đổi giá về mỗi 100g để so công bằng giữa các gói 250g, 500g khác nhau." }
+  { t:"Giá /100g", d:"Quy đổi giá về mỗi 100g để so công bằng giữa các gói 250g, 500g khác nhau." },
+  { t: "Arabica", d: "Loài Coffea arabica: thơm, chua thanh, ít caffeine hơn Robusta; hợp vùng cao mát như Cầu Đất, Đà Lạt, Lạc Dương." },
+  { t: "Robusta", d: "Loài Coffea canephora: đậm, đắng rõ, nhiều caffeine, chịu nóng tốt — nền của ly phin đen đá, sữa đá Việt Nam." },
+  { t: "Fine Robusta", d: "Robusta làm theo hướng chất lượng cao: hái chín, sơ chế kỹ, chấm điểm như hàng đặc sản. Là phân khúc chất lượng, không phải tên giống." },
+  { t: "SCA", d: "Specialty Coffee Association — hiệp hội đặt ra thang chấm 100 điểm và các chuẩn chung của cà phê đặc sản." },
+  { t: "Cupping (thử nếm)", d: "Cách thử chuẩn: ngâm bột cà phê trong nước nóng, húp và chấm theo bảng — Gu dùng cách này khi nếm mù." },
+  { t: "Nếm mù", d: "Thử mà che nhãn, che giá, đánh số 1-2-3 rồi mới chấm — để cảm tình với thương hiệu không làm lệch điểm." },
+  { t: "Honey (sơ chế mật)", d: "Tách vỏ nhưng giữ một phần lớp nhớt ngọt khi phơi — ngọt hơn washed, sạch hơn natural." },
+  { t: "Anaerobic (lên men yếm khí)", d: "Ủ quả hoặc hạt trong bồn kín, không oxy, trước khi phơi — vị lên men rõ, hương lạ; người mới dễ thấy khó uống." },
+  { t: "Lên men muối", d: "Ngâm quả trong dung dịch muối trước khi phơi — cách Bùi dùng cho Fine Robusta Nam Ban." },
+  { t: "Degas (nhả khí)", d: "Hạt sau rang nhả CO₂ nhiều ngày; pha ngay thì nước khó thấm đều, vị chưa ổn định. Nên chờ vài ngày sau ngày rang." },
+  { t: "Ngày rang", d: "Mốc để tính độ tươi: ngon nhất khoảng 7–45 ngày sau rang. Quan trọng hơn hạn dùng." },
+  { t: "Body (độ dày)", d: "Cảm giác dày hay nhẹ của nước cà phê trong miệng — như sữa nguyên kem so với sữa tách béo." },
+  { t: "Acidity (độ chua)", d: "Vị chua sáng, tươi như cam, táo — dấu hiệu hạt vùng cao tốt; khác hẳn chua gắt do hỏng hoặc pha sai." },
+  { t: "Hậu vị", d: "Vị còn đọng lại sau khi nuốt; hậu ngọt và sạch là điểm cộng lớn khi chấm." },
+  { t: "Rang vừa (Medium)", d: "Cân bằng giữa chua và đắng, linh hoạt cho cả phin lẫn pour over — gói đầu tiên nên chọn mức này." },
+  { t: "Phin", d: "Dụng cụ pha nhỏ giọt của Việt Nam; ngâm lâu nên hợp rang vừa–đậm, xay mịn vừa, tỉ lệ khoảng 1:4." },
+  { t: "Espresso", d: "Pha máy áp suất cao trong vài chục giây; cần xay mịn, hợp rang vừa–đậm." },
+  { t: "Tỉ lệ pha (1:15)", d: "1g cà phê cho 15ml nước. Số càng nhỏ càng đậm: phin khoảng 1:4, pour over 1:15–1:17." },
+  { t: "Cỡ xay", d: "Độ mịn của bột: pha càng nhanh xay càng mịn (espresso), pha càng lâu xay càng thô (cold brew)." },
+  { t: "Blend (phối trộn)", d: "Trộn nhiều loại hạt để cân vị hoặc hạ giá — ngược với single origin." },
+  { t: "Single origin", d: "Cà phê từ một vùng, một nông trại hoặc một lô — truy xuất rõ, vị đặc trưng theo nơi trồng." },
+  { t: "Micro-lot", d: "Lô nhỏ tách riêng vì chất lượng nổi bật; số lượng ít, giá cao hơn." },
+  { t: "Terroir", d: "Tổ hợp đất, khí hậu, độ cao và cách canh tác tạo nên vị riêng của một vùng — lý do Cầu Đất khác Nam Ban." },
+  { t: "Giống (variety)", d: "Dòng cây trong cùng một loài — Typica, Bourbon, Catimor, Gesha… — khác nhau về cây, năng suất, bệnh và tiềm năng vị." },
+  { t: "Catimor", d: "Nhóm giống Arabica lai từ Caturra và Timor Hybrid, chống gỉ sắt tốt — rất phổ biến trong Arabica Lâm Đồng." },
+  { t: "Typica / Bourbon", d: "Hai nhánh Arabica nền tảng; nhiều giống hiện đại đi ra từ đây. Có trong lịch sử Arabica Cầu Đất." },
+  { t: "Gesha", d: "Giống Arabica gốc Ethiopia, nổi tiếng nhờ Panama; hương hoa, giá đấu giá rất cao. Tên giống không bảo đảm mọi lô đều ngon." },
+  { t: "Gỉ sắt (bệnh)", d: "Bệnh nấm trên lá cà phê, nặng với Arabica — lý do nhiều giống kháng bệnh như Catimor ra đời." },
+  { t: "Chỉ dẫn địa lý", d: "Bảo hộ tên vùng cho sản phẩm có chất lượng gắn với vùng đó; cà phê “Lâm Đồng” được cấp chỉ dẫn địa lý tháng 10/2025." },
+  { t: "EUDR", d: "Luật chống phá rừng của EU: cà phê vào châu Âu phải truy xuất được tới vườn; áp dụng từ 30/12/2026 với doanh nghiệp lớn và vừa." }
 ];
 
 /* ---- FAQ — hiện trên trang, đồng bộ với schema SEO trong index.html ---- */
@@ -241,7 +271,21 @@ const FAQ = [
   { q:"Vì sao có sản phẩm không có điểm số?",
     a:"Chúng tôi chỉ công bố điểm sau khi hoàn thành bài nếm mù. Một số gói đã uống nhưng chưa qua quy trình này được gắn nhãn “Đã uống” thay vì điểm số. Chúng tôi không chấm điểm dựa trên cảm nhận nhớ lại." },
   { q:"Vì sao so giá theo 100g thay vì theo gói?",
-    a:"Các gói có khối lượng khác nhau (250g, 500g…). Quy về giá/100g mới thấy gói 160.000₫/500g thực ra rẻ hơn nhiều gói 270.000₫/250g." }
+    a:"Các gói có khối lượng khác nhau (250g, 500g…). Quy về giá/100g mới thấy gói 160.000₫/500g thực ra rẻ hơn nhiều gói 270.000₫/250g." },
+  { q: "Gu có bán cà phê không?",
+    a: "Không. Gu không bán cà phê của mình và không nhận ký gửi. Trang chỉ review; muốn mua, bạn bấm link sang gian hàng của chính nhà rang." },
+  { q: "Gu có nhận bài tài trợ hay mẫu thử miễn phí không?",
+    a: "Không. Gu tự bỏ tiền mua như một khách hàng bình thường. Nhận đồ miễn phí thì khó chấm thẳng tay." },
+  { q: "Điểm số chấm theo tiêu chí nào?",
+    a: "Ba tiêu chí cảm quan: độ chua, độ đậm và hậu vị — chấm sau khi nếm mù, trong cùng một điều kiện pha cho mọi gói. Hồ sơ hương vị chi tiết ghi thêm trên trang từng gói." },
+  { q: "Vì sao mới có ít gói được chấm mù?",
+    a: "Nếm mù làm theo đợt: mỗi đợt vài gói pha cùng lúc, cùng điều kiện. Gói đã uống nhưng chưa vào đợt nếm mù thì ghi “Đã uống”, chưa gắn số. Số gói có điểm tăng dần theo từng đợt; Gu không chấm bù bằng trí nhớ." },
+  { q: "Giá trên trang cập nhật thế nào?",
+    a: "Giá lấy từ gian hàng chính thức của nhà rang và được rà lại định kỳ; lần nào không lấy được thì giữ giá cũ chứ không ước lượng. Giá lúc bạn mua có thể khác — hãy xem giá cuối cùng tại nơi bán." },
+  { q: "Tin cập nhật lấy từ đâu?",
+    a: "Mỗi tuần Gu chọn vài tin cà phê đặc sản Việt Nam và thế giới, mở nguồn gốc kiểm ngày và số liệu rồi viết lại ngắn gọn; mỗi tin đều có link nguồn. Tuần nào không có tin đạt chuẩn thì không đăng." },
+  { q: "Nếu một gói dở thì Gu làm gì?",
+    a: "Nói thẳng điểm yếu trên trang gói đó, hoặc loại khỏi web. Hoa hồng không ảnh hưởng điểm — điểm được chấm mù trước khi có bất kỳ thỏa thuận nào." }
 ];
 
 /* ---- Kiến thức — bài viết ngắn, hiểu trước khi mua ---- */
@@ -861,6 +905,12 @@ const BAIVIET = [
   },
   {
     id: "vong-tron-huong-vi",
+    faq: [
+      { q: "Vòng tròn hương vị cà phê là gì?", a: "Là tấm bản đồ các mùi vị có thể có trong cà phê, vẽ thành vòng tròn nhiều tầng, đọc từ trong ra ngoài: nhóm vị lớn, rồi nhóm hương chi tiết hơn, rồi mô tả cụ thể nhất." },
+      { q: "Tôi có cần học thuộc vòng tròn hương vị không?", a: "Không. Chỉ cần dùng nó để gọi tên thứ mình đang nếm — thay vì “ngon thật” là “có vị cam, chocolate, hậu ngọt” — để lần sau biết đường tìm mua lại." },
+      { q: "Dùng vòng tròn hương vị thế nào khi uống?", a: "Uống một ngụm rồi tự hỏi ba câu, mỗi câu đi sâu một tầng: vị chính là gì (chua, ngọt hay đắng)? có mùi gì đi kèm (trái cây, hoa, chocolate, hạt)? cụ thể hơn được không (trái cây thì giống cam hay berry)?" },
+      { q: "Robusta có vòng tròn hương vị riêng không?", a: "Có. Từ năm 2025 Coffea canephora có vòng tròn riêng với 103 mô tả — Gu có bài riêng về vòng tròn hương vị Robusta." }
+    ],
     anh: "assets/img/flavor-wheel-sca.jpg",
     tag: "Kiến thức",
     docPhut: 4, mucDo: "Người mới",
@@ -912,6 +962,12 @@ const BAIVIET = [
   /* ===== Lộ trình "Bắt đầu với cà phê" — 6 bài liền mạch cho người mới (route /bat-dau) ===== */
   {
     id: "ca-phe-dac-san-la-gi",
+    faq: [
+      { q: "Cà phê đặc sản là gì?", a: "Là cà phê được người thẩm định chuyên nghiệp chấm trên 80/100 điểm, truy xuất rõ nguồn gốc (đồi nào, độ cao bao nhiêu, ai trồng, hái tháng mấy) và được rang vừa phải để giữ vị thật của hạt." },
+      { q: "Cà phê đặc sản khác cà phê thường ở đâu?", a: "Ba điểm: được chấm điểm; biết rõ nguồn gốc thay vì trộn lẫn nhiều nguồn; rang để lộ vị thật thay vì rang thật đậm để che khuyết điểm của hạt kém." },
+      { q: "Cà phê đặc sản có phải là cà phê đắt tiền để làm màu?", a: "Không. Giá cao hơn đến từ công sức: hái chín từng quả, sơ chế kỹ, trồng ở vùng núi cao sản lượng thấp. Bạn trả cho chất lượng và sự minh bạch, không phải cho thương hiệu." },
+      { q: "Vị cà phê đặc sản khác gì cà phê rang cháy?", a: "Cà phê thường cho cảm giác “phê” quen thuộc; cà phê đặc sản cho hương vị — chua thanh, ngọt hậu, thơm nhiều tầng — thứ mà rang cháy đã đốt mất." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 1, docPhut: 2,
     tieuDe: "Cà phê đặc sản là gì? Khác cà phê thường ở đâu?",
@@ -928,6 +984,12 @@ const BAIVIET = [
   },
   {
     id: "arabica-robusta",
+    faq: [
+      { q: "Arabica và Robusta khác nhau thế nào?", a: "Robusta đắng mạnh, đậm, ít chua, nhiều caffeine — nền của ly phin đen đá, sữa đá quen thuộc; trồng dễ, giá rẻ hơn. Arabica thơm, chua thanh như trái cây, ngọt hậu, nhiều tầng vị, ít caffeine hơn." },
+      { q: "Arabica có xịn hơn Robusta không?", a: "Không. Không loại nào tốt hơn tuyệt đối — tùy gu. Việt Nam còn có Fine Robusta chất lượng cao, đã đạt giải quốc tế." },
+      { q: "Tôi nên uống Arabica hay Robusta?", a: "Thích mạnh, đậm, tỉnh táo nhanh, quen phin sữa đá thì chọn Robusta (hoặc Fine Robusta nếu muốn thử bản cao cấp). Muốn thử vị thơm, chua thanh, nhiều tầng, uống chậm thì chọn Arabica." },
+      { q: "Người mới nên bắt đầu với loại nào?", a: "Thường là Arabica, vì vị dễ gây bất ngờ — kiểu “ồ, cà phê mà có vị trái cây”." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 2, docPhut: 3,
     tieuDe: "Arabica và Robusta khác nhau thế nào? Tôi nên uống loại nào?",
@@ -947,6 +1009,12 @@ const BAIVIET = [
   },
   {
     id: "ca-phe-chua",
+    faq: [
+      { q: "Cà phê chua có phải bị hỏng không?", a: "Không. Chua thanh — tươi mát như cam, táo, chanh dây — là dấu hiệu hạt tốt, thường từ Arabica vùng cao. Chỉ chua gắt, như đồ ôi, gắt cổ mới là hỏng hoặc pha sai." },
+      { q: "Vì sao cà phê đặc sản lại chua?", a: "Vị chua thanh đến từ hạt Arabica trồng ở vùng núi cao: càng cao khí hậu càng lạnh, quả chín càng chậm, vị chua thanh và hương thơm càng rõ." },
+      { q: "Vị đắng gắt quen thuộc là từ đâu?", a: "Thường từ rang cháy. Rang thật đậm tạo vị đắng mạnh và che luôn khuyết điểm của hạt kém. Đắng không phải dấu hiệu ngon, nhiều khi ngược lại." },
+      { q: "Làm sao phân biệt chua ngon và chua hỏng?", a: "Nuốt xong để ý có vị ngọt đọng lại không. Có thì đó là ly ngon. Chua kèm vị ôi, gắt cổ, khó chịu thì đó là hỏng hoặc pha sai." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 3, docPhut: 3,
     tieuDe: "Cà phê chua có phải bị hỏng không?",
@@ -963,6 +1031,12 @@ const BAIVIET = [
   },
   {
     id: "mua-goi-nao-dau-tien",
+    faq: [
+      { q: "Người mới nên mua gói cà phê đặc sản nào đầu tiên?", a: "Gói có ba điều: là Arabica (hoặc blend nhẹ); rang vừa (medium); từ vùng quen thuộc như Đà Lạt, Cầu Đất, Lạc Dương." },
+      { q: "Có nên mua loại đắt hoặc lạ nhất cho đáng không?", a: "Không. Loại lên men, yếm khí có vị rất mạnh và lạ, người mới dễ thấy khó uống rồi bỏ luôn cà phê đặc sản. Đi từ dễ đến khó." },
+      { q: "Uống gói đầu bao lâu rồi mới thử loại khác?", a: "Uống vài lần cho quen “vị đặc sản” rồi mới thử các loại đặc biệt hơn — như tập bơi ở hồ nông trước khi ra biển." },
+      { q: "Gu khuyên gói cụ thể nào?", a: "Gói Gu đã mua thật, nếm mù, chấm điểm cao và đúng ba tiêu chí trên — xem ngay trong bài." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 4, docPhut: 3,
     tieuDe: "Muốn uống ngon thì nên mua gói nào đầu tiên?",
@@ -982,6 +1056,12 @@ const BAIVIET = [
   },
   {
     id: "co-can-may-dat-tien",
+    faq: [
+      { q: "Uống cà phê đặc sản có cần máy pha đắt tiền không?", a: "Không. Cái phin bạn đang có pha cà phê đặc sản vẫn ngon. Muốn vị trong trẻo hơn có thể thêm phễu lọc giấy V60 giá vài chục nghìn, nhưng không bắt buộc." },
+      { q: "Hai điều gì quan trọng hơn dụng cụ?", a: "Nước đừng quá sôi — đun sôi xong chờ khoảng 30 giây rồi rót; và cà phê nên mới xay — xay tới đâu pha tới đó, chưa có máy xay thì mua gói xay sẵn loại nhỏ dùng trong 1–2 tuần." },
+      { q: "Vì sao nước quá sôi làm cà phê dở?", a: "Nước đang sôi sùng sục (100°C) “nấu cháy” cà phê, ra vị đắng gắt. Chờ khoảng 30 giây là mẹo nâng chất lượng ly cà phê rõ rệt mà không tốn đồng nào." },
+      { q: "Cà phê dở có phải do chưa có máy xịn?", a: "Thường không. Hai lỗi phổ biến nhất — nước quá sôi và cà phê để lâu mất mùi — chẳng liên quan gì đến máy đắt tiền." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 5, docPhut: 3,
     tieuDe: "Có cần máy pha đắt tiền không?",
@@ -999,6 +1079,12 @@ const BAIVIET = [
   },
   {
     id: "gu-cham-diem-the-nao",
+    faq: [
+      { q: "Điểm số của Gu đến từ đâu?", a: "Từ nếm mù: Gu tự bỏ tiền mua, che nhãn, đánh số rồi chấm theo ba tiêu chí — độ chua, độ đậm, hậu vị — trong cùng một điều kiện pha cho mọi gói." },
+      { q: "Gu có nhận hàng tài trợ hay mẫu thử miễn phí không?", a: "Không. Gu mua như một khách hàng bình thường. Nhận đồ miễn phí thì khó chấm thẳng tay." },
+      { q: "Gu có nhận hoa hồng không, và có ảnh hưởng điểm không?", a: "Có nhận hoa hồng khi bạn mua qua link giới thiệu. Nhưng điểm được chấm mù trước khi có bất kỳ thỏa thuận nào, và không nhà nào trả tiền để được điểm cao. Gói dở thì Gu nói dở, hoặc loại thẳng khỏi web." },
+      { q: "Vì sao phải nếm mù?", a: "Để cảm tình với thương hiệu không làm lệch điểm. Chấm xong mới lật nhãn ra." }
+    ],
     tag: "Bắt đầu với cà phê",
     thuTu: 6, docPhut: 3,
     tieuDe: "Gu chọn gói cà phê như thế nào?",
@@ -1579,6 +1665,61 @@ const BAIVIET = [
     guTried: { giong: "Catimor", tenGoi: "Là Việt — RICH 100% Arabica Đà Lạt", href: "/review/la-viet-rich-arabica-da-lat" }
   }
 ];
+
+/* ---- NGÀY XUẤT BẢN THẬT — lần đầu mỗi trang xuất hiện trên web, lấy từ lịch sử git
+   (mốc sớm nhất chứng minh được; lịch sử git bắt đầu 30/07/2026 nên vài trang có thể cũ hơn).
+   Dùng cho datePublished trong schema, chip “Đăng …” đầu bài và pubDate trong feed.
+   Khoá = id bài, hoặc "review/<slug>" cho trang review. Bài mới: thêm một dòng ngày đăng thật. ---- */
+const XUAT_BAN = {
+  "ca-phe-dac-san-la-gi": "2026-07-30",
+  "arabica-robusta": "2026-07-30",
+  "ca-phe-chua": "2026-07-30",
+  "mua-goi-nao-dau-tien": "2026-07-30",
+  "co-can-may-dat-tien": "2026-07-30",
+  "gu-cham-diem-the-nao": "2026-07-30",
+  "ca-phe-nam-ban-nha-nao": "2026-07-30",
+  "co-xay": "2026-07-30",
+  "cong-thuc-pha": "2026-07-30",
+  "do-tuoi": "2026-07-30",
+  "natural-washed": "2026-07-30",
+  "rang-sang-dam": "2026-07-30",
+  "vi-sao-specialty-dat": "2026-07-30",
+  "vong-tron-huong-vi": "2026-07-30",
+  "review/bui-fine-robusta-nam-ban": "2026-07-30",
+  "review/dehavi-arabica-pha-may": "2026-07-30",
+  "review/dehavi-blend-pha-may": "2026-07-30",
+  "review/dehavi-yellow-bourbon-cau-dat": "2026-07-30",
+  "review/la-viet-rich-arabica-da-lat": "2026-07-30",
+  "review/married-beans-red-bourbon-cau-dat": "2026-07-30",
+  "review/son-pacamara-fruit-mood": "2026-07-30",
+  "review/son-pacamara-heirloom": "2026-07-30",
+  "review/son-pacamara-lang-biang": "2026-07-30",
+  "review/son-pacamara-pacamara": "2026-07-30",
+  "review/tam-trinh-golden-birds-sanh-dieu": "2026-07-30",
+  "ca-phe-tu-goc-den-ly": "2026-08-01",
+  "robusta-khong-chi-vi-dang": "2026-08-02",
+  "vong-tron-huong-vi-robusta-2025": "2026-08-02",
+  "do-cao-khong-con-la-tat-ca": "2026-09-03",
+  "vi-sao-ca-phe-nhieu-giong": "2026-09-11",
+  "f1-hybrid-la-gi": "2026-09-11",
+  "ca-phe-se": "2026-09-11",
+  "bourbon-va-typica": "2026-09-11",
+  "caturra-la-gi": "2026-09-11",
+  "mundo-novo": "2026-09-11",
+  "cau-dat-trong-arabica": "2026-09-11",
+  "fine-robusta-la-gi": "2026-09-11",
+  "pacamara-la-gi": "2026-09-11",
+  "xanh-lun-tr4-tr9": "2026-09-11",
+  "typica-la-gi": "2026-09-11",
+  "sl28-la-gi": "2026-09-11",
+  "sl28-va-sl34": "2026-09-11",
+  "gesha-la-gi": "2026-09-11",
+  "ombligon-la-gi": "2026-09-11",
+  "centroamericano-h1": "2026-09-11",
+  "red-bourbon-la-gi": "2026-09-11",
+  "tha-1-la-gi": "2026-09-11",
+  "catimor-da-lat": "2026-09-11"
+};
 
 /* ---- Trả lời nhanh — 1–3 câu tự đủ nghĩa, trả lời thẳng tiêu đề mỗi bài.
    Hiện thành khung "Trả lời nhanh" đầu bài + đưa vào schema (abstract, speakable)
