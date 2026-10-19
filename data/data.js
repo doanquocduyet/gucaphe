@@ -1797,6 +1797,21 @@ const MUA_GI = [
    ghép thông tin từ nguồn thứ hai thì thêm `nguon2`/`nguonTen2`. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
+  { id: "gia-ca-phe-tay-nguyen-17-10-2026", ngay: "2026-10-17", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Tây Nguyên còn 91.100–92.000 đồng/kg khi vào vụ thu hoạch",
+    tomTat: "Sáng 17/10/2026, giá cà phê nhân xô ở Tây Nguyên giảm 1.500 đồng/kg so với hôm trước, còn <b>91.100–92.000 đồng/kg</b>; Lâm Đồng thấp nhất vùng, 91.100 đồng/kg. Ngược chiều trong nước, trên sàn Robusta London kỳ hạn tháng 11/2026 tăng lên 3.414 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 tăng 3,66% lên 305,60 cent/lb. Vụ thu hoạch ở Việt Nam đã bắt đầu, giới buôn dự báo sản lượng khá ổn định so với năm trước.",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận sáng 17/10.",
+    nguon: "https://doanhnghiephoinhap.vn/gia-ca-phe-hom-nay-17102026-gia-ca-phe-tay-nguyen-giam-sau-robusta-va-arabica-dong-loat-tang-151821.html", nguonTen: "Doanh nghiệp và Hội nhập" },
+  { id: "my-lab-nghien-cuu-ca-phe-cacao-hawaii-2026", ngay: "2026-10-16", pham: "Thế giới", nhan: "Khoa học",
+    tieuDe: "Mỹ lập chương trình nghiên cứu cà phê và cacao, có World Coffee Research tham gia",
+    tomTat: "Bộ Ngoại giao Mỹ tài trợ <b>Feed the Future Innovation Lab for Coffee and Cacao</b> do Đại học Hawaiʻi tại Mānoa dẫn dắt, Đại học Clemson đồng điều hành, với <b>8 triệu USD cho năm đầu</b> và thỏa thuận có thể kéo dài tới 5 năm. Đối tác gồm World Coffee Research, Coffee Quality Institute và nhiều trường đại học Mỹ; trọng tâm là lai tạo giống cà phê, cacao kháng bệnh và chịu hạn, quản lý vườn và sơ chế sau thu hoạch, ở các vùng trồng tại Mỹ, Mỹ Latinh, châu Phi và châu Á. Chương trình lấp một phần khoảng trống tài trợ sau khi cơ quan USAID bị giải thể năm 2025. <a href='/kien-thuc/vi-sao-ca-phe-nhieu-giong'>Vì sao cà phê có nhiều giống →</a>",
+    yNghia: "Giống chịu hạn, kháng bệnh là bài toán sống còn của cả Arabica Lâm Đồng lẫn Robusta Tây Nguyên; nghiên cứu được tài trợ ở châu Á là nguồn kết quả đáng theo dõi.",
+    nguon: "https://dailycoffeenews.com/2026/10/16/university-of-hawaii-to-lead-new-federal-coffee-and-cacao-research-lab/", nguonTen: "Daily Coffee News" },
+  { id: "xuat-khau-ca-phe-9-thang-2026", ngay: "2026-10-06", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "9 tháng 2026: Việt Nam xuất khẩu nhiều cà phê hơn nhưng thu về ít tiền hơn",
+    tomTat: "Chín tháng đầu năm 2026, Việt Nam xuất khẩu khoảng <b>1,4 triệu tấn</b> cà phê, tăng 15,4% về lượng, nhưng chỉ thu <b>6,54 tỷ USD</b>, giảm 7,3% so với cùng kỳ; giá xuất khẩu bình quân giảm 19,7%, còn 4.537,3 USD/tấn. Hiệp hội Cà phê Ca cao Việt Nam (Vicofa) cho rằng giá giảm chủ yếu do nhiều nước mở rộng diện tích sau ba năm giá cao, và đề xuất phát triển dòng cà phê đặc sản, hữu cơ cho phân khúc cao cấp ở châu Âu. Cà phê chế biến sâu chỉ dùng 8–10% nguyên liệu nhưng có thể chiếm 17–18% giá trị xuất khẩu.",
+    yNghia: "Bán nhiều mà thu ít là lý do rõ nhất để cà phê Việt đi theo hướng chất lượng và chế biến sâu thay vì chạy theo sản lượng.",
+    nguon: "https://en.vietnamplus.vn/vietnam-seeks-to-boost-value-expand-markets-for-coffee-sector-post353131.vnp", nguonTen: "VietnamPlus (TTXVN)" },
   { id: "robusta-toan-cau-2026-9-mau-viet-nam-top-20", ngay: "2026-10-09", pham: "Việt Nam", nhan: "Cuộc thi",
     tieuDe: "9 mẫu Robusta Việt Nam vào top 20 Cuộc thi Cà phê Robusta Toàn cầu lần 3",
     tomTat: "Theo VTV, Việt Nam có <b>9 mẫu</b> lọt top 20 Cuộc thi Cà phê Robusta Toàn cầu lần thứ 3, trong đó <b>6 mẫu</b> của các thành viên Hiệp hội Cà phê Buôn Ma Thuột. Mẫu dự thi lấy từ niên vụ 2025–2026, phải hái chín bằng tay, sơ chế phù hợp, nhân xanh đồng đều, không lỗi; sau vòng đánh giá cộng đồng, mẫu được chấm theo thang 100 điểm. Bài báo chưa nêu thứ hạng cụ thể của từng mẫu. <a href='/kien-thuc/fine-robusta-la-gi'>Fine Robusta là gì →</a>",
