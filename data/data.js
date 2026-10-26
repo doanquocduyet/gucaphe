@@ -1797,6 +1797,21 @@ const MUA_GI = [
    ghép thông tin từ nguồn thứ hai thì thêm `nguon2`/`nguonTen2`. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
+  { id: "wbc-2026-pan-wei-trung-quoc", ngay: "2026-10-25", pham: "Thế giới", nhan: "Cuộc thi",
+    tieuDe: "Barista Trung Quốc Pan Wei vô địch World Barista Championship 2026",
+    tomTat: "Ngày 25/10/2026, <b>Pan Wei</b> (Trung Quốc) đăng quang Giải vô địch Barista Thế giới (WBC) tại thành phố Panama, trong khuôn khổ World of Coffee Panamá 2026. Giải có đại diện từ <b>60 quốc gia</b>, thi pha espresso, đồ uống có sữa và đồ uống sáng tạo từ cà phê đặc sản. Đây là lần đầu sự kiện được tổ chức ở Mỹ Latinh và ở một nước trồng cà phê.",
+    yNghia: "Ngôi vô địch thế giới vừa về tay một barista châu Á, cho thấy trình độ pha chế trong khu vực đã ngang tầm thế giới — mốc để barista Việt Nam so mình.",
+    nguon: "https://www.prensa-latina.cu/2026/10/25/barista-chino-gana-campeonato-mundial-en-panama/", nguonTen: "Prensa Latina" },
+  { id: "vicofa-nien-vu-2025-2026-ky-luc-8-5-ty-usd", ngay: "2026-10-19", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Niên vụ 2025–2026: cà phê Việt Nam xuất khẩu kỷ lục 8,5 tỷ USD",
+    tomTat: "Tại hội nghị tổng kết ngày 19/10/2026, Hiệp hội Cà phê Ca cao Việt Nam (Vicofa) cho biết niên vụ 2025–2026 Việt Nam xuất khẩu khoảng <b>1,8 triệu tấn</b>, thu <b>8,5 tỷ USD</b> — cao nhất từ trước tới nay; lượng tăng khoảng 21% nhưng tiền chỉ tăng khoảng 1%. Cà phê nhân xanh đạt 1,65 triệu tấn, 7 tỷ USD (giá trị giảm 1,5%), trong khi cà phê chế biến đạt khoảng 142.600 tấn, <b>1,5 tỷ USD, tăng 14%</b>. Sản lượng niên vụ gần 1,9 triệu tấn, Robusta chiếm 90%.",
+    yNghia: "Hàng nhân xanh bán nhiều hơn mà giá trị giảm, còn hàng chế biến tăng đều — phần tăng thêm nằm ở chất lượng và chế biến, không nằm ở sản lượng.",
+    nguon: "https://vtv.vn/xuat-khau-ca-phe-lap-ky-luc-mang-ve-85-ty-usd-100261019181905409.htm", nguonTen: "VTV" },
+  { id: "gia-ca-phe-tay-nguyen-21-10-2026", ngay: "2026-10-21", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Tây Nguyên hồi lên khoảng 94.000 đồng/kg",
+    tomTat: "Ngày 21/10/2026, giá cà phê nhân xô ở Tây Nguyên tăng 800–900 đồng/kg, lên <b>93.200–94.000 đồng/kg</b>, sau khi xuống 91.000–92.000 đồng/kg giữa tháng 10; Lâm Đồng 93.200 đồng/kg. Trên sàn, Robusta London kỳ hạn tháng 11/2026 giảm về 3.418 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 giảm 5,60 cent về 310,10 cent/lb sau khi lên mức cao nhất khoảng một tháng.",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận ngày 21/10.",
+    nguon: "https://baolaocai.vn/gia-ca-phe-hom-nay-2110-tay-nguyen-tang-manh-the-gioi-quay-dau-giam-post912442.html", nguonTen: "Báo Lào Cai" },
   { id: "gia-ca-phe-tay-nguyen-17-10-2026", ngay: "2026-10-17", pham: "Việt Nam", nhan: "Thị trường",
     tieuDe: "Giá cà phê Tây Nguyên còn 91.100–92.000 đồng/kg khi vào vụ thu hoạch",
     tomTat: "Sáng 17/10/2026, giá cà phê nhân xô ở Tây Nguyên giảm 1.500 đồng/kg so với hôm trước, còn <b>91.100–92.000 đồng/kg</b>; Lâm Đồng thấp nhất vùng, 91.100 đồng/kg. Ngược chiều trong nước, trên sàn Robusta London kỳ hạn tháng 11/2026 tăng lên 3.414 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 tăng 3,66% lên 305,60 cent/lb. Vụ thu hoạch ở Việt Nam đã bắt đầu, giới buôn dự báo sản lượng khá ổn định so với năm trước.",
