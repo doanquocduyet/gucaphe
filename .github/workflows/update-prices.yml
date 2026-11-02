@@ -1,4 +1,4 @@
-name: Cập nhật giá Shopee hằng ngày
+name: Cập nhật giá Shopee + giá cà phê thế giới hằng ngày
 
 # Chạy tự động 08:00 giờ VN mỗi ngày + cho phép bấm chạy tay.
 on:
@@ -47,6 +47,26 @@ jobs:
             echo "Không có thay đổi để commit."
           else
             git commit -m "cap nhat gia tu Shopee ($(date +%d/%m/%Y))"
+            git push
+          fi
+
+      # ---- Giá cà phê thế giới cho trang /gia-ca-phe (Arabica theo ngày, Robusta theo tháng) ----
+      - name: Lấy giá cà phê thế giới
+        id: coffee
+        run: node scripts/update-coffee-prices.mjs
+
+      - name: Sinh lại trang /gia-ca-phe và commit nếu giá đổi
+        if: steps.coffee.outputs.changed != '0'
+        run: |
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          node scripts/build-reviews.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gia-ca-phe.json gia-ca-phe.html sitemap.xml
+          if git diff --staged --quiet; then
+            echo "Không có thay đổi để commit."
+          else
+            git commit -m "cap nhat gia ca phe the gioi ($(date +%d/%m/%Y))"
             git push
           fi
 

@@ -11,6 +11,7 @@
     "Vùng trồng": "Regions",
     "Kiến thức": "Learn",
     "Tin tức": "Updates",
+    "Giá cà phê": "Coffee prices",
     "Cách test": "How we test",
     "Đóng": "Close",
     "Người mới bắt đầu? →": "New to coffee? →",
