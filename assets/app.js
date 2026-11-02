@@ -81,6 +81,7 @@ const ROAST_BG = {
    T(vi) trả bản tiếng Anh khi đang ở chế độ EN, ngược lại giữ tiếng Việt.
    Chuỗi chưa có trong HOME_EN → giữ nguyên tiếng Việt. */
 const HOME_EN = {
+  'Giá cà phê': 'Coffee prices', 'Nhân xô Tây Nguyên': 'Central Highlands green coffee', 'Xem biểu đồ →': 'See the chart →',
   // Picker — khung
   "Gợi ý riêng": "For you",
   "Chọn giúp bạn": "Let us choose",
@@ -519,7 +520,29 @@ function renderTin() {
         <div class="home-tin-t">${t.tieuDe}</div>
       </a>`).join('')}
     </div>
-    <a class="home-tin-all" href="/tin-tuc">${T('Xem tất cả tin →')}</a>`;
+    <a class="home-tin-all" href="/tin-tuc">${T('Xem tất cả tin →')}</a>
+    <a class="home-gia" id="home-gia" href="/gia-ca-phe" hidden></a>`;
+  renderHomeGia();
+}
+
+/* ============ Ô GIÁ CÀ PHÊ — số mới nhất từ data/gia-ca-phe.json, dẫn vào /gia-ca-phe ============ */
+let GIA_CACHE = null;
+function renderHomeGia() {
+  const el = $('#home-gia'); if (!el) return;
+  const paint = G => {
+    const A = G.arabica || [], N = [...(G.noiDia || [])].sort((a, b) => b.ngay.localeCompare(a.ngay));
+    const a = A[A.length - 1], n = N[0];
+    if (!a && !n) return;
+    const dmy = s => s.split('-').reverse().join('/');
+    const vn = (x, d = 0) => Number(x).toLocaleString('vi-VN', { minimumFractionDigits: d, maximumFractionDigits: d });
+    el.innerHTML = `<span>${T('Giá cà phê')}</span>` +
+      (n ? `<span>${T('Nhân xô Tây Nguyên')} <b>${vn(n.thap)}–${vn(n.cao)} đ/kg</b> (${dmy(n.ngay)})</span>` : '') +
+      (a ? `<span>Arabica <b>${vn(a[4], 2)} cent/lb</b> (${dmy(a[0])})</span>` : '') +
+      `<span class="home-gia-go">${T('Xem biểu đồ →')}</span>`;
+    el.hidden = false;
+  };
+  if (GIA_CACHE) return paint(GIA_CACHE);
+  fetch('/data/gia-ca-phe.json').then(r => r.json()).then(G => { GIA_CACHE = G; paint(G); }).catch(() => {});
 }
 
 /* ---- Render toàn bộ trang chủ (gọi lại khi đổi ngôn ngữ) ---- */

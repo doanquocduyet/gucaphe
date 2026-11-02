@@ -186,7 +186,9 @@ ${BASE_GRAPH}
 ${schema}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
@@ -546,7 +548,9 @@ ${BASE_GRAPH}
 ${schema(p)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
@@ -763,7 +767,9 @@ ${BASE_GRAPH}
 ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
@@ -979,7 +985,9 @@ ${BASE_GRAPH}
 ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/assets/style.css?v=${CSS_V}">
 <script src="/assets/i18n.js?v=${CSS_V}" defer></script>
 <script>
@@ -1768,7 +1776,7 @@ function hubTinTuc() {
     <h2 class="tt-t"><a href="#${id}">${esc(t.tieuDe)}</a></h2>
     <p class="tt-sum">${t.tomTat || ''}</p>
     ${t.yNghia ? `<p class="tt-why"><b>Vì sao đáng để ý:</b> ${esc(t.yNghia)}</p>` : ''}
-    ${t.nguon ? `<div class="tt-srcs"><a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>${t.nguon2 ? `<a class="tt-src" href="${esc(t.nguon2)}" target="_blank" rel="noopener nofollow">${esc(t.nguonTen2 || 'link')} ↗</a>` : ''}</div>` : ''}
+    ${t.nguon ? `<div class="tt-srcs"><a class="tt-src" href="${esc(t.nguon)}" target="_blank" rel="noopener nofollow">Nguồn: ${esc(t.nguonTen || 'link')} ↗</a>${t.nguon2 ? `<a class="tt-src" href="${esc(t.nguon2)}" target="_blank" rel="noopener nofollow">${esc(t.nguonTen2 || 'link')} ↗</a>` : ''}${/^gia-ca-phe-/.test(id) ? `<a class="tt-gia" href="/gia-ca-phe">Xem biểu đồ giá từ 2020 →</a>` : ''}</div>` : ''}
   </article>`;
   }).join('') : `<p class="hub-intro">Chưa có tin cập nhật.</p>`;
   const newest = items.length ? items[0].ngay : isoDate(SITE.capNhat);
@@ -1809,8 +1817,9 @@ function hubTinTuc() {
 
 /* /gia-ca-phe — giá cà phê hôm nay + lịch sử giá từ 2020 + biểu đồ nến kiểu chứng khoán.
    Dữ liệu: data/gia-ca-phe.json (scripts/update-coffee-prices.mjs ghi Arabica + Robusta mỗi sáng;
-   `noiDia` thêm tay mỗi tuần từ bản tin giá đã kiểm). Số "hôm nay" nướng tĩnh vào HTML để
-   Google/AI đọc được không cần JS; biểu đồ vẽ phía trình duyệt bằng Lightweight Charts. */
+   `noiDia` thêm tay mỗi tuần từ bản tin giá đã kiểm). MỌI con số trong chữ (trả lời nhanh,
+   bảng theo năm, biến động, FAQ) đều TÍNH từ chính file dữ liệu lúc build — không gõ tay —
+   và nướng tĩnh vào HTML để Google/AI đọc được không cần JS. Biểu đồ vẽ phía trình duyệt. */
 const LWC_SRC = 'https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js';
 function loadGia() {
   const f = join(ROOT, 'data', 'gia-ca-phe.json');
@@ -1825,16 +1834,100 @@ function hubGiaCaPhe() {
   const dmy = s => s.split('-').reverse().join('/');
   const myStr = s => { const [y, m] = s.split('-'); return `tháng ${Number(m)}/${y}`; };
   const vn = (n, d = 0) => Number(n).toLocaleString('vi-VN', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const pctOf = (cur, prev) => (cur - prev) / prev * 100;
+  const pctTxt = p => `${p > 0 ? '+' : p < 0 ? '−' : ''}${vn(Math.abs(p), 1)}%`;
+  const pctCls = p => p > 0 ? 'gp-up' : p < 0 ? 'gp-down' : 'gp-flat';
+  const pctHtml = p => p == null ? '<span class="gp-flat">—</span>' : `<span class="${pctCls(p)}">${pctTxt(p)}</span>`;
   const chg = (cur, prev, d, unit) => {
     if (prev == null) return '';
-    const diff = cur - prev, pct = diff / prev * 100;
-    const cls = diff > 0 ? 'gp-up' : diff < 0 ? 'gp-down' : 'gp-flat';
+    const diff = cur - prev, pct = pctOf(cur, prev);
     const sign = diff > 0 ? '+' : diff < 0 ? '−' : '';
-    return `<span class="gp-chg ${cls}">${sign}${vn(Math.abs(diff), d)}${unit} (${sign}${vn(Math.abs(pct), 2)}%)</span>`;
+    return `<span class="gp-chg ${pctCls(diff)}">${sign}${vn(Math.abs(diff), d)}${unit} (${sign}${vn(Math.abs(pct), 2)}%)</span>`;
   };
+  const tang = p => p > 0 ? 'tăng' : p < 0 ? 'giảm' : 'đi ngang';
+
+  /* ---- Số liệu tính sẵn ---- */
   const aL = A[A.length - 1], aP = A[A.length - 2];
   const rL = R[R.length - 1], rP = R[R.length - 2];
   const nL = N[0], nP = N[1];
+  // Phiên Arabica gần nhất vào/trước một ngày cho trước
+  const aOnOrBefore = iso => { for (let i = A.length - 1; i >= 0; i--) if (A[i][0] <= iso) return A[i]; return null; };
+  const shift = (iso, { d = 0, m = 0, y = 0 }) => {
+    const t = new Date(iso + 'T00:00:00Z');
+    t.setUTCFullYear(t.getUTCFullYear() + y); t.setUTCMonth(t.getUTCMonth() + m); t.setUTCDate(t.getUTCDate() + d);
+    return t.toISOString().slice(0, 10);
+  };
+  const rAt = ym => R.find(x => x[0] === ym) || null;
+  const ymShift = (ym, months) => { const [y, m] = ym.split('-').map(Number); const t = new Date(Date.UTC(y, m - 1 + months, 1)); return t.toISOString().slice(0, 7); };
+  // Đỉnh / đáy Arabica từ 2020 (theo giá đóng cửa) và Robusta (theo trung bình tháng)
+  const aMax = A.reduce((b, x) => (!b || x[4] > b[4] ? x : b), null);
+  const aMin = A.reduce((b, x) => (!b || x[4] < b[4] ? x : b), null);
+  const rMax = R.reduce((b, x) => (!b || x[1] > b[1] ? x : b), null);
+  const rMin = R.reduce((b, x) => (!b || x[1] < b[1] ? x : b), null);
+
+  // Biến động Arabica
+  const aPer = aL ? [
+    ['1 tuần', aOnOrBefore(shift(aL[0], { d: -7 }))],
+    ['1 tháng', aOnOrBefore(shift(aL[0], { m: -1 }))],
+    ['6 tháng', aOnOrBefore(shift(aL[0], { m: -6 }))],
+    ['1 năm', aOnOrBefore(shift(aL[0], { y: -1 }))],
+    ['Từ 2020', A[0]]
+  ].map(([k, ref]) => [k, ref, ref ? pctOf(aL[4], ref[4]) : null]) : [];
+  // Biến động Robusta (theo tháng)
+  const rPer = rL ? [
+    ['1 tháng', rAt(ymShift(rL[0], -1))],
+    ['6 tháng', rAt(ymShift(rL[0], -6))],
+    ['1 năm', rAt(ymShift(rL[0], -12))],
+    ['Từ 2020', R[0]]
+  ].map(([k, ref]) => [k, ref, ref ? pctOf(rL[1], ref[1]) : null]) : [];
+
+  // Bảng theo năm
+  const years = [...new Set(A.map(x => x[0].slice(0, 4)).concat(R.map(x => x[0].slice(0, 4))))].sort();
+  const yearRows = years.map(y => {
+    const ay = A.filter(x => x[0].startsWith(y));
+    const ry = R.filter(x => x[0].startsWith(y));
+    const prevA = A.filter(x => x[0] < y).pop();
+    const prevR = R.filter(x => x[0] < y).pop();
+    const a = ay.length ? {
+      mo: ay[0][1], hi: ay.reduce((b, x) => x[2] > b[2] ? x : b), lo: ay.reduce((b, x) => x[3] < b[3] ? x : b),
+      dong: ay[ay.length - 1], ytd: y === aL[0].slice(0, 4),
+      pct: pctOf(ay[ay.length - 1][4], prevA ? prevA[4] : ay[0][1])
+    } : null;
+    const r = ry.length ? {
+      tb: Math.round(ry.reduce((s, x) => s + x[1], 0) / ry.length), hi: ry.reduce((b, x) => x[1] > b[1] ? x : b),
+      lo: ry.reduce((b, x) => x[1] < b[1] ? x : b), n: ry.length,
+      pct: prevR ? pctOf(ry[ry.length - 1][1], prevR[1]) : null, cuoi: ry[ry.length - 1]
+    } : null;
+    return { y, a, r };
+  });
+  // Trung bình năm Robusta để nói "năm cao nhất"
+  const rYearBest = yearRows.filter(x => x.r && x.r.n === 12).reduce((b, x) => (!b || x.r.tb > b.r.tb ? x : b), null);
+
+  /* ---- Trả lời nhanh (tính từ dữ liệu) ---- */
+  const a1y = aPer.find(x => x[0] === '1 năm');
+  const tlnParts = [];
+  if (nL) tlnParts.push(`Ngày ${dmy(nL.ngay)}, cà phê nhân xô Tây Nguyên ở mức ${vn(nL.thap)}–${vn(nL.cao)} đồng/kg (Lâm Đồng ${vn(nL.lamDong)} đồng/kg)${nP ? `, ${tang(pctOf((nL.thap + nL.cao) / 2, (nP.thap + nP.cao) / 2))} khoảng ${vn(Math.abs((nL.thap + nL.cao) / 2 - (nP.thap + nP.cao) / 2))} đồng/kg so với mốc ${dmy(nP.ngay)}` : ''}.`);
+  if (aL) tlnParts.push(`Arabica sàn New York đóng cửa phiên ${dmy(aL[0])} ở ${vn(aL[4], 2)} cent/lb${a1y && a1y[2] != null ? `, ${tang(a1y[2])} ${vn(Math.abs(a1y[2]), 1)}% so với một năm trước` : ''}${aMax ? ` và thấp hơn ${vn(Math.abs(pctOf(aL[4], aMax[4])), 1)}% so với đỉnh ${vn(aMax[4], 2)} cent/lb ngày ${dmy(aMax[0])}` : ''}.`);
+  if (rL) tlnParts.push(`Robusta thế giới trung bình ${myStr(rL[0])} là ${vn(rL[1])} USD/tấn (IMF).`);
+  const tln = tlnParts.join(' ');
+
+  /* ---- FAQ (câu trả lời có số đều tính từ dữ liệu) ---- */
+  const FAQ_GIA = [
+    { q: 'Giá cà phê hôm nay bao nhiêu?', a: tln },
+    { q: 'Giá cà phê cao nhất từ năm 2020 là bao nhiêu?',
+      a: [aMax ? `Arabica sàn New York đóng cửa cao nhất ${vn(aMax[4], 2)} cent/lb vào phiên ${dmy(aMax[0])}; thấp nhất ${vn(aMin[4], 2)} cent/lb vào phiên ${dmy(aMin[0])}.` : '',
+          rMax ? `Robusta thế giới (trung bình tháng, IMF) cao nhất ${vn(rMax[1])} USD/tấn vào ${myStr(rMax[0])}; thấp nhất ${vn(rMin[1])} USD/tấn vào ${myStr(rMin[0])}.` : ''].join(' ').trim() },
+    { q: 'Cent/lb là gì, đổi sang USD/tấn thế nào?',
+      a: `Giá Arabica sàn New York tính bằng cent Mỹ cho mỗi pound (lb); 1 pound ≈ 0,4536 kg. Muốn đổi sang USD/tấn, nhân giá cent/lb với 22,046. Ví dụ ${aL ? `${vn(aL[4], 2)} cent/lb ≈ ${vn(Math.round(aL[4] * 22.0462))} USD/tấn` : '300 cent/lb ≈ 6.614 USD/tấn'}. Gu không quy đổi sang đồng vì còn phụ thuộc tỷ giá từng ngày.` },
+    { q: 'Vì sao giá trên sàn khác giá cà phê nhân ở vườn?',
+      a: 'Giá sàn là giá hợp đồng kỳ hạn cho cà phê đã đạt chuẩn giao hàng tại kho của sàn, còn giá nhân xô là giá thu mua cà phê chưa phân loại ngay tại địa phương. Hai giá đi cùng xu hướng nhưng chênh nhau vì chất lượng, chi phí vận chuyển, chế biến, tỷ giá và cung cầu trong nước. Việt Nam trồng chủ yếu Robusta, nên giá nhân xô bám Robusta sát hơn Arabica.' },
+    { q: 'Giá cà phê đặc sản có lên xuống theo bảng này không?',
+      a: 'Không trực tiếp. Bảng này là giá cà phê nhân thông thường. Cà phê đặc sản bán theo từng lô, theo điểm chất lượng và thỏa thuận giữa người trồng với người mua, nên giá thường cao hơn nhiều và ít nhảy theo sàn từng ngày; giá sàn chỉ là mức nền để tham chiếu.' },
+    { q: 'Dữ liệu trên trang lấy từ đâu, cập nhật khi nào?',
+      a: 'Arabica: giá phiên của hợp đồng gần nhất trên sàn ICE New York (mã KC=F) qua Yahoo Finance, cập nhật lúc 08:00 mỗi sáng. Robusta: giá tham chiếu trung bình tháng của IMF qua FRED (mã PCOFFROBUSDM). Giá nhân xô Tây Nguyên: Gu ghi mỗi tuần một mốc từ bản tin giá trên báo, có link nguồn; không lấp số cho những ngày chưa ghi.' }
+  ];
+
+  /* ---- HTML ---- */
   const card = (k, val, unit, change, when, note) => `<div class="gp-card">
       <div class="gp-k">${k}</div>
       <div class="gp-v">${val}<small>${unit}</small></div>
@@ -1848,89 +1941,188 @@ function hubGiaCaPhe() {
       `Ngày ${dmy(nL.ngay)}${nP ? ` · so với mốc ${dmy(nP.ngay)}` : ''}`,
       `Lâm Đồng: <b>${vn(nL.lamDong)} đ/kg</b> · <a href="${esc(nL.nguon)}" target="_blank" rel="noopener nofollow">${esc(nL.nguonTen)} ↗</a>`) : '',
     aL ? card('Arabica sàn New York', vn(aL[4], 2), ' cent/lb', chg(aL[4], aP && aP[4], 2, ''),
-      `Đóng cửa phiên ${dmy(aL[0])}`, `Cao ${vn(aL[2], 2)} · thấp ${vn(aL[3], 2)} trong phiên`) : '',
-    rL ? card('Robusta thế giới', vn(rL[1]), ' USD/tấn', chg(rL[1], rP && rP[1], 0, ''),
-      `Trung bình ${myStr(rL[0])}${rP ? ` · so với ${myStr(rP[0])}` : ''}`, 'Giá theo tháng của IMF, không phải giá sàn London từng ngày') : ''
+      `Đóng cửa phiên ${dmy(aL[0])}`, `Mở ${vn(aL[1], 2)} · cao ${vn(aL[2], 2)} · thấp ${vn(aL[3], 2)}`) : '',
+    rL ? card('Robusta thế giới (IMF)', vn(rL[1]), ' USD/tấn', chg(rL[1], rP && rP[1], 0, ''),
+      `Trung bình ${myStr(rL[0])}${rP ? ` · so với ${myStr(rP[0])}` : ''}`, 'Giá tham chiếu theo tháng, không phải giá sàn London từng phiên') : ''
   ].join('');
   const capNhat = G.capNhat ? new Date(G.capNhat).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }) : '';
+  const perTable = (rows, unitFmt, refFmt) => `<table class="gp-table gp-table--per"><thead><tr><th>Khoảng</th><th>Mốc so sánh</th><th>Thay đổi</th></tr></thead><tbody>${
+    rows.map(([k, ref, p]) => `<tr><td>${k}</td><td>${ref ? refFmt(ref) : '—'}</td><td>${pctHtml(p)}</td></tr>`).join('')}</tbody></table>`;
+  const yearTable = `<table class="gp-table gp-table--year"><thead><tr><th>Năm</th><th>Arabica cuối năm<br><small>cent/lb</small></th><th>Cao nhất · thấp nhất<br><small>trong năm</small></th><th>Đổi cả năm</th><th>Robusta TB năm<br><small>USD/tấn</small></th><th>Tháng cao nhất</th><th>Đổi cả năm</th></tr></thead><tbody>${
+    [...yearRows].reverse().map(({ y, a, r }) => `<tr id="nam-${y}"><th scope="row"><a href="#nam-${y}">${y}</a>${a && a.ytd ? '<small> (đến nay)</small>' : ''}</th>
+      <td>${a ? `${vn(a.dong[4], 2)}<small> (${dmy(a.dong[0])})</small>` : '—'}</td>
+      <td>${a ? `${vn(a.hi[2], 2)} · ${vn(a.lo[3], 2)}` : '—'}</td>
+      <td>${a ? pctHtml(a.pct) : '—'}</td>
+      <td>${r ? `${vn(r.tb)}${r.n < 12 ? `<small> (${r.n} tháng)</small>` : ''}` : '—'}</td>
+      <td>${r ? `${vn(r.hi[1])}<small> (${myStr(r.hi[0]).replace('tháng ', 'T')})</small>` : '—'}</td>
+      <td>${r ? pctHtml(r.pct) : '—'}</td></tr>`).join('')}</tbody></table>`;
   const rows = N.map(n => `<tr><td><time datetime="${n.ngay}">${dmy(n.ngay)}</time></td><td>${vn(n.thap)}–${vn(n.cao)}</td><td>${vn(n.lamDong)}</td><td><a href="${esc(n.nguon)}" target="_blank" rel="noopener nofollow">${esc(n.nguonTen)} ↗</a></td></tr>`).join('');
+  const faqHtml = FAQ_GIA.map(f => `<details class="gp-faq-i"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('');
+  // Mốc đỉnh/đáy cho biểu đồ (tính từ dữ liệu, không gõ tay)
+  const marks = { aMax: aMax ? [aMax[0], aMax[4]] : null, aMin: aMin ? [aMin[0], aMin[4]] : null };
+
+  /* ---- Schema: Dataset + WebPage(speakable) + Breadcrumb + FAQPage ---- */
   const first = A[0];
-  const schema = `<script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org', '@type': 'Dataset',
-    name: 'Lịch sử giá cà phê Arabica, Robusta và cà phê nhân Tây Nguyên từ 2020',
-    description: 'Giá đóng cửa Arabica sàn New York theo ngày (cent/lb), giá Robusta thế giới trung bình tháng (USD/tấn, IMF) và giá cà phê nhân xô Tây Nguyên (đồng/kg) ghi theo tuần từ báo chí.',
-    url, inLanguage: 'vi-VN', creator: ORG_REF, publisher: ORG_REF,
-    isAccessibleForFree: true,
-    ...(first && aL ? { temporalCoverage: `${first[0]}/${aL[0]}` } : {}),
-    ...(G.capNhat ? { dateModified: G.capNhat.slice(0, 10) } : {}),
-    variableMeasured: ['Giá Arabica (cent/lb)', 'Giá Robusta (USD/tấn)', 'Giá cà phê nhân xô Tây Nguyên (đồng/kg)'],
-    isBasedOn: ['https://finance.yahoo.com/quote/KC=F/', 'https://fred.stlouisfed.org/series/PCOFFROBUSDM'],
-    distribution: { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${ORIGIN}/data/gia-ca-phe.json` }
-  })}</script>`;
+  const schema = [
+    {
+      '@context': 'https://schema.org', '@type': 'Dataset',
+      name: 'Lịch sử giá cà phê Arabica, Robusta và cà phê nhân Tây Nguyên từ 2020',
+      description: 'Giá Arabica sàn New York theo ngày (mở cửa, cao, thấp, đóng cửa, khối lượng; cent/lb), giá Robusta thế giới trung bình tháng (USD/tấn, IMF) và giá cà phê nhân xô Tây Nguyên (đồng/kg) ghi theo tuần từ báo chí.',
+      url, inLanguage: 'vi-VN', creator: ORG_REF, publisher: ORG_REF, isAccessibleForFree: true,
+      keywords: ['giá cà phê', 'giá cà phê hôm nay', 'lịch sử giá cà phê', 'giá arabica', 'giá robusta', 'giá cà phê Tây Nguyên', 'giá cà phê Lâm Đồng'],
+      ...(first && aL ? { temporalCoverage: `${first[0]}/${aL[0]}` } : {}),
+      ...(G.capNhat ? { dateModified: G.capNhat.slice(0, 10) } : {}),
+      spatialCoverage: [{ '@type': 'Place', name: 'Tây Nguyên, Việt Nam' }, { '@type': 'Place', name: 'Thị trường thế giới' }],
+      variableMeasured: ['Giá Arabica (cent/lb)', 'Giá Robusta (USD/tấn)', 'Giá cà phê nhân xô Tây Nguyên (đồng/kg)'],
+      isBasedOn: ['https://finance.yahoo.com/quote/KC=F/', 'https://fred.stlouisfed.org/series/PCOFFROBUSDM'],
+      distribution: { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${ORIGIN}/data/gia-ca-phe.json` }
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'WebPage', '@id': `${url}#webpage`, url,
+      name: 'Giá cà phê hôm nay và lịch sử giá từ 2020', inLanguage: 'vi-VN',
+      isPartOf: { '@id': WEBSITE_ID }, publisher: ORG_REF, abstract: tln,
+      ...(G.capNhat ? { dateModified: G.capNhat.slice(0, 10) } : {}),
+      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.kta-tln p'] }
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Gu Cà Phê', item: `${ORIGIN}/` },
+        { '@type': 'ListItem', position: 2, name: 'Giá cà phê', item: url }]
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: FAQ_GIA.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } }))
+    }
+  ].map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
+
   const main = `<main class="rp wrap gp">
   <nav class="rp-crumb" aria-label="Breadcrumb"><a href="/">Gu Cà Phê</a><i>/</i><span>Giá cà phê</span></nav>
-  ${hubHero('/assets/img/coffee-cherry-sorting.jpg', 'Thị trường', 'Giá cà phê hôm nay',
+  ${hubHero('/assets/img/gia-hero.jpg', 'Thị trường', 'Giá cà phê hôm nay',
     'Giá cà phê nhân Tây Nguyên, Arabica sàn New York và Robusta thế giới — kèm <b>lịch sử giá từ 2020</b> trên biểu đồ nến như bảng chứng khoán. Mọi con số đều ghi nguồn; chỗ nào chưa có dữ liệu, trang ghi rõ là chưa có.')}
-  <p class="hub-intro">Cập nhật dữ liệu sàn: ${capNhat ? `<b>${capNhat}</b> (giờ Việt Nam)` : 'chưa có'} · tự cập nhật lúc 08:00 mỗi sáng.</p>
+  ${tln ? `<aside class="kta-tln" aria-label="Trả lời nhanh"><div class="kta-tln-k">Trả lời nhanh</div><p>${esc(tln)}</p></aside>` : ''}
+  <p class="hub-intro">Dữ liệu sàn cập nhật: ${capNhat ? `<b><time datetime="${esc(G.capNhat)}">${capNhat}</time></b> (giờ Việt Nam)` : 'chưa có'} · tự cập nhật lúc 08:00 mỗi sáng · <a href="/data/gia-ca-phe.json">tải dữ liệu (JSON)</a>.</p>
 
   <section class="gp-today" aria-label="Giá hôm nay">${cards}</section>
   <p class="gp-disclaim">Đây là giá <b>cà phê nhân thông thường</b>, dùng để theo dõi thị trường — <b>không phải giá cà phê đặc sản</b> (lô đặc sản bán theo chất lượng, thường cao hơn nhiều). Không phải lời khuyên mua bán.</p>
 
-  <section class="gp-block">
-    <h2 class="gp-h">Arabica sàn New York — biểu đồ nến từ 2020</h2>
-    <p class="gp-sub">Mỗi cây nến là một phiên: thân nến từ giá mở cửa tới giá đóng cửa, râu là giá cao nhất và thấp nhất. <span class="gp-up">Xanh</span> = đóng cửa cao hơn mở cửa, <span class="gp-down">đỏ</span> = thấp hơn. Cột dưới là khối lượng hợp đồng.</p>
-    <div class="gp-range" role="group" aria-label="Khoảng thời gian">
-      <button type="button" data-r="1M">1 tháng</button><button type="button" data-r="6M">6 tháng</button><button type="button" data-r="1Y" class="on">1 năm</button><button type="button" data-r="5Y">5 năm</button><button type="button" data-r="ALL">Tất cả</button>
+  <nav class="gp-toc" aria-label="Mục lục"><a href="#bieu-do-arabica">Biểu đồ Arabica</a><a href="#bien-dong">Biến động</a><a href="#theo-nam">Giá theo năm</a><a href="#robusta">Robusta</a><a href="#trong-nuoc">Giá trong nước</a><a href="#hoi-dap">Hỏi đáp</a></nav>
+
+  <section class="gp-block" id="bieu-do-arabica">
+    <h2 class="gp-h">Biểu đồ giá Arabica sàn New York từ 2020</h2>
+    <p class="gp-sub">Mỗi cây nến là một phiên: thân nến từ giá mở cửa tới giá đóng cửa, râu là giá cao nhất và thấp nhất. <span class="gp-up">Xanh</span> = đóng cửa cao hơn mở cửa, <span class="gp-down">đỏ</span> = thấp hơn. Cột dưới là khối lượng hợp đồng. Đường MA50/MA200 là giá đóng cửa trung bình 50 và 200 phiên gần nhất.</p>
+    <div class="gp-tools">
+      <div class="gp-range" role="group" aria-label="Khoảng thời gian">
+        <button type="button" data-r="1M">1T</button><button type="button" data-r="6M">6T</button><button type="button" data-r="1Y" class="on">1N</button><button type="button" data-r="5Y">5N</button><button type="button" data-r="ALL">Tất cả</button>
+      </div>
+      <div class="gp-range" role="group" aria-label="Kiểu biểu đồ">
+        <button type="button" data-t="nen" class="on" aria-pressed="true">Nến</button><button type="button" data-t="duong" aria-pressed="false">Đường</button><button type="button" data-t="ma" class="on" aria-pressed="true">MA50/200</button><button type="button" data-t="log" aria-pressed="false">Thang log</button>
+      </div>
     </div>
-    <div class="gp-chart" id="gp-arabica"><noscript>Bật JavaScript để xem biểu đồ.</noscript></div>
-    <p class="gp-src">Nguồn: hợp đồng Arabica gần nhất trên sàn ICE New York (mã KC=F), dữ liệu Yahoo Finance — ${A.length ? `${vn(A.length)} phiên, ${dmy(A[0][0])} – ${dmy(aL[0])}` : 'chưa có dữ liệu'}. Đơn vị: cent Mỹ/pound (1 pound ≈ 0,45 kg). Dữ liệu không chính thức, có thể trễ.</p>
+    <div class="gp-legend" id="gp-legend" aria-live="polite">${aL ? `<b>${dmy(aL[0])}</b> Mở <b>${vn(aL[1], 2)}</b> Cao <b>${vn(aL[2], 2)}</b> Thấp <b>${vn(aL[3], 2)}</b> Đóng <b>${vn(aL[4], 2)}</b>` : ''}</div>
+    <div class="gp-chart" id="gp-arabica" role="img" aria-label="Biểu đồ nến giá Arabica sàn New York từ ${first ? dmy(first[0]) : ''} đến ${aL ? dmy(aL[0]) : ''}"><noscript>Bật JavaScript để xem biểu đồ. Số liệu chi tiết có ở bảng bên dưới.</noscript></div>
+    <p class="gp-src">Nguồn: hợp đồng Arabica gần nhất trên sàn ICE New York (mã KC=F), dữ liệu Yahoo Finance — ${A.length ? `${vn(A.length)} phiên, ${dmy(A[0][0])} – ${dmy(aL[0])}` : 'chưa có dữ liệu'}. Đơn vị: cent Mỹ/pound (1 pound ≈ 0,45 kg). Mốc ▲▼ trên biểu đồ là giá đóng cửa cao nhất và thấp nhất từ 2020. Dữ liệu không chính thức, có thể trễ.</p>
   </section>
 
-  <section class="gp-block">
-    <h2 class="gp-h">Robusta thế giới — trung bình tháng từ 2020</h2>
+  <section class="gp-block" id="bien-dong">
+    <h2 class="gp-h">Biến động giá theo khoảng thời gian</h2>
+    <div class="gp-two">
+      <div><h3 class="gp-h3">Arabica (đóng cửa ${aL ? dmy(aL[0]) : ''}: ${aL ? vn(aL[4], 2) : '—'} cent/lb)</h3>
+        <div class="gp-table-wrap">${perTable(aPer, null, ref => `${dmy(ref[0])}: ${vn(ref[4], 2)}`)}</div></div>
+      <div><h3 class="gp-h3">Robusta (${rL ? myStr(rL[0]) : ''}: ${rL ? vn(rL[1]) : '—'} USD/tấn)</h3>
+        <div class="gp-table-wrap">${perTable(rPer, null, ref => `${myStr(ref[0])}: ${vn(ref[1])}`)}</div></div>
+    </div>
+  </section>
+
+  <section class="gp-block" id="theo-nam">
+    <h2 class="gp-h">Lịch sử giá cà phê theo năm (2020 – nay)</h2>
+    <p class="gp-sub">Arabica: giá đóng cửa phiên cuối năm, giá cao nhất và thấp nhất trong năm, % đổi so với cuối năm trước. Robusta: trung bình 12 tháng, tháng cao nhất, % đổi của tháng cuối so với tháng cuối năm trước.${rYearBest ? ` Năm trọn vẹn có Robusta trung bình cao nhất: <b>${rYearBest.y}</b> (${vn(rYearBest.r.tb)} USD/tấn).` : ''}</p>
+    <div class="gp-table-wrap">${yearTable}</div>
+  </section>
+
+  <section class="gp-block" id="robusta">
+    <h2 class="gp-h">Biểu đồ giá Robusta thế giới — trung bình tháng từ 2020</h2>
     <p class="gp-sub">Việt Nam trồng chủ yếu Robusta, nên đây là đường giá sát với nhà vườn Tây Nguyên nhất. Nguồn miễn phí chỉ có số trung bình theo tháng, nên biểu đồ là đường, không phải nến.</p>
-    <div class="gp-chart gp-chart--sm" id="gp-robusta"></div>
+    <div class="gp-chart gp-chart--sm" id="gp-robusta" role="img" aria-label="Biểu đồ giá Robusta trung bình tháng từ ${R.length ? myStr(R[0][0]) : ''}"></div>
     <p class="gp-src">Nguồn: IMF Primary Commodity Prices, qua FRED (mã PCOFFROBUSDM) — ${R.length ? `${R.length} tháng, ${myStr(R[0][0])} – ${myStr(rL[0])}` : 'chưa có dữ liệu'}. IMF công bố theo cent/lb; Gu quy đổi sang USD/tấn (× 22,046). Đây là giá tham chiếu quốc tế, khác giá từng phiên trên sàn London.</p>
   </section>
 
-  <section class="gp-block">
-    <h2 class="gp-h">Cà phê nhân xô Tây Nguyên — ghi theo tuần</h2>
+  <section class="gp-block" id="trong-nuoc">
+    <h2 class="gp-h">Giá cà phê nhân xô Tây Nguyên — ghi theo tuần</h2>
     <p class="gp-sub">Không có kho dữ liệu công khai nào lưu giá trong nước từ 2020, nên Gu <b>bắt đầu ghi từ cuối tháng 9/2026</b>, mỗi tuần một mốc lấy từ bản tin giá trên báo, có link nguồn. Gu không lấp số cho những ngày chưa ghi. Đường trên biểu đồ là điểm giữa khoảng giá mỗi mốc.</p>
-    ${N.length > 1 ? `<div class="gp-chart gp-chart--sm" id="gp-noidia"></div>` : ''}
+    ${N.length > 1 ? `<div class="gp-chart gp-chart--xs" id="gp-noidia" role="img" aria-label="Biểu đồ giá cà phê nhân xô Tây Nguyên theo tuần"></div>` : ''}
     ${N.length ? `<div class="gp-table-wrap"><table class="gp-table"><thead><tr><th>Ngày</th><th>Tây Nguyên (đ/kg)</th><th>Lâm Đồng (đ/kg)</th><th>Nguồn</th></tr></thead><tbody>${rows}</tbody></table></div>` : '<p class="hub-intro">Chưa có mốc nào.</p>'}
   </section>
 
-  <p class="gp-more">Đọc thêm: <a href="/tin-tuc">tin thị trường hằng tuần</a> · <a href="/kien-thuc/vi-sao-specialty-dat">vì sao cà phê đặc sản đắt hơn</a> · <a href="/kien-thuc/fine-robusta-la-gi">Fine Robusta là gì</a></p>
+  <section class="gp-block" id="hoi-dap">
+    <h2 class="gp-h">Hỏi đáp về giá cà phê</h2>
+    <div class="gp-faq">${faqHtml}</div>
+  </section>
+
+  <p class="gp-more">Đọc thêm: <a href="/tin-tuc">tin thị trường hằng tuần</a> · <a href="/kien-thuc/vi-sao-specialty-dat">vì sao cà phê đặc sản đắt hơn</a> · <a href="/kien-thuc/fine-robusta-la-gi">Fine Robusta là gì</a> · <a href="/bat-dau/arabica-robusta">Arabica khác Robusta</a></p>
   <a class="rp-home" href="/">← Về trang chủ</a>
   </main>
-<script src="${LWC_SRC}" defer></script>
 <script>
 (function(){
-  function go(){
-    if(!window.LightweightCharts){return;}
-    fetch('/data/gia-ca-phe.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(draw).catch(function(){});
+  var MARKS=${JSON.stringify(marks)};
+  var started=false;
+  function boot(){
+    if(started)return;started=true;
+    var s=document.createElement('script');s.src='${LWC_SRC}';s.async=true;
+    s.onload=function(){fetch('/data/gia-ca-phe.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(draw).catch(function(){});};
+    document.head.appendChild(s);
   }
+  /* Chỉ tải thư viện biểu đồ khi người đọc cuộn tới gần — trang mở nhanh hơn trên điện thoại */
+  var first=document.getElementById('gp-arabica');
+  if(first&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){io.disconnect();boot();}},{rootMargin:'600px'});
+    io.observe(first);
+  }else{window.addEventListener('load',boot);}
   var UP='#2E8B57',DOWN='#C23B30';
-  function base(el,h){
-    return LightweightCharts.createChart(el,{autoSize:true,height:h,
+  function vn(n,d){return Number(n).toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});}
+  function dmy(s){return s.split('-').reverse().join('/');}
+  function base(el){
+    return LightweightCharts.createChart(el,{autoSize:true,
       layout:{background:{type:'solid',color:'#FEFCF8'},textColor:'#7A6A5C',fontFamily:"'JetBrains Mono',monospace",fontSize:11},
       grid:{vertLines:{color:'#F3ECE2'},horzLines:{color:'#F3ECE2'}},
       rightPriceScale:{borderColor:'#EEE4D6'},timeScale:{borderColor:'#EEE4D6'},
       localization:{locale:'vi-VN',dateFormat:'dd/MM/yyyy'},
       crosshair:{mode:0},handleScroll:{vertTouchDrag:false}});
   }
+  function sma(A,n){var out=[],s=0;for(var i=0;i<A.length;i++){s+=A[i][4];if(i>=n)s-=A[i-n][4];if(i>=n-1)out.push({time:A[i][0],value:Math.round(s/n*100)/100});}return out;}
   function draw(G){
     var A=G.arabica||[],R=G.robusta||[],N=(G.noiDia||[]).slice().sort(function(a,b){return a.ngay<b.ngay?-1:1;});
     var el=document.getElementById('gp-arabica');
     if(el&&A.length){
-      var c=base(el,420);
-      var s=c.addCandlestickSeries({upColor:UP,downColor:DOWN,borderUpColor:UP,borderDownColor:DOWN,wickUpColor:UP,wickDownColor:DOWN,
+      var c=base(el);
+      var ohlc=A.map(function(x){return {time:x[0],open:x[1],high:x[2],low:x[3],close:x[4]};});
+      var cs=c.addCandlestickSeries({upColor:UP,downColor:DOWN,borderUpColor:UP,borderDownColor:DOWN,wickUpColor:UP,wickDownColor:DOWN,
         priceFormat:{type:'price',precision:2,minMove:0.05}});
-      s.setData(A.map(function(x){return {time:x[0],open:x[1],high:x[2],low:x[3],close:x[4]};}));
-      var v=c.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'vol'});
+      cs.setData(ohlc);
+      var ln=c.addLineSeries({color:'#6E4A2B',lineWidth:2,visible:false,priceFormat:{type:'price',precision:2,minMove:0.05}});
+      ln.setData(A.map(function(x){return {time:x[0],value:x[4]};}));
+      var m50=c.addLineSeries({color:'#C2632C',lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false,title:'MA50'});
+      var m200=c.addLineSeries({color:'#3B6EA8',lineWidth:1,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false,title:'MA200'});
+      m50.setData(sma(A,50));m200.setData(sma(A,200));
+      var mk=[];
+      if(MARKS.aMax)mk.push({time:MARKS.aMax[0],position:'aboveBar',color:'#2E8B57',shape:'arrowDown',text:'Cao nhất '+vn(MARKS.aMax[1],2)});
+      if(MARKS.aMin)mk.push({time:MARKS.aMin[0],position:'belowBar',color:'#C23B30',shape:'arrowUp',text:'Thấp nhất '+vn(MARKS.aMin[1],2)});
+      mk.sort(function(a,b){return a.time<b.time?-1:1;});
+      cs.setMarkers(mk);ln.setMarkers(mk);
+      var v=c.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'vol',lastValueVisible:false,priceLineVisible:false});
       c.priceScale('vol').applyOptions({scaleMargins:{top:0.82,bottom:0}});
-      s.priceScale().applyOptions({scaleMargins:{top:0.06,bottom:0.22}});
+      c.priceScale('right').applyOptions({scaleMargins:{top:0.06,bottom:0.22}});
       v.setData(A.map(function(x){return {time:x[0],value:x[5],color:x[4]>=x[1]?'rgba(46,139,87,.35)':'rgba(194,59,48,.35)'};}));
+      var byT={};A.forEach(function(x){byT[x[0]]=x;});
+      var lg=document.getElementById('gp-legend');
+      function leg(x){if(!x||!lg)return;var p=A.indexOf(x)>0?A[A.indexOf(x)-1][4]:null;var d=p?(x[4]-p)/p*100:null;
+        lg.innerHTML='<b>'+dmy(x[0])+'</b> Mở <b>'+vn(x[1],2)+'</b> Cao <b>'+vn(x[2],2)+'</b> Thấp <b>'+vn(x[3],2)+'</b> Đóng <b>'+vn(x[4],2)+'</b>'+
+          (d!=null?' <span class="'+(d>0?'gp-up':d<0?'gp-down':'gp-flat')+'">'+(d>0?'+':d<0?'−':'')+vn(Math.abs(d),2)+'%</span>':'')+' · KL '+vn(x[5],0);}
+      c.subscribeCrosshairMove(function(p){
+        if(!p||!p.time){leg(A[A.length-1]);return;}
+        var t=typeof p.time==='string'?p.time:(p.time.year+'-'+String(p.time.month).padStart(2,'0')+'-'+String(p.time.day).padStart(2,'0'));
+        leg(byT[t]);
+      });
+      leg(A[A.length-1]);
       var last=A[A.length-1][0];
       function setR(r){
         if(r==='ALL'){c.timeScale().fitContent();return;}
@@ -1939,17 +2131,24 @@ function hubGiaCaPhe() {
         c.timeScale().setVisibleRange({from:d.toISOString().slice(0,10),to:last});
       }
       setR('1Y');
-      document.querySelectorAll('.gp-range button').forEach(function(b){
+      document.querySelectorAll('[data-r]').forEach(function(b){
         b.addEventListener('click',function(){
-          document.querySelectorAll('.gp-range button').forEach(function(x){x.classList.remove('on');});
+          document.querySelectorAll('[data-r]').forEach(function(x){x.classList.remove('on');});
           b.classList.add('on');setR(b.getAttribute('data-r'));
           if(window.guTrack)guTrack('gia_range',{range:b.getAttribute('data-r')});
         });
       });
+      function press(b,on){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
+      var bN=document.querySelector('[data-t="nen"]'),bD=document.querySelector('[data-t="duong"]'),bM=document.querySelector('[data-t="ma"]'),bL=document.querySelector('[data-t="log"]');
+      function kind(nen){cs.applyOptions({visible:nen});ln.applyOptions({visible:!nen});press(bN,nen);press(bD,!nen);}
+      bN.addEventListener('click',function(){kind(true);});
+      bD.addEventListener('click',function(){kind(false);if(window.guTrack)guTrack('gia_tool',{tool:'line'});});
+      bM.addEventListener('click',function(){var on=!bM.classList.contains('on');m50.applyOptions({visible:on});m200.applyOptions({visible:on});press(bM,on);});
+      bL.addEventListener('click',function(){var on=!bL.classList.contains('on');c.priceScale('right').applyOptions({mode:on?1:0});press(bL,on);if(window.guTrack)guTrack('gia_tool',{tool:'log'});});
     }
     var er=document.getElementById('gp-robusta');
     if(er&&R.length){
-      var c2=base(er,300);
+      var c2=base(er);
       var l=c2.addAreaSeries({lineColor:'#C2632C',topColor:'rgba(194,99,44,.28)',bottomColor:'rgba(194,99,44,.02)',lineWidth:2,
         priceFormat:{type:'price',precision:0,minMove:1}});
       l.setData(R.map(function(x){return {time:x[0]+'-01',value:x[1]};}));
@@ -1957,18 +2156,19 @@ function hubGiaCaPhe() {
     }
     var en=document.getElementById('gp-noidia');
     if(en&&N.length>1){
-      var c3=base(en,260);
+      var c3=base(en);
       var n=c3.addLineSeries({color:'#6E4A2B',lineWidth:2,pointMarkersVisible:true,priceFormat:{type:'price',precision:0,minMove:100}});
       n.setData(N.map(function(x){return {time:x.ngay,value:Math.round((x.thap+x.cao)/2)};}));
       c3.timeScale().fitContent();
     }
   }
-  if(document.readyState==='complete')go();else window.addEventListener('load',go);
 })();
 </script>`;
   return pageShell({
     title: 'Giá cà phê hôm nay — Tây Nguyên, Arabica, Robusta & lịch sử giá từ 2020 | Gu Cà Phê',
-    desc: 'Giá cà phê nhân xô Tây Nguyên, Lâm Đồng, Arabica sàn New York và Robusta thế giới hôm nay, kèm biểu đồ nến lịch sử giá từ 2020. Ghi rõ nguồn, cập nhật mỗi sáng.',
+    desc: (aL && nL)
+      ? `Giá cà phê hôm nay: nhân xô Tây Nguyên ${vn(nL.thap)}–${vn(nL.cao)} đ/kg (${dmy(nL.ngay)}), Arabica ${vn(aL[4], 2)} cent/lb (${dmy(aL[0])}). Biểu đồ nến và lịch sử giá cà phê theo năm từ 2020, có nguồn.`
+      : 'Giá cà phê nhân xô Tây Nguyên, Arabica sàn New York và Robusta thế giới hôm nay, kèm biểu đồ nến lịch sử giá từ 2020. Ghi rõ nguồn, cập nhật mỗi sáng.',
     url, ogType: 'website', schema, active: 'gia', main,
     ogImage: ogForSrc('coffee-cherry-sorting.jpg'), ogAlt: 'Giá cà phê hôm nay'
   });
