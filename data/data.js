@@ -1797,6 +1797,16 @@ const MUA_GI = [
    ghép thông tin từ nguồn thứ hai thì thêm `nguon2`/`nguonTen2`. Tin mới thêm lên ĐẦU mảng; GIỮ tin cũ (lưu trữ).
    Định kỳ: Routine hằng tuần tìm tin, kiểm chứng rồi thêm vào đây. ---- */
 const TIN = [
+  { id: "gia-ca-phe-tay-nguyen-29-10-2026", ngay: "2026-10-30", pham: "Việt Nam", nhan: "Thị trường",
+    tieuDe: "Giá cà phê Tây Nguyên xuống khoảng 88.000 đồng/kg khi vụ mới vào",
+    tomTat: "Theo Báo Văn hóa, giá cà phê nhân xô ngày 29/10/2026 giảm 500–800 đồng/kg, còn <b>88.000–88.500 đồng/kg</b>; Lâm Đồng thấp nhất, 88.000 đồng/kg. Phiên 28/10, Robusta London kỳ hạn tháng 1/2027 chốt 3.199 USD/tấn, Arabica New York kỳ hạn tháng 12/2026 giảm 2,38% còn 286,75 cent/lb. Nguyên nhân được nêu là vụ thu hoạch ở Việt Nam bắt đầu và nguồn cung quốc tế cải thiện.",
+    yNghia: "Đây là giá cà phê nhân thông thường, không phải giá cà phê đặc sản bán theo lô; số liệu đổi hằng ngày, đây là mốc ghi nhận ngày 29/10.",
+    nguon: "https://baovanhoa.vn/kinh-te/gia-ca-phe-hom-nay-30102026-ap-luc-vu-moi-va-dien-bien-san-dan-xen-280322.html", nguonTen: "Báo Văn hóa" },
+  { id: "wcr-thu-nghiem-32-giong-arabica-17-nuoc", ngay: "2026-10-22", pham: "Thế giới", nhan: "Khoa học",
+    tieuDe: "Thử nghiệm 32 giống Arabica ở 17 nước: giống lai F1 cho năng suất cao nhất",
+    tomTat: "Phân tích mới trên tạp chí <i>Scientific Reports</i>, do CIAT và World Coffee Research (WCR) dẫn dắt, dùng dữ liệu đồng ruộng 2015–2023 của <b>32 giống Arabica tại 30 điểm ở 17 nước</b>. Hai giống lai F1 là <b>H1 Centroamericano</b> và EC16 (Mundo Maya) cho năng suất cao nhất, tiếp theo là Parainema và Ruiru 11, cả bốn đều kháng gỉ sắt tương đối tốt; các giống có lai gene từ loài khác vượt trội giống Arabica thuần cả về năng suất lẫn sức kháng gỉ sắt. H1 hợp khí hậu ấm và ổn định hơn, còn bệnh gỉ sắt thường nặng hơn ở nơi nóng ẩm; nghiên cứu không đánh giá chất lượng tách. <a href='/kien-thuc/centroamericano-h1'>Centroamericano H1 là gì →</a>",
+    yNghia: "Với nhà vườn Arabica Việt Nam, dữ liệu so giống trên nhiều vùng khí hậu là cơ sở tham khảo khi tính chuyện thay giống — nhưng năng suất cao chưa nói gì về vị trong tách.",
+    nguon: "https://dailycoffeenews.com/2026/10/22/massive-coffee-variety-trial-reveals-yield-and-leaf-rust-winners/", nguonTen: "Daily Coffee News" },
   { id: "wbc-2026-pan-wei-trung-quoc", ngay: "2026-10-25", pham: "Thế giới", nhan: "Cuộc thi",
     tieuDe: "Barista Trung Quốc Pan Wei vô địch World Barista Championship 2026",
     tomTat: "Ngày 25/10/2026, <b>Pan Wei</b> (Trung Quốc) đăng quang Giải vô địch Barista Thế giới (WBC) tại thành phố Panama, trong khuôn khổ World of Coffee Panamá 2026. Giải có đại diện từ <b>60 quốc gia</b>, thi pha espresso, đồ uống có sữa và đồ uống sáng tạo từ cà phê đặc sản. Đây là lần đầu sự kiện được tổ chức ở Mỹ Latinh và ở một nước trồng cà phê.",
