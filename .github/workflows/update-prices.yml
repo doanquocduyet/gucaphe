@@ -1,9 +1,11 @@
 name: Cập nhật giá Shopee + giá cà phê thế giới hằng ngày
 
-# Chạy tự động 08:00 giờ VN mỗi ngày + cho phép bấm chạy tay.
+# Chạy tự động mỗi sáng + cho phép bấm chạy tay.
+# Cố ý KHÔNG đặt đúng phút :00 — GitHub báo lịch đầu giờ hay bị trễ (đã thấy trễ ~6 tiếng)
+# hoặc bị bỏ khi tải cao. 00:37 UTC = 07:37 giờ VN, trước Routine tin thứ Hai (08:17) 40 phút.
 on:
   schedule:
-    - cron: '0 1 * * *' # 01:00 UTC = 08:00 Asia/Ho_Chi_Minh
+    - cron: '37 0 * * *' # 00:37 UTC = 07:37 Asia/Ho_Chi_Minh
   workflow_dispatch: {}
 
 # Cho phép job commit ngược vào repo và mở issue nhắc chụp màn hình.

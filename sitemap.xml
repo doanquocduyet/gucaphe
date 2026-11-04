@@ -1,638 +1,638 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://gucaphe.vn/</loc>
+    <loc>https://www.gucaphe.vn/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/hero/brew-wide.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/hero/pour.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/foot-1.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/foot-2.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/foot-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/hero/brew-wide.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/hero/pour.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/foot-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/foot-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/foot-3.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang</loc>
+    <loc>https://www.gucaphe.vn/nha-rang</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/roasting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/hero/roasting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/roasting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/hero/roasting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/ca-phe</loc>
+    <loc>https://www.gucaphe.vn/ca-phe</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cup-espresso.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/hand-beans.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cup-espresso.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/hand-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/vung-trong</loc>
+    <loc>https://www.gucaphe.vn/vung-trong</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-cherry-hand.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/flavor-wheel-sca.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-1.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-microlot.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-cherry-hand.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/flavor-wheel-sca.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-microlot.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/tin-tuc</loc>
+    <loc>https://www.gucaphe.vn/tin-tuc</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/band.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/band.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/gia-ca-phe</loc>
+    <loc>https://www.gucaphe.vn/gia-ca-phe</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/gia-hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/gia-hero.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/cach-test</loc>
+    <loc>https://www.gucaphe.vn/cach-test</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/espresso-pull.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p4-taste.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p2-grind.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p3-cup.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p4-taste.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p2-grind.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p3-cup.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau</loc>
+    <loc>https://www.gucaphe.vn/bat-dau</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/espresso-pull.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/son-pacamara-lang-biang</loc>
+    <loc>https://www.gucaphe.vn/review/son-pacamara-lang-biang</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/son-pacamara-lang-biang.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/son-pacamara-lang-biang.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/son-pacamara-pacamara</loc>
+    <loc>https://www.gucaphe.vn/review/son-pacamara-pacamara</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/son-pacamara-pacamara.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/son-pacamara-pacamara.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/son-pacamara-heirloom</loc>
+    <loc>https://www.gucaphe.vn/review/son-pacamara-heirloom</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/son-pacamara-heirloom.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/son-pacamara-heirloom.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/son-pacamara-fruit-mood</loc>
+    <loc>https://www.gucaphe.vn/review/son-pacamara-fruit-mood</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/son-pacamara-fruit-mood.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/son-pacamara-fruit-mood.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/bui-fine-robusta-nam-ban</loc>
+    <loc>https://www.gucaphe.vn/review/bui-fine-robusta-nam-ban</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/bui-fine-robusta-nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/bui-fine-robusta-nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/tam-trinh-golden-birds-sanh-dieu</loc>
+    <loc>https://www.gucaphe.vn/review/tam-trinh-golden-birds-sanh-dieu</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/tam-trinh-golden-birds-sanh-dieu.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/tam-trinh-golden-birds-sanh-dieu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/dehavi-yellow-bourbon-cau-dat</loc>
+    <loc>https://www.gucaphe.vn/review/dehavi-yellow-bourbon-cau-dat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/dehavi-yellow-bourbon-cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/dehavi-yellow-bourbon-cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/dehavi-arabica-pha-may</loc>
+    <loc>https://www.gucaphe.vn/review/dehavi-arabica-pha-may</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/dehavi-arabica-pha-may.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/dehavi-arabica-pha-may.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/dehavi-blend-pha-may</loc>
+    <loc>https://www.gucaphe.vn/review/dehavi-blend-pha-may</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/dehavi-blend-pha-may.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/dehavi-blend-pha-may.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/married-beans-red-bourbon-cau-dat</loc>
+    <loc>https://www.gucaphe.vn/review/married-beans-red-bourbon-cau-dat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/married-beans-red-bourbon-cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/married-beans-red-bourbon-cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/review/la-viet-rich-arabica-da-lat</loc>
+    <loc>https://www.gucaphe.vn/review/la-viet-rich-arabica-da-lat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/la-viet-rich-arabica-da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/la-viet-rich-arabica-da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/ca-phe-tu-goc-den-ly</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/ca-phe-tu-goc-den-ly</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ca-phe-tu-goc-den-ly.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ca-phe-tu-goc-den-ly.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/do-cao-khong-con-la-tat-ca</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/do-cao-khong-con-la-tat-ca</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/do-cao-khong-con-la-tat-ca.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/do-cao-khong-con-la-tat-ca.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/vong-tron-huong-vi-robusta-2025</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/vong-tron-huong-vi-robusta-2025</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/vong-tron-huong-vi-robusta-2025.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/vong-tron-huong-vi-robusta-2025.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/robusta-khong-chi-vi-dang</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/robusta-khong-chi-vi-dang</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/robusta-khong-chi-vi-dang.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/robusta-khong-chi-vi-dang.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/natural-washed</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/natural-washed</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/natural-washed.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/natural-washed.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/rang-sang-dam</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/rang-sang-dam</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/rang-sang-dam.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/rang-sang-dam.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/co-xay</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/co-xay</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/co-xay.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/co-xay.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/cong-thuc-pha</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/cong-thuc-pha</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/cong-thuc-pha.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/cong-thuc-pha.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/do-tuoi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/do-tuoi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/do-tuoi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/do-tuoi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/beans-tin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/espresso-pull.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/vi-sao-specialty-dat</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/vi-sao-specialty-dat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/vi-sao-specialty-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-cherry-hand.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/vi-sao-specialty-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-cherry-hand.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/ca-phe-nam-ban-nha-nao</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/ca-phe-nam-ban-nha-nao</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ca-phe-nam-ban-nha-nao.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-1.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ca-phe-nam-ban-nha-nao.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/coffee-cherry-sorting.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/p1-farm.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-en.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/vong-tron-huong-vi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/vong-tron-huong-vi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/vong-tron-huong-vi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/flavor-wheel-sca.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/vong-tron-huong-vi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/flavor-wheel-sca.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/robusta-wheel-vi.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-natural-drying.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/art-2.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/ca-phe-dac-san-la-gi</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/ca-phe-dac-san-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ca-phe-dac-san-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ca-phe-dac-san-la-gi.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/arabica-robusta</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/arabica-robusta</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/arabica-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/arabica-robusta.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/ca-phe-chua</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/ca-phe-chua</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ca-phe-chua.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ca-phe-chua.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/mua-goi-nao-dau-tien</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/mua-goi-nao-dau-tien</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/mua-goi-nao-dau-tien.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/mua-goi-nao-dau-tien.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/co-can-may-dat-tien</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/co-can-may-dat-tien</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/co-can-may-dat-tien.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/co-can-may-dat-tien.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/bat-dau/gu-cham-diem-the-nao</loc>
+    <loc>https://www.gucaphe.vn/bat-dau/gu-cham-diem-the-nao</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/gu-cham-diem-the-nao.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/gu-cham-diem-the-nao.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/vi-sao-ca-phe-nhieu-giong</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/vi-sao-ca-phe-nhieu-giong</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/vi-sao-ca-phe-nhieu-giong.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/vi-sao-ca-phe-nhieu-giong.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/f1-hybrid-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/f1-hybrid-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/f1-hybrid-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/f1-hybrid-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/ca-phe-se</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/ca-phe-se</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ca-phe-se.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ca-phe-se.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/bourbon-va-typica</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/bourbon-va-typica</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/bourbon-va-typica.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/bourbon-va-typica.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/caturra-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/caturra-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/caturra-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/caturra-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/mundo-novo</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/mundo-novo</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/mundo-novo.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/mundo-novo.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/cau-dat-trong-arabica</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/cau-dat-trong-arabica</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/cau-dat-trong-arabica.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/cau-dat-trong-arabica.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/fine-robusta-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/fine-robusta-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/fine-robusta-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/fine-robusta-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/pacamara-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/pacamara-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/pacamara-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-microlot.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/pacamara-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-microlot.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/xanh-lun-tr4-tr9</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/xanh-lun-tr4-tr9</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/xanh-lun-tr4-tr9.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/xanh-lun-tr4-tr9.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/typica-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/typica-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/typica-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/typica-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/sl28-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/sl28-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/sl28-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/sl28-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/sl28-va-sl34</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/sl28-va-sl34</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/sl28-va-sl34.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/sl28-va-sl34.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/gesha-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/gesha-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/gesha-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/gesha-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/ombligon-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/ombligon-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/ombligon-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/ombligon-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/centroamericano-h1</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/centroamericano-h1</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/centroamericano-h1.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/centroamericano-h1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/red-bourbon-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/red-bourbon-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/red-bourbon-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/red-bourbon-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/tha-1-la-gi</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/tha-1-la-gi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/tha-1-la-gi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/tha-1-la-gi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/kien-thuc/catimor-da-lat</loc>
+    <loc>https://www.gucaphe.vn/kien-thuc/catimor-da-lat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/catimor-da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/catimor-da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/green-beans.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/bui-coffee-supply</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/bui-coffee-supply</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/bui-coffee-supply.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/bui-coffee-supply.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/dehavi</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/dehavi</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/dehavi.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/dehavi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/tam-trinh</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/tam-trinh</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/tam-trinh.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/tam-trinh.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/son-pacamara</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/son-pacamara</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/son-pacamara.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/son-pacamara.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/the-married-beans</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/the-married-beans</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/the-married-beans.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/the-married-beans.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/nha-rang/la-viet</loc>
+    <loc>https://www.gucaphe.vn/nha-rang/la-viet</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cards/la-viet.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cards/la-viet.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/vung-trong/cau-dat</loc>
+    <loc>https://www.gucaphe.vn/vung-trong/cau-dat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/cau-dat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-yellow-bourbon-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-arabica-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/married-beans-red-bourbon.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/vung-trong/nam-ban</loc>
+    <loc>https://www.gucaphe.vn/vung-trong/nam-ban</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/nam-ban.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/bui-fine-robusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/golden-birds-sanh-dieu.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/dehavi-blend-pha-may.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/vung-trong/lac-duong</loc>
+    <loc>https://www.gucaphe.vn/vung-trong/lac-duong</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/lac-duong.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/lac-duong.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/lac-duong.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-lang-biang.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-pacamara-bag.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-heirloom-2026.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://gucaphe.vn/vung-trong/da-lat</loc>
+    <loc>https://www.gucaphe.vn/vung-trong/da-lat</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/og/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
-    <image:image><image:loc>https://gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/og/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/regions/da-lat.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/son-fruit-mood.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.gucaphe.vn/assets/img/products/la-viet-rich.webp</image:loc></image:image>
   </url>
 </urlset>
