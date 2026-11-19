@@ -82,6 +82,7 @@ Mỗi bài là một object, thêm vào **cuối** mảng `BAIVIET`:
 - Bài mới: lấy chủ đề `todo` đầu tiên trong `docs/chu-de-bai.json`, viết trên nhánh `bai-moi/<id>`, đổi trạng thái thành `cho-duyet`, gửi Chú link so sánh. Chú nhắn **"duyệt"** trong phiên đó thì mới đưa lên `main` (`trangThai` → `done`). Đang có bài chờ duyệt thì lượt sau không viết thêm.
 - **Không làm việc tay trong phiên của lịch chạy.** Phiên phình to sẽ làm mỗi lượt tốn quota gấp nhiều lần. Tài khoản dùng **chung quota** cho khoảng 8 lịch chạy của 4 web. Từng hỏng vì chạm giới hạn tuần (16/11/2026) và giới hạn 5 giờ (18/11/2026).
 - Không sửa được prompt của lịch chạy từ phiên khác. Muốn đổi thì tạo lịch mới rồi tắt lịch cũ (tắt chứ không xoá, để giữ lịch sử).
+- **Đừng bấm "Chạy ngay" (Run now / `fire_trigger`) cho các lịch này.** Lệnh đó mở một phiên mới **không có kho**, nên lượt chạy thất bại (đã gặp 20/11/2026). Muốn chạy bù thì tạo lịch **chạy một lần** (`run_once_at`) gắn `persistent_session_id` của phiên có kho, và để ý quota trước khi chạy.
 
 ## 9. Bẫy đã gặp
 
