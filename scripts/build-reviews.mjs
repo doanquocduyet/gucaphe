@@ -1635,7 +1635,8 @@ function articlePage(b) {
     headline: b.tieuDe, description: b.dek, inLanguage: 'vi-VN',
     ...(src ? { image: `${ORIGIN}${src}` } : {}),
     author: ORG_REF,
-    datePublished: XUAT_BAN[b.id] || isoDate(SITE.capNhat), dateModified: isoDate(SITE.capNhat),
+    // dateModified không bao giờ sớm hơn datePublished (bài mới đăng sau SITE.capNhat)
+    datePublished: XUAT_BAN[b.id] || isoDate(SITE.capNhat), dateModified: [XUAT_BAN[b.id] || '', isoDate(SITE.capNhat)].sort().pop(),
     mainEntityOfPage: url, publisher: ORG_REF,
     ...(tln ? { abstract: tln } : {}),
     speakable: { '@type': 'SpeakableSpecification', cssSelector: tln ? ['h1', '.kta-tln p'] : ['h1', '.kta-dek'] },
@@ -2343,11 +2344,15 @@ function pageImages(u) {
   }
   return [...set].slice(0, 20);
 }
-const entry = (u, pri) => {
+// lastmod mặc định = SITE.capNhat; trang bài / hub có ngày đăng mới hơn thì lấy ngày đó (không để lastmod sớm hơn ngày đăng)
+const newer = (...ds) => [lastmod, ...ds.filter(Boolean)].sort().pop();
+const artId = u => u.split('/').pop();
+const newestArticle = () => newer(...BAIVIET.filter(b => b.id && !isBatDau(b)).map(b => XUAT_BAN[b.id]));
+const entry = (u, pri, lm = lastmod) => {
   const imgs = pageImages(u).map(i => `    <image:image><image:loc>${xmlEsc(i)}</image:loc></image:image>`).join('\n');
   return `  <url>
     <loc>${xmlEsc(u)}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <lastmod>${lm}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${pri}</priority>${imgs ? '\n' + imgs : ''}
   </url>`;
@@ -2355,9 +2360,10 @@ const entry = (u, pri) => {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${entry(`${ORIGIN}/`, '1.0').replace('<changefreq>monthly', '<changefreq>weekly')}
-${hubUrls.map(u => u.endsWith('/tin-tuc') && TIN.length ? entry(u, '0.9').replace(`<lastmod>${lastmod}</lastmod>`, `<lastmod>${[lastmod, tinSorted()[0].ngay].sort().pop()}</lastmod>`).replace('<changefreq>monthly', '<changefreq>weekly') : entry(u, '0.9')).join('\n')}
+${hubUrls.map(u => u.endsWith('/tin-tuc') && TIN.length ? entry(u, '0.9', newer(tinSorted()[0].ngay)).replace('<changefreq>monthly', '<changefreq>weekly')
+    : u.endsWith('/kien-thuc') ? entry(u, '0.9', newestArticle()) : entry(u, '0.9')).join('\n')}
 ${urls.map(u => entry(u, '0.8')).join('\n')}
-${articleUrls.map(u => entry(u, '0.7')).join('\n')}
+${articleUrls.map(u => entry(u, '0.7', newer(XUAT_BAN[artId(u)]))).join('\n')}
 ${roasterUrls.map(u => entry(u, '0.7')).join('\n')}
 ${regionUrls.map(u => entry(u, '0.7')).join('\n')}
 </urlset>
@@ -2388,7 +2394,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
   <atom:link href="${ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Review và so sánh trung lập cà phê đặc sản Việt Nam. Mua thật, nếm mù, chấm điểm.</description>
   <language>vi-VN</language>
-  <lastBuildDate>${new Date(`${[isoDate(SITE.capNhat), ...(TIN.length ? [tinSorted()[0].ngay] : [])].sort().pop()}T08:00:00+07:00`).toUTCString()}</lastBuildDate>
+  <lastBuildDate>${new Date(`${[isoDate(SITE.capNhat), ...(TIN.length ? [tinSorted()[0].ngay] : []), ...Object.values(XUAT_BAN)].sort().pop()}T08:00:00+07:00`).toUTCString()}</lastBuildDate>
 ${feedItems.join('\n')}
 </channel>
 </rss>

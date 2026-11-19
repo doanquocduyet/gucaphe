@@ -1,0 +1,126 @@
+{
+  "huongDan": "Danh sách chủ đề cho lịch viết bài kiến thức 2 tuần/lần. Mỗi lượt lấy chủ đề trangThai \"todo\" ĐẦU TIÊN (thứ tự = ưu tiên). trangThai: todo → cho-duyet (đã viết trên nhánh bai-moi/<id>, chờ Chú duyệt, thêm ngayNhap) → done (đã lên web, thêm ngayDang) | bo (Chú bảo bỏ, thêm lyDo). Đang có chủ đề cho-duyet thì KHÔNG viết bài mới. ghiChu chỉ là gợi ý hướng viết và điều cần kiểm — mọi con số, tên, ngày vẫn phải đọc được ở nguồn. lienKet là gợi ý link nội bộ (trang có thật). Chú muốn thêm/đổi thứ tự chủ đề thì sửa file này.",
+  "chuDe": [
+    {
+      "id": "mua-thu-hoach-ca-phe-lam-dong",
+      "q": "Cà phê Lâm Đồng thu hoạch mùa nào? Khi nào có cà phê vụ mới (new crop)?",
+      "tuKhoa": ["mùa thu hoạch cà phê", "cà phê Lâm Đồng thu hoạch tháng mấy", "new crop cà phê", "cà phê vụ mới"],
+      "mucDo": "Người mới",
+      "tag": "Kiến thức",
+      "ghiChu": "Hợp đăng đầu tháng 12 (đang vụ). Kiểm ở nguồn tháng thu hoạch Arabica (Cầu Đất, Lạc Dương, Đà Lạt) và Robusta trong tỉnh — Sở Nông nghiệp và Môi trường Lâm Đồng, Báo Lâm Đồng, Bảo tàng Lâm Đồng, WASI. Giải thích “new crop” trên bao bì nghĩa là gì và vì sao hạt mới hái chưa lên kệ ngay (sơ chế, phơi, nghỉ hạt — chỉ viết điều nguồn nói). Ghi rõ mốc thời gian vì tỉnh Lâm Đồng đã sáp nhập từ 01/07/2025. Không ghi giá.",
+      "lienKet": ["/vung-trong/cau-dat", "/vung-trong/lac-duong", "/kien-thuc/do-tuoi", "/kien-thuc/ca-phe-tu-goc-den-ly"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "ca-phe-culi-la-gi",
+      "q": "Cà phê culi là gì? Hạt culi có ngon hơn hạt thường không?",
+      "tuKhoa": ["cà phê culi", "culi là gì", "peaberry", "culi Arabica", "culi Robusta"],
+      "mucDo": "Người mới",
+      "tag": "Kiến thức",
+      "ghiChu": "Culi = peaberry (quả chỉ có một hạt tròn thay vì hai hạt dẹt). Kiểm ở nguồn ngành/khoa học: vì sao có hạt culi, tỉ lệ trong một vụ, cách tách bằng sàng. Câu “culi ngon hơn, mạnh hơn” — viết rõ phần nào có bằng chứng, phần nào chỉ là quan niệm thị trường.",
+      "lienKet": ["/bat-dau/arabica-robusta", "/kien-thuc/ca-phe-tu-goc-den-ly", "/kien-thuc/rang-sang-dam"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "ca-phe-rang-moc-la-gi",
+      "q": "Cà phê rang mộc là gì? Khác cà phê rang bơ, tẩm hương thế nào?",
+      "tuKhoa": ["cà phê rang mộc", "rang mộc là gì", "cà phê rang bơ", "cà phê nguyên chất", "cà phê tẩm hương"],
+      "mucDo": "Người mới",
+      "tag": "Kiến thức",
+      "ghiChu": "Rang mộc = chỉ rang hạt cà phê, không thêm gì. So với cách rang truyền thống có thêm bơ, đường, hương liệu… (chỉ nêu thành phần mà nguồn nói). Quy chuẩn/tiêu chuẩn Việt Nam hoặc tin báo chính thống về pha trộn chỉ dùng khi đọc được ở nguồn; không quy chụp, không nêu tên thương hiệu cụ thể. Kết bằng cách đọc thành phần và ngày rang trên bao.",
+      "lienKet": ["/kien-thuc/vi-sao-specialty-dat", "/kien-thuc/rang-sang-dam", "/bat-dau/ca-phe-dac-san-la-gi"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "cach-pha-phin-ca-phe-dac-san",
+      "q": "Pha phin cà phê đặc sản thế nào cho ngon?",
+      "tuKhoa": ["cách pha cà phê phin", "pha phin Arabica", "pha phin cà phê đặc sản", "tỉ lệ pha phin"],
+      "mucDo": "Thực hành",
+      "tag": "Pha chuẩn",
+      "ghiChu": "Công thức nền phải KHỚP bảng ở /kien-thuc/cong-thuc-pha (Phin: xay vừa, 20g cà phê, 80ml nước, 91°C, 4–5 phút). Viết từng bước + cách chỉnh khi chua gắt hoặc đắng gắt (khớp lời khuyên trong bài cong-thuc-pha và ca-phe-chua). Chỉ viết “Gu dùng…” cho điều đã có trên web.",
+      "lienKet": ["/kien-thuc/cong-thuc-pha", "/kien-thuc/co-xay", "/bat-dau/ca-phe-chua", "/kien-thuc/rang-sang-dam"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "ca-phe-moka-cau-dat",
+      "q": "Cà phê Moka Cầu Đất là giống gì? Vì sao hiếm?",
+      "tuKhoa": ["cà phê moka", "moka Cầu Đất", "Arabica Moka", "giống Moka Đà Lạt"],
+      "mucDo": "Giống cà phê",
+      "tag": "Kiến thức",
+      "thuTu": 20,
+      "ghiChu": "Bài 20 của cụm Giống cà phê: links gồm “Bài trước: Catimor Đà Lạt là gì” (/kien-thuc/catimor-da-lat) và “Về đầu cụm” (/kien-thuc/vi-sao-ca-phe-nhieu-giong); được thêm link “Bài kế: …” vào bài catimor-da-lat. Nguồn gốc và nhóm giống của “Moka” ở Việt Nam chỉ viết theo đúng điều nguồn nói (Bảo tàng Lâm Đồng, Báo Lâm Đồng, WASI, World Coffee Research); phân biệt với ấm Moka pot và cảng Mocha (Yemen). Không ghi giá. guTried: hiện Gu CHƯA uống gói Moka nào — không gắn.",
+      "lienKet": ["/kien-thuc/bourbon-va-typica", "/kien-thuc/cau-dat-trong-arabica", "/vung-trong/cau-dat", "/kien-thuc/catimor-da-lat"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "honey-process-la-gi",
+      "q": "Sơ chế Honey là gì? Vì sao cà phê honey ngọt?",
+      "tuKhoa": ["honey process", "cà phê honey", "sơ chế mật ong", "yellow honey red honey black honey"],
+      "mucDo": "Người mới",
+      "tag": "Sơ chế",
+      "ghiChu": "Nối tiếp bài Natural/Washed. Kiểm ở nguồn: định nghĩa (giữ lại lớp nhớt khi phơi), các mức yellow/red/black honey — cách phân loại khác nhau giữa các nơi, nói rõ điều đó. Vị “ngọt” là xu hướng chung, không phải luật.",
+      "lienKet": ["/kien-thuc/natural-washed", "/kien-thuc/fine-robusta-la-gi", "/kien-thuc/ca-phe-tu-goc-den-ly"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "anaerobic-la-gi",
+      "q": "Cà phê lên men yếm khí (anaerobic) là gì? Vì sao vị lạ?",
+      "tuKhoa": ["anaerobic coffee", "lên men yếm khí", "cà phê anaerobic", "carbonic maceration"],
+      "mucDo": "Người mới",
+      "tag": "Sơ chế",
+      "ghiChu": "Kiểm ở nguồn khoa học/ngành: lên men trong bồn kín, khác “carbonic maceration” chỗ nào. Có thể link /review/son-pacamara-pacamara (gói Gu đã uống, nhà rang ghi sơ chế double anaerobic washed) — KHÔNG gắn guTried (khối đó dành cho giống) và không nêu điểm. Nói thẳng: vị lên men rõ, có người thích, người mới dễ thấy khó uống.",
+      "lienKet": ["/kien-thuc/natural-washed", "/review/son-pacamara-pacamara", "/kien-thuc/vong-tron-huong-vi"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "cupping-la-gi",
+      "q": "Cupping là gì? Cà phê 80 điểm SCA nghĩa là gì?",
+      "tuKhoa": ["cupping là gì", "điểm SCA", "80 điểm specialty", "Q Grader", "thử nếm cà phê"],
+      "mucDo": "Người mới",
+      "tag": "Kiến thức",
+      "ghiChu": "Mô tả cupping và thang điểm theo nguồn SCA/CQI (SCA đã có hệ đánh giá mới CVA — kiểm hiện trạng ở nguồn). KHÔNG viết Gu chấm theo chuẩn SCA: cách Gu thử chỉ mô tả đúng như trang /cach-test, điểm Gu là thang /10 riêng (xem /bat-dau/gu-cham-diem-the-nao).",
+      "lienKet": ["/bat-dau/gu-cham-diem-the-nao", "/bat-dau/ca-phe-dac-san-la-gi", "/cach-test", "/kien-thuc/vong-tron-huong-vi"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "bao-quan-ca-phe-hat",
+      "q": "Bảo quản cà phê hạt thế nào để giữ hương lâu?",
+      "tuKhoa": ["bảo quản cà phê hạt", "bảo quản cà phê rang", "cà phê để được bao lâu", "có nên để cà phê trong tủ lạnh"],
+      "mucDo": "Thực hành",
+      "tag": "Độ tươi",
+      "ghiChu": "Mở rộng bài Độ tươi. Kiểm ở nguồn (SCA, NCA, nghiên cứu về oxy, độ ẩm, nhiệt, ánh sáng): túi van một chiều, hộp kín, tủ lạnh/ngăn đá (nêu đúng điều kiện nguồn nói), xay tới đâu pha tới đó. Không đưa số ngày nếu nguồn không có.",
+      "lienKet": ["/kien-thuc/do-tuoi", "/kien-thuc/co-xay", "/kien-thuc/cong-thuc-pha"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "nuoc-pha-ca-phe",
+      "q": "Nên dùng nước gì để pha cà phê ngon?",
+      "tuKhoa": ["nước pha cà phê", "nước nào pha cà phê ngon", "TDS nước pha cà phê", "nước lọc hay nước khoáng pha cà phê"],
+      "mucDo": "Thực hành",
+      "tag": "Pha chuẩn",
+      "ghiChu": "Theo chuẩn nước của SCA — mọi chỉ số (TDS, độ cứng, pH…) phải đọc được ở tài liệu gốc. Dịch ra lời khuyên dễ làm ở Việt Nam (nước đóng chai, nước máy qua lọc…), không nêu thương hiệu nước cụ thể.",
+      "lienKet": ["/kien-thuc/cong-thuc-pha", "/bat-dau/ca-phe-chua", "/kien-thuc/co-xay"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "chi-dan-dia-ly-ca-phe-lam-dong",
+      "q": "Chỉ dẫn địa lý cà phê Lâm Đồng là gì? Người mua được lợi gì?",
+      "tuKhoa": ["chỉ dẫn địa lý cà phê Lâm Đồng", "chỉ dẫn địa lý cà phê", "cà phê Lâm Đồng", "cà phê Cầu Đất"],
+      "mucDo": "Chọn mua",
+      "tag": "Kiến thức",
+      "ghiChu": "TU_DIEN đang ghi chỉ dẫn địa lý “Lâm Đồng” cho cà phê được cấp tháng 10/2025 — mở quyết định hoặc tin gốc (Cục Sở hữu trí tuệ, báo chính thống) để kiểm ngày, phạm vi vùng, loại cà phê, đơn vị quản lý. Có thể nêu các chỉ dẫn địa lý cà phê khác của Việt Nam nếu nguồn có. Lưu ý tỉnh Lâm Đồng mới sau sáp nhập 01/07/2025.",
+      "lienKet": ["/vung-trong", "/kien-thuc/cau-dat-trong-arabica", "/tin-tuc", "/kien-thuc/do-cao-khong-con-la-tat-ca"],
+      "trangThai": "todo"
+    },
+    {
+      "id": "eudr-ca-phe-viet-nam",
+      "q": "EUDR là gì? Luật chống phá rừng của EU ảnh hưởng gì tới cà phê Việt Nam?",
+      "tuKhoa": ["EUDR là gì", "EUDR cà phê", "quy định chống phá rừng EU", "truy xuất nguồn gốc cà phê"],
+      "mucDo": "Toàn cảnh",
+      "tag": "Kiến thức",
+      "ghiChu": "Mốc áp dụng đã bị lùi nhiều lần — kiểm hiện trạng trên trang chính thức của Uỷ ban châu Âu ngay lúc viết (TU_DIEN đang ghi 30/12/2026 cho doanh nghiệp lớn và vừa; nếu đã đổi, báo Chú trong câu trả lời để sửa TU_DIEN). Giải thích dễ hiểu: truy xuất tới vườn, toạ độ, mốc không phá rừng (kiểm ở nguồn). mucDo “Toàn cảnh” sẽ nằm ở mục “Bài khác” trên /kien-thuc.",
+      "lienKet": ["/tin-tuc", "/kien-thuc/ca-phe-tu-goc-den-ly", "/gia-ca-phe"],
+      "trangThai": "todo"
+    }
+  ]
+}
